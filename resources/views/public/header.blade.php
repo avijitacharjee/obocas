@@ -6,9 +6,9 @@
       <!-- Logo -->
       <div class="bui-header__main">
         <div class="bui-header__logo">
-          <span>
-          <img src="{{ asset('frontend/assets/images/logo.png')}}" alt="">
-          </span>
+          <a href="/">
+            <img src="{{ asset('frontend/assets/images/logo.png')}}" alt="">
+          </a>
         </div>
       </div>
       <!-- /Logo -->
@@ -24,7 +24,7 @@
               <path
                 d="M8.25 19h-3a.75.75 0 0 1-.75-.75v-7.5a.75.75 0 0 0-1.5 0v7.5a2.25 2.25 0 0 0 2.25 2.25h3a.75.75 0 0 0 0-1.5zM1.234 9.823l8.782-7.43a.75.75 0 0 1 .969 0l7.279 6.159a.75.75 0 1 0 .968-1.146l-7.279-6.159a2.25 2.25 0 0 0-2.906 0L.265 8.678a.75.75 0 1 0 .968 1.146zM15.75 2.5h3L18 1.75v3a.75.75 0 0 0 1.5 0v-3a.75.75 0 0 0-.75-.75h-3a.75.75 0 0 0 0 1.5zm6.75 14.25a5.25 5.25 0 1 1-10.5 0 5.25 5.25 0 0 1 10.5 0zm1.5 0a6.75 6.75 0 1 0-13.5 0 6.75 6.75 0 0 0 13.5 0zm-7.5-3v6a.75.75 0 0 0 1.5 0v-6a.75.75 0 0 0-1.5 0zm-2.25 3.75h6a.75.75 0 0 0 0-1.5h-6a.75.75 0 0 0 0 1.5z" />
             </svg>
-            <a class="bui-button bui-button--light bui-traveller-header__product-action" href="#">
+            <a class="bui-button bui-button--light bui-traveller-header__product-action" href="/property1">
             <span class="bui-button__text">
             List your property
             </span>

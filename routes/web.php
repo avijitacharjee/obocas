@@ -31,3 +31,14 @@ Route::view('booking3','public.booking-step-three');
 Route::view('confirm','public.confirm');
 Route::view('search-result','public.searchresults');
 Route::view('layout','public.layout');
+
+Route::view('property1','public.create-property1');
+Route::view('property2','public.create-property2');
+Route::view('property3','public.create-property3');
+Route::view('property4','public.create-property4');
+Route::view('property5','public.create-property5');
+Route::view('property6','public.create-property6');
+Route::view('property7','public.create-property7');
+Route::view('property8','public.create-property8');
+Route::view('property9','public.create-property9');
+Route::view('property10','public.create-property10');

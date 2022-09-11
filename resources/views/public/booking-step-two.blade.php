@@ -10,21 +10,21 @@
     
     <title>Step Tow</title>
     <!-- Bootstrap -->
-    <link rel="stylesheet" href="{{ asset("/frontend/assets/css/bootstrap.min.css") }}">
+    <link rel="stylesheet" href="{{ asset('/frontend/assets/css/bootstrap.min.css') }}">
     <!-- Slick Slider -->
-    <link rel="stylesheet" href="{{ asset("/frontend/assets/css/slick.css") }}">
+    <link rel="stylesheet" href="{{ asset('/frontend/assets/css/slick.css') }}">
     <!-- FrontAwesome -->
-    <link rel="stylesheet" href="{{ asset("/frontend/assets/css/all.min.css") }}">
-    <link rel="stylesheet" href="{{ asset("/frontend/assets/css/bui-react.min.css") }}">
+    <link rel="stylesheet" href="{{ asset('/frontend/assets/css/all.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('/frontend/assets/css/bui-react.min.css') }}">
     <!-- Project Css-->
     <!-- CloudFront Css-->
-    <link rel="stylesheet" href="{{ asset("/frontend/assets/css/cloudfront.min.css") }}" />
+    <link rel="stylesheet" href="{{ asset('/frontend/assets/css/cloudfront.min.css') }}" />
     <!-- Bstatic -->
-    <link rel="stylesheet" href="{{ asset("/frontend/assets/css/bstatic.min.css") }}">
+    <link rel="stylesheet" href="{{ asset('/frontend/assets/css/bstatic.min.css') }}">
     <!-- Search -->
-    <link rel="stylesheet" href="{{ asset("/frontend/assets/css/search-page.min.css") }}">
+    <link rel="stylesheet" href="{{ asset('/frontend/assets/css/search-page.min.css') }}">
     <!-- Hotle -->
-    <link rel="stylesheet" href="{{ asset("/frontend/assets/css/hotel.min.css") }}">
+    <link rel="stylesheet" href="{{ asset('/frontend/assets/css/hotel.min.css') }}">
 
 
 </head>
@@ -1381,6 +1381,7 @@
                                     </div>
                                     <div class="bui-group__item">
                                         <button
+                                            onclick="location.href='/booking3'"
                                             class="bui-button  bui-button--primary bui-button--large  e2e-bp-submit-button--next-step bp-button"
                                             type="submit" name="book">
                                             <span class="bui-button__text ">
