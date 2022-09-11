@@ -30,3 +30,4 @@ Route::view('booking2','public.booking-step-two');
 Route::view('booking3','public.booking-step-three');
 Route::view('confirm','public.confirm');
 Route::view('search-result','public.searchresults');
+Route::view('layout','public.layout');
