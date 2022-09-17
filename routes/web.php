@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\AuthController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,6 +24,9 @@ Route::get('log-test', function () {
 Route::get('/',function(){
     return view('public.index');
 });
+
+Route::post('/',[AuthController::class,'register']);
+
 Route::view('/signin','public.signin');
 Route::post('booking1',function(){
     return view('public.booking-step-one');

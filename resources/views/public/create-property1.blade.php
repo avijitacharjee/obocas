@@ -11,9 +11,9 @@
     <!--====== Title =======-->
     <title>Booking Index</title>
 
-    <link rel="stylesheet" href="{{ asset("/registration/assets/css/bootstrap.min.css") }}">
+    <link rel="stylesheet" href="{{ asset('/registration/assets/css/bootstrap.min.css') }}">
 
-    <link rel="stylesheet" href="{{ asset("/registration/assets/css/index.css") }}" />
+    <link rel="stylesheet" href="{{ asset('/registration/assets/css/index.css') }}" />
 
 
 </head>
@@ -28,8 +28,8 @@
                 <nav class="_2HVwqciw9DfOQFLWl2-a_I container">
                     <div class="_1pRpeQP2z_3ktRb8Urjtv6">
                         <div class="daGIlH2FHgTbq-rtCh3t">
-                            <a href="{{ url("#") }}">
-                                <img src="{{ asset("/registration/assets/images/logo.png") }}" alt="">
+                            <a href="{{ url('#') }}">
+                                <img src="{{ asset('/registration/assets/images/logo.png') }}" alt="">
                             </a>
                         </div>
                     </div>
@@ -75,7 +75,7 @@
                                         class="_3bW_paBFbJCvyscrGMYAho _3zcHamlgs_5re2k4f9Cf6L _1x1AFvHPvBDyzpmFCUkl9l _1eFATdsEbz8chNVxEEWgMM  _3Q9ez7Ch1dJJG2rfUvC25O card">
                                         <div class="category-card__content">
                                             <div class="category-card__icon spacing--2x">
-                                                <img src="{{ asset("/registration/assets/images/accomm_one.png") }}" width="50" height="50" alt="">
+                                                <img src="{{ asset('/registration/assets/images/accomm_one.png') }}" width="50" height="50" alt="">
                                             </div>
                                             <div class="category-card__body">
                                                 <div class="_1MfaKFSNGKhINGktQsVcxb category-card__header">
@@ -112,7 +112,7 @@
                                         class="_3bW_paBFbJCvyscrGMYAho _3zcHamlgs_5re2k4f9Cf6L _1x1AFvHPvBDyzpmFCUkl9l _1eFATdsEbz8chNVxEEWgMM  _3Q9ez7Ch1dJJG2rfUvC25O card">
                                         <div class="category-card__content">
                                             <div class="category-card__icon spacing--2x">
-                                                <img src="{{ asset("/registration/assets/images/accomm_hotels.png") }}" width="50" height="50"
+                                                <img src="{{ asset('/registration/assets/images/accomm_hotels.png') }}" width="50" height="50"
                                                     alt="">
                                             </div>
                                             <div class="category-card__body">

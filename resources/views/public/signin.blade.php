@@ -67,7 +67,7 @@
                                         </div>
 
                                         <!-- LogIn Form -->
-                                        <form class="nw-signin" action="/booking1" method="POST">
+                                        <form class="nw-signin" action="/" method="POST">
                                             @csrf
                                             <!-- Form Input -->
                                             <div class="input-wrapper-email bui-spacer--large nw-login-name">
@@ -76,7 +76,7 @@
                                                                 Email address</label>
                                                     <div class="_1RdgjndMRdP2d5kWRtTS88">
                                                         <div class="k9_cZSC5ol4qgMp48vdS2">
-                                                            <input type="email" name="EmailAddress" class="_2XLcoGj27PmEfeIS8BIkNh" placeholder="Enter Email" id="username" value="">
+                                                            <input type="email" name="email" class="_2XLcoGj27PmEfeIS8BIkNh" placeholder="Enter Email" id="username" value="">
                                                             <div class="_25ieFHBK1MpfsprUoKu4MW"></div>
                                                         </div>
                                                     </div>
