@@ -39,6 +39,22 @@ class PropertyController extends Controller
         }
         return redirect('/property6');
     }
+    public function property6(Request $request){
+        $values = $request->all();
+        foreach($values as $key=>$value){
+            session([$key=>$value]);
+        }
+        //dd(session()->all());
+        return redirect('/property7');
+    }
+    public function property7(Request $request){
+        $values = $request->all();
+        foreach($values as $key=>$value){
+            session([$key=>$value]);
+        }
+        //dd(session()->all());
+        return redirect('/property8');
+    }    
     /**
      * Display a listing of the resource.
      *

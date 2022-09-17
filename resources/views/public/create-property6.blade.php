@@ -172,6 +172,7 @@
                     </p>
                   </div>
                   <form id="facilities_form" method="POST" role="form" action="/property6">
+                    @csrf
                     <fieldset id="parking_section" class="">
                       <legend>Parking</legend>
                       <div id="parking">
@@ -189,7 +190,7 @@
                               <label for="parking_available">
                               Is parking available to guests?
                               </label>
-                              <select id="parking_available" name="" class="form-control"
+                              <select id="parking_available" name="parking_available" class="form-control"
                                 onchange="parkingType()">
                                 <option value="no">No</option>
                                 <option value="paid">Yes, paid</option>
@@ -200,7 +201,7 @@
                           <div class="col-sm-3 conditional hidden">
                             <label for="parking_space" class="hidden-xs">&nbsp;</label>
                             <div class="form-group">
-                              <select id="parking_space" name="" class="form-control">
+                              <select id="parking_space" name="parking_space" class="form-control">
                                 <option value="private">Private</option>
                                 <option value="public">Public</option>
                               </select>
@@ -209,7 +210,7 @@
                           <div class="col-sm-3 conditional hidden">
                             <label for="parking_location" class="hidden-xs">&nbsp;</label>
                             <div class="form-group">
-                              <select id="parking_location" name="" class="form-control">
+                              <select id="parking_location" name="parking_location" class="form-control">
                                 <option value="site">On site</option>
                                 <option value="street">Off site</option>
                               </select>
@@ -349,6 +350,7 @@
                                     <label class="has_facility" for="facility_107">
                                     <input type="checkbox"
                                       class="cb facility_checkbox"
+                                      name="facility_wifi"
                                       id="facility_107">
                                     Free WiFi
                                     </label>
@@ -361,6 +363,7 @@
                                     <label class="has_facility" for="facility_3">
                                     <input type="checkbox"
                                       class="cb facility_checkbox"
+                                      name="facility_restaurant"
                                       id="facility_3">
                                     Restaurant
                                     </label>
@@ -373,6 +376,7 @@
                                     <label class="has_facility" for="facility_5">
                                     <input type="checkbox"
                                       class="cb facility_checkbox"
+                                      name="facility_room_service"
                                       id="facility_5">
                                     Room service
                                     </label>
@@ -385,7 +389,9 @@
                                     <label class="has_facility" for="facility_8">
                                     <input type="checkbox"
                                       class="cb facility_checkbox"
+                                      name="facility_front_desk"
                                       id="facility_8">
+
                                     24-hour front desk
                                     </label>
                                   </div>
@@ -397,6 +403,7 @@
                                     <label class="has_facility" for="facility_14">
                                     <input type="checkbox"
                                       class="cb facility_checkbox"
+                                      name="facility_garden"
                                       id="facility_14">
                                     Garden
                                     </label>
@@ -412,6 +419,7 @@
                                     <label class="has_facility" for="facility_16">
                                     <input type="checkbox"
                                       class="cb facility_checkbox"
+                                      name="facility_non_smoking_rooms"
                                       id="facility_16">
                                     Non-smoking rooms
                                     </label>
@@ -424,6 +432,7 @@
                                     <label class="has_facility" for="facility_28">
                                     <input type="checkbox"
                                       class="cb facility_checkbox"
+                                      name = "facility_family_rooms"
                                       id="facility_28">
                                     Family rooms
                                     </label>
@@ -436,6 +445,7 @@
                                     <label class="has_facility" for="facility_301">
                                     <input type="checkbox"
                                       class="cb facility_checkbox"
+                                      name="facility_swimming_pool"
                                       id="facility_301">
                                     Swimming pool
                                     </label>

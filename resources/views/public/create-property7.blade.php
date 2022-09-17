@@ -9,10 +9,10 @@
     <!--====== Title =======-->
     <title>Booking Index</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="{{ asset("/registration/assets/css/about.css") }}" />
-    <link rel="stylesheet" href="{{ asset("/registration/assets/css/create-romm.css") }}" />
-    <link rel="stylesheet" href="{{ asset("/registration/assets/css/photos.css") }}" />
-    <link rel="stylesheet" href="{{ asset("/registration/assets/css/policies.css") }}" />
+    <link rel="stylesheet" href="{{ asset('/registration/assets/css/about.css') }}" />
+    <link rel="stylesheet" href="{{ asset('/registration/assets/css/create-romm.css') }}" />
+    <link rel="stylesheet" href="{{ asset('/registration/assets/css/photos.css') }}" />
+    <link rel="stylesheet" href="{{ asset('/registration/assets/css/policies.css') }}" />
   </head>
   <body>
     <div id="root" class="bui-u-text-left bui_font_body">
@@ -22,8 +22,8 @@
           <nav class="_2HVwqciw9DfOQFLWl2-a_I container">
             <div class="_1pRpeQP2z_3ktRb8Urjtv6">
               <div class="daGIlH2FHgTbq-rtCh3t">
-                <a href="{{ url("#") }}">
-                <img src="{{ asset("/registration/assets/images/logo.png") }}" alt="">
+                <a href="{{ url('#') }}">
+                <img src="{{ asset('/registration/assets/images/logo.png') }}" alt="">
                 </a>
               </div>
             </div>
@@ -71,27 +71,27 @@
                     <div>
                       <ul id="js-main-nav" class="nav nav__int main-nav account-menu_mobile">
                         <li class="completed">
-                          <a href="{{ url("#") }}" class="completed">
+                          <a href="{{ url('#') }}" class="completed">
                           Basic info
                           </a>
                         </li>
                         <li class="completed">
-                          <a href="{{ url("#") }}" class="completed">
+                          <a href="{{ url('#') }}" class="completed">
                           Layout and pricing
                           </a>
                         </li>
                         <li class="completed">
-                          <a href="{{ url("") }}" class="completed">
+                          <a href="{{ url('') }}" class="completed">
                           Facilities &amp; services
                           </a>
                         </li>
                         <li class="active active selected">
-                          <a href="{{ url("#") }}" class="active active selected" tabindex="-1">
+                          <a href="{{ url('#') }}" class="active active selected" tabindex="-1">
                           Amenities
                           </a>
                         </li>
                         <li class="disabled">
-                          <a href="{{ url("#") }}" class="disabled">
+                          <a href="{{ url('#') }}" class="disabled">
                           Photos
                           </a>
                         </li>
@@ -561,15 +561,15 @@
             <footer>
               <ul class="list-unstyled list-inline clearfix">
                 <li id="footer-booking" class="pull-right">
-                  © Copyright <a href="{{ url("#") }}">Booking.com</a> 2022
+                  © Copyright <a href="{{ url('#') }}">Booking.com</a> 2022
                 </li>
                 <li class="pull-left" id="footer-about-us">
-                  <a href="{{ url("#") }}">
+                  <a href="{{ url('#') }}">
                   About Us
                   </a>
                 </li>
                 <li class="pull-left" id="footer-privacy">
-                  <a href="{{ url("#") }}">
+                  <a href="{{ url('#') }}">
                   Privacy and Cookie Statement
                   </a>
                 </li>
@@ -580,8 +580,8 @@
       </div>
       <!-- /Login Box -->
     </div>
-    <script src="{{ asset("/registration/assets/js/jquery-1.12.4.min.js") }}"></script>
-    <script src="{{ asset("/registration/assets/js/bootstrap.bundle.min.js") }}"></script>
-    <script src="{{ asset("/registration/assets/js/script.js") }}"></script>
+    <script src="{{ asset('/registration/assets/js/jquery-1.12.4.min.js') }}"></script>
+    <script src="{{ asset('/registration/assets/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('/registration/assets/js/script.js') }}"></script>
   </body>
 </html>

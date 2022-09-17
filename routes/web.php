@@ -55,4 +55,5 @@ Route::controller(PropertyController::class)->group(function(){
     Route::post('property3','property3');
     Route::post('property4','property4');
     Route::post('property5','property5');
+    Route::post('property6','property6');
 });
