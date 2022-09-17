@@ -13,10 +13,10 @@
     <title>Booking Index</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="{{ asset("/registration/assets/css/about.css") }}" />
-    <link rel="stylesheet" href="{{ asset("/registration/assets/css/create-romm.css") }}" />
-    <link rel="stylesheet" href="{{ asset("/registration/assets/css/photos.css") }}" />
-    <link rel="stylesheet" href="{{ asset("/registration/assets/css/policies.css") }}" />
+    <link rel="stylesheet" href="{{ asset('/registration/assets/css/about.css') }}" />
+    <link rel="stylesheet" href="{{ asset('/registration/assets/css/create-romm.css') }}" />
+    <link rel="stylesheet" href="{{ asset('/registration/assets/css/photos.css') }}" />
+    <link rel="stylesheet" href="{{ asset('/registration/assets/css/policies.css') }}" />
 </head>
 
 <body>
@@ -29,8 +29,8 @@
                 <nav class="_2HVwqciw9DfOQFLWl2-a_I container">
                     <div class="_1pRpeQP2z_3ktRb8Urjtv6">
                         <div class="daGIlH2FHgTbq-rtCh3t">
-                            <a href="{{ url("#") }}">
-                                <img src="{{ asset("/registration/assets/images/logo.png") }}" alt="">
+                            <a href="{{ url('#') }}">
+                                <img src="{{ asset('/registration/assets/images/logo.png') }}" alt="">
                             </a>
                         </div>
                     </div>
@@ -267,7 +267,7 @@
                                         </p>
                                     </div>
                                     <div class="seg-return-to-overview hidden">
-                                        <a href="{{ url("#") }}">
+                                        <a href="{{ url('#') }}">
                                             Go back to overview
                                         </a>
                                     </div>
@@ -297,8 +297,8 @@
                                                     </td>
                                                     <td>
                                                         <div class="pull-right room-btn-container">
-                                                            <a href="{{ url("#edit-857487235") }}" class="edit-room">Edit</a>
-                                                            <a href="{{ url("#") }}" class="delete">Delete</a>
+                                                            <a href="{{ url('#edit-857487235') }}" class="edit-room">Edit</a>
+                                                            <a href="{{ url('#') }}" class="delete">Delete</a>
                                                         </div>
                                                     </td>
                                                 </tr>
@@ -590,7 +590,7 @@
 
                                             <div class="row no-return" id="room-cta">
                                                 <div class="col-md-6 col-sm-6 col-xs-6 return">
-                                                    <a id="return_button" href="{{ url("#") }}"
+                                                    <a id="return_button" href="{{ url('#') }}"
                                                         class="btn btn-default btn-block btn-lg">
                                                         Go back to overview
                                                     </a>
@@ -621,10 +621,10 @@
                                 <div id="seg-overview-ctas" class="row seg-overview-ctas">
                                     <div class="col-xs-12 col-md-9">
                                         <div class="seg-overview-ctas__content">
-                                            <a class="btn btn-block btn-default btn-lg" href="{{ url("#create-room") }}">
+                                            <a class="btn btn-block btn-default btn-lg" href="{{ url('#create-room') }}">
                                                 Add another room
                                             </a>
-                                            <a class="btn btn-block btn-primary btn-lg" href="{{ url("#") }}">
+                                            <a class="btn btn-block btn-primary btn-lg" href="{{ url('/property6') }}">
                                                 Continue
                                             </a>
                                         </div>
@@ -646,16 +646,16 @@
                         <ul class="list-unstyled list-inline clearfix">
 
                             <li id="footer-booking" class="pull-right">
-                                © Copyright <a href="{{ url("#") }}">Booking.com</a> 2022
+                                © Copyright <a href="{{ url('#') }}">Booking.com</a> 2022
                             </li>
 
                             <li class="pull-left" id="footer-about-us">
-                                <a href="{{ url("#") }}">
+                                <a href="{{ url('#') }}">
                                     About Us
                                 </a>
                             </li>
                             <li class="pull-left" id="footer-privacy">
-                                <a href="{{ url("#") }}">
+                                <a href="{{ url('#') }}">
                                     Privacy and Cookie Statement
                                 </a>
                             </li>
@@ -671,9 +671,9 @@
 
     </div>
 
-    <script src="{{ asset("/registration/assets/js/jquery-1.12.4.min.js") }}"></script>
+    <script src="{{ asset('/registration/assets/js/jquery-1.12.4.min.js') }}"></script>
     <script src="{{ asset('/registration/assets/js/bootstrap.bundle.min.js') }}"></script>
-    <script src='{{ asset("/registration/assets/js/script.js") }}'></script>
+    <script src="{{ asset('/registration/assets/js/script.js') }}"></script>
 
 </body>
 

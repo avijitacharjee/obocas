@@ -4,10 +4,41 @@ namespace App\Http\Controllers;
 
 use App\Models\Property;
 use App\Http\Requests\StorePropertyRequest;
-use App\Http\Requests\UpdatePropertyRequest;
+use Illuminate\Http\Request;
 
 class PropertyController extends Controller
 {
+    public function property1($type)
+    {
+        session(['property_type'=>$type]);
+        return redirect('/property2');
+    }
+    public function property2($numberOfHotels)
+    {
+        session(['property_number_of_hotels'=>$numberOfHotels]);
+        return redirect('/property3');
+    }
+    public function property3(Request $request){
+        $values = $request->all();
+        foreach($values as $key => $value){
+            session([$key=>$value]);
+        }
+        return redirect('/property4');
+    }
+    public function property4(Request $request){
+        $values = $request->all();
+        foreach($values as $key => $value){
+            session([$key=>$value]);
+        }
+        return redirect('/property5');
+    }
+    public function property5(Request $request){
+        $values = $request->all();
+        foreach($values as $key=>$value){
+            session([$key=>$value]);
+        }
+        return redirect('/property6');
+    }
     /**
      * Display a listing of the resource.
      *

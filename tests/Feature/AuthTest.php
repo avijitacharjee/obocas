@@ -24,10 +24,12 @@ class AuthTest extends TestCase
     }
     public function test_registration()
     {
-        $response = $this->post('/',["email"=>$this->faker->email]);
+        $user = ["email"=>$this->faker->email];
+        $response = $this->post('/',$user);
         $response
             ->assertStatus(201)
             ->assertRedirect('/')
             ->assertSessionHas('id',session('id'));
+        $this->assertDatabaseHas('users',$user);
     }
 }

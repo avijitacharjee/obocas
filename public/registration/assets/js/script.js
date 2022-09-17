@@ -5,11 +5,14 @@ $(document).ready(function () {
         $("#automation_id_choose_owner_type_single").addClass("selectable-box--selected");
         $("#automation_id_choose_owner_type_more_than_one").removeClass("selectable-box--selected");
         $(".properties-number").addClass("d-none");
+        $("#automation_id_number_of_properties").val(1);
     });
 
     $("#automation_id_choose_owner_type_more_than_one").on('click', function () {
         $("#automation_id_choose_owner_type_more_than_one").addClass("selectable-box--selected");
         $("#automation_id_choose_owner_type_single").removeClass("selectable-box--selected");
+        $("#automation_id_number_of_properties").val(2);
+        
         $(".properties-number").removeClass("d-none");
     });
 
@@ -145,4 +148,10 @@ function addItem() {
     // });
     // (B2) APPEND TO LIST
     document.getElementById("demoA").appendChild(item);
+}
+
+function cont() {
+    let numberOfHotels = document.getElementById('automation_id_number_of_properties').value;
+    let href = 'property2/' + numberOfHotels;
+    location.href = href;
 }

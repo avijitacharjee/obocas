@@ -96,10 +96,10 @@
                                                     </svg>
                                                 </span>
                                             </div>
-                                            <span id="automation_id_choose_category_hotel_btn"
+                                            <a href="/property1/apartment" id="automation_id_choose_category_hotel_btn"
                                                 class="j6H7kIU_n3zBGxJYED02l u3GrEWKci2wtjYjph8-6C _1yocYyGKY9lJaT7uqH10-J _3fe7Hh6u4q9KbchtTB7sIl _78qQY4lDllx3CGtTfO5BU _27k4POEZnC3HnL0LjjcFv9 category-card__btn">
                                                 <span class="_2TDuUsf60aKea0ICpvxoVh">List your property</span>
-                                            </span>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
@@ -133,10 +133,10 @@
                                                     </svg>
                                                 </span>
                                             </div>
-                                            <span id="automation_id_choose_category_hotel_btn"
+                                            <a href="/property1/hotel" id="automation_id_choose_category_hotel_btn"
                                                 class="j6H7kIU_n3zBGxJYED02l u3GrEWKci2wtjYjph8-6C _1yocYyGKY9lJaT7uqH10-J _3fe7Hh6u4q9KbchtTB7sIl _78qQY4lDllx3CGtTfO5BU _27k4POEZnC3HnL0LjjcFv9 category-card__btn">
                                                 <span class="_2TDuUsf60aKea0ICpvxoVh">List your property</span>
-                                            </span>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>

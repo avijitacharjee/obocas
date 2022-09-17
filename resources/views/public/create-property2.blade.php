@@ -11,11 +11,10 @@
     <!--====== Title =======-->
     <title>Booking Index</title>
 
-    <link rel="stylesheet" href="{{ asset("/registration/assets/css/bootstrap.min.css") }}">
-    <link rel="stylesheet" href="{{ asset("/registration/assets/css/index.css") }}" />
+    <link rel="stylesheet" href="{{ asset('/registration/assets/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('/registration/assets/css/index.css') }}" />
 
 </head>
-
 <body>
 
     <div id="root" class="bui-u-text-left bui_font_body">
@@ -26,8 +25,8 @@
                 <nav class="_2HVwqciw9DfOQFLWl2-a_I container">
                     <div class="_1pRpeQP2z_3ktRb8Urjtv6">
                         <div class="daGIlH2FHgTbq-rtCh3t">
-                            <a href="{{ url("#") }}">
-                                <img src="{{ asset("/registration/assets/images/logo.png") }}" alt="">
+                            <a href="{{ url('/') }}">
+                                <img src="{{ asset('/registration/assets/images/logo.png') }}" alt="">
                             </a>
                         </div>
                     </div>
@@ -57,7 +56,7 @@
                                                 <div class="_2xKTkV9n_lGG6hH3o2z6G"
                                                     style="width: 100%; padding-top: calc(100%);">
                                                     <div class="voI2WhVaM90YsXiW4zVgp">
-                                                        <img src="{{ asset("/registration/assets/images/accomm_single_hotel.png") }}" alt=""
+                                                        <img src="{{ asset('/registration/assets/images/accomm_single_hotel.png') }}" alt=""
                                                             style="height: 50px; width: 50px; object-fit: contain;">
                                                     </div>
                                                 </div>
@@ -87,7 +86,7 @@
                                                 <div class="_2xKTkV9n_lGG6hH3o2z6G"
                                                     style="width: 100%; padding-top: calc(100%);">
                                                     <div class="voI2WhVaM90YsXiW4zVgp">
-                                                        <img src="{{ asset("/registration/assets/images/accomm_multiple_hotels.png") }}" alt=""
+                                                        <img src="{{ asset('/registration/assets/images/accomm_multiple_hotels.png') }}" alt=""
                                                             style="height: 50px; width: 50px; object-fit: contain;">
                                                     </div>
                                                 </div>
@@ -109,13 +108,13 @@
                         </div>
                         <div class="properties-number d-none pt-3">
                             <p>Number of properties</p>
-                            <input id="automation_id_number_of_properties" type="text" class="form-control" value="">
+                            <input id="automation_id_number_of_properties" type="text" class="form-control" value="1">
                         </div>
                     </div>
 
                     <div class="page__nav-buttons">
                         <div class="nav-buttons nav-buttons--inline-mobile">
-                            <a id="automation_id_nav_button_back" type="button"
+                            <a id="automation_id_nav_button_back" href="/property1" type="button"
                                 class="j6H7kIU_n3zBGxJYED02l u3GrEWKci2wtjYjph8-6C JJdHfmDfq6Xzxm5isIil2 _1B-amM_EU-PhLAFqMb_usV VHXPPR0c4bUiRcuN99sy7 nav-back-btn">
                                 <span class="_3SIQQL-izayH6Axzibr-5l">
                                     <span class="_12RuBup3fgMqOh7MEMG0sf _3kWjCVTW_V6h99oyUMxcwS">
@@ -127,7 +126,8 @@
                                     </span>
                                 </span>
                             </a>
-                            <button id="automation_id_nav_button_forward" type="button"
+                            
+                            <button onclick="cont()" id="automation_id_nav_button_forward" type="button"
                                 class="j6H7kIU_n3zBGxJYED02l u3GrEWKci2wtjYjph8-6C _1yocYyGKY9lJaT7uqH10-J _1B-amM_EU-PhLAFqMb_usV _78qQY4lDllx3CGtTfO5BU _27k4POEZnC3HnL0LjjcFv9">
                                 <span class="_2TDuUsf60aKea0ICpvxoVh">Continue</span>
                             </button>
@@ -142,10 +142,9 @@
         <!-- /Login Box -->
 
     </div>
-
-    <script src="{{ asset("/registration/assets/js/jquery-1.12.4.min.js") }}"></script>
-    <script src="{{ asset("/registration/assets/js/bootstrap.bundle.min.js") }}"></script>
-    <script src="{{ asset("/registration/assets/js/script.js") }}"></script>
+    <script src="{{ asset('/registration/assets/js/jquery-1.12.4.min.js') }}"></script>
+    <script src="{{ asset('/registration/assets/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('/registration/assets/js/script.js') }}"></script>
 </body>
 
 </html>
