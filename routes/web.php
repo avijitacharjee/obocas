@@ -22,10 +22,6 @@ Route::get('log-test', function () {
     return view('welcome');
 });
 
-Route::get('/',function(){
-    return view('public.index');
-});
-
 Route::post('/',[AuthController::class,'register']);
 
 Route::view('/signin','public.signin');
@@ -49,6 +45,9 @@ Route::controller(PropertyController::class)->group(function(){
     Route::view('property8','public.create-property8');
     Route::view('property9','public.create-property9');
     Route::view('property10','public.create-property10');
+
+
+    Route::get('/','index');
 
     Route::get('property1/{type}','property1');
     Route::get('property2/{numberOfHotels}','property2');

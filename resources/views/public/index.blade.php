@@ -714,6 +714,7 @@
       <!-- Slider -->
       <div class="bui-carousel bui-carousel--small bui-u-bleed@small">
         <ul class="bui-carousel__inner ExploreSlider">
+          @for($i=0;$i<8;$i++)
           <li class="bui-carousel__item">
             <a class="bui-card bui-card--media bui-card--transparent popular-destinations-carousel-link"
               href="">
@@ -728,104 +729,7 @@
               </div>
             </a>
           </li>
-          <li class="bui-carousel__item">
-            <a class="bui-card bui-card--media bui-card--transparent popular-destinations-carousel-link"
-              href="">
-              <div class="bui-card__image-container">
-                <img class="bui-card__image" src="{{ asset('frontend/assets/images/explore-bangladesh-1.webp')}}" alt="" />
-              </div>
-              <div class="bui-card__content">
-                <div class="bui-title bui-title--strong_1 bui-card__title">
-                  <span class="bui-card__title text-dark">Cox&#39;s Bazar</span>
-                  <span class="bui-title__subtitle">60 properties</span>
-                </div>
-              </div>
-            </a>
-          </li>
-          <li class="bui-carousel__item">
-            <a class="bui-card bui-card--media bui-card--transparent popular-destinations-carousel-link"
-              href="">
-              <div class="bui-card__image-container">
-                <img class="bui-card__image" src="{{ asset('frontend/assets/images/explore-bangladesh-1.webp')}}" alt="" />
-              </div>
-              <div class="bui-card__content">
-                <div class="bui-title bui-title--strong_1 bui-card__title">
-                  <span class="bui-card__title text-dark">Cox&#39;s Bazar</span>
-                  <span class="bui-title__subtitle">60 properties</span>
-                </div>
-              </div>
-            </a>
-          </li>
-          <li class="bui-carousel__item">
-            <a class="bui-card bui-card--media bui-card--transparent popular-destinations-carousel-link"
-              href="">
-              <div class="bui-card__image-container">
-                <img class="bui-card__image" src="{{ asset('frontend/assets/images/explore-bangladesh-1.webp')}}" alt="" />
-              </div>
-              <div class="bui-card__content">
-                <div class="bui-title bui-title--strong_1 bui-card__title">
-                  <span class="bui-card__title text-dark">Cox&#39;s Bazar</span>
-                  <span class="bui-title__subtitle">60 properties</span>
-                </div>
-              </div>
-            </a>
-          </li>
-          <li class="bui-carousel__item">
-            <a class="bui-card bui-card--media bui-card--transparent popular-destinations-carousel-link"
-              href="">
-              <div class="bui-card__image-container">
-                <img class="bui-card__image" src="{{ asset('frontend/assets/images/explore-bangladesh-1.webp')}}" alt="" />
-              </div>
-              <div class="bui-card__content">
-                <div class="bui-title bui-title--strong_1 bui-card__title">
-                  <span class="bui-card__title text-dark">Cox&#39;s Bazar</span>
-                  <span class="bui-title__subtitle">60 properties</span>
-                </div>
-              </div>
-            </a>
-          </li>
-          <li class="bui-carousel__item">
-            <a class="bui-card bui-card--media bui-card--transparent popular-destinations-carousel-link"
-              href="">
-              <div class="bui-card__image-container">
-                <img class="bui-card__image" src="{{ asset('frontend/assets/images/explore-bangladesh-1.webp')}}" alt="" />
-              </div>
-              <div class="bui-card__content">
-                <div class="bui-title bui-title--strong_1 bui-card__title">
-                  <span class="bui-card__title text-dark">Cox&#39;s Bazar</span>
-                  <span class="bui-title__subtitle">60 properties</span>
-                </div>
-              </div>
-            </a>
-          </li>
-          <li class="bui-carousel__item">
-            <a class="bui-card bui-card--media bui-card--transparent popular-destinations-carousel-link"
-              href="">
-              <div class="bui-card__image-container">
-                <img class="bui-card__image" src="{{ asset('frontend/assets/images/explore-bangladesh-1.webp')}}" alt="" />
-              </div>
-              <div class="bui-card__content">
-                <div class="bui-title bui-title--strong_1 bui-card__title">
-                  <span class="bui-card__title text-dark">Cox&#39;s Bazar</span>
-                  <span class="bui-title__subtitle">60 properties</span>
-                </div>
-              </div>
-            </a>
-          </li>
-          <li class="bui-carousel__item">
-            <a class="bui-card bui-card--media bui-card--transparent popular-destinations-carousel-link"
-              href="">
-              <div class="bui-card__image-container">
-                <img class="bui-card__image" src="{{ asset('frontend/assets/images/explore-bangladesh-1.webp')}}" alt="" />
-              </div>
-              <div class="bui-card__content">
-                <div class="bui-title bui-title--strong_1 bui-card__title">
-                  <span class="bui-card__title text-dark">Cox&#39;s Bazar</span>
-                  <span class="bui-title__subtitle">60 properties</span>
-                </div>
-              </div>
-            </a>
-          </li>
+          @endfor
         </ul>
       </div>
       <!-- Slider -->
@@ -937,14 +841,17 @@
       <!-- Slider -->
       <div class="bui-carousel bui-carousel--medium u-bleed@small">
         <ul class="bui-carousel__inner js-bh-carousel-async-inner HomeGuest">
+          @foreach($hotels as $hotel)
           <!-- Single Slider -->
           <li class="bui-carousel__item">
             <div class="bui-card bui-card--media bui-card--transparent">
               <div class="bui-card__image-container bh-carousel--new__photo"
-                style="background: url('frontend/assets/images/guest-love-1.jpg');"></div>
+                style="
+                background: url('{{asset('/storage')}}/{{explode(';',$hotel->property_images)[0]}}');
+                "></div>
               <div class="bui-card__content bh-carousel--new__content">
                 <h3 class="bui-card__title bh-carousel--new__title">
-                  <span>Aparthotel Stare Miasto</span>
+                  <span>{{$hotel->name}}</span>
                 </h3>
                 <p class="bui-card__subtitle"> Krakow </p>
                 <p class="bh-carousel--new__price bui_color_black">
@@ -967,126 +874,7 @@
             </div>
           </li>
           <!-- /Single Slider -->
-          <!-- Single Slider -->
-          <li class="bui-carousel__item">
-            <div class="bui-card bui-card--media bui-card--transparent">
-              <div class="bui-card__image-container bh-carousel--new__photo"
-                style="background: url('frontend/assets/images/guest-love-1.jpg');"></div>
-              <div class="bui-card__content bh-carousel--new__content">
-                <h3 class="bui-card__title bh-carousel--new__title">
-                  <span>Aparthotel Stare Miasto</span>
-                </h3>
-                <p class="bui-card__subtitle"> Krakow </p>
-                <p class="bh-carousel--new__price bui_color_black">
-                  Starting from BDT 7,719
-                </p>
-                <div style="margin-top: 4px">
-                  <div
-                    class="bui-review-score c-score bui-review-score--inline bui-review-score--small">
-                    <div class="bui-review-score__badge" aria-label="Scored  ">
-                      8.9
-                    </div>
-                    <div class="bui-review-score__content">
-                      <div class="bui-review-score__title"> Excellent
-                      </div>
-                      <div class="bui-review-score__text"> 2,892 reviews </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </li>
-          <!-- /Single Slider -->
-          <!-- Single Slider -->
-          <li class="bui-carousel__item">
-            <div class="bui-card bui-card--media bui-card--transparent">
-              <div class="bui-card__image-container bh-carousel--new__photo"
-                style="background: url('frontend/assets/images/guest-love-1.jpg');"></div>
-              <div class="bui-card__content bh-carousel--new__content">
-                <h3 class="bui-card__title bh-carousel--new__title">
-                  <span>Aparthotel Stare Miasto</span>
-                </h3>
-                <p class="bui-card__subtitle"> Krakow </p>
-                <p class="bh-carousel--new__price bui_color_black">
-                  Starting from BDT 7,719
-                </p>
-                <div style="margin-top: 4px">
-                  <div
-                    class="bui-review-score c-score bui-review-score--inline bui-review-score--small">
-                    <div class="bui-review-score__badge" aria-label="Scored  ">
-                      8.9
-                    </div>
-                    <div class="bui-review-score__content">
-                      <div class="bui-review-score__title"> Excellent
-                      </div>
-                      <div class="bui-review-score__text"> 2,892 reviews </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </li>
-          <!-- /Single Slider -->
-          <!-- Single Slider -->
-          <li class="bui-carousel__item">
-            <div class="bui-card bui-card--media bui-card--transparent">
-              <div class="bui-card__image-container bh-carousel--new__photo"
-                style="background: url('frontend/assets/images/guest-love-1.jpg');"></div>
-              <div class="bui-card__content bh-carousel--new__content">
-                <h3 class="bui-card__title bh-carousel--new__title">
-                  <span>Aparthotel Stare Miasto</span>
-                </h3>
-                <p class="bui-card__subtitle"> Krakow </p>
-                <p class="bh-carousel--new__price bui_color_black">
-                  Starting from BDT 7,719
-                </p>
-                <div style="margin-top: 4px">
-                  <div
-                    class="bui-review-score c-score bui-review-score--inline bui-review-score--small">
-                    <div class="bui-review-score__badge" aria-label="Scored  ">
-                      8.9
-                    </div>
-                    <div class="bui-review-score__content">
-                      <div class="bui-review-score__title"> Excellent
-                      </div>
-                      <div class="bui-review-score__text"> 2,892 reviews </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </li>
-          <!-- /Single Slider -->
-          <!-- Single Slider -->
-          <li class="bui-carousel__item">
-            <div class="bui-card bui-card--media bui-card--transparent">
-              <div class="bui-card__image-container bh-carousel--new__photo"
-                style="background: url('frontend/assets/images/guest-love-1.jpg');"></div>
-              <div class="bui-card__content bh-carousel--new__content">
-                <h3 class="bui-card__title bh-carousel--new__title">
-                  <span>Aparthotel Stare Miasto</span>
-                </h3>
-                <p class="bui-card__subtitle"> Krakow </p>
-                <p class="bh-carousel--new__price bui_color_black">
-                  Starting from BDT 7,719
-                </p>
-                <div style="margin-top: 4px">
-                  <div
-                    class="bui-review-score c-score bui-review-score--inline bui-review-score--small">
-                    <div class="bui-review-score__badge" aria-label="Scored  ">
-                      8.9
-                    </div>
-                    <div class="bui-review-score__content">
-                      <div class="bui-review-score__title"> Excellent
-                      </div>
-                      <div class="bui-review-score__text"> 2,892 reviews </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </li>
-          <!-- /Single Slider -->
+          @endforeach
         </ul>
       </div>
       <!-- Slider -->

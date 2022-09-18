@@ -7,6 +7,7 @@ use App\Http\Requests\StorePropertyRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\View\View;
 
 class PropertyController extends Controller
 {
@@ -83,28 +84,30 @@ class PropertyController extends Controller
         if($images)
         {
             $imageNames='';
-            foreach($images as $image)
+            foreach($images as $key=>$image)
             {
-                $extension = $image->extension();
+                $extension = 'png';
                 $imageName = date("Y-m-d-h-i-s").Str::random(5).'.'.$extension;
                 //$image->store('property');
                 $imageFullName = 'images/'.$imageName;
-                Storage::disk('public')->put($imageFullName,$image);
+                $image->storeAs('public',$imageFullName);
+                // Storage::disk('public')->put($imageFullName,$image->str);
                 $imageNames = $imageNames.$imageFullName.';';
             }
-            return $imageNames;
+            return substr($imageNames,0,-1);
         }else {
             return 'no images';
         }
     }
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    public function index(): View
     {
-        //
+        $hotels = Property::all();
+        foreach($hotels as $hotel){
+            $images = explode(';',$hotel->property_images);
+        }
+        $hotels->images=$images;
+        return view('public.index')
+            ->with('hotels',$hotels);
     }
 
     /**
