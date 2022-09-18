@@ -56,7 +56,28 @@ class PropertyController extends Controller
         return redirect('/property8');
     }
     public function property8(Request $request){
-        return $this->saveImages($request->images);
+        session(['property_images'=>$this->saveImages($request->images)]);
+        return redirect('/property9');
+    }
+    public function property9(Request $request){
+        $values = $request->all();
+        foreach($values as $key=>$value){
+            session([$key=>$value]);
+        }
+        return redirect('/property10');
+    }
+    public function property10(Request $request){
+        $values = $request->all();
+        foreach($values as $key=>$value){
+            session([$key=>$value]);
+        }
+        $data = session()->all();
+        unset($data['_token']);
+        unset($data['_flash']);
+        unset($data['_previous']);
+        unset($data['proceed']);
+        Property::create($data);
+        return redirect('/');
     }
     public function saveImages($images){
         if($images)

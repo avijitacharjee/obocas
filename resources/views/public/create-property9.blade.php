@@ -9,10 +9,10 @@
     <!--====== Title =======-->
     <title>Booking Index</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="{{ asset("/registration/assets/css/about.css") }}" />
-    <link rel="stylesheet" href="{{ asset("/registration/assets/css/create-romm.css") }}" />
-    <link rel="stylesheet" href="{{ asset("/registration/assets/css/photos.css") }}" />
-    <link rel="stylesheet" href="{{ asset("/registration/assets/css/policies.css") }}" />
+    <link rel="stylesheet" href="{{ asset('/registration/assets/css/about.css') }}" />
+    <link rel="stylesheet" href="{{ asset('/registration/assets/css/create-romm.css') }}" />
+    <link rel="stylesheet" href="{{ asset('/registration/assets/css/photos.css') }}" />
+    <link rel="stylesheet" href="{{ asset('/registration/assets/css/policies.css') }}" />
   </head>
   <body>
     <div id="root" class="bui-u-text-left bui_font_body">
@@ -22,8 +22,8 @@
           <nav class="_2HVwqciw9DfOQFLWl2-a_I container">
             <div class="_1pRpeQP2z_3ktRb8Urjtv6">
               <div class="daGIlH2FHgTbq-rtCh3t">
-                <a href="{{ url("#") }}">
-                <img src="{{ asset("/registration/assets/images/logo.png") }}" alt="">
+                <a href="{{ url('/') }}">
+                <img src="{{ asset('/registration/assets/images/logo.png') }}" alt="">
                 </a>
               </div>
             </div>
@@ -73,37 +73,37 @@
                     <div>
                       <ul id="js-main-nav" class="nav nav__int main-nav account-menu_mobile">
                         <li class="completed">
-                          <a href="{{ url("#") }}" class="completed">
+                          <a href="{{ url('#') }}" class="completed">
                           Basic info
                           </a>
                         </li>
                         <li class="completed">
-                          <a href="{{ url("#") }}" class="completed">
+                          <a href="{{ url('#') }}" class="completed">
                           Layout and pricing
                           </a>
                         </li>
                         <li class="completed">
-                          <a href="{{ url("") }}" class="completed">
+                          <a href="{{ url('') }}" class="completed">
                           Facilities &amp; services
                           </a>
                         </li>
                         <li class="completed">
-                          <a href="{{ url("#") }}" class="completed" tabindex="-1">
+                          <a href="{{ url('#') }}" class="completed" tabindex="-1">
                           Amenities
                           </a>
                         </li>
                         <li class="completed">
-                          <a href="{{ url("#") }}" class="completed">
+                          <a href="{{ url('#') }}" class="completed">
                           Photos
                           </a>
                         </li>
                         <li class="active active selected">
-                          <a href="{{ url("#") }}" class="active active selected">
+                          <a href="{{ url('#') }}" class="active active selected">
                           Policies
                           </a>
                         </li>
                         <li class="disabled">
-                          <a href="{{ url("#") }}" class="">
+                          <a href="{{ url('#') }}" class="">
                           Payments
                           </a>
                         </li>
@@ -151,8 +151,9 @@
                     </p>
                   </div>
                   <form role="form" id="property_policies"
-                    action="/json/policies.json?token=d282774f5aab6dd982cbdf467b61e24aa42327bd"
+                    action="/property9"
                     method="POST" autocomplete="disabled" class="js-main-form">
+                    @csrf
                     <input type="hidden" name="policy_data"
                       value="{&quot;cancel_free_days_prior&quot;:&quot;2&quot;,&quot;cancel_guest_payment&quot;:&quot;full_stay&quot;}">
                     <div id="error_header" class="alert alert-danger hidden"></div>
@@ -833,8 +834,8 @@
       </div>
       <!-- /Login Box -->
     </div>
-    <script src="{{ asset("/registration/assets/js/jquery-1.12.4.min.js") }}"></script>
-    <script src="{{ asset("/registration/assets/js/bootstrap.bundle.min.js") }}"></script>
-    <script src="{{ asset("/registration/assets/js/script.js") }}"></script>
+    <script src="{{ asset('/registration/assets/js/jquery-1.12.4.min.js') }}"></script>
+    <script src="{{ asset('/registration/assets/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('/registration/assets/js/script.js') }}"></script>
   </body>
 </html>

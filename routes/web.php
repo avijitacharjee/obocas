@@ -58,4 +58,6 @@ Route::controller(PropertyController::class)->group(function(){
     Route::post('property6','property6');
     Route::post('property7','property7');
     Route::post('property8','property8');
+    Route::post('property9','property9');
+    Route::post('property10','property10');
 });

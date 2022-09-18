@@ -22,7 +22,7 @@
           <nav class="_2HVwqciw9DfOQFLWl2-a_I container">
             <div class="_1pRpeQP2z_3ktRb8Urjtv6">
               <div class="daGIlH2FHgTbq-rtCh3t">
-                <a href="{{ url('#') }}">
+                <a href="{{ url('/') }}">
                 <img src="{{ asset('/registration/assets/images/logo.png') }}" alt="">
                 </a>
               </div>
@@ -142,7 +142,8 @@
               <div class="desktop-hnav-clear-line"></div>
               <div class="row">
                 <div class="col-md-12 col-sm-12 col-xm-12">
-                  <form role="form" class="show-when-ready js-main-form" id="add_property_details">
+                  <form action="/property10" role="form" class="show-when-ready js-main-form" id="add_property_details" method="POST">
+                    @csrf
                     <div class="update-later-message col-xs-12 update-later-message--block alignment_header_message"
                       style="display: none">
                       <p>
