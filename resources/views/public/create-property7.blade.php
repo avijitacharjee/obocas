@@ -147,7 +147,8 @@
                   <div class="hotel-summary">
                     <form role="form" id="roomfacilities_form" method="POST"
                       class="roomfacilities_form_reset roomfacilities_form  sup-simple  small-sup-amenities "
-                      action="#">
+                      action="/property7">
+                      @csrf
                       <div
                         class="update-later-message col-xs-12 update-later-message--block alignment_header_message">
                         <p>

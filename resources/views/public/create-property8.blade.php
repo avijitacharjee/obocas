@@ -9,10 +9,10 @@
     <!--====== Title =======-->
     <title>Booking Index</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="{{ asset("/registration/assets/css/about.css") }}" />
-    <link rel="stylesheet" href="{{ asset("/registration/assets/css/create-romm.css") }}" />
-    <link rel="stylesheet" href="{{ asset("/registration/assets/css/photos.css") }}" />
-    <link rel="stylesheet" href="{{ asset("/registration/assets/css/policies.css") }}" />
+    <link rel="stylesheet" href="{{ asset('/registration/assets/css/about.css') }}" />
+    <link rel="stylesheet" href="{{ asset('/registration/assets/css/create-romm.css') }}" />
+    <link rel="stylesheet" href="{{ asset('/registration/assets/css/photos.css') }}" />
+    <link rel="stylesheet" href="{{ asset('/registration/assets/css/policies.css') }}" />
   </head>
   <body>
     <div id="root" class="bui-u-text-left bui_font_body">
@@ -22,8 +22,8 @@
           <nav class="_2HVwqciw9DfOQFLWl2-a_I container">
             <div class="_1pRpeQP2z_3ktRb8Urjtv6">
               <div class="daGIlH2FHgTbq-rtCh3t">
-                <a href="{{ url("#") }}">
-                <img src="{{ asset("/registration/assets/images/logo.png") }}" alt="">
+                <a href="{{ url('#') }}">
+                <img src="{{ asset('/registration/assets/images/logo.png') }}" alt="">
                 </a>
               </div>
             </div>
@@ -35,6 +35,8 @@
       <div class="app">
         <div class="container">
           <div class="row top_progress" id="content_wrapper">
+          <form action="/property8" method="POST" enctype="multipart/form-data">
+            @csrf
             <nav class="menu
               col-md-12 desktop-hnav
               col-sm-6
@@ -71,37 +73,37 @@
                     <div>
                       <ul id="js-main-nav" class="nav nav__int main-nav account-menu_mobile">
                         <li class="completed">
-                          <a href="{{ url("#") }}" class="completed">
+                          <a href="{{ url('#') }}" class="completed">
                           Basic info
                           </a>
                         </li>
                         <li class="completed">
-                          <a href="{{ url("#") }}" class="completed">
+                          <a href="{{ url('#') }}" class="completed">
                           Layout and pricing
                           </a>
                         </li>
                         <li class="completed">
-                          <a href="{{ url("") }}" class="completed">
+                          <a href="{{ url('') }}" class="completed">
                           Facilities &amp; services
                           </a>
                         </li>
                         <li class="completed">
-                          <a href="{{ url("#") }}" class="completed" tabindex="-1">
+                          <a href="{{ url('#') }}" class="completed" tabindex="-1">
                           Amenities
                           </a>
                         </li>
                         <li class="active active selected">
-                          <a href="{{ url("#") }}" class="active active selected">
+                          <a href="{{ url('#') }}" class="active active selected">
                           Photos
                           </a>
                         </li>
                         <li class="disabled">
-                          <a href="{{ url("#") }}" class=" ">
+                          <a href="{{ url('#') }}" class=" ">
                           Policies
                           </a>
                         </li>
                         <li class="">
-                          <a href="{{ url("") }}" class=" ">
+                          <a href="{{ url('') }}" class=" ">
                           Payments
                           </a>
                         </li>
@@ -179,19 +181,19 @@
                             </p>
                             <div class="upload-form-button">
                               <p class="small">or</p>
-                              <a href="{{ url("#") }}" class="add_photos js-upload btn btn-primary">
+                              <a href="{{ url('#') }}" class="add_photos js-upload btn btn-primary">
                                 <i class="glyphicon glyphicon-picture"></i>
                                 Add photos
-                                <form method="POST" enctype="multipart/form-data"
+                                <div
                                   class="upload-form" data-batch-id="3" data-type="upload"
                                   data-json-action-upload="/json/uploadphotos.json?token=94b71f6f67320aa6efd34e21c86287239e9cb007"
                                   data-json-action-replace="/json/replacephoto.json?token=94b71f6f67320aa6efd34e21c86287239e9cb007">
                                   <span class="file-wrap">
-                                  <input id="fileUploadButton" type="file" name="file"
+                                  <input id="fileUploadButton" type="file" name="images[]"
                                     accept="image/png,image/jpeg" class="file"
-                                    multiple="">
+                                    multiple>
                                   </span>
-                                </form>
+                                </div>
                               </a>
                             </div>
                           </div>
@@ -230,15 +232,13 @@
                               Drag and drop your photos here
                             </p>
                             <p class="small">or</p>
-                            <a href="{{ url("#") }}" class="add_photos js-upload btn btn-primary">
+                            <a href="{{ url('#') }}" class="add_photos js-upload btn btn-primary">
                               <i class="glyphicon glyphicon-picture"></i>
                               Add photos
-                              <form method="POST" class="upload-form">
                                 <span class="file-wrap">
-                                <input id="fileUploadButton" type="file" name="file" class="file"
+                                <input id="fileUploadButton" type="file" name="images[]" class="file"
                                   multiple="" onchange="photoChange()">
                                 </span>
-                              </form>
                             </a>
                           </div>
                         </div>
@@ -253,14 +253,14 @@
                           <span class="handle-checkbox glyphicon glyphicon-ok hidden">
                           <input type="checkbox">
                           </span>
-                          <a href="{{ url("") }}"
+                          <a href="{{ url('') }}"
                             class="thumbnail thumbnail-newstyle grabbable thumbnail-bigger">
                             <div class="placeholder">
-                              <img src="{{ asset("/registration/static/images/loader.v2fb300dv.gif") }}"
+                              <img src="{{ asset('/registration/static/images/loader.v2fb300dv.gif') }}"
                                 style="opacity: 0.2;">
                               <p>One moment please – we're processing your photo.</p>
                             </div>
-                            <img src="{{ asset("/registration/data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7") }}"
+                            <img src="{{ asset('/registration/data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7') }}"
                               width="200" height="200" class="image-placeholder"
                               style="opacity: 0.2;">
                             <div class="thumbnail-inner-wrapper">
@@ -296,7 +296,7 @@
                           <p class="has-warnings-message">
                             <span class="warnings-message">Your photos will have the greatest
                             impact with guests if they're at least 840x460 pixels.</span>
-                            <a href="{{ url("#") }}"
+                            <a href="{{ url('#') }}"
                               class="replace-photo label label-warning js-change-photo"
                               data-replace-photo-id=""><i
                               class="glyphicon glyphicon-upload"></i> Replace photo</a>
@@ -313,7 +313,7 @@
                           <a href="/photo.html?token=d282774f5aab6dd982cbdf467b61e24aa42327bd&amp;photo_id=87722895"
                             class="thumbnail thumbnail-newstyle grabbable thumbnail-bigger">
                             <div class="placeholder">
-                              <img src="{{ asset("/registration/static/images/loader.v2fb300dv.gif") }}"
+                              <img src="{{ asset('/registration/static/images/loader.v2fb300dv.gif') }}"
                                 style="opacity: 1; display: block;">
                               <p>One moment please – we're processing your photo.</p>
                             </div>
@@ -355,7 +355,7 @@
                           <p class="has-warnings-message hidden">
                             <span class="warnings-message">Your photos will have the greatest
                             impact with guests if they're at least 840x460 pixels.</span>
-                            <a href="{{ url("#") }}"
+                            <a href="{{ url('#') }}"
                               class="replace-photo label label-warning js-change-photo"
                               data-replace-photo-id=""><i
                               class="glyphicon glyphicon-upload"></i> Replace photo</a>
@@ -376,7 +376,7 @@
                           <a href="/photo.html?token=d282774f5aab6dd982cbdf467b61e24aa42327bd&amp;photo_id=87723001"
                             class="thumbnail thumbnail-newstyle grabbable thumbnail-bigger">
                             <div class="placeholder">
-                              <img src="{{ asset("/registration/static/images/loader.v2fb300dv.gif") }}"
+                              <img src="{{ asset('/registration/static/images/loader.v2fb300dv.gif') }}"
                                 style="opacity: 1; display: block;">
                               <p>One moment please – we're processing your photo.</p>
                             </div>
@@ -418,7 +418,7 @@
                           <p class="has-warnings-message hidden">
                             <span class="warnings-message">Your photos will have the greatest
                             impact with guests if they're at least 840x460 pixels.</span>
-                            <a href="{{ url("#") }}"
+                            <a href="{{ url('#') }}"
                               class="replace-photo label label-warning js-change-photo"
                               data-replace-photo-id=""><i
                               class="glyphicon glyphicon-upload"></i> Replace photo</a>
@@ -447,7 +447,7 @@
                                 <span class="modal-description modal_link_inline"
                                   data-toggle="modal"
                                   data-target="#photo-upload-suggestions">
-                                <a href="{{ url("#") }}" id="photos_tips_link"
+                                <a href="{{ url('#') }}" id="photos_tips_link"
                                   data-track-ga="click_photos_donts">Guests love
                                 photos! Here are some tips to help you take
                                 great photos of your property:</a>
@@ -477,15 +477,13 @@
                     </p>
                   </div>
                 </div>
-                <form action="/photos.html?token=ec2ec29828d25fc1c6079d87d30fc51d57e61152" method="post"
-                  id="photos-form">
                   <div class="col-md-9 photo_width_bottom">
                     <input type="submit" class="btn btn-primary btn-lg btn-block save_and_proceed"
                       value="Continue">
                   </div>
-                </form>
               </div>
             </div>
+          </form>
           </div>
           <!-- /row -->
           <div class="clearfix"></div>
@@ -517,8 +515,8 @@
       </div>
       <!-- /Login Box -->
     </div>
-    <script src="{{ asset("/registration/assets/js/jquery-1.12.4.min.js") }}"></script>
-    <script src="{{ asset("/registration/assets/js/bootstrap.bundle.min.js") }}"></script>
-    <script src="{{ asset("/registration/assets/js/script.js") }}"></script>
+    <script src="{{ asset('/registration/assets/js/jquery-1.12.4.min.js') }}"></script>
+    <script src="{{ asset('/registration/assets/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('/registration/assets/js/script.js') }}"></script>
   </body>
 </html>

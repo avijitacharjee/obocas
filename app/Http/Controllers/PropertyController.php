@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Property;
 use App\Http\Requests\StorePropertyRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 
 class PropertyController extends Controller
 {
@@ -44,7 +46,6 @@ class PropertyController extends Controller
         foreach($values as $key=>$value){
             session([$key=>$value]);
         }
-        //dd(session()->all());
         return redirect('/property7');
     }
     public function property7(Request $request){
@@ -52,9 +53,29 @@ class PropertyController extends Controller
         foreach($values as $key=>$value){
             session([$key=>$value]);
         }
-        //dd(session()->all());
         return redirect('/property8');
-    }    
+    }
+    public function property8(Request $request){
+        return $this->saveImages($request->images);
+    }
+    public function saveImages($images){
+        if($images)
+        {
+            $imageNames='';
+            foreach($images as $image)
+            {
+                $extension = $image->extension();
+                $imageName = date("Y-m-d-h-i-s").Str::random(5).'.'.$extension;
+                //$image->store('property');
+                $imageFullName = 'images/'.$imageName;
+                Storage::disk('public')->put($imageFullName,$image);
+                $imageNames = $imageNames.$imageFullName.';';
+            }
+            return $imageNames;
+        }else {
+            return 'no images';
+        }
+    }
     /**
      * Display a listing of the resource.
      *
