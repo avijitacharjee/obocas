@@ -844,7 +844,7 @@
           @foreach($hotels as $hotel)
           <!-- Single Slider -->
           <li class="bui-carousel__item">
-            <div class="bui-card bui-card--media bui-card--transparent">
+            <a href="/" class="bui-card bui-card--media bui-card--transparent">
               <div class="bui-card__image-container bh-carousel--new__photo"
                 style="
                 background: url('{{asset('/storage')}}/{{explode(';',$hotel->property_images)[0]}}');
@@ -871,7 +871,7 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </a>
           </li>
           <!-- /Single Slider -->
           @endforeach
