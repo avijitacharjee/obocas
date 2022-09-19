@@ -25,6 +25,11 @@ Route::domain('admin.localhost')->group(function(){
         Route::get('bookings','bookings');
     });
 });
+
+Route::domain('hotel-admin.localhost')->group(function(){
+    Route::get('/',fn()=>view('hotel-admin.dashboard'));
+});
+
 Route::get('log-test', function () {
     $message = "Avijit";
     Log::channel('debug')->info($message);
