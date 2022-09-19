@@ -152,7 +152,7 @@
                                 <div class="bui-breadcrumb__text">
                                     <a href="#" class="bui-link bui-link--primary bui_breadcrumb__link"
                                         title="Hotels in Bangladesh">
-                                        Bangladesh
+                                        {{$property->country??'Bangladesh'}}
                                     </a>
                                 </div>
                             </li>
@@ -166,7 +166,7 @@
                                 <div class="bui-breadcrumb__text">
                                     <a href="#" class="bui-link bui-link--primary bui_breadcrumb__link"
                                         title="Hotels in Dhaka">
-                                        Dhaka
+                                        {{$property->city}}
                                     </a>
                                 </div>
                             </li>
@@ -181,7 +181,7 @@
                                     <div class="bui_breadcrumb__nolink">
                                         <h1>
                                             <a class="bui_breadcrumb__link_masked" href="#">
-                                                Nascent Gardenia Baridhara (Hotel), Dhaka (Bangladesh) Deals
+                                                {{$property->property_name}} ({{$property->property_type}}), {{$property->city}} (Bangladesh) Deals
                                             </a>
                                         </h1>
                                     </div>
@@ -193,10 +193,6 @@
             </div>
         </div>
         <!-- /Bradcrumb -->
-
-
-
-
         <div class="row">
 
             <!-- Left Side -->
@@ -219,9 +215,7 @@
                                 </span>
                             </h2>
                         </div>
-
                         <div class="sb-searchbox__row u-clearfix ">
-
                             <label class="sb-searchbox__label -main" for="ss">
                                 Destination/property name:
                             </label>
@@ -1532,8 +1526,7 @@
                                         data-bui-ref="dropdown-button" aria-haspopup="true" tabindex="0"
                                         id="share_center_btn">
                                         <i class="fa-solid fa-share-nodes"></i>
-                                        <h3 id="share_center_label" class="invisible_spoken"> Share Nascent Gardenia
-                                            Baridhara
+                                        <h3 id="share_center_label" class="invisible_spoken"> Share {{$property->property_name}}
                                         </h3>
                                     </button>
                                     <div class="bui-dropdown__content" data-bui-ref="dropdown-slot"
@@ -1601,7 +1594,7 @@
 
                             <div class="hp__hotel-title">
                                 <h2 class="hp__hotel-name" id="hp_hotel_name">
-                                    <span class="hp__hotel-type-badge">Hotel</span> Nascent Gardenia Baridhara
+                                    <span class="hp__hotel-type-badge">Hotel</span> {{$property->property_name}}
                                 </h2>
 
                                 <span class="hp__hotel_ratings">
@@ -1609,34 +1602,15 @@
                                         <span class="e36b9d9c39 a402fa53fd">
                                             <div class="d29be61cd3">
                                                 <span role="img" class="_bebcf8d60 _00b78c844">
-                                                    <span class="_3ae5d40db _617879812 _6ab38b430">
+                                                    @for($i=0;$i<5;$i++)
+                                                    <span class="_3ae5d40db _6ab38b430" style="fill: #a8a498;margin-left: 2px;margin-right: 0;{{$i<=$property->stars?'fill:#febb02;':''}};">
                                                         <svg viewBox="0 0 24 24">
                                                             <path
                                                                 d="M23.555 8.729a1.505 1.505 0 0 0-1.406-.98h-6.087a.5.5 0 0 1-.472-.334l-2.185-6.193a1.5 1.5 0 0 0-2.81 0l-.005.016-2.18 6.177a.5.5 0 0 1-.471.334H1.85A1.5 1.5 0 0 0 .887 10.4l5.184 4.3a.5.5 0 0 1 .155.543l-2.178 6.531a1.5 1.5 0 0 0 2.31 1.684l5.346-3.92a.5.5 0 0 1 .591 0l5.344 3.919a1.5 1.5 0 0 0 2.312-1.683l-2.178-6.535a.5.5 0 0 1 .155-.543l5.194-4.306a1.5 1.5 0 0 0 .433-1.661z">
                                                             </path>
                                                         </svg>
                                                     </span>
-                                                    <span class="_3ae5d40db _617879812 _6ab38b430">
-                                                        <svg viewBox="0 0 24 24">
-                                                            <path
-                                                                d="M23.555 8.729a1.505 1.505 0 0 0-1.406-.98h-6.087a.5.5 0 0 1-.472-.334l-2.185-6.193a1.5 1.5 0 0 0-2.81 0l-.005.016-2.18 6.177a.5.5 0 0 1-.471.334H1.85A1.5 1.5 0 0 0 .887 10.4l5.184 4.3a.5.5 0 0 1 .155.543l-2.178 6.531a1.5 1.5 0 0 0 2.31 1.684l5.346-3.92a.5.5 0 0 1 .591 0l5.344 3.919a1.5 1.5 0 0 0 2.312-1.683l-2.178-6.535a.5.5 0 0 1 .155-.543l5.194-4.306a1.5 1.5 0 0 0 .433-1.661z">
-                                                            </path>
-                                                        </svg>
-                                                    </span>
-                                                    <span class="_3ae5d40db _617879812 _6ab38b430">
-                                                        <svg viewBox="0 0 24 24">
-                                                            <path
-                                                                d="M23.555 8.729a1.505 1.505 0 0 0-1.406-.98h-6.087a.5.5 0 0 1-.472-.334l-2.185-6.193a1.5 1.5 0 0 0-2.81 0l-.005.016-2.18 6.177a.5.5 0 0 1-.471.334H1.85A1.5 1.5 0 0 0 .887 10.4l5.184 4.3a.5.5 0 0 1 .155.543l-2.178 6.531a1.5 1.5 0 0 0 2.31 1.684l5.346-3.92a.5.5 0 0 1 .591 0l5.344 3.919a1.5 1.5 0 0 0 2.312-1.683l-2.178-6.535a.5.5 0 0 1 .155-.543l5.194-4.306a1.5 1.5 0 0 0 .433-1.661z">
-                                                            </path>
-                                                        </svg>
-                                                    </span>
-                                                    <span class="_3ae5d40db _617879812 _6ab38b430">
-                                                        <svg viewBox="0 0 24 24">
-                                                            <path
-                                                                d="M23.555 8.729a1.505 1.505 0 0 0-1.406-.98h-6.087a.5.5 0 0 1-.472-.334l-2.185-6.193a1.5 1.5 0 0 0-2.81 0l-.005.016-2.18 6.177a.5.5 0 0 1-.471.334H1.85A1.5 1.5 0 0 0 .887 10.4l5.184 4.3a.5.5 0 0 1 .155.543l-2.178 6.531a1.5 1.5 0 0 0 2.31 1.684l5.346-3.92a.5.5 0 0 1 .591 0l5.344 3.919a1.5 1.5 0 0 0 2.312-1.683l-2.178-6.535a.5.5 0 0 1 .155-.543l5.194-4.306a1.5 1.5 0 0 0 .433-1.661z">
-                                                            </path>
-                                                        </svg>
-                                                    </span>
+                                                    @endfor
                                                 </span>
                                             </div>
                                         </span>
@@ -1650,7 +1624,7 @@
                             <p class="address address_clean">
                                 <i class="fa-solid fa-map-location-dot"></i>
                                 <span class="hp_address_subtitle js-hp_address_subtitle">
-                                    27 Park Road, Baridhara Diplomatic Zone, 1212 Dhaka, Bangladesh
+                                    {{$property->address}} , {{$property->city}}
                                 </span>
                             </p>
                         </div>
@@ -1681,7 +1655,7 @@
                                 </div>
                                 <div class="col-lg-8 col-md-12 pl-md-0">
                                     <a href="#" class="bh-photo-grid-item bh-photo-grid-photo1 active-image "
-                                        style="background-image: url({{asset('frontend/assets/images/galllery-1.jpg')}});" title="">
+                                        style="background-image: url('{{asset('/storage')}}/{{explode(';',$property->property_images)[0]}}');" title="">
                                         <img src="{{asset('frontend/assets/images/galllery-1.jpg')}}" class="hide" alt="">
                                     </a>
                                 </div>
@@ -1942,7 +1916,7 @@
                                             <li class="cheapest-info-item">
                                                 <div>
                                                     <a class="txp-group-cta bui-button bui-button--primary bui-button--large bui-button--wide s-grup-rcommendation-reserve-btn"
-                                                        href="#">
+                                                        href="/booking2">
                                                         <span class="bui-button__text">
                                                             Reserve
                                                         </span>
@@ -2010,97 +1984,105 @@
                             </div>
                         </div>
 
-                        <div class="bui-grid__column bui-grid__column-12 js-k2-hp--block k2-hp--popular_facilities">
-                            <div class="hp_desc_important_facilities clearfix hp_desc_important_facilities--bui ">
-                                <h3 class="bui-f-font-heading">
-                                    Most popular facilities
-                                </h3>
-
-                                <div class="important_facility">
-                                    <svg class="bk-icon -iconset-shuttle hp__important_facility_icon" height="20"
-                                        width="20" viewBox="0 0 128 128">
-                                        <path
-                                            d="M92 100a10 10 0 1 1-10 10 10 10 0 0 1 10-10zm-66 10a10 10 0 1 0 10-10 10 10 0 0 0-10 10zM16 56h88.2a8 8 0 0 1 7.6 5.5l7.8 26.3a8 8 0 0 1 .4 2.5V106a6 6 0 0 1-6 6h-6.1a16 16 0 1 0-31.8 0H52a16 16 0 1 0-31.8 0H16a8 8 0 0 1-8-8V64a8 8 0 0 1 8-8zm72 24l25 8-7-24H88zm-24 0h16V64H64zm-24 0h16V64H40zm-24 0h16V64H16zm28.2-44.6l8 4.5 4.4 8a.4.4 0 0 0 .6 0l1-1a.4.4 0 0 0 0-.3V37l6.5-5.9L76.1 46a1.4 1.4 0 0 0 2 .4l1-.5a1.4 1.4 0 0 0 .5-1.8L72 24.2l9-8.4a10.2 10.2 0 0 0 3-6.4A1.4 1.4 0 0 0 82.6 8a10.2 10.2 0 0 0-6.5 2.9L67.6 20l-19.8-7.5a1.4 1.4 0 0 0-1.8.6l-.5 1A1.4 1.4 0 0 0 46 16l15 11.5-5.8 6.2h-9.7a.4.4 0 0 0-.3.1l-1 1a.4.4 0 0 0 0 .6z">
-                                        </path>
-                                    </svg> Airport shuttle (free)
+                        <!-- Most Popular Faclities -->
+                        <div class="col-12">
+                            <div class="hotel-facilities__most-popular bui-spacer--larger">
+                                <div class="hp_desc_important_facilities clearfix hp_desc_important_facilities--bui ">
+                                    <h3 class="bui-f-font-heading">
+                                        Most popular facilities
+                                    </h3>
+                                    <div class="important_facility">
+                                        <svg class="bk-icon -iconset-shuttle hp__important_facility_icon" height="20"
+                                            width="20" viewBox="0 0 128 128">
+                                            <path
+                                                d="M92 100a10 10 0 1 1-10 10 10 10 0 0 1 10-10zm-66 10a10 10 0 1 0 10-10 10 10 0 0 0-10 10zM16 56h88.2a8 8 0 0 1 7.6 5.5l7.8 26.3a8 8 0 0 1 .4 2.5V106a6 6 0 0 1-6 6h-6.1a16 16 0 1 0-31.8 0H52a16 16 0 1 0-31.8 0H16a8 8 0 0 1-8-8V64a8 8 0 0 1 8-8zm72 24l25 8-7-24H88zm-24 0h16V64H64zm-24 0h16V64H40zm-24 0h16V64H16zm28.2-44.6l8 4.5 4.4 8a.4.4 0 0 0 .6 0l1-1a.4.4 0 0 0 0-.3V37l6.5-5.9L76.1 46a1.4 1.4 0 0 0 2 .4l1-.5a1.4 1.4 0 0 0 .5-1.8L72 24.2l9-8.4a10.2 10.2 0 0 0 3-6.4A1.4 1.4 0 0 0 82.6 8a10.2 10.2 0 0 0-6.5 2.9L67.6 20l-19.8-7.5a1.4 1.4 0 0 0-1.8.6l-.5 1A1.4 1.4 0 0 0 46 16l15 11.5-5.8 6.2h-9.7a.4.4 0 0 0-.3.1l-1 1a.4.4 0 0 0 0 .6z">
+                                            </path>
+                                        </svg>
+                                        Airport shuttle (free)
+                                    </div>
+                                    @if($property->facility_wifi=="on")
+                                    <div class="important_facility">
+                                        <svg class="bk-icon -iconset-wifi hp__important_facility_icon" height="20"
+                                            width="20" viewBox="0 0 128 128">
+                                            <circle cx="64" cy="100" r="12"></circle>
+                                            <path
+                                                d="M118.3 32.7A94.9 94.9 0 0 0 64 16 94.9 94.9 0 0 0 9.7 32.7a4 4 0 1 0 4.6 6.6A87 87 0 0 1 64 24a87 87 0 0 1 49.7 15.3 4 4 0 1 0 4.6-6.6zM87.7 68.4a54.9 54.9 0 0 0-47.4 0 4 4 0 0 0 3.4 7.2 47 47 0 0 1 40.6 0 4 4 0 0 0 3.4-7.2z">
+                                            </path>
+                                            <path
+                                                d="M104 50.5a81.2 81.2 0 0 0-80 0 4 4 0 0 0 4 7 73.2 73.2 0 0 1 72 0 4 4 0 0 0 4-7z">
+                                            </path>
+                                        </svg>
+                                        Free WiFi
+                                    </div>
+                                    @endif
+                                    <div class="important_facility">
+                                        <svg class="bk-icon -iconset-fitness hp__important_facility_icon" height="20"
+                                            width="20" viewBox="0 0 128 128">
+                                            <path
+                                                d="M80 85.6L42.4 48l5.6-5.6L85.6 80zM13.2 19a4 4 0 1 0 5.7-5.7l-4-4A4 4 0 0 0 9.2 15zM56 8l-8 8-8-8L8 40l8 8-8 8 8.1 8.1 48-48zm58.9 101.1a4 4 0 1 0-5.7 5.7l4 4a4 4 0 1 0 5.7-5.7zm5.2-37l-8.1-8.2-48 48 8.2 8.1 8-8 8 8 32-32-8-8z">
+                                            </path>
+                                        </svg>
+                                        Fitness center
+                                    </div>
+                                    @if($property->facility_non_smoking_rooms=="on")
+                                    <div class="important_facility">
+                                        <svg class="bk-icon -iconset-nosmoking hp__important_facility_icon" height="20"
+                                            width="20" viewBox="0 0 128 128">
+                                            <path
+                                                d="M64 8a56 56 0 1 0 56 56A56 56 0 0 0 64 8zm0 104a48 48 0 0 1-36.6-79l31 31H28v8h38.3L95 100.6A47.8 47.8 0 0 1 64 112zm36.6-17l-23-23H84v-8H69.7L33 27.4A48 48 0 0 1 100.6 95zM92 64h8v8h-8zm0-10c0-7.7-5.9-14-13.2-14H78a2 2 0 0 1-2-2 10 10 0 0 0-10-10h-8a2 2 0 0 1 0-4h8a14 14 0 0 1 13.8 12c9 .6 16.2 8.4 16.2 18a2 2 0 0 1-4 0zm-8 0a2 2 0 0 1-4 0 2 2 0 0 0-2-2h-3a15 15 0 0 1-15-15 2 2 0 0 1 4 0 11 11 0 0 0 11 11h3a6 6 0 0 1 6 6z">
+                                            </path>
+                                        </svg>
+                                        Non-smoking rooms
+                                    </div>
+                                    @endif
+                                    @if($property->facility_room_service)
+                                    <div class="important_facility">
+                                        <svg class="bk-icon -iconset-gourmet hp__important_facility_icon" height="20"
+                                            width="20" viewBox="0 0 128 128">
+                                            <path
+                                                d="M112 68a4 4 0 0 1-4 4H20a4 4 0 0 1 0-8h88a4 4 0 0 1 4 4zM26 56h76a2 2 0 0 0 2-2.1 40 40 0 0 0-32-37.1V16a8 8 0 0 0-16 0v.8a40 40 0 0 0-32 37 2 2 0 0 0 2 2.2zm77 24s-27 6-42.7 0C53.6 80 42 83 36 88s-20 15.5-20 15.5L32 120l19.8-19a12 12 0 0 1 8.5-3.5L81.7 96a4 4 0 0 0 2.4-.8l20.1-11.6A2 2 0 0 0 103 80z">
+                                            </path>
+                                        </svg>
+                                        Room service
+                                    </div>
+                                    @endif
+                                    @if($property->facility_restaurant)
+                                    <div class="important_facility">
+                                        <svg class="bk-icon -iconset-food hp__important_facility_icon" height="20"
+                                            width="20" viewBox="0 0 128 128">
+                                            <path
+                                                d="M44.1 8.9L48 44a12 12 0 0 1-12 12h-3.6l3.4 59.8a4 4 0 0 1-4 4.2h-7.6a4 4 0 0 1-4-4.2L23.6 56H20A12 12 0 0 1 8 44l3.9-35.1a1 1 0 0 1 1-.9H15a1 1 0 0 1 1 1v19a4 4 0 0 0 4 4h4.8L26 9a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1l1.2 23H36a4 4 0 0 0 4-4V9a1 1 0 0 1 1-1h2.1a1 1 0 0 1 1 .9zM60 24v48h8l-3.8 43.8a4 4 0 0 0 4 4.2h7.6a4 4 0 0 0 4-4.2L80 8h-4a16 16 0 0 0-16 16zm60 8c0-13.3-7.2-24-16-24S88 18.8 88 32c0 11 5 20.2 11.6 23l-3.4 60.8a4 4 0 0 0 4 4.2h7.6a4 4 0 0 0 4-4.2L108.4 55c6.7-2.8 11.6-12 11.6-23z">
+                                            </path>
+                                        </svg>
+                                        Restaurant
+                                    </div>
+                                    @endif
+                                    <div class="important_facility">
+                                        <svg class="bk-icon -iconset-tea_maker hp__important_facility_icon" height="20"
+                                            width="20" viewBox="0 0 128 128">
+                                            <path
+                                                d="M102 40H58a2 2 0 0 0-2 2v46a8 8 0 0 0 8 8h32a8 8 0 0 0 8-8v-.4a20 20 0 0 0 0-39.2V42a2 2 0 0 0-2-2zM73 80a4 4 0 0 1-8 0V56a4 4 0 0 1 8 0zm39-12a12 12 0 0 1-8 11.3V56.7a12 12 0 0 1 8 11.3zm0-60H16a8 8 0 0 0-8 8v96a8 8 0 0 0 8 8h96a8 8 0 0 0 8-8v-6a2 2 0 0 0-2-2H50a2 2 0 0 1-2-2V26a2 2 0 0 1 2-2h14v8h32v-8h22a2 2 0 0 0 2-2v-6a8 8 0 0 0-8-8zM28 64a8 8 0 1 1 8-8 8 8 0 0 1-8 8zm0-24a8 8 0 1 1 8-8 8 8 0 0 1-8 8z">
+                                            </path>
+                                        </svg>
+                                        Tea/Coffee Maker in All Rooms
+                                    </div>
+                                    <div class="important_facility">
+                                        <svg class="bk-icon -iconset-coffee hp__important_facility_icon" height="20"
+                                            width="20" viewBox="0 0 128 128">
+                                            <path
+                                                d="M104 116a4 4 0 0 1-4 4H28a4 4 0 0 1 0-8h72a4 4 0 0 1 4 4zM40 96V50a2 2 0 0 1 2-2h44a2 2 0 0 1 2 2v6.4a20 20 0 0 1 0 39.2v.4a8 8 0 0 1-8 8H48a8 8 0 0 1-8-8zm48-31.3v22.6a12 12 0 0 0 0-22.6zM49 88a4 4 0 0 0 8 0V64a4 4 0 0 0-8 0zm-1-52a4 4 0 0 0 4-4V16a4 4 0 0 0-8 0v16a4 4 0 0 0 4 4zm16 4a4 4 0 0 0 4-4V12a4 4 0 0 0-8 0v24a4 4 0 0 0 4 4zm16-4a4 4 0 0 0 4-4V16a4 4 0 0 0-8 0v16a4 4 0 0 0 4 4z">
+                                            </path>
+                                        </svg>
+                                        Breakfast
+                                    </div>
+                                    <div class="important_facility  important_facility--cribs">
+                                        <i class="important_facility--cribs__icon bicon-babycot"></i>
+                                        Cribs (upon request)
+                                    </div>
                                 </div>
-
-                                <div class="important_facility">
-                                    <svg class="bk-icon -iconset-wifi hp__important_facility_icon" height="20"
-                                        width="20" viewBox="0 0 128 128">
-                                        <circle cx="64" cy="100" r="12"></circle>
-                                        <path
-                                            d="M118.3 32.7A94.9 94.9 0 0 0 64 16 94.9 94.9 0 0 0 9.7 32.7a4 4 0 1 0 4.6 6.6A87 87 0 0 1 64 24a87 87 0 0 1 49.7 15.3 4 4 0 1 0 4.6-6.6zM87.7 68.4a54.9 54.9 0 0 0-47.4 0 4 4 0 0 0 3.4 7.2 47 47 0 0 1 40.6 0 4 4 0 0 0 3.4-7.2z">
-                                        </path>
-                                        <path
-                                            d="M104 50.5a81.2 81.2 0 0 0-80 0 4 4 0 0 0 4 7 73.2 73.2 0 0 1 72 0 4 4 0 0 0 4-7z">
-                                        </path>
-                                    </svg>
-                                    Free WiFi
-                                </div>
-
-                                <div class="important_facility">
-                                    <svg class="bk-icon -iconset-fitness hp__important_facility_icon" height="20"
-                                        width="20" viewBox="0 0 128 128">
-                                        <path
-                                            d="M80 85.6L42.4 48l5.6-5.6L85.6 80zM13.2 19a4 4 0 1 0 5.7-5.7l-4-4A4 4 0 0 0 9.2 15zM56 8l-8 8-8-8L8 40l8 8-8 8 8.1 8.1 48-48zm58.9 101.1a4 4 0 1 0-5.7 5.7l4 4a4 4 0 1 0 5.7-5.7zm5.2-37l-8.1-8.2-48 48 8.2 8.1 8-8 8 8 32-32-8-8z">
-                                        </path>
-                                    </svg>
-                                    Fitness center
-                                </div>
-
-                                <div class="important_facility">
-                                    <svg class="bk-icon -iconset-nosmoking hp__important_facility_icon" height="20"
-                                        width="20" viewBox="0 0 128 128">
-                                        <path
-                                            d="M64 8a56 56 0 1 0 56 56A56 56 0 0 0 64 8zm0 104a48 48 0 0 1-36.6-79l31 31H28v8h38.3L95 100.6A47.8 47.8 0 0 1 64 112zm36.6-17l-23-23H84v-8H69.7L33 27.4A48 48 0 0 1 100.6 95zM92 64h8v8h-8zm0-10c0-7.7-5.9-14-13.2-14H78a2 2 0 0 1-2-2 10 10 0 0 0-10-10h-8a2 2 0 0 1 0-4h8a14 14 0 0 1 13.8 12c9 .6 16.2 8.4 16.2 18a2 2 0 0 1-4 0zm-8 0a2 2 0 0 1-4 0 2 2 0 0 0-2-2h-3a15 15 0 0 1-15-15 2 2 0 0 1 4 0 11 11 0 0 0 11 11h3a6 6 0 0 1 6 6z">
-                                        </path>
-                                    </svg> Non-smoking rooms
-                                </div>
-
-                                <div class="important_facility">
-                                    <svg class="bk-icon -iconset-gourmet hp__important_facility_icon" height="20"
-                                        width="20" viewBox="0 0 128 128">
-                                        <path
-                                            d="M112 68a4 4 0 0 1-4 4H20a4 4 0 0 1 0-8h88a4 4 0 0 1 4 4zM26 56h76a2 2 0 0 0 2-2.1 40 40 0 0 0-32-37.1V16a8 8 0 0 0-16 0v.8a40 40 0 0 0-32 37 2 2 0 0 0 2 2.2zm77 24s-27 6-42.7 0C53.6 80 42 83 36 88s-20 15.5-20 15.5L32 120l19.8-19a12 12 0 0 1 8.5-3.5L81.7 96a4 4 0 0 0 2.4-.8l20.1-11.6A2 2 0 0 0 103 80z">
-                                        </path>
-                                    </svg> Room service
-                                </div>
-
-                                <div class="important_facility">
-                                    <svg class="bk-icon -iconset-food hp__important_facility_icon" height="20"
-                                        width="20" viewBox="0 0 128 128">
-                                        <path
-                                            d="M44.1 8.9L48 44a12 12 0 0 1-12 12h-3.6l3.4 59.8a4 4 0 0 1-4 4.2h-7.6a4 4 0 0 1-4-4.2L23.6 56H20A12 12 0 0 1 8 44l3.9-35.1a1 1 0 0 1 1-.9H15a1 1 0 0 1 1 1v19a4 4 0 0 0 4 4h4.8L26 9a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1l1.2 23H36a4 4 0 0 0 4-4V9a1 1 0 0 1 1-1h2.1a1 1 0 0 1 1 .9zM60 24v48h8l-3.8 43.8a4 4 0 0 0 4 4.2h7.6a4 4 0 0 0 4-4.2L80 8h-4a16 16 0 0 0-16 16zm60 8c0-13.3-7.2-24-16-24S88 18.8 88 32c0 11 5 20.2 11.6 23l-3.4 60.8a4 4 0 0 0 4 4.2h7.6a4 4 0 0 0 4-4.2L108.4 55c6.7-2.8 11.6-12 11.6-23z">
-                                        </path>
-                                    </svg> Restaurant
-                                </div>
-
-                                <div class="important_facility">
-                                    <svg class="bk-icon -iconset-tea_maker hp__important_facility_icon" height="20"
-                                        width="20" viewBox="0 0 128 128">
-                                        <path
-                                            d="M102 40H58a2 2 0 0 0-2 2v46a8 8 0 0 0 8 8h32a8 8 0 0 0 8-8v-.4a20 20 0 0 0 0-39.2V42a2 2 0 0 0-2-2zM73 80a4 4 0 0 1-8 0V56a4 4 0 0 1 8 0zm39-12a12 12 0 0 1-8 11.3V56.7a12 12 0 0 1 8 11.3zm0-60H16a8 8 0 0 0-8 8v96a8 8 0 0 0 8 8h96a8 8 0 0 0 8-8v-6a2 2 0 0 0-2-2H50a2 2 0 0 1-2-2V26a2 2 0 0 1 2-2h14v8h32v-8h22a2 2 0 0 0 2-2v-6a8 8 0 0 0-8-8zM28 64a8 8 0 1 1 8-8 8 8 0 0 1-8 8zm0-24a8 8 0 1 1 8-8 8 8 0 0 1-8 8z">
-                                        </path>
-                                    </svg> Tea/Coffee Maker in All Rooms
-                                </div>
-
-                                <div class=" important_facility">
-                                    <svg class="bk-icon -iconset-coffee hp__important_facility_icon" height="20"
-                                        width="20" viewBox="0 0 128 128">
-                                        <path
-                                            d="M104 116a4 4 0 0 1-4 4H28a4 4 0 0 1 0-8h72a4 4 0 0 1 4 4zM40 96V50a2 2 0 0 1 2-2h44a2 2 0 0 1 2 2v6.4a20 20 0 0 1 0 39.2v.4a8 8 0 0 1-8 8H48a8 8 0 0 1-8-8zm48-31.3v22.6a12 12 0 0 0 0-22.6zM49 88a4 4 0 0 0 8 0V64a4 4 0 0 0-8 0zm-1-52a4 4 0 0 0 4-4V16a4 4 0 0 0-8 0v16a4 4 0 0 0 4 4zm16 4a4 4 0 0 0 4-4V12a4 4 0 0 0-8 0v24a4 4 0 0 0 4 4zm16-4a4 4 0 0 0 4-4V16a4 4 0 0 0-8 0v16a4 4 0 0 0 4 4z">
-                                        </path>
-                                    </svg> Breakfast
-                                </div>
-
-                                <div class="important_facility  important_facility--cribs">
-                                    <i class="important_facility--cribs__icon bicon-babycot"></i>
-                                    Cribs (upon request)
-                                </div>
-
                             </div>
                         </div>
+                        <!-- Most Popular Faclities -->
                     </div>
 
                     <div class="col-lg-4 mt-md-3">
@@ -3201,7 +3183,7 @@
                         <div id="HotelFacilities" class="hotel-facilities__header bui-spacer--larger">
                             <div class="bui-title hotel-facilities__header_title">
                                 <strong class="bui-title__text bui-f-font-display_two">
-                                    Facilities of Nascent Gardenia Baridhara
+                                    Facilities of {{$property->property_name}}
                                 </strong>
                             </div>
                             <button class="bui-button bui-button--primary hp-scroll-up-to-dates"
@@ -3230,6 +3212,7 @@
                                     </svg>
                                     Airport shuttle (free)
                                 </div>
+                                @if($property->facility_wifi=="on")
                                 <div class="important_facility">
                                     <svg class="bk-icon -iconset-wifi hp__important_facility_icon" height="20"
                                         width="20" viewBox="0 0 128 128">
@@ -3243,6 +3226,7 @@
                                     </svg>
                                     Free WiFi
                                 </div>
+                                @endif
                                 <div class="important_facility">
                                     <svg class="bk-icon -iconset-fitness hp__important_facility_icon" height="20"
                                         width="20" viewBox="0 0 128 128">
@@ -3252,6 +3236,7 @@
                                     </svg>
                                     Fitness center
                                 </div>
+                                @if($property->facility_non_smoking_rooms=="on")
                                 <div class="important_facility">
                                     <svg class="bk-icon -iconset-nosmoking hp__important_facility_icon" height="20"
                                         width="20" viewBox="0 0 128 128">
@@ -3261,6 +3246,8 @@
                                     </svg>
                                     Non-smoking rooms
                                 </div>
+                                @endif
+                                @if($property->facility_room_service)
                                 <div class="important_facility">
                                     <svg class="bk-icon -iconset-gourmet hp__important_facility_icon" height="20"
                                         width="20" viewBox="0 0 128 128">
@@ -3270,6 +3257,8 @@
                                     </svg>
                                     Room service
                                 </div>
+                                @endif
+                                @if($property->facility_restaurant)
                                 <div class="important_facility">
                                     <svg class="bk-icon -iconset-food hp__important_facility_icon" height="20"
                                         width="20" viewBox="0 0 128 128">
@@ -3279,6 +3268,7 @@
                                     </svg>
                                     Restaurant
                                 </div>
+                                @endif
                                 <div class="important_facility">
                                     <svg class="bk-icon -iconset-tea_maker hp__important_facility_icon" height="20"
                                         width="20" viewBox="0 0 128 128">
@@ -3593,7 +3583,7 @@
                                 </button>
                                 House rules
                                 <span class="hp-section-header__subtitle">
-                                    Nascent Gardenia Baridhara takes special requests - add in the next step!
+                                    {{$property->property_name}} takes special requests - add in the next step!
                                 </span>
                             </h2>
                         </div>
@@ -3624,10 +3614,10 @@
                                                 style="left:58.333333333333336%; width:42%"></span>
                                         </span>
                                         <span class="timebar__label" style="left: 58.3333%; margin-left: -21px;">
-                                            2:00&nbsp;PM
+                                            {{$property->checkin_start_preset}}&nbsp;PM
                                         </span>
                                         <span class="timebar__caption" style="left: 79.3333%; margin-left: -47.5px;">
-                                            From 2:00&nbsp;PM
+                                            From {{$property->checkin_start_preset}}&nbsp;PM
                                             <span class="timebar__caption-pointer"></span>
                                         </span>
                                     </span>
@@ -3661,11 +3651,11 @@
 
 
                                         <span class="timebar__label"
-                                            style="left: 52.0833%; margin-left: -24.5px;">12:30&nbsp;PM</span>
+                                            style="left: 52.0833%; margin-left: -24.5px;">{{$property->checkout_end_preset}}&nbsp;AM</span>
 
 
                                         <span class="timebar__caption" style="left: 26.0417%; margin-left: -49.5px;">
-                                            Until 12:30&nbsp;PM
+                                            Until {{$property->checkout_end_preset}}&nbsp;AM
                                             <span class="timebar__caption-pointer"></span></span>
 
                                     </span>
@@ -3730,21 +3720,32 @@
 
                                     <p aria-label="Accepted payment methods and conditions"
                                         class="payment_methods_overall" rel="300">
+                                        @if(in_array(3,explode(',',$property->cc_id)))
                                         <img src="{{asset('frontend/assets/images/icon/master-card.png')}}"
                                             class="payment_methods_readability ppd_payment_methods_readability creditcard euromastercard"
                                             alt="Mastercard" title="Mastercard">
+                                        @endif
+                                        @if(in_array(2,explode(',',$property->cc_id)))
                                         <img src="{{asset('frontend/assets/images/icon/unionpay-card.png')}}"
                                             class="payment_methods_readability ppd_payment_methods_readability creditcard visa"
                                             alt="Visa" title="Visa">
+                                        @endif
+                                        @if(in_array(44,explode(',',$property->cc_id)))
                                         <img src="{{asset('frontend/assets/images/icon/amirican-card.png')}}"
                                             class="payment_methods_readability ppd_payment_methods_readability creditcard unionpaycreditcard"
                                             alt="UnionPay credit card" title="UnionPay credit card">
+                                        @endif
+                                        @if(in_array(7,explode(',',$property->cc_id)))
                                         <img src="{{asset('frontend/assets/images/icon/usb-card.png')}}"
                                             class="payment_methods_readability ppd_payment_methods_readability creditcard jcb"
                                             alt="JCB" title="JCB">
+                                        @endif
+                                        @if(in_array(1,explode(',',$property->cc_id)))
                                         <img src="{{asset('frontend/assets/images/icon/visa-card.png')}}"
                                             class="payment_methods_readability ppd_payment_methods_readability creditcard americanexpress"
                                             alt="American Express" title="American Express">
+                                        @endif
+
                                     </p>
 
                                 </div>

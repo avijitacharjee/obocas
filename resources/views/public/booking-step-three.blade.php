@@ -589,7 +589,7 @@
                                                         </div>
                                                     </div>
                                                     <h1 class="bui-card__title bui-text--variant-headline_3">
-                                                        Nascent Gardenia Baridhara
+                                                        {{$property->property_name}}
                                                     </h1>
                                                 </div>
 
@@ -597,8 +597,7 @@
                                                     <div>
                                                         <div class="bui-spacer--smaller">
                                                             <address class="bp-property-details__address">
-                                                                27 Park Road, Baridhara Diplomatic Zone,
-                                                                1212 Dhaka, Bangladesh
+                                                                {{$property->address}}, {{$property->city}}
                                                             </address>
                                                         </div>
                                                         <div class="bui-f-font-caption bui-f-color-constructive">
@@ -669,12 +668,11 @@
                         </div>
                         <!-- top -->
                         <!-- Form -->
+                        <form class="book-form" action="/booking3" method="POST">
+                        @csrf
                         <div class="row mt-5">
                             <div class="col-12">
-                                <form class="book-form" action="#" method="post">
-
                                     <div class="row">
-
                                         <div class="col-12">
                                             <section class="bui-card bp-card--user-details bg_form">
                                                 <div class="bui-card__content">
@@ -707,12 +705,12 @@
                                                                     <abbr class="mandatory-asterisk"
                                                                         title="Required">*</abbr>
                                                                 </label>
-                                                                <select name=""
+                                                                <select name="country"
                                                                     class="bp_form__field bp_input_select bp_form__field__input bp-field-container--w-60"
                                                                     required="">
-                                                                    <option value="">-- Select --
+                                                                    <option value="0">-- Select --
                                                                     </option>
-                                                                    <option value="MasterCard">
+                                                                    <option value="1">
                                                                         Bangladesh
                                                                     </option>
 
@@ -850,7 +848,7 @@
                                                                     <abbr class="mandatory-asterisk"
                                                                         title="Required">*</abbr>
                                                                 </label>
-                                                                <input type="text" name="firstname"
+                                                                <input type="text" name="card_name"
                                                                     class="bp_input_text bp_form__field__input" value=""
                                                                     size="20">
                                                             </div>
@@ -862,7 +860,7 @@
                                                                     <abbr class="mandatory-asterisk"
                                                                         title="Required">*</abbr>
                                                                 </label>
-                                                                <select name=""
+                                                                <select name="card_type"
                                                                     class="bp_form__field bp_input_select bp_form__field__input bp-field-container--w-60"
                                                                     required="">
                                                                     <option value="">-- Select --
@@ -893,7 +891,7 @@
                                                                     <abbr class="mandatory-asterisk"
                                                                         title="Required">*</abbr>
                                                                 </label>
-                                                                <input type="text" name=""
+                                                                <input type="text" name="card_number"
                                                                     class="bp_input_text bp_form__field__input" value=""
                                                                     size="20">
                                                             </div>
@@ -905,7 +903,7 @@
                                                                     <abbr class="mandatory-asterisk"
                                                                         title="Required">*</abbr>
                                                                 </label>
-                                                                <input type="date" name="firstname"
+                                                                <input type="date" name="card_expiry_date"
                                                                     class="bp_input_text bp_form__field__input" value=""
                                                                     size="20">
                                                             </div>
@@ -917,7 +915,7 @@
 
                                     </div>
 
-                                </form>
+                        
                             </div>
                         </div>
                         <!-- Form -->
@@ -971,6 +969,7 @@
 
                             </div>
                         </div>
+                        </form>
                     </div>
                 </div>
             </div>

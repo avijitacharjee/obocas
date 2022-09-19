@@ -194,7 +194,7 @@
                                     <label
                                       class="checkbox creditcard americanexpress cc_break"
                                       for="cc_id_1">
-                                    <input type="checkbox" name="cc_id" id="cc_id_1"
+                                    <input type="checkbox" name="cc_id[]" id="cc_id_1"
                                       value="1">
                                     American Express
                                     </label>
@@ -203,7 +203,7 @@
                                   <div class="col-sm-6">
                                     <label class="checkbox creditcard visa "
                                       for="cc_id_2">
-                                    <input type="checkbox" name="cc_id" id="cc_id_2"
+                                    <input type="checkbox" name="cc_id[]" id="cc_id_2"
                                       value="2">
                                     Visa
                                     </label>
@@ -212,7 +212,7 @@
                                   <div class="col-sm-6">
                                     <label class="checkbox creditcard euromastercard "
                                       for="cc_id_3">
-                                    <input type="checkbox" name="cc_id" id="cc_id_3"
+                                    <input type="checkbox" name="cc_id[]" id="cc_id_3"
                                       value="3">
                                     Euro/Mastercard
                                     </label>
@@ -221,7 +221,7 @@
                                   <div class="col-sm-6">
                                     <label class="checkbox creditcard dinersclub "
                                       for="cc_id_5">
-                                    <input type="checkbox" name="cc_id" id="cc_id_5"
+                                    <input type="checkbox" name="cc_id[]" id="cc_id_5"
                                       value="5">
                                     Diners Club
                                     </label>
@@ -230,7 +230,7 @@
                                   <div class="col-sm-6">
                                     <label class="checkbox creditcard jcb "
                                       for="cc_id_7">
-                                    <input type="checkbox" name="cc_id" id="cc_id_7"
+                                    <input type="checkbox" name="cc_id[]" id="cc_id_7"
                                       value="7">
                                     JCB
                                     </label>
@@ -239,7 +239,7 @@
                                   <div class="col-sm-6">
                                     <label class="checkbox creditcard maestro cc_break"
                                       for="cc_id_10">
-                                    <input type="checkbox" name="cc_id"
+                                    <input type="checkbox" name="cc_id[]"
                                       id="cc_id_10" value="10">
                                     Maestro
                                     </label>
@@ -248,7 +248,7 @@
                                   <div class="col-sm-6">
                                     <label class="checkbox creditcard discover "
                                       for="cc_id_11">
-                                    <input type="checkbox" name="cc_id"
+                                    <input type="checkbox" name="cc_id[]"
                                       id="cc_id_11" value="11">
                                     Discover
                                     </label>
@@ -258,7 +258,7 @@
                                     <label
                                       class="checkbox creditcard unionpaydebitcard "
                                       for="cc_id_35">
-                                    <input type="checkbox" name="cc_id"
+                                    <input type="checkbox" name="cc_id[]"
                                       id="cc_id_35" value="35">
                                     UnionPay debit card
                                     </label>
@@ -268,7 +268,7 @@
                                     <label
                                       class="checkbox creditcard unionpaycreditcard "
                                       for="cc_id_44">
-                                    <input type="checkbox" name="cc_id"
+                                    <input type="checkbox" name="cc_id[]"
                                       id="cc_id_44" value="44">
                                     UnionPay credit card
                                     </label>

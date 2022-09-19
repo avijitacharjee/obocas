@@ -844,14 +844,14 @@
           @foreach($hotels as $hotel)
           <!-- Single Slider -->
           <li class="bui-carousel__item">
-            <a href="/" class="bui-card bui-card--media bui-card--transparent">
+            <a href="/property/{{$hotel->id}}" class="bui-card bui-card--media bui-card--transparent">
               <div class="bui-card__image-container bh-carousel--new__photo"
                 style="
                 background: url('{{asset('/storage')}}/{{explode(';',$hotel->property_images)[0]}}');
                 "></div>
               <div class="bui-card__content bh-carousel--new__content">
                 <h3 class="bui-card__title bh-carousel--new__title">
-                  <span>{{$hotel->name}}</span>
+                  <span>{{$hotel->property_name}}</span>
                 </h3>
                 <p class="bui-card__subtitle"> Krakow </p>
                 <p class="bh-carousel--new__price bui_color_black">

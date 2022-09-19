@@ -13,46 +13,46 @@ class PropertyController extends Controller
 {
     public function property1($type)
     {
-        session(['property_type'=>$type]);
+        session(['pp_'.'property_type'=>$type]);
         return redirect('/property2');
     }
     public function property2($numberOfHotels)
     {
-        session(['property_number_of_hotels'=>$numberOfHotels]);
+        session(['pp_'.'property_number_of_hotels'=>$numberOfHotels]);
         return redirect('/property3');
     }
     public function property3(Request $request){
         $values = $request->all();
         foreach($values as $key => $value){
-            session([$key=>$value]);
+            session(['pp_'.$key=>$value]);
         }
         return redirect('/property4');
     }
     public function property4(Request $request){
         $values = $request->all();
         foreach($values as $key => $value){
-            session([$key=>$value]);
+            session(['pp_'.$key=>$value]);
         }
         return redirect('/property5');
     }
     public function property5(Request $request){
         $values = $request->all();
         foreach($values as $key=>$value){
-            session([$key=>$value]);
+            session(['pp_'.$key=>$value]);
         }
         return redirect('/property6');
     }
     public function property6(Request $request){
         $values = $request->all();
         foreach($values as $key=>$value){
-            session([$key=>$value]);
+            session(['pp_'.$key=>$value]);
         }
         return redirect('/property7');
     }
     public function property7(Request $request){
         $values = $request->all();
         foreach($values as $key=>$value){
-            session([$key=>$value]);
+            session(['pp_'.$key=>$value]);
         }
         return redirect('/property8');
     }
@@ -63,19 +63,31 @@ class PropertyController extends Controller
     public function property9(Request $request){
         $values = $request->all();
         foreach($values as $key=>$value){
-            session([$key=>$value]);
+            session(['pp_'.$key=>$value]);
         }
         return redirect('/property10');
     }
     public function property10(Request $request){
         $values = $request->all();
-        foreach($values as $key=>$value){
-            session([$key=>$value]);
+
+        $cc='';
+        $cc_ids = $request->cc_id;
+        foreach($cc_ids as $cc_id){
+            $cc=$cc.$cc_id.',';
         }
-        $data = session()->all();
-        unset($data['_token']);
-        unset($data['_flash']);
-        unset($data['_previous']);
+        $cc = substr($cc,0,-1);
+        $values['cc_id'] = $cc;
+
+        foreach($values as $key=>$value){
+            session(['pp_'.$key=>$value]);
+        }
+        $data = [];
+        $sessionAllData = session()->all();
+        foreach($sessionAllData as $key=>$value){
+            if(substr($key,0,3)=="pp_"){
+                $data[substr($key,3)] = $value;
+            }
+        }
         unset($data['proceed']);
         Property::create($data);
         return redirect('/');
@@ -106,48 +118,17 @@ class PropertyController extends Controller
             $images = explode(';',$hotel->property_images);
         }
         $hotels->images=$images;
+        session()->flush();
         return view('public.index')
             ->with('hotels',$hotels);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function show(Property $property): View
     {
-        //
+        session(['booking_property_id'=>$property->id]);
+        return view('public.booking-step-one')
+            ->with('property',$property);
     }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\StorePropertyRequest  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(StorePropertyRequest $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Property  $property
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Property $property)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Property  $property
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Property $property)
     {
         //

@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PropertyController;
+use App\Http\Controllers\BookingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -59,4 +60,14 @@ Route::controller(PropertyController::class)->group(function(){
     Route::post('property8','property8');
     Route::post('property9','property9');
     Route::post('property10','property10');
+
+    Route::get('property/{property}','show');
+});
+
+Route::controller(BookingController::class)->group(function(){
+    Route::get('booking2','booking2');
+    Route::post('booking2','storeBooking2');
+    Route::get('booking3','booking3');
+    Route::post('booking3','storeBooking3');
+    Route::get('booking-confirm','confirm');
 });

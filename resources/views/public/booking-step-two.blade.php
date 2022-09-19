@@ -40,7 +40,7 @@
             <div class="bui-header__main">
                 <div class="bui-header__logo d-lg-block d-md-none">
                     <span>
-                        <img src="{{ asset("/frontend/assets/images/logo.png") }}" alt="">
+                        <img src="{{ asset('/frontend/assets/images/logo.png') }}" alt="">
                     </span>
                 </div>
 
@@ -65,7 +65,7 @@
                             <path
                                 d="M8.25 19h-3a.75.75 0 0 1-.75-.75v-7.5a.75.75 0 0 0-1.5 0v7.5a2.25 2.25 0 0 0 2.25 2.25h3a.75.75 0 0 0 0-1.5zM1.234 9.823l8.782-7.43a.75.75 0 0 1 .969 0l7.279 6.159a.75.75 0 1 0 .968-1.146l-7.279-6.159a2.25 2.25 0 0 0-2.906 0L.265 8.678a.75.75 0 1 0 .968 1.146zM15.75 2.5h3L18 1.75v3a.75.75 0 0 0 1.5 0v-3a.75.75 0 0 0-.75-.75h-3a.75.75 0 0 0 0 1.5zm6.75 14.25a5.25 5.25 0 1 1-10.5 0 5.25 5.25 0 0 1 10.5 0zm1.5 0a6.75 6.75 0 1 0-13.5 0 6.75 6.75 0 0 0 13.5 0zm-7.5-3v6a.75.75 0 0 0 1.5 0v-6a.75.75 0 0 0-1.5 0zm-2.25 3.75h6a.75.75 0 0 0 0-1.5h-6a.75.75 0 0 0 0 1.5z" />
                         </svg>
-                        <a class="bui-button bui-button--light bui-traveller-header__product-action" href="{{ url("#") }}">
+                        <a class="bui-button bui-button--light bui-traveller-header__product-action" href="{{ url('#') }}">
                             <span class="bui-button__text">
                                 List your property
                             </span>
@@ -75,7 +75,7 @@
 
                     <!-- SingIn & SingUp -->
                     <div class="bui-group__item">
-                        <a class="bui-button bui-button--secondary " href="{{ url("#") }}">
+                        <a class="bui-button bui-button--secondary " href="{{ url('#') }}">
                             <span class="bui-button__text">
                                 Register
                             </span>
@@ -87,7 +87,7 @@
                             <path
                                 d="M22.5 17.25a5.25 5.25 0 1 1-10.5 0 5.25 5.25 0 0 1 10.5 0zm1.5 0a6.75 6.75 0 1 0-13.5 0 6.75 6.75 0 0 0 13.5 0zm-7.5-3v6a.75.75 0 0 0 1.5 0v-6a.75.75 0 0 0-1.5 0zM14.25 18h6a.75.75 0 0 0 0-1.5h-6a.75.75 0 0 0 0 1.5zM1.5 17.25a6.003 6.003 0 0 1 8.356-5.518.75.75 0 0 0 .588-1.38A7.504 7.504 0 0 0 0 17.25a.75.75 0 0 0 1.5 0zm9.375-12.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0zm1.5 0a4.875 4.875 0 1 0-9.75 0 4.875 4.875 0 0 0 9.75 0z" />
                         </svg>
-                        <a class="bui-button bui-button--secondary " href="{{ url("signin.html") }}">
+                        <a class="bui-button bui-button--secondary " href="{{ url('signin.html') }}">
                             <span class="bui-button__text">
                                 Sign in
                             </span>
@@ -101,7 +101,7 @@
                         class="bui-group bui-group--inline bui-group--small bui-group--align-end bui-group--vertical-align-middle bui-button-group">
                         <div class="bui-group__item">
                             <a class="bui-button bui-traveller-header__profile bui-button--light bui-button--large "
-                                type="button" href="{{ url("signin.html") }}">
+                                type="button" href="{{ url('signin.html') }}">
                                 <span class="bui-button__icon bui-bubble-container">
                                     <i class="fa-solid fa-circle-user"></i>
                                 </span>
@@ -305,7 +305,7 @@
                                         <div
                                             class="bui-group bui-button-group bui-group--inline bui-group--vertical-align-middle">
                                             <div class="bui-group__item">
-                                                <a class="bui-button bui-button--tertiary" href="{{ url("#") }}">
+                                                <a class="bui-button bui-button--tertiary" href="{{ url('#') }}">
                                                     <span class="bui-button__text">Change your
                                                         selection</span>
                                                 </a>
@@ -566,7 +566,7 @@
                             <div class="col-3">
                                 <div class="bp-property-details__photo-container">
                                     <img class="bp-property-details__photo w-100"
-                                        src="{{ asset("/frontend/assets/images/single-property.webp") }}" alt="">
+                                        src="{{ asset('/frontend/assets/images/single-property.webp') }}" alt="">
                                 </div>
                             </div>
                             <div class="col-9">
@@ -630,13 +630,13 @@
                                                                 </span>
                                                             </div>
                                                             <div class="bui-group__item">
-                                                                <img src="{{ asset("/frontend/assets/images/icon/preferred-plus.svg") }}"
+                                                                <img src="{{ asset('/frontend/assets/images/icon/preferred-plus.svg') }}"
                                                                     height="20">
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <h1 class="bui-card__title bui-text--variant-headline_3">
-                                                        Nascent Gardenia Baridhara
+                                                        {{$property->property_name}}
                                                     </h1>
                                                 </div>
 
@@ -644,8 +644,7 @@
                                                     <div>
                                                         <div class="bui-spacer--smaller">
                                                             <address class="bp-property-details__address">
-                                                                27 Park Road, Baridhara Diplomatic Zone,
-                                                                1212 Dhaka, Bangladesh
+                                                                {{$property->address}}, {{$property->city}}
                                                             </address>
                                                         </div>
                                                         <div class="bui-f-font-caption bui-f-color-constructive">
@@ -716,9 +715,11 @@
                         </div>
                         <!-- top -->
                         <!-- Form -->
+                        <form class="book-form" action="/booking2" method="post">
+                        @csrf
                         <div class="row mt-5">
                             <div class="col-12">
-                                <form class="book-form" action="#" method="post">
+                                
 
                                     <div class="row">
 
@@ -755,7 +756,7 @@
                                                                     <div class="bui-group__item">
                                                                         <div class="">
                                                                             <label class="bui-radio">
-                                                                                <input name="bp_travel_purpose"
+                                                                                <input name="travel_purpose"
                                                                                     type="radio"
                                                                                     class="bui-radio__input"
                                                                                     value="business" checked="">
@@ -768,7 +769,7 @@
                                                                     <div class="bui-group__item">
                                                                         <div class="">
                                                                             <label class="bui-radio  ">
-                                                                                <input name="bp_travel_purpose"
+                                                                                <input name="travel_purpose"
                                                                                     type="radio"
                                                                                     class="bui-radio__input" value="">
                                                                                 <span class="bui-radio__label">
@@ -802,7 +803,7 @@
                                                                     <abbr class="mandatory-asterisk"
                                                                         title="Required">*</abbr>
                                                                 </label>
-                                                                <input type="text" name="firstname"
+                                                                <input type="text" name="lastname"
                                                                     class="bp_input_text bp_form__field__input" value=""
                                                                     size="20">
                                                             </div>
@@ -837,7 +838,7 @@
                                                                 </label>
                                                                 <input type="text" required="" id="email"
                                                                     class="bp_input_text bp_form__field__input"
-                                                                    name="email" value="" size="35" maxlength="60"
+                                                                    name="confirm_email" value="" size="35" maxlength="60"
                                                                     placeholder="Confirm Email Address">
 
                                                             </div>
@@ -854,8 +855,8 @@
                                                                     <div class="bui-group__item">
                                                                         <div class="">
                                                                             <label class="bui-radio  ">
-                                                                                <input name="notstayer" type="radio"
-                                                                                    class="bui-radio__input" value="0">
+                                                                                <input name="is_stayer" type="radio"
+                                                                                    class="bui-radio__input" value="1">
                                                                                 <span class="bui-radio__label">
                                                                                     I'm the main guest
                                                                                 </span>
@@ -865,8 +866,8 @@
                                                                     <div class="bui-group__item">
                                                                         <div class="">
                                                                             <label class="bui-radio  ">
-                                                                                <input name="notstayer" type="radio"
-                                                                                    class="bui-radio__input" value="1">
+                                                                                <input name="is_stayer" type="radio"
+                                                                                    class="bui-radio__input" value="0">
                                                                                 <span class="bui-radio__label">
                                                                                     I'm booking for someone else
                                                                                 </span>
@@ -982,7 +983,7 @@
                                                                             <span class="bui-text--color-neutral_alt">No
                                                                                 smoking</span>
                                                                             <input type="hidden"
-                                                                                name="smoking_preference_91336615_143138150_0_1_0"
+                                                                                name="smoking_preference"
                                                                                 value="no">
                                                                         </div>
                                                                     </div>
@@ -1059,7 +1060,7 @@
                                                                     <abbr class="mandatory-asterisk"
                                                                         title="Required">*</abbr>
                                                                 </label>
-                                                                <input type="text" name="firstname"
+                                                                <input type="text" name="guest_fullname"
                                                                     class="bp_input_text bp_form__field__input" value=""
                                                                     size="20">
                                                             </div>
@@ -1073,20 +1074,16 @@
                                                                         (optional)
                                                                     </span>
                                                                 </label>
-                                                                <input type="text" name="firstname"
+                                                                <input type="text" name="guest_email"
                                                                     class="bp_input_text bp_form__field__input" value=""
                                                                     size="20">
                                                             </div>
                                                         </div>
                                                     </div>
-
                                                 </div>
                                             </section>
                                         </div>
-
                                     </div>
-
-
                                     <div class="row mt-4">
                                         <div class="col-12">
                                             <section class="bui-card bp-card--reservation-addons bg_form">
@@ -1199,7 +1196,7 @@
                                                                         </span>
                                                                     </label>
                                                                     <div class="bp-form-group__input-container">
-                                                                        <textarea name="remarks" id="remarks"
+                                                                        <textarea name="special_request" id="remarks"
                                                                             class="bui-form__control"
                                                                             rows="3">  </textarea>
                                                                     </div>
@@ -1209,7 +1206,7 @@
                                                             <div class="bui-group__item">
                                                                 <div class="bui-form__group">
                                                                     <label class="bui-checkbox  ">
-                                                                        <input name="free_parking_please"
+                                                                        <input name="free_parking_request"
                                                                             id="free_parking_please" type="checkbox"
                                                                             class="bui-checkbox__input" value="1">
                                                                         <span class="bui-checkbox__label">
@@ -1225,7 +1222,7 @@
                                                                 <div
                                                                     class="bui-form__group bp-form-group bp-form-group__bb_want_invoice   ">
                                                                     <label class="bui-checkbox  ">
-                                                                        <input name="bb_want_invoice" type="checkbox"
+                                                                        <input name="want_invoice" type="checkbox"
                                                                             class="bui-checkbox__input" value="1">
                                                                         <span class="bui-checkbox__label">
                                                                             I'd like
@@ -1347,7 +1344,7 @@
                                         </div>
                                     </div>
 
-                                </form>
+                        
                             </div>
                         </div>
                         <!-- Form -->
@@ -1381,7 +1378,6 @@
                                     </div>
                                     <div class="bui-group__item">
                                         <button
-                                            onclick="location.href='/booking3'"
                                             class="bui-button  bui-button--primary bui-button--large  e2e-bp-submit-button--next-step bp-button"
                                             type="submit" name="book">
                                             <span class="bui-button__text ">
@@ -1406,7 +1402,7 @@
                                 <div class="bui-card bp-card--transparent bp-card--booking-conditions">
                                     <div class="bui-card__content">
                                         <div class="bui-card__text bui-u-text-right">
-                                            <a class="bui-link e2e-booking-conditions__link " href="{{ url("#") }}" target="_blank"
+                                            <a class="bui-link e2e-booking-conditions__link " href="{{ url('#') }}" target="_blank"
                                                 id="bookconditions">
                                                 What are my booking conditions?
                                             </a>
@@ -1416,6 +1412,7 @@
 
                             </div>
                         </div>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -1444,7 +1441,7 @@
                             <ul>
 
                                 <li>
-                                    <a class="bui-list-item bui-list-item--size-large" href="{{ url("") }}">
+                                    <a class="bui-list-item bui-list-item--size-large" href="{{ url('') }}">
                                         <div class="bui-inline-container bui-inline-container--align">
                                             <div class="bui-inline-container__start">
                                                 <span class="bui-icon bui-icon--large bui-icon--color-neutral">
@@ -1471,7 +1468,7 @@
                             <ul>
 
                                 <li>
-                                    <a class="bui-list-item bui-list-item--size-large" href="{{ url("#") }}">
+                                    <a class="bui-list-item bui-list-item--size-large" href="{{ url('#') }}">
                                         <div class="bui-inline-container bui-inline-container--align">
                                             <div class="bui-inline-container__start">
                                                 <span class="bui-icon bui-icon--large bui-icon--color-neutral">
@@ -1496,7 +1493,7 @@
                             </h3>
                             <ul>
                                 <li>
-                                    <a class="bui-list-item bui-list-item--size-large" href="{{ url("#") }}">
+                                    <a class="bui-list-item bui-list-item--size-large" href="{{ url('#') }}">
                                         <div class="bui-inline-container bui-inline-container--align">
                                             <div class="bui-inline-container__start">
                                                 <span class="bui-icon bui-icon--large bui-icon--color-neutral">
@@ -1516,7 +1513,7 @@
                                 </li>
 
                                 <li>
-                                    <a class="bui-list-item bui-list-item--size-large" href="{{ url("#") }}">
+                                    <a class="bui-list-item bui-list-item--size-large" href="{{ url('#') }}">
                                         <div class="bui-inline-container bui-inline-container--align">
                                             <div class="bui-inline-container__start">
                                                 <span class="bui-icon bui-icon--large bui-icon--color-neutral">
@@ -1537,7 +1534,7 @@
                                 </li>
 
                                 <li>
-                                    <a class="bui-list-item bui-list-item--size-large" href="{{ url("") }}" rel="nofollow">
+                                    <a class="bui-list-item bui-list-item--size-large" href="{{ url('') }}" rel="nofollow">
                                         <div class="bui-inline-container bui-inline-container--align">
                                             <div class="bui-inline-container__start">
                                                 <span class="bui-icon bui-icon--large bui-icon--color-neutral">
@@ -1556,7 +1553,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a class="bui-list-item bui-list-item--size-large" href="{{ url("") }}" rel="nofollow">
+                                    <a class="bui-list-item bui-list-item--size-large" href="{{ url('') }}" rel="nofollow">
                                         <div class="bui-inline-container bui-inline-container--align">
                                             <div class="bui-inline-container__start">
                                                 <span class="bui-icon bui-icon--large bui-icon--color-neutral">
@@ -1586,19 +1583,19 @@
 
 
     <!-- Bootstrap & Jquery -->
-    <script src="{{ asset("/frontend/assets/js/jquery-1.12.4.min.js") }}"></script>
-    <script src="{{ asset("/frontend/assets/js/bootstrap.bundle.min.js") }}"></script>
+    <script src="{{ asset('/frontend/assets/js/jquery-1.12.4.min.js') }}"></script>
+    <script src="{{ asset('/frontend/assets/js/bootstrap.bundle.min.js') }}"></script>
 
     <!-- Slick Slider -->
-    <script src="{{ asset("/frontend/assets/js/jquery-migrate-1.2.1.min.js") }}"></script>
-    <script src="{{ asset("/frontend/assets/js/slick.min.js") }}"></script>
+    <script src="{{ asset('/frontend/assets/js/jquery-migrate-1.2.1.min.js') }}"></script>
+    <script src="{{ asset('/frontend/assets/js/slick.min.js') }}"></script>
 
     <!-- Search Box -->
-    <script src="{{ asset("/frontend/assets/js/search.min.js") }}"></script>
-    <script src="{{ asset("/frontend/assets/js/google-map.js") }}"></script>
+    <script src="{{ asset('/frontend/assets/js/search.min.js') }}"></script>
+    <script src="{{ asset('/frontend/assets/js/google-map.js') }}"></script>
 
     <!-- Custom -->
-    <script src="{{ asset("/frontend/assets/js/script.js") }}"></script>
+    <script src="{{ asset('/frontend/assets/js/script.js') }}"></script>
 
 </body>
 

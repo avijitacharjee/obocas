@@ -10,21 +10,21 @@
     
     <title>Step Three</title>
     <!-- Bootstrap -->
-    <link rel="stylesheet" href="{{ asset("/frontend/assets/css/bootstrap.min.css") }}">
+    <link rel="stylesheet" href="{{ asset('/frontend/assets/css/bootstrap.min.css') }}">
     <!-- Slick Slider -->
-    <link rel="stylesheet" href="{{ asset("/frontend/assets/css/slick.css") }}">
+    <link rel="stylesheet" href="{{ asset('/frontend/assets/css/slick.css') }}">
     <!-- FrontAwesome -->
-    <link rel="stylesheet" href="{{ asset("/frontend/assets/css/all.min.css") }}">
-    <link rel="stylesheet" href="{{ asset("/frontend/assets/css/bui-react.min.css") }}">
+    <link rel="stylesheet" href="{{ asset('/frontend/assets/css/all.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('/frontend/assets/css/bui-react.min.css') }}">
     <!-- Project Css-->
     <!-- CloudFront Css-->
-    <link rel="stylesheet" href="{{ asset("/frontend/assets/css/cloudfront.min.css") }}" />
+    <link rel="stylesheet" href="{{ asset('/frontend/assets/css/cloudfront.min.css') }}" />
     <!-- Bstatic -->
-    <link rel="stylesheet" href="{{ asset("/frontend/assets/css/bstatic.min.css") }}">
+    <link rel="stylesheet" href="{{ asset('/frontend/assets/css/bstatic.min.css') }}">
     <!-- Search -->
-    <link rel="stylesheet" href="{{ asset("/frontend/assets/css/search-page.min.css") }}">
+    <link rel="stylesheet" href="{{ asset('/frontend/assets/css/search-page.min.css') }}">
     <!-- Hotle -->
-    <link rel="stylesheet" href="{{ asset("/frontend/assets/css/hotel.min.css") }}">
+    <link rel="stylesheet" href="{{ asset('/frontend/assets/css/hotel.min.css') }}">
     
 </head>
 
@@ -39,7 +39,7 @@
             <div class="bui-header__main">
                 <div class="bui-header__logo">
                     <span>
-                        <img src="{{ asset("/frontend/assets/images/logo.png") }}" alt="">
+                        <img src="{{ asset('/frontend/assets/images/logo.png') }}" alt="">
                     </span>
                 </div>
             </div>
@@ -58,7 +58,7 @@
                             <path
                                 d="M8.25 19h-3a.75.75 0 0 1-.75-.75v-7.5a.75.75 0 0 0-1.5 0v7.5a2.25 2.25 0 0 0 2.25 2.25h3a.75.75 0 0 0 0-1.5zM1.234 9.823l8.782-7.43a.75.75 0 0 1 .969 0l7.279 6.159a.75.75 0 1 0 .968-1.146l-7.279-6.159a2.25 2.25 0 0 0-2.906 0L.265 8.678a.75.75 0 1 0 .968 1.146zM15.75 2.5h3L18 1.75v3a.75.75 0 0 0 1.5 0v-3a.75.75 0 0 0-.75-.75h-3a.75.75 0 0 0 0 1.5zm6.75 14.25a5.25 5.25 0 1 1-10.5 0 5.25 5.25 0 0 1 10.5 0zm1.5 0a6.75 6.75 0 1 0-13.5 0 6.75 6.75 0 0 0 13.5 0zm-7.5-3v6a.75.75 0 0 0 1.5 0v-6a.75.75 0 0 0-1.5 0zm-2.25 3.75h6a.75.75 0 0 0 0-1.5h-6a.75.75 0 0 0 0 1.5z" />
                         </svg>
-                        <a class="bui-button bui-button--light bui-traveller-header__product-action" href="{{ url("#") }}">
+                        <a class="bui-button bui-button--light bui-traveller-header__product-action" href="{{ url('#') }}">
                             <span class="bui-button__text">
                                 List your property
                             </span>
@@ -68,7 +68,7 @@
 
                     <!-- SingIn & SingUp -->
                     <div class="bui-group__item">
-                        <a class="bui-button bui-button--secondary js-header-login-link" href="{{ url("#") }}">
+                        <a class="bui-button bui-button--secondary js-header-login-link" href="{{ url('#') }}">
                             <span class="bui-button__text">
                                 Register
                             </span>
@@ -80,7 +80,7 @@
                             <path
                                 d="M22.5 17.25a5.25 5.25 0 1 1-10.5 0 5.25 5.25 0 0 1 10.5 0zm1.5 0a6.75 6.75 0 1 0-13.5 0 6.75 6.75 0 0 0 13.5 0zm-7.5-3v6a.75.75 0 0 0 1.5 0v-6a.75.75 0 0 0-1.5 0zM14.25 18h6a.75.75 0 0 0 0-1.5h-6a.75.75 0 0 0 0 1.5zM1.5 17.25a6.003 6.003 0 0 1 8.356-5.518.75.75 0 0 0 .588-1.38A7.504 7.504 0 0 0 0 17.25a.75.75 0 0 0 1.5 0zm9.375-12.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0zm1.5 0a4.875 4.875 0 1 0-9.75 0 4.875 4.875 0 0 0 9.75 0z" />
                         </svg>
-                        <a class="bui-button bui-button--secondary js-header-login-link" href="{{ url("signin.html") }}">
+                        <a class="bui-button bui-button--secondary js-header-login-link" href="{{ url('signin.html') }}">
                             <span class="bui-button__text">
                                 Sign in
                             </span>
@@ -94,7 +94,7 @@
                         class="bui-group bui-group--inline bui-group--small bui-group--align-end bui-group--vertical-align-middle bui-button-group">
                         <div class="bui-group__item">
                             <a class="bui-button bui-traveller-header__profile bui-button--light bui-button--large js-header-login-link js-header-signin-notification"
-                                type="button" href="{{ url("signin.html") }}">
+                                type="button" href="{{ url('signin.html') }}">
                                 <span class="bui-button__icon bui-bubble-container">
                                     <i class="fa-solid fa-circle-user"></i>
                                 </span>
@@ -130,30 +130,29 @@
                 <div class="col-lg-8 col-sm-12">
                     <div class="reassurance__cell-text">
                         <div class="reassurance__thanks">
-                            Thanks, Amdadul Haque Melon!
+                            Thanks, {{session('booking_firstname')}} {{session('booking_lastname')}}!
                         </div>
                         <h1 class="reassurance__title">
-                            Your booking in Dhaka is confirmed.
+                            Your booking in {{$property->property_name}} is confirmed.
                         </h1>
                         <ul class="reassurance__list">
                             <li>
                                 Your booking confirmation is in your inbox!
-                                <a class="conf_mb_inline conf_mb_inline--edit_email" href="{{ url("#") }}">
+                                <a class="conf_mb_inline conf_mb_inline--edit_email" href="{{ url('#') }}">
                                     Edit
                                 </a>
                             </li>
                             <li>
                                 You can now
-                                <a href="{{ url("") }}" class="custom_track">
+                                <a href="{{ url('') }}" class="custom_track">
                                     modify or cancel</a> your booking until check-in
                             </li>
                             <li>
-                                Your <b>payment</b> will be handled by <strong>Best Western PLUS Maya - Luxury
-                                    Airport Hotel</strong>. The <b>Price</b> section below has more details.
+                                Your <b>payment</b> will be handled by <strong>{{$property->property_name}}</strong>. The <b>Price</b> section below has more details.
                             </li>
                             <li data-pb-crsell="gta_checkmarks">
                                 Get paperless confirmation when you
-                                <a href="{{ url("#") }}">
+                                <a href="{{ url('#') }}">
                                     download the app</a>
                             </li>
                         </ul>
@@ -163,7 +162,7 @@
                     <div class="reassurance__cell-buttons mt-sm-3 mb-sm-3 mt-lg-5">
                         <div class="reassurance__button-container reassurance__button-container--first">
                             <div class="mb-conf-print">
-                                <a href="{{ url("#") }}"
+                                <a href="{{ url('#') }}"
                                     class="btn btn-primary conf-btn--print mb-conf-print__link custom_trackreassurance__button">
                                     <i class="conf-btn__icon conf-btn__icon--print"></i>
                                     Print confirmation
@@ -172,7 +171,7 @@
                             </div>
                         </div>
                         <div class="reassurance__button-container">
-                            <a href="{{ url("#") }}" class="btn btn-primary reassurance__button gta_button">
+                            <a href="{{ url('#') }}" class="btn btn-primary reassurance__button gta_button">
                                 <span class="bui-button__icon">
                                     <i class="bicon-mobilephone"></i>
                                 </span>
@@ -192,21 +191,21 @@
                     <div class="cdr-container">
                         <div class="cdr-header mb-4">
                             <h3 class="bui_font_large">
-                                Amdadul Haque Melon, extend your trip...
+                                {{session('booking_firstname')}} {{session('booking_lastname')}}, extend your trip...
                             </h3>
-                            <p class="bui_font_small">Travelers who visited Dhaka extended their trip</p>
+                            <p class="bui_font_small">Travelers who visited {{$property->city}} extended their trip</p>
                         </div>
                         <div id="cdr-accordion-content">
                             <div class="bui-carousel bui-carousel--medium bui-u-bleed@small">
                                 <ul class="bui-carousel__inner extend-trip">
 
                                     <li class="bui-carousel__item cdr-card">
-                                        <a href="{{ url("") }}">
+                                        <a href="{{ url('') }}">
                                             <div
                                                 class="bui-card bui-card--media bui-card--transparent cdr-card-container">
                                                 <div class="bui-card__image-container">
                                                     <img class="bui-card__image cdr-card-image"
-                                                        src="{{ asset("/frontend/assets/images/confirm-page-slider-1.webp") }}">
+                                                        src="{{ asset('/frontend/assets/images/confirm-page-slider-1.webp') }}">
                                                 </div>
                                                 <div class="bui-card__content">
                                                     <h4 class="bui-card__title">
@@ -229,12 +228,12 @@
                                     </li>
 
                                     <li class="bui-carousel__item cdr-card">
-                                        <a href="{{ url("#") }}">
+                                        <a href="{{ url('#') }}">
                                             <div
                                                 class="bui-card bui-card--media bui-card--transparent cdr-card-container">
                                                 <div class="bui-card__image-container">
                                                     <img class="bui-card__image cdr-card-image"
-                                                        src="{{ asset("/frontend/assets/images/confirm-page-slider-2.webp") }}">
+                                                        src="{{ asset('/frontend/assets/images/confirm-page-slider-2.webp') }}">
                                                 </div>
                                                 <div class="bui-card__content">
                                                     <h4 class="bui-card__title">
@@ -257,12 +256,12 @@
                                     </li>
 
                                     <li class="bui-carousel__item cdr-card">
-                                        <a href="{{ url("") }}">
+                                        <a href="{{ url('') }}">
                                             <div
                                                 class="bui-card bui-card--media bui-card--transparent cdr-card-container">
                                                 <div class="bui-card__image-container">
                                                     <img class="bui-card__image cdr-card-image"
-                                                        src="{{ asset("/frontend/assets/images/confirm-page-slider-3.webp") }}">
+                                                        src="{{ asset('/frontend/assets/images/confirm-page-slider-3.webp') }}">
                                                 </div>
                                                 <div class="bui-card__content">
                                                     <h4 class="bui-card__title">
@@ -284,12 +283,12 @@
                                     </li>
 
                                     <li class="bui-carousel__item cdr-card">
-                                        <a href="{{ url("#") }}">
+                                        <a href="{{ url('#') }}">
                                             <div
                                                 class="bui-card bui-card--media bui-card--transparent cdr-card-container">
                                                 <div class="bui-card__image-container">
                                                     <img class="bui-card__image cdr-card-image"
-                                                        src="{{ asset("/frontend/assets/images/confirm-page-slider-4.webp") }}">
+                                                        src="{{ asset('/frontend/assets/images/confirm-page-slider-4.webp') }}">
                                                 </div>
                                                 <div class="bui-card__content">
                                                     <h4 class="bui-card__title">
@@ -312,12 +311,12 @@
                                     </li>
 
                                     <li class="bui-carousel__item cdr-card">
-                                        <a href="{{ url("#") }}">
+                                        <a href="{{ url('#') }}">
                                             <div
                                                 class="bui-card bui-card--media bui-card--transparent cdr-card-container">
                                                 <div class="bui-card__image-container">
                                                     <img class="bui-card__image cdr-card-image"
-                                                        src="{{ asset("/frontend/assets/images/confirm-page-slider-4.webp") }}">
+                                                        src="{{ asset('/frontend/assets/images/confirm-page-slider-4.webp') }}">
                                                 </div>
                                                 <div class="bui-card__content">
                                                     <h4 class="bui-card__title">
@@ -341,12 +340,12 @@
 
 
                                     <li class="bui-carousel__item cdr-card">
-                                        <a href="{{ url("") }}">
+                                        <a href="{{ url('') }}">
                                             <div
                                                 class="bui-card bui-card--media bui-card--transparent cdr-card-container">
                                                 <div class="bui-card__image-container">
                                                     <img class="bui-card__image cdr-card-image"
-                                                        src="{{ asset("/frontend/assets/images/confirm-page-slider-1.webp") }}">
+                                                        src="{{ asset('/frontend/assets/images/confirm-page-slider-1.webp') }}">
                                                 </div>
                                                 <div class="bui-card__content">
                                                     <h4 class="bui-card__title">
@@ -389,7 +388,7 @@
                                 <thead>
                                     <tr>
                                         <th class="hotel_name larger_hotel_name" colspan="2" scope="row">
-                                            Best Western PLUS Maya - Luxury Airport Hotel
+                                            {{$property->property_name}}
                                             <span class="nowrap pb-conf-rating">
                                                 <span class="c-accommodation-classification-rating">
                                                     <span
@@ -486,11 +485,7 @@
                                 </tbody>
                             </table>
                         </div>
-
-
-
                     </div>
-
                     <div class="row mt-4 mb-5">
                         <div class="col-12">
                             <div class="card">
@@ -650,14 +645,12 @@
                                 <tbody>
                                     <tr>
                                         <th scope="row">Address</th>
-                                        <td>Nikunja-2 | Road 17-18 | Kabi Farooq Sharoni | Dhaka | 1229 Plot 1C-2C
-                                            1229 Dhaka
-                                            Bangladesh</td>
+                                        <td>{{$property->address}}, {{$property->city}}</td>
                                     </tr>
                                     <tr>
                                         <th scope="row">Phone</th>
                                         <td>
-                                            +880 1755 562590
+                                            {{$property->phone}}
                                         </td>
                                     </tr>
                                     <tr>
@@ -670,7 +663,7 @@
                                     </tr>
                                     <tr>
                                         <th scope="row"> Guest name</th>
-                                        <td>elias</td>
+                                        <td>{{session('booking_firstname')}} {{session('booking_lastname')}}</td>
                                     </tr>
                                     <tr>
                                         <th scope="row">Max capacity</th>
@@ -850,7 +843,7 @@
                                                 </div>
                                                 <div class="_29c344764">
                                                     <div class="_a11e76d75">
-                                                        <a href="{{ url("") }}" class="_4310f7077 _45807dae0 _f7538b398">
+                                                        <a href="{{ url('') }}" class="_4310f7077 _45807dae0 _f7538b398">
                                                             <span>Send
                                                                 an email</span>
                                                         </a>
@@ -879,8 +872,8 @@
                                                     <div class="ac6bdec376">Call property</div>
                                                 </div>
                                                 <div class="_29c344764">
-                                                    <div class="_a11e76d75"><a href="{{ url("tel:+880 1755-562590") }}"
-                                                            class="_4310f7077 fcb26725ff">+880 1755-562590</a>
+                                                    <div class="_a11e76d75"><a href="{{ url('tel:+880 1755-562590') }}"
+                                                            class="_4310f7077 fcb26725ff">{{$property->phone}}</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -915,7 +908,7 @@
                                                         questions and manage your booking</div>
                                                 </div>
                                                 <div class="_29c344764">
-                                                    <div class="_a11e76d75"><a href="{{ url("#") }}"
+                                                    <div class="_a11e76d75"><a href="{{ url('#') }}"
                                                             class="_4310f7077 _45807dae0 _f7538b398">
                                                             <span>Contact
                                                                 Customer Service</span>
@@ -959,7 +952,7 @@
                             <ul>
 
                                 <li>
-                                    <a class="bui-list-item bui-list-item--size-large" href="{{ url("") }}">
+                                    <a class="bui-list-item bui-list-item--size-large" href="{{ url('') }}">
                                         <div class="bui-inline-container bui-inline-container--align">
                                             <div class="bui-inline-container__start">
                                                 <span class="bui-icon bui-icon--large bui-icon--color-neutral">
@@ -986,7 +979,7 @@
                             <ul>
 
                                 <li>
-                                    <a class="bui-list-item bui-list-item--size-large" href="{{ url("#") }}">
+                                    <a class="bui-list-item bui-list-item--size-large" href="{{ url('#') }}">
                                         <div class="bui-inline-container bui-inline-container--align">
                                             <div class="bui-inline-container__start">
                                                 <span class="bui-icon bui-icon--large bui-icon--color-neutral">
@@ -1011,7 +1004,7 @@
                             </h3>
                             <ul>
                                 <li>
-                                    <a class="bui-list-item bui-list-item--size-large" href="{{ url("#") }}">
+                                    <a class="bui-list-item bui-list-item--size-large" href="{{ url('#') }}">
                                         <div class="bui-inline-container bui-inline-container--align">
                                             <div class="bui-inline-container__start">
                                                 <span class="bui-icon bui-icon--large bui-icon--color-neutral">
@@ -1031,7 +1024,7 @@
                                 </li>
 
                                 <li>
-                                    <a class="bui-list-item bui-list-item--size-large" href="{{ url("#") }}">
+                                    <a class="bui-list-item bui-list-item--size-large" href="{{ url('#') }}">
                                         <div class="bui-inline-container bui-inline-container--align">
                                             <div class="bui-inline-container__start">
                                                 <span class="bui-icon bui-icon--large bui-icon--color-neutral">
@@ -1052,7 +1045,7 @@
                                 </li>
 
                                 <li>
-                                    <a class="bui-list-item bui-list-item--size-large" href="{{ url("") }}" rel="nofollow">
+                                    <a class="bui-list-item bui-list-item--size-large" href="{{ url('') }}" rel="nofollow">
                                         <div class="bui-inline-container bui-inline-container--align">
                                             <div class="bui-inline-container__start">
                                                 <span class="bui-icon bui-icon--large bui-icon--color-neutral">
@@ -1071,7 +1064,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a class="bui-list-item bui-list-item--size-large" href="{{ url("") }}" rel="nofollow">
+                                    <a class="bui-list-item bui-list-item--size-large" href="{{ url('') }}" rel="nofollow">
                                         <div class="bui-inline-container bui-inline-container--align">
                                             <div class="bui-inline-container__start">
                                                 <span class="bui-icon bui-icon--large bui-icon--color-neutral">
@@ -1099,21 +1092,20 @@
     </div>
     <!-- Mobile Side Menu Modal -->
 
-
     <!-- Bootstrap & Jquery -->
-    <script src="{{ asset("/frontend/assets/js/jquery-1.12.4.min.js") }}"></script>
-    <script src="{{ asset("/frontend/assets/js/bootstrap.bundle.min.js") }}"></script>
+    <script src="{{ asset('/frontend/assets/js/jquery-1.12.4.min.js') }}"></script>
+    <script src="{{ asset('/frontend/assets/js/bootstrap.bundle.min.js') }}"></script>
 
     <!-- Slick Slider -->
-    <script src="{{ asset("/frontend/assets/js/jquery-migrate-1.2.1.min.js") }}"></script>
-    <script src="{{ asset("/frontend/assets/js/slick.min.js") }}"></script>
+    <script src="{{ asset('/frontend/assets/js/jquery-migrate-1.2.1.min.js') }}"></script>
+    <script src="{{ asset('/frontend/assets/js/slick.min.js') }}"></script>
 
     <!-- Search Box -->
-    <script src="{{ asset("/frontend/assets/js/search.min.js") }}"></script>
-    <script src="{{ asset("/frontend/assets/js/google-map.js") }}"></script>
+    <script src="{{ asset('/frontend/assets/js/search.min.js') }}"></script>
+    <script src="{{ asset('/frontend/assets/js/google-map.js') }}"></script>
 
     <!-- Custom -->
-    <script src="{{ asset("/frontend/assets/js/script.js") }}"></script>
+    <script src="{{ asset('/frontend/assets/js/script.js') }}"></script>
 
 </body>
 
