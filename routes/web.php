@@ -17,6 +17,11 @@ use App\Http\Controllers\BookingController;
 |
 */
 
+Route::domain('admin.'.env('APP_URL'))->group(function(){
+    Route::get('/',function(){
+        return view('admin.index');
+    });
+});
 Route::get('log-test', function () {
     $message = "Avijit";
     Log::channel('debug')->info($message);
