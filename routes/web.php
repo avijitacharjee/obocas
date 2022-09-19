@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PropertyController;
 use App\Http\Controllers\BookingController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,9 +18,11 @@ use App\Http\Controllers\BookingController;
 |
 */
 
-Route::domain('admin.'.env('APP_URL'))->group(function(){
-    Route::get('/',function(){
-        return view('admin.index');
+Route::domain('admin.localhost')->group(function(){
+    Route::controller(AdminController::class)->group(function(){
+        Route::get('/','index');
+        Route::get('hotels','hotels');
+        Route::get('bookings','bookings');
     });
 });
 Route::get('log-test', function () {
