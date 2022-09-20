@@ -15,18 +15,18 @@
 
     <!-- ===================== Required Css File Links ===================== -->
     <!-- favicon Icon -->
-    <link rel="shortcut icon" href="assets/images/favicon.png" type="image/png" />
+    <link rel="shortcut icon" href="{{ asset("/hotel-admin/assets/images/favicon.png") }}" type="image/png" />
     <!-- fontawesome css (version:-5.15.3) -->
-    <link rel="stylesheet" href="assets/css/all.min.css">
+    <link rel="stylesheet" href="{{ asset("/hotel-admin/assets/css/all.min.css") }}">
     <!-- bootstrap css (version:-5.0.0-beta3) -->
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ asset("/hotel-admin/assets/css/bootstrap.min.css") }}">
 
 
     <!-- ===================== Project Css File Links ===================== -->
     <!-- style css -->
-    <link rel="stylesheet" href="assets/webfonts/localfont/local-font-stylesheet.css">
-    <link rel="stylesheet" href="assets/css/auth/main.css">
-    <link rel="stylesheet" href="assets/css/auth/common.css">
+    <link rel="stylesheet" href="{{ asset("/hotel-admin/assets/webfonts/localfont/local-font-stylesheet.css") }}">
+    <link rel="stylesheet" href="{{ asset("/hotel-admin/assets/css/auth/main.css") }}">
+    <link rel="stylesheet" href="{{ asset("/hotel-admin/assets/css/auth/common.css") }}">
 
 </head>
 
@@ -40,8 +40,8 @@
                 <nav class="_2HVwqciw9DfOQFLWl2-a_I">
                     <div class="_1pRpeQP2z_3ktRb8Urjtv6">
                         <div class="daGIlH2FHgTbq-rtCh3t">
-                            <a href="#">
-                                <img src="assets/images/logo.png" alt="">
+                            <a href="{{ url("#") }}">
+                                <img src="{{ asset("/hotel-admin/assets/images/logo.png") }}" alt="">
                             </a>
                         </div>
                     </div>
@@ -106,7 +106,7 @@
 
                                                 <div class="access-panel__social-buttons">
                                                     <!-- Log In With Facebook -->
-                                                    <a href="#" class="access-panel__social-button access-panel__social-button-facebook bui-button bui-button--secondary nw-social-btn-facebook" title="Sign in with Facebook">
+                                                    <a href="{{ url("#") }}" class="access-panel__social-button access-panel__social-button-facebook bui-button bui-button--secondary nw-social-btn-facebook" title="Sign in with Facebook">
                                                         <div class="access-panel__social-button-content">
                                                             <div class="access-panel__social-button-image">
                                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false" role="img">
@@ -121,7 +121,7 @@
 
                                                     <!-- Log In With Google -->
 
-                                                    <a href="#" class="access-panel__social-button access-panel__social-button-google bui-button bui-button--secondary nw-social-btn-google">
+                                                    <a href="{{ url("#") }}" class="access-panel__social-button access-panel__social-button-google bui-button bui-button--secondary nw-social-btn-google">
                                                         <div class="access-panel__social-button-content">
                                                             <div class="access-panel__social-button-image">
                                                                 <svg viewBox="0 0 262 262" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid" aria-hidden="true" focusable="false" width="24" height="24" role="img">
@@ -144,7 +144,7 @@
                                                     <!-- /Log In With Google -->
 
                                                     <!-- Log In With Phone -->
-                                                    <a class="access-panel__social-button access-panel__social-button-phone bui-button bui-button--secondary nw-social-btn-phone" href="#">
+                                                    <a class="access-panel__social-button access-panel__social-button-phone bui-button bui-button--secondary nw-social-btn-phone" href="{{ url("#") }}">
                                                         <div class="access-panel__social-button-content">
                                                             <div class="access-panel__social-button-image">
                                                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false" width="24" height="24" role="img">
@@ -176,10 +176,10 @@
             <div class="account-access__footer">
                 <div class="u-text-center bui_font_caption portal_footer">
                     <div class="account_footer_terms footer-block">By signing in or creating an account, you agree with our
-                        <a href="#" class="bui_color_action nw-terms">
+                        <a href="{{ url("#") }}" class="bui_color_action nw-terms">
                                     Terms &amp; Conditions
                                 </a> and
-                        <a href="#" class="bui_color_action nw-privacy">Privacy Statement</a>
+                        <a href="{{ url("#") }}" class="bui_color_action nw-privacy">Privacy Statement</a>
                     </div>
                     <div class="access-footer-bottom bui_font_caption footer-block">
                         <div>All rights reserved. <br>Copyright 2022 – Obocas.com™ </div>

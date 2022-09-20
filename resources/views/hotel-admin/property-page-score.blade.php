@@ -9,14 +9,14 @@
 	<meta name="description" content="">
 	<title>Obocas Admin</title>
     <!-- favicon Icon -->
-    <link rel="shortcut icon" href="assets/images/favicon.png" type="image/png" />
+    <link rel="shortcut icon" href="{{ asset("/hotel-admin/assets/images/favicon.png") }}" type="image/png" />
 	<!-- Bootstrap v5.0.0-beta3 -->
-	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="{{ asset("/hotel-admin/assets/css/bootstrap.min.css") }}">
 	<!-- font awesome -->
-	<link rel="stylesheet" href="assets/css/all.min.css">
+	<link rel="stylesheet" href="{{ asset("/hotel-admin/assets/css/all.min.css") }}">
 
 	<!-- MAIN CSS -->
-	<link rel="stylesheet" href="assets/css/style.min.css">
+	<link rel="stylesheet" href="{{ asset("/hotel-admin/assets/css/style.min.css") }}">
 
 </head>
 
@@ -36,8 +36,8 @@
 						<!-- Header Top -->
 						<div class="ext-header__container">
 							<section class="ext-header__logo-container">
-								<a href="#">
-									<img src="assets/images/logo.png" alt="Logo" class="ext-header__logo">
+								<a href="{{ url("#") }}">
+									<img src="{{ asset("/hotel-admin/assets/images/logo.png") }}" alt="Logo" class="ext-header__logo">
 								</a>
 								<div data-test-id="property-details" class="ext-header__property-details">
 									time squers - 7962700
@@ -70,7 +70,7 @@
 													</svg>
 												</button>
 											</div>
-											<a href="" class="ext-search-input__cancel-link">
+											<a href="{{ url("") }}" class="ext-search-input__cancel-link">
 												<span>Cancel</span>
 											</a>
 										</div>
@@ -98,10 +98,10 @@
 													class="ext-action-dropdown__content ext-action-dropdown__content--scrollable ext-action-dropdown__content--no-margin-bottom">
 
 													<li class="">
-														<a href="#"
+														<a href="{{ url("#") }}"
 															class="ext-action-dropdown__item ext-action-property__wrap">
 															<div>
-																<img src="assets/images/hotel.jfif" width="32px"
+																<img src="{{ asset("/hotel-admin/assets/images/hotel.jfif") }}" width="32px"
 																	height="32px" class="ext-action-property__avatar">
 															</div>
 															<div class="ext-action-property__body">
@@ -117,10 +117,10 @@
 													</li>
 
 													<li class="">
-														<a href="#"
+														<a href="{{ url("#") }}"
 															class="ext-action-dropdown__item ext-action-property__wrap">
 															<div>
-																<img src="assets/images/hotel.jfif" width="32px"
+																<img src="{{ asset("/hotel-admin/assets/images/hotel.jfif") }}" width="32px"
 																	height="32px" class="ext-action-property__avatar">
 															</div>
 															<div class="ext-action-property__body">
@@ -136,7 +136,7 @@
 												</ul>
 
 												<div class="ext-action-groups-link">
-													<a href="#"
+													<a href="{{ url("#") }}"
 														class="ext-action-dropdown__item ext-action-property__wrap">
 														<div
 															class="ext-action-property__avatar ext-action-property__group-icon">
@@ -186,7 +186,7 @@
 												<ul class="ext-action-dropdown__content">
 
 													<li>
-														<a href="change-password.html" class="ext-action-dropdown__item">
+														<a href="{{ url("change-password.html") }}" class="ext-action-dropdown__item">
 															<span>
 																<svg width="20" height="20" fill="currentColor"
 																	viewBox="0 0 24 24" role="presentation"
@@ -203,7 +203,7 @@
 													</li>
 
 													<li>
-														<a href="notification-settings.html" class="ext-action-dropdown__item">
+														<a href="{{ url("notification-settings.html") }}" class="ext-action-dropdown__item">
 															<span>
 																<svg width="20" height="20" fill="currentColor"
 																	viewBox="0 0 24 24" role="presentation"
@@ -220,7 +220,7 @@
 													</li>
 													
 													<li>
-														<a href="contacts.html" class="ext-action-dropdown__item">
+														<a href="{{ url("contacts.html") }}" class="ext-action-dropdown__item">
 															<span>
 																<svg width="20" height="20" fill="currentColor"
 																	viewBox="0 0 24 24" role="presentation"
@@ -237,7 +237,7 @@
 													</li>
 													
 													<li>
-														<a href="security.html" class="ext-action-dropdown__item">
+														<a href="{{ url("security.html") }}" class="ext-action-dropdown__item">
 															<span>
 																<svg width="20" height="20" fill="currentColor"
 																	viewBox="0 0 24 24" role="presentation"
@@ -253,7 +253,7 @@
 														</a>
 													</li>
 													<li>
-														<a href="#" class="ext-action-dropdown__item">
+														<a href="{{ url("#") }}" class="ext-action-dropdown__item">
 															<span>
 																<svg width="20" height="20" fill="currentColor"
 																	viewBox="0 0 128 128" role="presentation"
@@ -299,7 +299,7 @@
 
 											<!-- Menu Item -->
 											<li class="ext-navigation-top-item">
-												<a href="#" class="ext-navigation-top-item__link">
+												<a href="{{ url("#") }}" class="ext-navigation-top-item__link">
 													<span class="ext-navigation-top-item__icon">
 														<svg height="24" viewBox="0 0 24 24" fill="currentColor"
 															width="24" aria-hidden="true" role="presentation"
@@ -379,7 +379,7 @@
 														</li> -->
 														<li data-nav-tag="open_close_rooms"
 															class="ext-navigation-submenu-item">
-															<a href="open-close-rooms.html"
+															<a href="{{ url("open-close-rooms.html") }}"
 																class="ext-navigation-submenu-item__link">
 																<span class="ext-navigation-submenu-item__icon">
 																</span>
@@ -392,7 +392,7 @@
 														</li>
 														<li data-nav-tag="rate_plans"
 															class="ext-navigation-submenu-item">
-															<a href="rate-plans.html"
+															<a href="{{ url("rate-plans.html") }}"
 																class="ext-navigation-submenu-item__link">
 																<span class="ext-navigation-submenu-item__icon">
 																</span>
@@ -412,7 +412,7 @@
 
 											<!-- Menu Item -->
 											<li class="ext-navigation-top-item">
-												<a href="reservations.html" class="ext-navigation-top-item__link">
+												<a href="{{ url("reservations.html") }}" class="ext-navigation-top-item__link">
 													<span class="ext-navigation-top-item__icon">
 														<svg focusable="false" role="presentation" aria-hidden="true"
 															width="24" fill="currentColor" viewBox="0 0 24 24"
@@ -480,7 +480,7 @@
 													<ul class="ext-navigation-submenu-item__list">
 														<li data-nav-tag="content_score"
 															class="ext-navigation-submenu-item">
-															<a href="property-page-score.html"
+															<a href="{{ url("property-page-score.html") }}"
 																class="ext-navigation-submenu-item__link">
 																<span class="ext-navigation-submenu-item__icon">
 																</span>
@@ -492,7 +492,7 @@
 
 														</li>
 														<li class="ext-navigation-submenu-item">
-															<a href="general-info.html"
+															<a href="{{ url("general-info.html") }}"
 																class="ext-navigation-submenu-item__link"><span
 																	class="ext-navigation-submenu-item__icon">
 																</span> <span
@@ -503,7 +503,7 @@
 
 														</li>
 														<li class="ext-navigation-submenu-item">
-															<a href="vat-tax-charges.html"
+															<a href="{{ url("vat-tax-charges.html") }}"
 																class="ext-navigation-submenu-item__link">
 																<span class="ext-navigation-submenu-item__icon">
 																</span>
@@ -514,7 +514,7 @@
 
 														</li>
 														<li class="ext-navigation-submenu-item">
-															<a href="photos.html"
+															<a href="{{ url("photos.html") }}"
 																class="ext-navigation-submenu-item__link">
 																<span class="ext-navigation-submenu-item__icon">
 																</span>
@@ -528,7 +528,7 @@
 
 														</li>
 														<li class="ext-navigation-submenu-item">
-															<a href="policies.html"
+															<a href="{{ url("policies.html") }}"
 																class="ext-navigation-submenu-item__link"><span
 																	class="ext-navigation-submenu-item__icon">
 																</span> <span
@@ -538,7 +538,7 @@
 
 														</li>
 														<li class="ext-navigation-submenu-item">
-															<a href="facilities-services.html"
+															<a href="{{ url("facilities-services.html") }}"
 																class="ext-navigation-submenu-item__link">
 																<span class="ext-navigation-submenu-item__icon">
 																</span>
@@ -553,7 +553,7 @@
 
 														</li>
 														<li class="ext-navigation-submenu-item">
-															<a href="room-details.html"
+															<a href="{{ url("room-details.html") }}"
 																class="ext-navigation-submenu-item__link">
 																<span class="ext-navigation-submenu-item__icon">
 																</span>
@@ -565,7 +565,7 @@
 														</li>
 
 														<li class="ext-navigation-submenu-item">
-															<a href="get-time-squers.html"
+															<a href="{{ url("get-time-squers.html") }}"
 																class="ext-navigation-submenu-item__link">
 																<span class="ext-navigation-submenu-item__icon">
 																</span>
@@ -579,7 +579,7 @@
 
 														</li>
 														<li class="ext-navigation-submenu-item">
-															<a href="what's-nearby.html"
+															<a href="{{ url("what's-nearby.html") }}"
 																class="ext-navigation-submenu-item__link">
 																<span class="ext-navigation-submenu-item__icon"></span>
 																<span class="ext-navigation-submenu-item__title">What's
@@ -642,7 +642,7 @@
 												<div class="ext-navigation-top-item__submenu dropdown-menu">
 													<ul class="ext-navigation-submenu-item__list">
 														<li class="ext-navigation-submenu-item">
-															<a href="reservation-messages.html"
+															<a href="{{ url("reservation-messages.html") }}"
 																class="ext-navigation-submenu-item__link">
 																<span class="ext-navigation-submenu-item__icon">
 																</span>
@@ -654,7 +654,7 @@
 
 														</li>
 														<li class="ext-navigation-submenu-item">
-															<a href="obacas-messages.html"
+															<a href="{{ url("obacas-messages.html") }}"
 																class="ext-navigation-submenu-item__link">
 																<span class="ext-navigation-submenu-item__icon">
 																</span>
@@ -716,7 +716,7 @@
 												<div class="ext-navigation-top-item__submenu dropdown-menu">
 													<ul class="ext-navigation-submenu-item__list">
 														<li class="ext-navigation-submenu-item">
-															<a href="guest-reviews.html"
+															<a href="{{ url("guest-reviews.html") }}"
 																class="ext-navigation-submenu-item__link"><span
 																	class="ext-navigation-submenu-item__icon">
 																</span> <span
@@ -776,7 +776,7 @@
 													<ul class="ext-navigation-submenu-item__list">
 														<li data-nav-tag="finance_invoices"
 															class="ext-navigation-submenu-item">
-															<a href="invoices.html"
+															<a href="{{ url("invoices.html") }}"
 																class="ext-navigation-submenu-item__link">
 																<span class="ext-navigation-submenu-item__icon">
 																</span>
@@ -788,7 +788,7 @@
 														</li>
 														<li data-nav-tag="finance_reservations"
 															class="ext-navigation-submenu-item">
-															<a href="reservation-statements.html"
+															<a href="{{ url("reservation-statements.html") }}"
 																class="ext-navigation-submenu-item__link">
 																<span class="ext-navigation-submenu-item__icon"></span>
 																<span
@@ -800,7 +800,7 @@
 														</li>
 														<li data-nav-tag="finance_overview"
 															class="ext-navigation-submenu-item">
-															<a href="financial-overview.html"
+															<a href="{{ url("financial-overview.html") }}"
 																class="ext-navigation-submenu-item__link">
 																<span class="ext-navigation-submenu-item__icon">
 																</span>
@@ -994,7 +994,7 @@
 																	</span>
 																</div>
 																<span class="pps-checklist-action">
-																	<a href="photos.html"
+																	<a href="{{ url("photos.html") }}"
 																		title="Replace low quality photos"
 																		class="bui-list__item-action bui-link">
 																		Replace low quality photos
@@ -1034,7 +1034,7 @@
 																</span>
 																<span class="pps-checklist-action"><span
 																		class="pps-checklist-or"><span>or</span></span>
-																	<a href="photos.html" title="tag photos"
+																	<a href="{{ url("photos.html") }}" title="tag photos"
 																		class="bui-list__item-action bui-link">
 																		tag photos
 																	</a></span>
@@ -1069,7 +1069,7 @@
 																</span>
 																<span class="pps-checklist-action"><span
 																		class="pps-checklist-or"><span>or</span></span>
-																	<a href="photos.html" title="tag photos"
+																	<a href="{{ url("photos.html") }}" title="tag photos"
 																		class="bui-list__item-action bui-link">
 																		tag photos
 																	</a></span>
@@ -1105,7 +1105,7 @@
 																	<span class="pps-checklist-or">
 																		<span>or</span>
 																	</span>
-																	<a href="photos.html" title="tag photos"
+																	<a href="{{ url("photos.html") }}" title="tag photos"
 																		class="bui-list__item-action bui-link">
 																		tag photos
 																	</a>
@@ -1135,7 +1135,7 @@
 																		</span></span>
 																</div>
 																<span class="pps-checklist-action">
-																	<a href="facilities-services.html"
+																	<a href="{{ url("facilities-services.html") }}"
 																		title="Add languages"
 																		class="bui-list__item-action bui-link">
 																		Add languages
@@ -1164,7 +1164,7 @@
 																			1 rooms have less than four photos.
 																		</span></span></div> <span
 																	class="pps-checklist-action">
-																	<a href="photos.html" title="Add more photos"
+																	<a href="{{ url("photos.html") }}" title="Add more photos"
 																		class="bui-list__item-action bui-link">
 																		Add more photos
 																	</a>
@@ -1193,7 +1193,7 @@
 																		</span></span>
 																</div>
 																<span class="pps-checklist-action">
-																	<a href="photos.html" title="Upload new photos"
+																	<a href="{{ url("photos.html") }}" title="Upload new photos"
 																		class="bui-list__item-action bui-link">
 																		Upload new photos
 																	</a>
@@ -1219,7 +1219,7 @@
 																		class="bui-list__description-subtitle"><span
 																			class="bui-f-color-constructive"><span>Done!</span></span></span>
 																</div> <span class="pps-checklist-action">
-																	<a href="room-details.html" title="Add bed sizes"
+																	<a href="{{ url("room-details.html") }}" title="Add bed sizes"
 																		class="bui-list__item-action bui-link">
 																		Add bed sizes
 																	</a></span>
@@ -1245,7 +1245,7 @@
 																			You have 1 room with an unspecified size.
 																		</span></span></div> <span
 																	class="pps-checklist-action">
-																	<a href="room-details.html" title="Add room sizes"
+																	<a href="{{ url("room-details.html") }}" title="Add room sizes"
 																		class="bui-list__item-action bui-link">
 																		Add room sizes
 																	</a>
@@ -1272,7 +1272,7 @@
 																			surrounding area
 																		</span></span></div> <span
 																	class="pps-checklist-action">
-																	<a href="#"
+																	<a href="{{ url("#") }}"
 																		title="Add details about the nearby area"
 																		class="bui-list__item-action bui-link">
 																		Add details about the nearby area
@@ -1300,7 +1300,7 @@
 																			by adding directions
 																		</span></span></div> <span
 																	class="pps-checklist-action">
-																	<a href="#" title="Add directions to your property"
+																	<a href="{{ url("#") }}" title="Add directions to your property"
 																		class="bui-list__item-action bui-link">
 																		Add directions to your property
 																	</a></span>
@@ -1327,7 +1327,7 @@
 																			swimming pool is
 																		</span></span></div> <span
 																	class="pps-checklist-action">
-																	<a href="#" title="Add swimming pool details"
+																	<a href="{{ url("#") }}" title="Add swimming pool details"
 																		class="bui-list__item-action bui-link">
 																		Add swimming pool details
 																	</a></span>
@@ -1352,7 +1352,7 @@
 																			Let guests know about your restaurant
 																		</span></span></div> <span
 																	class="pps-checklist-action">
-																	<a href="#" title="Add restaurant details"
+																	<a href="{{ url("#") }}" title="Add restaurant details"
 																		class="bui-list__item-action bui-link">
 																		Add restaurant details
 																	</a></span>
@@ -1376,7 +1376,7 @@
 																		class="bui-list__description-subtitle"><span
 																			class="bui-f-color-constructive"><span>Done!</span></span></span>
 																</div> <span class="pps-checklist-action">
-																	<a href="#" title="Add room amenities"
+																	<a href="{{ url("#") }}" title="Add room amenities"
 																		class="bui-list__item-action bui-link">
 																		Add room amenities
 																	</a></span>
@@ -1402,7 +1402,7 @@
 																			your amenities
 																		</span></span></div> <span
 																	class="pps-checklist-action">
-																	<a href="#" title="Add top amenities"
+																	<a href="{{ url("#") }}" title="Add top amenities"
 																		class="bui-list__item-action bui-link">
 																		Add top amenities
 																	</a></span>
@@ -1431,7 +1431,7 @@
 																			offer
 																		</span></span></div> <span
 																	class="pps-checklist-action">
-																	<a href="#" title="Answer questions"
+																	<a href="{{ url("#") }}" title="Answer questions"
 																		class="bui-list__item-action bui-link">
 																		Answer questions
 																	</a></span>
@@ -1457,7 +1457,7 @@
 																			You have 1 room missing bathroom photos
 																		</span></span></div> <span
 																	class="pps-checklist-action">
-																	<a href="photos.html" title="Add bathroom photos "
+																	<a href="{{ url("photos.html") }}" title="Add bathroom photos "
 																		class="bui-list__item-action bui-link">
 																		Add bathroom photos
 																	</a></span>
@@ -1487,22 +1487,22 @@
 								<div class="ext-footer__top-content__inner">
 									<div class="ext-footer__top-content__first">
 										<div class="ext-footer__links">
-											<a href="#" class="ext-footer__link bui-link bui-link--primary">
+											<a href="{{ url("#") }}" class="ext-footer__link bui-link bui-link--primary">
 												<span>About
 													Us</span>
 											</a>
-											<a href="#" class="ext-footer__link bui-link bui-link--primary">
+											<a href="{{ url("#") }}" class="ext-footer__link bui-link bui-link--primary">
 												<span>Privacy and
 													Cookie Statement</span>
 											</a>
-											<a href="#" class="ext-footer__link bui-link bui-link--primary">
+											<a href="{{ url("#") }}" class="ext-footer__link bui-link bui-link--primary">
 												<span>FAQs</span>
 											</a>
 										</div>
 									</div>
 									<div class="ext-footer__top-content__second">
 										<div class="ext-footer__ctas">
-											<a href="#" 
+											<a href="{{ url("#") }}" 
 												class="ext-footer__cta bui-button bui-button--primary">
 												<span class="bui-button__text">
 													<span>Add new
@@ -1528,7 +1528,7 @@
 								<div class="ext-footer__bottom-content__inner">
 									<div class="ext-footer__bottom-content__first">
 										<span>© Copyright
-											<a href="#"
+											<a href="{{ url("#") }}"
 												class="bui-link bui-link--primary ext-footer__link">Obocas.com</a>
 											2022
 										</span>
@@ -1553,11 +1553,11 @@
 
 	<!-- ===================== Required Js File Links ===================== -->
 	<!-- jquery js  -->
-	<script src="assets/js/jquery-1.12.4.min.js"></script>
+	<script src="{{ asset("/hotel-admin/assets/js/jquery-1.12.4.min.js") }}"></script>
 	<!-- bootstrap js  -->
-	<script src="assets/js/bootstrap.bundle.min.js"></script>
+	<script src="{{ asset("/hotel-admin/assets/js/bootstrap.bundle.min.js") }}"></script>
 	<!-- custom Js  -->
-	<script src="assets/js/script.js"></script>
+	<script src="{{ asset("/hotel-admin/assets/js/script.js") }}"></script>
 
 
 </body>

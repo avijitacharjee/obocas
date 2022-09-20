@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="msapplication-config" content="none">
@@ -9,23 +10,24 @@
 	<meta name="description" content="">
 	<title>Obocas Admin</title>
     <!-- favicon Icon -->
-    <link rel="shortcut icon" href="assets/images/favicon.png" type="image/png" />
+    <link rel="shortcut icon" href="{{ asset("/hotel-admin/assets/images/favicon.png") }}" type="image/png" />
 	<!-- Bootstrap v5.0.0-beta3 -->
-	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="{{ asset("/hotel-admin/assets/css/bootstrap.min.css") }}">
 	<!-- font awesome -->
-	<link rel="stylesheet" href="assets/css/all.min.css">
+	<link rel="stylesheet" href="{{ asset("/hotel-admin/assets/css/all.min.css") }}">
 
-	<link rel="stylesheet" href="assets/css/style.min.css">
+	<!-- MAIN CSS -->
+	<link rel="stylesheet" href="{{ asset("/hotel-admin/assets/css/style.min.css") }}">
 
-</head>
+	<link rel="stylesheet" href="{{ asset("/hotel-admin/assets/css/pages/message.min.css") }}">
 
 
 <body>
+
 	<div id="main-container" class="container-fluid tfa_phone_alt container-fluid--color">
-		<main id="content">
+		<main id="content" class="">
 			<div class="page-body ">
 
-				<div id="legacy-banners-new-hp" class="bui-u-hidden"></div>
 
 				<div class="js-dont-warn-about-unsaved-changes">
 
@@ -35,8 +37,8 @@
 						<!-- Header Top -->
 						<div class="ext-header__container">
 							<section class="ext-header__logo-container">
-								<a href="#">
-									<img src="assets/images/logo.png" alt="Logo" class="ext-header__logo">
+								<a href="{{ url("#") }}">
+									<img src="{{ asset("/hotel-admin/assets/images/logo.png") }}" alt="Logo" class="ext-header__logo">
 								</a>
 								<div data-test-id="property-details" class="ext-header__property-details">
 									time squers - 7962700
@@ -69,7 +71,7 @@
 													</svg>
 												</button>
 											</div>
-											<a href="" class="ext-search-input__cancel-link">
+											<a href="{{ url("") }}" class="ext-search-input__cancel-link">
 												<span>Cancel</span>
 											</a>
 										</div>
@@ -97,10 +99,10 @@
 													class="ext-action-dropdown__content ext-action-dropdown__content--scrollable ext-action-dropdown__content--no-margin-bottom">
 
 													<li class="">
-														<a href="#"
+														<a href="{{ url("#") }}"
 															class="ext-action-dropdown__item ext-action-property__wrap">
 															<div>
-																<img src="assets/images/hotel.jfif" width="32px"
+																<img src="{{ asset("/hotel-admin/assets/images/hotel.jfif") }}" width="32px"
 																	height="32px" class="ext-action-property__avatar">
 															</div>
 															<div class="ext-action-property__body">
@@ -116,10 +118,10 @@
 													</li>
 
 													<li class="">
-														<a href="#"
+														<a href="{{ url("#") }}"
 															class="ext-action-dropdown__item ext-action-property__wrap">
 															<div>
-																<img src="assets/images/hotel.jfif" width="32px"
+																<img src="{{ asset("/hotel-admin/assets/images/hotel.jfif") }}" width="32px"
 																	height="32px" class="ext-action-property__avatar">
 															</div>
 															<div class="ext-action-property__body">
@@ -135,7 +137,7 @@
 												</ul>
 
 												<div class="ext-action-groups-link">
-													<a href="#"
+													<a href="{{ url("#") }}"
 														class="ext-action-dropdown__item ext-action-property__wrap">
 														<div
 															class="ext-action-property__avatar ext-action-property__group-icon">
@@ -185,7 +187,7 @@
 												<ul class="ext-action-dropdown__content">
 
 													<li>
-														<a href="change-password.html" class="ext-action-dropdown__item">
+														<a href="{{ url("change-password.html") }}" class="ext-action-dropdown__item">
 															<span>
 																<svg width="20" height="20" fill="currentColor"
 																	viewBox="0 0 24 24" role="presentation"
@@ -202,7 +204,7 @@
 													</li>
 
 													<li>
-														<a href="notification-settings.html" class="ext-action-dropdown__item">
+														<a href="{{ url("notification-settings.html") }}" class="ext-action-dropdown__item">
 															<span>
 																<svg width="20" height="20" fill="currentColor"
 																	viewBox="0 0 24 24" role="presentation"
@@ -219,7 +221,7 @@
 													</li>
 													
 													<li>
-														<a href="contacts.html" class="ext-action-dropdown__item">
+														<a href="{{ url("contacts.html") }}" class="ext-action-dropdown__item">
 															<span>
 																<svg width="20" height="20" fill="currentColor"
 																	viewBox="0 0 24 24" role="presentation"
@@ -235,8 +237,9 @@
 														</a>
 													</li>
 													
+													
 													<li>
-														<a href="security.html" class="ext-action-dropdown__item">
+														<a href="{{ url("security.html") }}" class="ext-action-dropdown__item">
 															<span>
 																<svg width="20" height="20" fill="currentColor"
 																	viewBox="0 0 24 24" role="presentation"
@@ -252,7 +255,7 @@
 														</a>
 													</li>
 													<li>
-														<a href="#" class="ext-action-dropdown__item">
+														<a href="{{ url("#") }}" class="ext-action-dropdown__item">
 															<span>
 																<svg width="20" height="20" fill="currentColor"
 																	viewBox="0 0 128 128" role="presentation"
@@ -297,8 +300,8 @@
 										<ul class="ext-navigation-top-item__list">
 
 											<!-- Menu Item -->
-											<li class="ext-navigation-top-item ">
-												<a href="#" class="ext-navigation-top-item__link">
+											<li class="ext-navigation-top-item ext-navigation-top-item--active">
+												<a href="{{ url("#") }}" class="ext-navigation-top-item__link">
 													<span class="ext-navigation-top-item__icon">
 														<svg height="24" viewBox="0 0 24 24" fill="currentColor"
 															width="24" aria-hidden="true" role="presentation"
@@ -378,7 +381,7 @@
 														</li> -->
 														<li data-nav-tag="open_close_rooms"
 															class="ext-navigation-submenu-item">
-															<a href="open-close-rooms.html"
+															<a href="{{ url("open-close-rooms.html") }}"
 																class="ext-navigation-submenu-item__link">
 																<span class="ext-navigation-submenu-item__icon">
 																</span>
@@ -391,7 +394,7 @@
 														</li>
 														<li data-nav-tag="rate_plans"
 															class="ext-navigation-submenu-item">
-															<a href="rate-plans.html"
+															<a href="{{ url("rate-plans.html") }}"
 																class="ext-navigation-submenu-item__link">
 																<span class="ext-navigation-submenu-item__icon">
 																</span>
@@ -411,7 +414,7 @@
 
 											<!-- Menu Item -->
 											<li class="ext-navigation-top-item">
-												<a href="reservations.html" class="ext-navigation-top-item__link">
+												<a href="{{ url("reservations.html") }}" class="ext-navigation-top-item__link">
 													<span class="ext-navigation-top-item__icon">
 														<svg focusable="false" role="presentation" aria-hidden="true"
 															width="24" fill="currentColor" viewBox="0 0 24 24"
@@ -430,7 +433,7 @@
 											<!-- /Menu Item -->
 
 											<!-- Menu Item -->
-											<li class="ext-navigation-top-item ext-navigation-top-item--active">
+											<li class="ext-navigation-top-item">
 
 												<!-- toggle botton -->
 												<button class="ext-navigation-top-item__link dropdown-toggle"
@@ -479,7 +482,7 @@
 													<ul class="ext-navigation-submenu-item__list">
 														<li data-nav-tag="content_score"
 															class="ext-navigation-submenu-item">
-															<a href="property-page-score.html"
+															<a href="{{ url("property-page-score.html") }}"
 																class="ext-navigation-submenu-item__link">
 																<span class="ext-navigation-submenu-item__icon">
 																</span>
@@ -492,7 +495,7 @@
 														</li>
 														<li data-nav-tag="general_info"
 															class="ext-navigation-submenu-item">
-															<a href="general-info.html"
+															<a href="{{ url("general-info.html") }}"
 																class="ext-navigation-submenu-item__link"><span
 																	class="ext-navigation-submenu-item__icon">
 																</span> <span
@@ -504,7 +507,7 @@
 														</li>
 														<li data-nav-tag="vat_tax_charges"
 															class="ext-navigation-submenu-item">
-															<a href="vat-tax-charges.html"
+															<a href="{{ url("vat-tax-charges.html") }}"
 																class="ext-navigation-submenu-item__link">
 																<span class="ext-navigation-submenu-item__icon">
 																</span>
@@ -515,7 +518,7 @@
 
 														</li>
 														<li data-nav-tag="photos" class="ext-navigation-submenu-item">
-															<a href="photos.html"
+															<a href="{{ url("photos.html") }}"
 																class="ext-navigation-submenu-item__link">
 																<span class="ext-navigation-submenu-item__icon">
 																</span>
@@ -529,7 +532,7 @@
 
 														</li>
 														<li data-nav-tag="policies" class="ext-navigation-submenu-item">
-															<a href="policies.html"
+															<a href="{{ url("policies.html") }}"
 																class="ext-navigation-submenu-item__link"><span
 																	class="ext-navigation-submenu-item__icon">
 																</span> <span
@@ -540,7 +543,7 @@
 														</li>
 														<li data-nav-tag="facilities"
 															class="ext-navigation-submenu-item">
-															<a href="facilities-services.html"
+															<a href="{{ url("facilities-services.html") }}"
 																class="ext-navigation-submenu-item__link">
 																<span class="ext-navigation-submenu-item__icon">
 																</span>
@@ -555,7 +558,7 @@
 
 														</li>
 														<li data-nav-tag="rooms" class="ext-navigation-submenu-item">
-															<a href="room-details.html"
+															<a href="{{ url("room-details.html") }}"
 																class="ext-navigation-submenu-item__link">
 																<span class="ext-navigation-submenu-item__icon">
 																</span>
@@ -567,7 +570,7 @@
 														</li>
 
 														<li class="ext-navigation-submenu-item">
-															<a href="get-time-squers.html"
+															<a href="{{ url("get-time-squers.html") }}"
 																class="ext-navigation-submenu-item__link">
 																<span class="ext-navigation-submenu-item__icon">
 																</span>
@@ -582,7 +585,7 @@
 														</li>
 														<li data-nav-tag="surroundings"
 															class="ext-navigation-submenu-item">
-															<a href="what's-nearby.html"
+															<a href="{{ url("what's-nearby.html") }}"
 																class="ext-navigation-submenu-item__link">
 																<span class="ext-navigation-submenu-item__icon"></span>
 																<span class="ext-navigation-submenu-item__title">What's
@@ -645,7 +648,7 @@
 												<div class="ext-navigation-top-item__submenu dropdown-menu">
 													<ul class="ext-navigation-submenu-item__list">
 														<li class="ext-navigation-submenu-item">
-															<a href="reservation-messages.html"
+															<a href="{{ url("reservation-messages.html") }}"
 																class="ext-navigation-submenu-item__link">
 																<span class="ext-navigation-submenu-item__icon">
 																</span>
@@ -657,7 +660,7 @@
 
 														</li>
 														<li class="ext-navigation-submenu-item">
-															<a href="obacas-messages.html"
+															<a href="{{ url("obacas-messages.html") }}"
 																class="ext-navigation-submenu-item__link">
 																<span class="ext-navigation-submenu-item__icon">
 																</span>
@@ -719,7 +722,7 @@
 												<div class="ext-navigation-top-item__submenu dropdown-menu">
 													<ul class="ext-navigation-submenu-item__list">
 														<li class="ext-navigation-submenu-item">
-															<a href="guest-reviews.html"
+															<a href="{{ url("guest-reviews.html") }}"
 																class="ext-navigation-submenu-item__link"><span
 																	class="ext-navigation-submenu-item__icon">
 																</span> <span
@@ -779,7 +782,7 @@
 													<ul class="ext-navigation-submenu-item__list">
 														<li data-nav-tag="finance_invoices"
 															class="ext-navigation-submenu-item">
-															<a href="invoices.html"
+															<a href="{{ url("invoices.html") }}"
 																class="ext-navigation-submenu-item__link">
 																<span class="ext-navigation-submenu-item__icon">
 																</span>
@@ -791,7 +794,7 @@
 														</li>
 														<li data-nav-tag="finance_reservations"
 															class="ext-navigation-submenu-item">
-															<a href="reservation-statements.html"
+															<a href="{{ url("reservation-statements.html") }}"
 																class="ext-navigation-submenu-item__link">
 																<span class="ext-navigation-submenu-item__icon"></span>
 																<span
@@ -803,7 +806,7 @@
 														</li>
 														<li data-nav-tag="finance_overview"
 															class="ext-navigation-submenu-item">
-															<a href="financial-overview.html"
+															<a href="{{ url("financial-overview.html") }}"
 																class="ext-navigation-submenu-item__link">
 																<span class="ext-navigation-submenu-item__icon">
 																</span>
@@ -832,97 +835,337 @@
 					<!-- /Header -->
 
 
-
-
 					<main class="main">
-						<div id="vat-tax-charges-app" class="bui-container bui-container--center">
-							<div class="bui-spacer">
-								<div class="bui-page-header">
+						<div>
 
-									<h1 class="bui-page-header__title">
-										<span>VAT/tax/charges</span>
-									</h1>
+							<div class="messaging-inbox-wrapper messaging-inbox__flex-container" style="height: 500px;">
+								<div class="bui-tab messaging-inbox__flex-container messaging-inbox__tabs-container">
 
+									<ul class="bui-tab__nav nav  nav-tabs" id="myTab" role="tablist">
+
+										<li role="presentation" class="bui-tab__item" aria-selected="true">
+											<button class="bui-tab__link active" id="Gust" data-bs-toggle="tab"
+												data-bs-target="#Gusttabpanel" role="tab" aria-controls="Gusttabpanel"
+												aria-selected="true">
+												<span>Guest</span>
+											</button>
+										</li>
+										<li role="presentation" class="bui-tab__item">
+											<button id="Customer" data-bs-toggle="tab"
+												data-bs-target="#Customertabpanel" role="tab" aria-controls="profile"
+												class="bui-tab__link">
+												<span>Customer Service</span>
+											</button>
+										</li>
+
+									</ul>
+
+
+									<div class="tab-content" id="myTabContent">
+										<div role="tabpanel" id="Gusttabpanel"
+											class="messaging-inbox__flex-container tab-pane fade show active">
+											<div class="messaging-inbox-wrapper">
+												<div class="messaging-inbox__grid-wrapper bui-grid bui-grid--bleed">
+													<div
+														class="messaging-inbox--column bui-grid__column-full bui-grid__column-4@medium messaging-inbox--mobile-is-active">
+														<div class="messages-list-wrapper">
+															<div class="messages-list__heading">
+																<div
+																	class="messages-list__heading--section bui-u-clearfix">
+																	<div class="messages-list__title bui-f-font-strong">
+																		<span>Messages</span></div>
+																	<div class="messages-list__right-actions">
+																		<div class="messages-list__search-trigger"><svg
+																				height="24" focusable="false"
+																				viewBox="0 0 24 24" aria-hidden="true"
+																				width="24" role="presentation"
+																				class="bk-icon -material-ic_search">
+																				<path
+																					d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z">
+																				</path>
+																			</svg></div>
+																	</div>
+																</div>
+
+																<div class="messages-list__heading--section">
+																	<div class="messaging-autocomplete">
+																		<div class="bui-form__group"><label
+																				for="messaging_autocomplete"></label>
+																			<input id="messaging_autocomplete"
+																				autocomplete="off" type="text"
+																				placeholder="Search by name or booking number"
+																				value="" class="bui-form__control">
+
+																		</div>
+																		<ul id="messaging_autocomplete_results"
+																			class="messaging-autocomplete__results"
+																			style="display:none;"></ul>
+																	</div>
+																</div>
+															</div>
+															<div class="messages-list__filter">
+																<div class="bui-form__group"><label for="children"><span
+																			class="bui-f-font-caption"><span>Sort
+																				messages
+																				by:</span></span></label>
+																	<div class="bui-input-select"><select id="children"
+																			class="bui-form__control">
+																			<option value="pending_guest">
+																				Sent messages
+																			</option>
+																			<option value="pending_property"
+																				selected="selected">
+																				Unanswered messages
+																			</option>
+																			<option value="">
+																				All messages
+																			</option>
+																		</select> <svg
+																			xmlns="http://www.w3.org/2000/svg"
+																			viewBox="0 0 24 24"
+																			class="bui-input-select__icon">
+																			<path
+																				d="M12 20.09a1.24 1.24 0 0 1-.88-.36L6 14.61a.75.75 0 1 1 1.06-1.06L12 18.49l4.94-4.94A.75.75 0 0 1 18 14.61l-5.12 5.12a1.24 1.24 0 0 1-.88.36zm6-9.46a.75.75 0 0 0 0-1.06l-5.12-5.11a1.24 1.24 0 0 0-1.754-.006l-.006.006L6 9.57a.75.75 0 0 0 0 1.06.74.74 0 0 0 1.06 0L12 5.7l4.94 4.93a.73.73 0 0 0 .53.22c.2 0 .39-.078.53-.22z">
+																			</path>
+																		</svg></div>
+
+																</div>
+															</div>
+
+															<!-- Data Table-->
+															<div class="table-responsive mt-5 mobile-message">
+																<table class="table align-middle">
+																	<!-- Table Head -->
+																	<thead>
+																		<tr>
+																			<th class="">
+																				<span>Sent</span>
+																			</th>
+																			<th class="">
+																				<span>Sent Time</span>
+																			</th>
+																			<th class="">
+																				<span>Message</span>
+																			</th>
+
+																		</tr>
+																	</thead>
+																	<!-- /Table Head -->
+																	<!-- Table Body -->
+																	<tbody>
+																		<tr>
+																			<td>Starred</td>
+																			<td>12-02-2022</td>
+																			<td>Hello World</td>
+																		</tr>
+																	</tbody>
+																	<!-- /Table Body -->
+																</table>
+															</div>
+															<!-- /Data Table-->
+
+														</div>
+													</div>
+													<div
+														class="messaging-inbox--column bui-grid__column-full bui-grid__column-8@medium messages">
+														<div
+															class="conversation-wrapper messaging-inbox__conversation bui-container">
+															<!-- Data Table-->
+															<div class="table-responsive mt-5">
+																<table class="table align-middle">
+																	<!-- Table Head -->
+																	<thead>
+																		<tr>
+																			<th class="">
+																				<span>Sent</span>
+																			</th>
+																			<th class="">
+																				<span>Sent Time</span>
+																			</th>
+																			<th class="">
+																				<span>Message</span>
+																			</th>
+
+																		</tr>
+																	</thead>
+																	<!-- /Table Head -->
+																	<!-- Table Body -->
+																	<tbody>
+																		<tr>
+																			<td>Starred</td>
+																			<td>12-02-2022</td>
+																			<td>Hello World</td>
+																		</tr>
+																	</tbody>
+																	<!-- /Table Body -->
+																</table>
+															</div>
+															<!-- /Data Table-->
+														</div>
+													</div>
+												</div>
+												<div
+													class="messaging-inbox--column messaging-inbox--scroll messaging-inbox--side-details">
+													<div>
+
+														<div class="messaging-inbox__privacy-policy"><span>Booking.com
+																receives all messages written here and processes them
+																according to our <a href="{{ url("#") }}">Privacy and Cookie
+																	Statement</a></span>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<div role="tabpanel" id="Customertabpanel"
+											class="messaging-inbox__flex-container tab-pane fade">
+											<div class="messaging-support-wrapper">
+												<div class="messaging-support__grid-wrapper bui-grid bui-grid--bleed">
+													<div
+														class="messaging-support--column bui-grid__column-full bui-grid__column-4@medium messaging-support--mobile-is-active">
+														<div class="messaging-support-list-wrapper">
+															<div class="messaging-support-list__heading">
+																<div
+																	class="messaging-support-list__heading--section bui-u-clearfix">
+																	<div
+																		class="messaging-support-list__title bui-f-font-strong">
+																		<span>Messages</span></div>
+																</div>
+																<div class="messaging-support-list__heading--section">
+																	<div class="messaging-support-list__search-wrapper">
+																		<div
+																			class="messaging-support-list__search-icon-wrapper">
+																			<svg focusable="false" fill="currentColor"
+																				height="24" role="presentation"
+																				aria-hidden="true" width="24"
+																				viewBox="0 0 24 24"
+																				class="messaging-support-list__search-icon bk-icon -streamline-magnifying_glass">
+																				<path
+																					d="M17.464 6.56a8.313 8.313 0 1 1-15.302 6.504A8.313 8.313 0 0 1 17.464 6.56zm1.38-.586C16.724.986 10.963-1.339 5.974.781.988 2.9-1.337 8.662.783 13.65c2.12 4.987 7.881 7.312 12.87 5.192 4.987-2.12 7.312-7.881 5.192-12.87zM15.691 16.75l7.029 7.03a.75.75 0 0 0 1.06-1.06l-7.029-7.03a.75.75 0 0 0-1.06 1.06z">
+																				</path>
+																			</svg></div>
+																		<div aria-label="messaging_support_list_search_input"
+																			placeholder="Search by booking number"
+																			class="messaging-support-list__search-input bui-form__group">
+																			<label
+																				for="messaging_support_list_search_input"
+																				style="display:none;"></label> <input
+																				id="messaging_support_list_search_input"
+																				aria-describedby="describe-messaging_support_list_search_input"
+																				autocomplete="off" type="search"
+																				aria-label="messaging_support_list_search_input"
+																				placeholder="Search by booking number"
+																				value="" class="bui-form__control">
+
+																		</div>
+																	</div>
+																</div>
+																<div
+																	class="messaging-support-list__heading--section messaging-support-list__filter">
+																	<div class="bui-switch"><input
+																			id="support_list_filter"
+																			aria-label="Show unread messages only"
+																			autocomplete="off" type="checkbox"
+																			class="bui-switch__trigger"> <label
+																			data-on-value="Show unread messages only"
+																			data-off-value="Show unread messages only"
+																			for="support_list_filter"
+																			class="bui-switch__hitbox bui-switch__hitbox--on"><span
+																				class="bui-switch__indicator"></span></label>
+																	</div>
+																</div>
+															</div>
+
+
+															<div
+																class="messaging-support-empty-state messaging-support-list__empty">
+																<div class="bui-empty-state">
+
+																	<div class="bui-empty-state__slot messaging-support-empty-state__slot"
+																		style="max-width: 209.5px;"><img
+																			src="https://q-xx.bstatic.com/backend_static/common/img/partner-messaging/support/no-messages--desktop@2x/88c596d950e929e731f6e413db3200843544cb1f.png">
+																	</div>
+																	<p
+																		class="bui-empty-state__title messaging-support-empty-state__title">
+																		No messages
+																	</p>
+																	<p
+																		class="bui-empty-state__text messaging-support-empty-state__text">
+																		Your conversations with Customer Service about
+																		reservations will appear here
+																	</p>
+
+																</div>
+															</div>
+
+														</div>
+													</div>
+													<div
+														class="messaging-support--column bui-grid__column-full bui-grid__column-8@medium message">
+														<div
+															class="support-conversation-wrapper messaging-support__conversation bui-container">
+
+
+															<!-- Data Table-->
+															<div class="table-responsive mt-5">
+																<table class="table align-middle">
+																	<!-- Table Head -->
+																	<thead>
+																		<tr>
+																			<th class="">
+																				<span>Sent</span>
+																			</th>
+																			<th class="">
+																				<span>Sent Time</span>
+																			</th>
+																			<th class="">
+																				<span>Message</span>
+																			</th>
+
+																		</tr>
+																	</thead>
+																	<!-- /Table Head -->
+																	<!-- Table Body -->
+																	<tbody>
+																		<tr>
+																			<td>Starred</td>
+																			<td>12-02-2022</td>
+																			<td>Hello World</td>
+																		</tr>
+																	</tbody>
+																	<!-- /Table Body -->
+																</table>
+															</div>
+															<!-- /Data Table-->
+
+
+
+														</div>
+
+													</div>
+												</div>
+												<div
+													class="messaging-support--column messaging-support--scroll messaging-support--side-details">
+													<div>
+
+
+														<div class="messaging-inbox__privacy-policy"><span>Booking.com
+																receives all messages written here and processes them
+																according to our <a href="{{ url("#") }}" target="_blank">Privacy and
+																	Cookie Statement</a></span>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+
+									</div>
 
 								</div>
 							</div>
-							<div class="bui-spacer vtc-spinner__wrapper">
-								<table class="bui-table vtc-charges">
-									<thead class="bui-table__head">
-										<tr class="bui-table__row">
-											<th class="bui-table__cell bui-table__cell--head">
-
-											</th>
-											<th class="bui-table__cell bui-table__cell--head"><span>Now</span></th>
-											<th class="bui-table__cell bui-table__cell--head">
-												Most popular in Dhaka
-											</th>
-										</tr>
-									</thead>
-									<tbody class="bui-table__body">
-										<tr class="bui-table__row">
-											<td class="bui-table__cell">
-												<div class="vtc-spinner__wrapper">
-													<div class="">Tax</div>
-
-												</div>
-											</td>
-											<td class="bui-table__cell" data-heading="Now">
-												<div class="vtc-spinner__wrapper">
-													<div class="">A tax of 16.50 %
-														is not included</div>
-
-												</div>
-											</td>
-											<td class="bui-table__cell" data-heading="Most popular in Dhaka">
-												<div class="vtc-spinner__wrapper">
-													<div class="">16.5 % is not
-														included</div>
-
-												</div>
-											</td>
-										</tr>
-
-										<tr class="bui-table__row">
-											<td class="bui-table__cell">
-												<div class="vtc-spinner__wrapper">
-													<div class="">City tax</div>
-
-												</div>
-											</td>
-											<td class="bui-table__cell" data-heading="Now">
-												<div class="vtc-spinner__wrapper">
-													<div class="">City tax is not
-														applicable</div>
-
-												</div>
-											</td>
-											<td class="bui-table__cell" data-heading="Most popular in Dhaka">
-												<div class="vtc-spinner__wrapper">
-													<div class=""> % is included
-													</div>
-
-												</div>
-											</td>
-										</tr>
-
-									</tbody>
-								</table>
-
-							</div>
-
-							<div class="bui-spacer"></div>
-							<div class="bui-spacer">
-								<p>(*) The most common value (VAT, City Tax, Service Charge) out of a total of 197 open
-									hotel(s) in Dhaka.</p>
-							</div>
-
 						</div>
 					</main>
-
-
-
-
 
 
 					<!-- Footer -->
@@ -932,22 +1175,22 @@
 								<div class="ext-footer__top-content__inner">
 									<div class="ext-footer__top-content__first">
 										<div class="ext-footer__links">
-											<a href="#" class="ext-footer__link bui-link bui-link--primary">
+											<a href="{{ url("#") }}" class="ext-footer__link bui-link bui-link--primary">
 												<span>About
 													Us</span>
 											</a>
-											<a href="#" class="ext-footer__link bui-link bui-link--primary">
+											<a href="{{ url("#") }}" class="ext-footer__link bui-link bui-link--primary">
 												<span>Privacy and
 													Cookie Statement</span>
 											</a>
-											<a href="#" class="ext-footer__link bui-link bui-link--primary">
+											<a href="{{ url("#") }}" class="ext-footer__link bui-link bui-link--primary">
 												<span>FAQs</span>
 											</a>
 										</div>
 									</div>
 									<div class="ext-footer__top-content__second">
 										<div class="ext-footer__ctas">
-											<a href="#" data-test-id="ext-footer-add-property-link"
+											<a href="{{ url("#") }}" data-test-id="ext-footer-add-property-link"
 												class="ext-footer__cta bui-button bui-button--primary">
 												<span class="bui-button__text">
 													<span>Add new
@@ -973,7 +1216,7 @@
 								<div class="ext-footer__bottom-content__inner">
 									<div class="ext-footer__bottom-content__first">
 										<span>© Copyright
-											<a href="#"
+											<a href="{{ url("#") }}"
 												class="bui-link bui-link--primary ext-footer__link">Obocas.com</a>
 											2022
 										</span>
@@ -985,25 +1228,23 @@
 
 					</footer>
 					<!-- /Footer -->
-
 				</div>
+
 
 			</div>
 		</main>
 
+
 	</div>
 	<!-- close div#main-container -->
 
-
-
 	<!-- ===================== Required Js File Links ===================== -->
 	<!-- jquery js  -->
-	<script src="assets/js/jquery-1.12.4.min.js"></script>
+	<script src="{{ asset("/hotel-admin/assets/js/jquery-1.12.4.min.js") }}"></script>
 	<!-- bootstrap js  -->
-	<script src="assets/js/bootstrap.bundle.min.js"></script>
+	<script src="{{ asset("/hotel-admin/assets/js/bootstrap.bundle.min.js") }}"></script>
 	<!-- custom Js  -->
-	<script src="assets/js/script.js"></script>
-
+	<script src="{{ asset("/hotel-admin/assets/js/script.js") }}"></script>
 
 </body>
 

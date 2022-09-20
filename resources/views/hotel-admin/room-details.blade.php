@@ -9,16 +9,16 @@
 	<meta name="description" content="">
 	<title>Obocas Admin</title>
     <!-- favicon Icon -->
-    <link rel="shortcut icon" href="assets/images/favicon.png" type="image/png" />
+    <link rel="shortcut icon" href="{{ asset("/hotel-admin/assets/images/favicon.png") }}" type="image/png" />
 	<!-- Bootstrap v5.0.0-beta3 -->
-	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="{{ asset("/hotel-admin/assets/css/bootstrap.min.css") }}">
 	<!-- font awesome -->
-	<link rel="stylesheet" href="assets/css/all.min.css">
+	<link rel="stylesheet" href="{{ asset("/hotel-admin/assets/css/all.min.css") }}">
 
 	<!-- MAIN CSS -->
-	<link rel="stylesheet" href="assets/css/style.min.css">
+	<link rel="stylesheet" href="{{ asset("/hotel-admin/assets/css/style.min.css") }}">
 
-	<link rel="stylesheet" href="assets/css/pages/room-details.min.css">
+	<link rel="stylesheet" href="{{ asset("/hotel-admin/assets/css/pages/room-details.min.css") }}">
 
 </head>
 
@@ -36,8 +36,8 @@
 						<!-- Header Top -->
 						<div class="ext-header__container">
 							<section class="ext-header__logo-container">
-								<a href="#">
-									<img src="assets/images/logo.png" alt="Logo" class="ext-header__logo">
+								<a href="{{ url("#") }}">
+									<img src="{{ asset("/hotel-admin/assets/images/logo.png") }}" alt="Logo" class="ext-header__logo">
 								</a>
 								<div data-test-id="property-details" class="ext-header__property-details">
 									time squers - 7962700
@@ -70,7 +70,7 @@
 													</svg>
 												</button>
 											</div>
-											<a href="" class="ext-search-input__cancel-link">
+											<a href="{{ url("") }}" class="ext-search-input__cancel-link">
 												<span>Cancel</span>
 											</a>
 										</div>
@@ -98,10 +98,10 @@
 													class="ext-action-dropdown__content ext-action-dropdown__content--scrollable ext-action-dropdown__content--no-margin-bottom">
 
 													<li class="">
-														<a href="#"
+														<a href="{{ url("#") }}"
 															class="ext-action-dropdown__item ext-action-property__wrap">
 															<div>
-																<img src="assets/images/hotel.jfif" width="32px"
+																<img src="{{ asset("/hotel-admin/assets/images/hotel.jfif") }}" width="32px"
 																	height="32px" class="ext-action-property__avatar">
 															</div>
 															<div class="ext-action-property__body">
@@ -117,10 +117,10 @@
 													</li>
 
 													<li class="">
-														<a href="#"
+														<a href="{{ url("#") }}"
 															class="ext-action-dropdown__item ext-action-property__wrap">
 															<div>
-																<img src="assets/images/hotel.jfif" width="32px"
+																<img src="{{ asset("/hotel-admin/assets/images/hotel.jfif") }}" width="32px"
 																	height="32px" class="ext-action-property__avatar">
 															</div>
 															<div class="ext-action-property__body">
@@ -136,7 +136,7 @@
 												</ul>
 
 												<div class="ext-action-groups-link">
-													<a href="#"
+													<a href="{{ url("#") }}"
 														class="ext-action-dropdown__item ext-action-property__wrap">
 														<div
 															class="ext-action-property__avatar ext-action-property__group-icon">
@@ -186,7 +186,7 @@
 												<ul class="ext-action-dropdown__content">
 
 													<li>
-														<a href="change-password.html" class="ext-action-dropdown__item">
+														<a href="{{ url("change-password.html") }}" class="ext-action-dropdown__item">
 															<span>
 																<svg width="20" height="20" fill="currentColor"
 																	viewBox="0 0 24 24" role="presentation"
@@ -203,7 +203,7 @@
 													</li>
 
 													<li>
-														<a href="notification-settings.html" class="ext-action-dropdown__item">
+														<a href="{{ url("notification-settings.html") }}" class="ext-action-dropdown__item">
 															<span>
 																<svg width="20" height="20" fill="currentColor"
 																	viewBox="0 0 24 24" role="presentation"
@@ -220,7 +220,7 @@
 													</li>
 													
 													<li>
-														<a href="contacts.html" class="ext-action-dropdown__item">
+														<a href="{{ url("contacts.html") }}" class="ext-action-dropdown__item">
 															<span>
 																<svg width="20" height="20" fill="currentColor"
 																	viewBox="0 0 24 24" role="presentation"
@@ -238,7 +238,7 @@
 													
 													
 													<li>
-														<a href="security.html" class="ext-action-dropdown__item">
+														<a href="{{ url("security.html") }}" class="ext-action-dropdown__item">
 															<span>
 																<svg width="20" height="20" fill="currentColor"
 																	viewBox="0 0 24 24" role="presentation"
@@ -254,7 +254,7 @@
 														</a>
 													</li>
 													<li>
-														<a href="#" class="ext-action-dropdown__item">
+														<a href="{{ url("#") }}" class="ext-action-dropdown__item">
 															<span>
 																<svg width="20" height="20" fill="currentColor"
 																	viewBox="0 0 128 128" role="presentation"
@@ -300,7 +300,7 @@
 
 											<!-- Menu Item -->
 											<li class="ext-navigation-top-item">
-												<a href="#" class="ext-navigation-top-item__link">
+												<a href="{{ url("#") }}" class="ext-navigation-top-item__link">
 													<span class="ext-navigation-top-item__icon">
 														<svg height="24" viewBox="0 0 24 24" fill="currentColor"
 															width="24" aria-hidden="true" role="presentation"
@@ -380,7 +380,7 @@
 														</li> -->
 														<li data-nav-tag="open_close_rooms"
 															class="ext-navigation-submenu-item">
-															<a href="open-close-rooms.html"
+															<a href="{{ url("open-close-rooms.html") }}"
 																class="ext-navigation-submenu-item__link">
 																<span class="ext-navigation-submenu-item__icon">
 																</span>
@@ -393,7 +393,7 @@
 														</li>
 														<li data-nav-tag="rate_plans"
 															class="ext-navigation-submenu-item">
-															<a href="rate-plans.html"
+															<a href="{{ url("rate-plans.html") }}"
 																class="ext-navigation-submenu-item__link">
 																<span class="ext-navigation-submenu-item__icon">
 																</span>
@@ -413,7 +413,7 @@
 
 											<!-- Menu Item -->
 											<li class="ext-navigation-top-item">
-												<a href="reservations.html" class="ext-navigation-top-item__link">
+												<a href="{{ url("reservations.html") }}" class="ext-navigation-top-item__link">
 													<span class="ext-navigation-top-item__icon">
 														<svg focusable="false" role="presentation" aria-hidden="true"
 															width="24" fill="currentColor" viewBox="0 0 24 24"
@@ -481,7 +481,7 @@
 													<ul class="ext-navigation-submenu-item__list">
 														<li data-nav-tag="content_score"
 															class="ext-navigation-submenu-item">
-															<a href="property-page-score.html"
+															<a href="{{ url("property-page-score.html") }}"
 																class="ext-navigation-submenu-item__link">
 																<span class="ext-navigation-submenu-item__icon">
 																</span>
@@ -494,7 +494,7 @@
 														</li>
 														<li data-nav-tag="general_info"
 															class="ext-navigation-submenu-item">
-															<a href="general-info.html"
+															<a href="{{ url("general-info.html") }}"
 																class="ext-navigation-submenu-item__link"><span
 																	class="ext-navigation-submenu-item__icon">
 																</span> <span
@@ -506,7 +506,7 @@
 														</li>
 														<li data-nav-tag="vat_tax_charges"
 															class="ext-navigation-submenu-item">
-															<a href="vat-tax-charges.html"
+															<a href="{{ url("vat-tax-charges.html") }}"
 																class="ext-navigation-submenu-item__link">
 																<span class="ext-navigation-submenu-item__icon">
 																</span>
@@ -517,7 +517,7 @@
 
 														</li>
 														<li data-nav-tag="photos" class="ext-navigation-submenu-item">
-															<a href="photos.html"
+															<a href="{{ url("photos.html") }}"
 																class="ext-navigation-submenu-item__link">
 																<span class="ext-navigation-submenu-item__icon">
 																</span>
@@ -531,7 +531,7 @@
 
 														</li>
 														<li data-nav-tag="policies" class="ext-navigation-submenu-item">
-															<a href="policies.html"
+															<a href="{{ url("policies.html") }}"
 																class="ext-navigation-submenu-item__link"><span
 																	class="ext-navigation-submenu-item__icon">
 																</span> <span
@@ -542,7 +542,7 @@
 														</li>
 														<li data-nav-tag="facilities"
 															class="ext-navigation-submenu-item">
-															<a href="facilities-services.html"
+															<a href="{{ url("facilities-services.html") }}"
 																class="ext-navigation-submenu-item__link">
 																<span class="ext-navigation-submenu-item__icon">
 																</span>
@@ -557,7 +557,7 @@
 
 														</li>
 														<li data-nav-tag="rooms" class="ext-navigation-submenu-item">
-															<a href="room-details.html"
+															<a href="{{ url("room-details.html") }}"
 																class="ext-navigation-submenu-item__link">
 																<span class="ext-navigation-submenu-item__icon">
 																</span>
@@ -569,7 +569,7 @@
 														</li>
 
 														<li class="ext-navigation-submenu-item">
-															<a href="get-time-squers.html"
+															<a href="{{ url("get-time-squers.html") }}"
 																class="ext-navigation-submenu-item__link">
 																<span class="ext-navigation-submenu-item__icon">
 																</span>
@@ -584,7 +584,7 @@
 														</li>
 														<li data-nav-tag="surroundings"
 															class="ext-navigation-submenu-item">
-															<a href="what's-nearby.html"
+															<a href="{{ url("what's-nearby.html") }}"
 																class="ext-navigation-submenu-item__link">
 																<span class="ext-navigation-submenu-item__icon"></span>
 																<span class="ext-navigation-submenu-item__title">What's
@@ -647,7 +647,7 @@
 												<div class="ext-navigation-top-item__submenu dropdown-menu">
 													<ul class="ext-navigation-submenu-item__list">
 														<li class="ext-navigation-submenu-item">
-															<a href="reservation-messages.html"
+															<a href="{{ url("reservation-messages.html") }}"
 																class="ext-navigation-submenu-item__link">
 																<span class="ext-navigation-submenu-item__icon">
 																</span>
@@ -659,7 +659,7 @@
 
 														</li>
 														<li class="ext-navigation-submenu-item">
-															<a href="obacas-messages.html"
+															<a href="{{ url("obacas-messages.html") }}"
 																class="ext-navigation-submenu-item__link">
 																<span class="ext-navigation-submenu-item__icon">
 																</span>
@@ -721,7 +721,7 @@
 												<div class="ext-navigation-top-item__submenu dropdown-menu">
 													<ul class="ext-navigation-submenu-item__list">
 														<li class="ext-navigation-submenu-item">
-															<a href="guest-reviews.html"
+															<a href="{{ url("guest-reviews.html") }}"
 																class="ext-navigation-submenu-item__link"><span
 																	class="ext-navigation-submenu-item__icon">
 																</span> <span
@@ -781,7 +781,7 @@
 													<ul class="ext-navigation-submenu-item__list">
 														<li data-nav-tag="finance_invoices"
 															class="ext-navigation-submenu-item">
-															<a href="invoices.html"
+															<a href="{{ url("invoices.html") }}"
 																class="ext-navigation-submenu-item__link">
 																<span class="ext-navigation-submenu-item__icon">
 																</span>
@@ -793,7 +793,7 @@
 														</li>
 														<li data-nav-tag="finance_reservations"
 															class="ext-navigation-submenu-item">
-															<a href="reservation-statements.html"
+															<a href="{{ url("reservation-statements.html") }}"
 																class="ext-navigation-submenu-item__link">
 																<span class="ext-navigation-submenu-item__icon"></span>
 																<span
@@ -805,7 +805,7 @@
 														</li>
 														<li data-nav-tag="finance_overview"
 															class="ext-navigation-submenu-item">
-															<a href="financial-overview.html"
+															<a href="{{ url("financial-overview.html") }}"
 																class="ext-navigation-submenu-item__link">
 																<span class="ext-navigation-submenu-item__icon">
 																</span>
@@ -893,11 +893,11 @@
 														</p>
 
 														<div class="roomcard-buttons">
-															<a href="edit-room-details.html"
+															<a href="{{ url("edit-room-details.html") }}"
 																class="edit-room btn-default btn">Edit</a>
 															<span class="room-photo-uploader-long"
 																style="margin-left:3px;">
-																<a href="#" class="photo_uploader btn btn-primary">
+																<a href="{{ url("#") }}" class="photo_uploader btn btn-primary">
 																	<span class="photo_uploader_label">Upload
 																		photos</span>
 
@@ -921,7 +921,7 @@
 											<div class="col-xs-12 col-sm-6 col-lg-8" id="create-new-room-container">
 												<div class="row">
 													<div class="col-6">
-														<a href="edit-room-details.html" id="create-new-room"
+														<a href="{{ url("edit-room-details.html") }}" id="create-new-room"
 															class="create-new-unit large-roomcard">
 															Create a new property
 															<span class="address-label">
@@ -931,7 +931,7 @@
 														</a>
 													</div>
 													<div class="col-6">
-														<a class="create-new-unit" href="edit-room-details.html"
+														<a class="create-new-unit" href="{{ url("edit-room-details.html") }}"
 															id="create-new-property">
 															Create a new property
 															<span class="address-label">
@@ -971,11 +971,11 @@
 
 	<!-- ===================== Required Js File Links ===================== -->
 	<!-- jquery js  -->
-	<script src="assets/js/jquery-1.12.4.min.js"></script>
+	<script src="{{ asset("/hotel-admin/assets/js/jquery-1.12.4.min.js") }}"></script>
 	<!-- bootstrap js  -->
-	<script src="assets/js/bootstrap.bundle.min.js"></script>
+	<script src="{{ asset("/hotel-admin/assets/js/bootstrap.bundle.min.js") }}"></script>
 	<!-- custom Js  -->
-	<script src="assets/js/script.js"></script>
+	<script src="{{ asset("/hotel-admin/assets/js/script.js") }}"></script>
 
 
 </body>
