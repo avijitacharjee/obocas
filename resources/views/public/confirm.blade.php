@@ -37,11 +37,11 @@
             <!-- Nav Left Part -->
             <!-- Logo -->
             <div class="bui-header__main">
-                <div class="bui-header__logo">
+                <a href="/" class="bui-header__logo">
                     <span>
                         <img src="{{ asset('/frontend/assets/images/logo.png') }}" alt="">
                     </span>
-                </div>
+                </a>
             </div>
             <!-- /Logo -->
             <!-- /Nav Left Part -->

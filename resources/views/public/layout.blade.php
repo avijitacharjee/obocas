@@ -7,7 +7,7 @@
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=on" />
     <!--====== Title =======-->
-    <title>Booking Index</title>
+    <title>Obocas</title>
     <!-- Bootstrap -->
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/bootstrap.min.css') }}">
     <!-- Slick Slider -->
@@ -21,6 +21,8 @@
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/index-cloudfront.css') }}" />
     <!-- Bstatic -->
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/bstatic.min.css') }}">
+    
+	  <link rel="shortcut icon" type="image/x-icon" href="{{ asset('/admin/assets/img/favicon.png') }}">
   </head>
   <body">
   @include('public.header')

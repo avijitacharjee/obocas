@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PropertyController;
 use App\Http\Controllers\BookingController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,6 +17,12 @@ use App\Http\Controllers\BookingController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+
+Route::prefix('hotel-admin')->group(function(){
+    Route::get('dashboard',fn()=>view('hotel-admin.dashboard'));
+    Route::view('signin','hotel-admin.signin-signup');
+});
 
 Route::get('log-test', function () {
     $message = "Avijit";
@@ -70,4 +77,11 @@ Route::controller(BookingController::class)->group(function(){
     Route::get('booking3','booking3');
     Route::post('booking3','storeBooking3');
     Route::get('booking-confirm','confirm');
+});
+Route::prefix('admin')->group(function(){
+    Route::controller(AdminController::class)->group(function(){
+        Route::get('dashboard','index');
+        Route::get('hotels','hotels');
+        Route::get('bookings','bookings');
+    });
 });
