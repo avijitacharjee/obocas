@@ -23,4 +23,9 @@ class AdminTest extends TestCase
         $response = $this->get('http://admin.localhost/hotels');
         $response->assertStatus(200);
     }
+    public function test_bookings_page()
+    {
+        $response = $this->get('http://admin.localhost/bookings');
+        $response->assertStatus(200);
+    }
 }
