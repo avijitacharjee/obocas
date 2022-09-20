@@ -84,7 +84,7 @@
 										<button class="ext-action-menu__section" type="button" data-bs-toggle="dropdown"
 											aria-expanded="false">
 											<div class="ext-action-menu__avatar"
-												style="background-image: url(assets/images/hotel.jfif);">
+												style="background-image: url({{asset('/hotel-admin/assets/images/hotel.jfif')}});">
 											</div>
 											<div class="ext-action-menu__text">
 												User Photo
@@ -185,7 +185,7 @@
 												<ul class="ext-action-dropdown__content">
 
 													<li>
-														<a href="{{ url("change-password.html") }}"
+														<a href="{{ url("change-password") }}"
 															class="ext-action-dropdown__item">
 															<span>
 																<svg width="20" height="20" fill="currentColor"
@@ -203,7 +203,7 @@
 													</li>
 
 													<li>
-														<a href="{{ url("notification-settings.html") }}"
+														<a href="{{ url("notification-settings") }}"
 															class="ext-action-dropdown__item">
 															<span>
 																<svg width="20" height="20" fill="currentColor"
@@ -221,7 +221,7 @@
 													</li>
 
 													<li>
-														<a href="{{ url("contacts.html") }}" class="ext-action-dropdown__item">
+														<a href="{{ url("contacts") }}" class="ext-action-dropdown__item">
 															<span>
 																<svg width="20" height="20" fill="currentColor"
 																	viewBox="0 0 24 24" role="presentation"
@@ -238,7 +238,7 @@
 													</li>
 
 													<li>
-														<a href="{{ url("security.html") }}" class="ext-action-dropdown__item">
+														<a href="{{ url("security") }}" class="ext-action-dropdown__item">
 															<span>
 																<svg width="20" height="20" fill="currentColor"
 																	viewBox="0 0 24 24" role="presentation"
@@ -254,7 +254,7 @@
 														</a>
 													</li>
 													<li>
-														<a href="{{ url("#") }}" class="ext-action-dropdown__item">
+														<a href="{{ url("hotel-admin/signin") }}" class="ext-action-dropdown__item">
 															<span>
 																<svg width="20" height="20" fill="currentColor"
 																	viewBox="0 0 128 128" role="presentation"
@@ -300,7 +300,7 @@
 
 											<!-- Menu Item -->
 											<li class="ext-navigation-top-item ext-navigation-top-item--active">
-												<a href="{{ url("index.html") }}" class="ext-navigation-top-item__link">
+												<a href="{{ url("index") }}" class="ext-navigation-top-item__link">
 													<span class="ext-navigation-top-item__icon">
 														<svg height="24" viewBox="0 0 24 24" fill="currentColor"
 															width="24" aria-hidden="true" role="presentation"
@@ -359,7 +359,7 @@
 													<ul class="ext-navigation-submenu-item__list">
 														<!-- <li data-nav-tag="availability_calendar"
 															class="ext-navigation-submenu-item">
-															<a href="calendar.html"
+															<a href="calendar"
 																class="ext-navigation-submenu-item__link">
 																<span class="ext-navigation-submenu-item__icon">
 																</span>
@@ -371,7 +371,7 @@
 														</li> -->
 														<li data-nav-tag="open_close_rooms"
 															class="ext-navigation-submenu-item">
-															<a href="{{ url("open-close-rooms.html") }}"
+															<a href="{{ url("open-close-rooms") }}"
 																class="ext-navigation-submenu-item__link">
 																<span class="ext-navigation-submenu-item__icon">
 																</span>
@@ -384,7 +384,7 @@
 														</li>
 														<li data-nav-tag="rate_plans"
 															class="ext-navigation-submenu-item">
-															<a href="{{ url("rate-plans.html") }}"
+															<a href="{{ url("rate-plans") }}"
 																class="ext-navigation-submenu-item__link">
 																<span class="ext-navigation-submenu-item__icon">
 																</span>
@@ -404,7 +404,7 @@
 
 											<!-- Menu Item -->
 											<li class="ext-navigation-top-item">
-												<a href="{{ url("reservations.html") }}" class="ext-navigation-top-item__link">
+												<a href="{{ url("reservations") }}" class="ext-navigation-top-item__link">
 													<span class="ext-navigation-top-item__icon">
 														<svg focusable="false" role="presentation" aria-hidden="true"
 															width="24" fill="currentColor" viewBox="0 0 24 24"
@@ -462,7 +462,7 @@
 													<ul class="ext-navigation-submenu-item__list">
 														<li data-nav-tag="content_score"
 															class="ext-navigation-submenu-item">
-															<a href="{{ url("property-page-score.html") }}"
+															<a href="{{ url("property-page-score") }}"
 																class="ext-navigation-submenu-item__link">
 																<span class="ext-navigation-submenu-item__icon">
 																</span>
@@ -475,7 +475,7 @@
 														</li>
 														<li data-nav-tag="general_info"
 															class="ext-navigation-submenu-item">
-															<a href="{{ url("general-info.html") }}"
+															<a href="{{ url("general-info") }}"
 																class="ext-navigation-submenu-item__link"><span
 																	class="ext-navigation-submenu-item__icon">
 																</span> <span
@@ -487,7 +487,7 @@
 														</li>
 														<li data-nav-tag="vat_tax_charges"
 															class="ext-navigation-submenu-item">
-															<a href="{{ url("vat-tax-charges.html") }}"
+															<a href="{{ url("vat-tax-charges") }}"
 																class="ext-navigation-submenu-item__link">
 																<span class="ext-navigation-submenu-item__icon">
 																</span>
@@ -498,7 +498,7 @@
 
 														</li>
 														<li data-nav-tag="photos" class="ext-navigation-submenu-item">
-															<a href="{{ url("photos.html") }}"
+															<a href="{{ url("photos") }}"
 																class="ext-navigation-submenu-item__link">
 																<span class="ext-navigation-submenu-item__icon">
 																</span>
@@ -512,7 +512,7 @@
 
 														</li>
 														<li data-nav-tag="policies" class="ext-navigation-submenu-item">
-															<a href="{{ url("policies.html") }}"
+															<a href="{{ url("policies") }}"
 																class="ext-navigation-submenu-item__link"><span
 																	class="ext-navigation-submenu-item__icon">
 																</span> <span
@@ -523,7 +523,7 @@
 														</li>
 														<li data-nav-tag="facilities"
 															class="ext-navigation-submenu-item">
-															<a href="{{ url("facilities-services.html") }}"
+															<a href="{{ url("facilities-services") }}"
 																class="ext-navigation-submenu-item__link">
 																<span class="ext-navigation-submenu-item__icon">
 																</span>
@@ -538,7 +538,7 @@
 
 														</li>
 														<li data-nav-tag="rooms" class="ext-navigation-submenu-item">
-															<a href="{{ url("room-details.html") }}"
+															<a href="{{ url("room-details") }}"
 																class="ext-navigation-submenu-item__link">
 																<span class="ext-navigation-submenu-item__icon">
 																</span>
@@ -550,7 +550,7 @@
 														</li>
 
 														<li class="ext-navigation-submenu-item">
-															<a href="{{ url("get-time-squers.html") }}"
+															<a href="{{ url("get-time-squers") }}"
 																class="ext-navigation-submenu-item__link">
 																<span class="ext-navigation-submenu-item__icon">
 																</span>
@@ -565,7 +565,7 @@
 														</li>
 														<li data-nav-tag="surroundings"
 															class="ext-navigation-submenu-item">
-															<a href="{{ url("what's-nearby.html") }}"
+															<a href="{{ url("what's-nearby") }}"
 																class="ext-navigation-submenu-item__link">
 																<span class="ext-navigation-submenu-item__icon"></span>
 																<span class="ext-navigation-submenu-item__title">What's
@@ -619,7 +619,7 @@
 												<div class="ext-navigation-top-item__submenu dropdown-menu">
 													<ul class="ext-navigation-submenu-item__list">
 														<li class="ext-navigation-submenu-item">
-															<a href="{{ url("reservation-messages.html") }}"
+															<a href="{{ url("reservation-messages") }}"
 																class="ext-navigation-submenu-item__link">
 																<span class="ext-navigation-submenu-item__icon">
 																</span>
@@ -631,7 +631,7 @@
 
 														</li>
 														<li class="ext-navigation-submenu-item">
-															<a href="{{ url("obacas-messages.html") }}"
+															<a href="{{ url("obacas-messages") }}"
 																class="ext-navigation-submenu-item__link">
 																<span class="ext-navigation-submenu-item__icon">
 																</span>
@@ -684,7 +684,7 @@
 												<div class="ext-navigation-top-item__submenu dropdown-menu">
 													<ul class="ext-navigation-submenu-item__list">
 														<li class="ext-navigation-submenu-item">
-															<a href="{{ url("guest-reviews.html") }}"
+															<a href="{{ url("guest-reviews") }}"
 																class="ext-navigation-submenu-item__link">
 																<span class="ext-navigation-submenu-item__icon">
 																</span>
@@ -735,7 +735,7 @@
 													<ul class="ext-navigation-submenu-item__list">
 														<li data-nav-tag="finance_invoices"
 															class="ext-navigation-submenu-item">
-															<a href="{{ url("invoices.html") }}"
+															<a href="{{ url("invoices") }}"
 																class="ext-navigation-submenu-item__link">
 																<span class="ext-navigation-submenu-item__icon">
 																</span>
@@ -747,7 +747,7 @@
 														</li>
 														<li data-nav-tag="finance_reservations"
 															class="ext-navigation-submenu-item">
-															<a href="{{ url("reservation-statements.html") }}"
+															<a href="{{ url("reservation-statements") }}"
 																class="ext-navigation-submenu-item__link">
 																<span class="ext-navigation-submenu-item__icon"></span>
 																<span
@@ -759,7 +759,7 @@
 														</li>
 														<li data-nav-tag="finance_overview"
 															class="ext-navigation-submenu-item">
-															<a href="{{ url("financial-overview.html") }}"
+															<a href="{{ url("financial-overview") }}"
 																class="ext-navigation-submenu-item__link">
 																<span class="ext-navigation-submenu-item__icon">
 																</span>
@@ -3312,7 +3312,7 @@
 									</div>
 									<div class="ext-footer__top-content__second">
 										<div class="ext-footer__ctas">
-											<a href="{{ url("#") }}" data-test-id="ext-footer-add-property-link"
+											<a href="{{env("APP_URL")}}{{"/property1"}}" data-test-id="ext-footer-add-property-link"
 												class="ext-footer__cta bui-button bui-button--primary">
 												<span class="bui-button__text">
 													<span>Add new

@@ -15,17 +15,17 @@ class AdminTest extends TestCase
      */
     public function test_homepage_available()
     {
-        $response = $this->get('http://admin.localhost');
+        $response = $this->get('/admin/dashboard');
         $response->assertStatus(200);
     }
     public function test_hotels_page()
     {
-        $response = $this->get('http://admin.localhost/hotels');
+        $response = $this->get('/admin/hotels');
         $response->assertStatus(200);
     }
     public function test_bookings_page()
     {
-        $response = $this->get('http://admin.localhost/bookings');
+        $response = $this->get('/admin/bookings');
         $response->assertStatus(200);
     }
 }

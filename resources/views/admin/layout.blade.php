@@ -45,10 +45,10 @@
 
 			<!-- Logo -->
 			<div class="header-left">
-				<a href="{{ url('index.html') }}" class="logo">
+				<a href="{{ url('/') }}" class="logo">
             		<img src="{{ asset('frontend/assets/images/logo.png')}}" alt="">
 				</a>
-				<a href="{{ url('index.html') }}" class="logo logo-small">
+				<a href="{{ url('/') }}" class="logo logo-small">
 					<img src="{{ asset('frontend/assets/images/logo.png')}}" alt="">
 				</a>
 			</div>

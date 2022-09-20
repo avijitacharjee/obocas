@@ -18,16 +18,10 @@ use App\Http\Controllers\AdminController;
 |
 */
 
-Route::domain('admin.localhost')->group(function(){
-    Route::controller(AdminController::class)->group(function(){
-        Route::get('/','index');
-        Route::get('hotels','hotels');
-        Route::get('bookings','bookings');
-    });
-});
 
-Route::domain('hotel-admin.localhost')->group(function(){
-    Route::get('/',fn()=>view('hotel-admin.dashboard'));
+Route::prefix('hotel-admin')->group(function(){
+    Route::get('dashboard',fn()=>view('hotel-admin.dashboard'));
+    Route::view('signin','hotel-admin.signin-signup');
 });
 
 Route::get('log-test', function () {
@@ -83,4 +77,11 @@ Route::controller(BookingController::class)->group(function(){
     Route::get('booking3','booking3');
     Route::post('booking3','storeBooking3');
     Route::get('booking-confirm','confirm');
+});
+Route::prefix('admin')->group(function(){
+    Route::controller(AdminController::class)->group(function(){
+        Route::get('dashboard','index');
+        Route::get('hotels','hotels');
+        Route::get('bookings','bookings');
+    });
 });

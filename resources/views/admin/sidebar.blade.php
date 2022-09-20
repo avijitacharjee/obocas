@@ -6,16 +6,16 @@
                 <li class="menu-title"> <span>Main</span>
                 </li>
                 <li class={{ isset($dashboard) ? 'active' : '' }}>
-                    <a href="{{ url('/') }}" class={{ isset($dashboard) ? 'active' : '' }}>
+                    <a href="{{ url('admin/dashboard') }}" class={{ isset($dashboard) ? 'active' : '' }}>
                         <i class="feather-home"></i><span>Dashboard</span>
                     </a>
                 </li>
                 <li class={{ isset($hotel) ? 'active' : '' }}>
-                    <a href="{{ url('/hotels') }}" class={{ isset($hotel) ? 'active' : '' }}><i
+                    <a href="{{ url('admin/hotels') }}" class={{ isset($hotel) ? 'active' : '' }}><i
                             class="feather-home"></i><span>Hotel List</span></a>
                 </li>
                 <li class={{ isset($booking) ? 'active' : '' }}>
-                    <a href="{{ url('/bookings') }}" class={{ isset($hotel) ? 'active' : '' }}><i
+                    <a href="{{ url('admin/bookings') }}" class={{ isset($hotel) ? 'active' : '' }}><i
                             class="feather-home"></i><span>Booking List</span></a>
                 </li>
                 <!-- <li>
