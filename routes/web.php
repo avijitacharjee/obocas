@@ -24,11 +24,6 @@ Route::prefix('hotel-admin')->group(function(){
     Route::view('signin','hotel-admin.signin-signup');
 });
 
-Route::get('log-test', function () {
-    $message = "Avijit";
-    Log::channel('debug')->info($message);
-    return view('welcome');
-});
 
 Route::post('/',[AuthController::class,'register']);
 
