@@ -35,199 +35,7 @@
     <div id="page-container" style="position: relative">
         <div>
             <div class="page-component post-login">
-                <div class="page-component-header-container">
-                    <div class="page-component-header">
-                        <div class="page-component-header-fixed">
-                            <div class="header-container">
-
-                                <div class="hamberger-menu">
-                                    <div></div>
-                                    <div></div>
-                                    <div></div>
-                                </div>
-
-                                <a class="agoda-logo" href="{{ url("index.html") }}">
-                                    <img src="{{ asset("/partner-dashboard/assets/images/logo.png") }}">
-                                </a>
-
-                                <div class="menu-wrapper">
-
-                                    <ul class="main-menu pull-right">
-                                        <li class="username-menu-wrapper">
-                                            <a href="{{ url("#") }}" class="username-main-selector dropdown_button">
-                                                <i class="user-logo">
-                                                    <span class="user-logo-text">E</span>
-                                                </i>
-                                                <span class="username-text">Elias</span>
-                                                <i class="fa-solid fa-caret-down"></i>
-                                            </a>
-                                            <div class="dropdown_menu">
-                                                <ul class="dropdown_menu_list">
-                                                    <li class="dropdown_menu_item">
-                                                        <a class="dropdown_menu_link" href="{{ url("profile.html") }}">
-                                                            Profile
-                                                        </a>
-                                                    </li>
-                                                    <li class="dropdown_menu_item border-0">
-                                                        <a class="dropdown_menu_link" href="{{ url("#") }}">
-                                                            Sign Out
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </li>
-                                        <li class="mobile_user_photo">
-                                            <a href="{{ url("#") }}" class="username-main-selector" type="button" id="MobiledropdownMenuButton" >
-                                                <i class="user-logo">
-                                                    <span class="user-logo-text">E</span>
-                                                </i>
-                                                <span class="username-text">Elias</span>
-                                            </a>
-                                            <ul class="mobile_user_photo-dropdown-menu">
-                                                <li><a class="dropdown-item" href="{{ url("profile.html") }}">Profile</a></li>
-                                                <li><a class="dropdown-item" href="{{ url("#") }}">Sign Out</a></li>
-                                            </ul>
-                                        </li>
-    
-                                    </ul>
-    
-                                    <div class="page-menu-wrapper">
-                                        <!-- Tab Button -->
-                                        <ul class="page-menu page-menu-6" id="nav-tab" role="tablist">
-                                            <li class="wrapper">
-                                                <a id="dashboard-tab-button" class="link traffic-tracking "
-                                                    href="{{ url("index.html") }}">
-                                                    <span class="page-menu-text">Dashboard</span>
-                                                </a>
-                                            </li>
-                                            <li class="wrapper">
-                                                <a id="tools-tab-button" class="link traffic-tracking" href="{{ url("tools.html") }}">
-                                                    <span class="page-menu-text">Tools</span>
-                                                </a>
-                                            </li>
-                                            <li class="wrapper">
-                                                <a id="personaldetails-tab-button" class="link traffic-tracking active"
-                                                    href="{{ url("profile.html") }}">
-                                                    <span class="page-menu-text">Profile</span>
-                                                </a>
-                                            </li>
-                                            <li class="wrapper">
-                                                <a id="reporting-tab-button" class="link traffic-tracking"
-                                                    href="{{ url("report.html") }}">
-                                                    <span class="page-menu-text">Reporting</span>
-                                                </a>
-                                            </li>
-                                            <li class="wrapper">
-                                                <a id="faq-tab-button" class="link traffic-tracking" href="{{ url("faq.html") }}">
-                                                    <span class="page-menu-text">FAQ</span>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                        <!-- /Tab Button -->
-                                    </div>
-    
-                                    <div class="sidebar-panel hide-panel">
-                                        <div class="sidebar-menu-panel">
-                                            <div class="sidebar-username-text">
-                                                <a class="agoda-logo" href="{{ url("#") }}">
-                                                    <img src="{{ asset("/partner-dashboard/assets/images/logo.png") }}">
-                                                </a>
-                                                <span>Elias</span>
-                                            </div>
-                                            <div class="user-menu">
-                                                <a class="pull-left" href="{{ url("#") }}">Profile</a>
-                                                <a href="{{ url("#") }}" class="pull-right">Sign Out</a>
-                                            </div>
-                                            <ul class="sidebar-linklist">
-                                                <ul class="sidebar-linklist">
-                                                    <li class="sidemenu-item ">
-                                                        <a class="sidemenu-link traffic-tracking" href="{{ url("index.html") }}">
-                                                            <i class="ficon ficon-dashboard">
-                                                            </i>
-                                                            <span class="sidemenu-text">Dashboard</span>
-                                                        </a>
-                                                    </li>
-                                                    <li class="sidemenu-item">
-                                                        <a class="sidemenu-link traffic-tracking" href="{{ url("tools.html") }}">
-                                                            <i class="ficon ficon-tools"></i>
-                                                            <span class="sidemenu-text">Tools</span>
-                                                        </a>
-                                                    </li>
-                                                    <li class="sidemenu-item active">
-                                                        <a class="sidemenu-link traffic-tracking" href="{{ url("profile.html") }}">
-                                                            <i class="ficon ficon-profiles"></i>
-                                                            <span class="sidemenu-text">Profile</span>
-                                                        </a>
-                                                    </li>
-                                                    <li class="sidemenu-item">
-                                                        <a class="sidemenu-link traffic-tracking" href="{{ url("report.html") }}">
-                                                            <i class="ficon ficon-reporting"></i>
-                                                            <span class="sidemenu-text">Reporting</span>
-                                                        </a>
-                                                    </li>
-                                                    <li class="sidemenu-item">
-                                                        <a target="" class="sidemenu-link traffic-tracking" href="{{ url("faq.html") }}">
-                                                            <i class="ficon ficon-faq"></i>
-                                                            <span class="sidemenu-text">FAQ</span>
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </ul>
-                                        </div>
-                                        <div class="overlay-sidebar-panel"></div>
-                                    </div>
-    
-                                </div>
-
-                            </div>
-
-                            <div class="submenu-items">
-                                <div class="tools-menu-container">
-                                    <ul class="items items-2 tab_menu">
-                                        <li class="item tab_menu_item_one active">
-                                            <div class="item-click">
-                                                <a id="profiles-menu" class="traffic-tracking" href="{{ url("#") }}">
-                                                    <div class="text">
-                                                        Personal Details
-                                                    </div>
-                                                </a>
-                                            </div>
-                                        </li>
-                                        <li class="item tab_menu_item_tow">
-                                            <div class="item-click">
-                                                <a id="bank-info-menu" class="traffic-tracking" href="{{ url("#") }}">
-                                                    <div class="text">
-                                                        Bank Information
-                                                    </div>
-                                                </a>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-
-
-                        </div>
-                    </div>
-
-                    <!-- <div class="banner-wrapper booking-tool-c">
-                        <div class="banner-container">
-                            <a href="{{ url("#") }}" class="button button-white banner-button banner-button-desktop">
-                                Make My Booking
-                            </a>
-                            <div class="banner-header-container">
-                                <div class="banner-header">Click the button to make direct bookings for yourself or for your customers.</div>
-                                <div class="banner-subheader">Note that you will be eligible to earn commissions on any bookings made after clicking the button</div>
-                            </div>
-                            <a href="{{ url("#") }}" class="button button-white banner-button banner-button-mobile">
-                                Make My Booking
-                            </a>
-                        </div>
-                    </div> -->
-
-                </div>
-
-
+                @include('partner.dashboard.header')
                 <div class="page-component-content profile">
                     <!-- Profile -->
                     <div class="profile-content-container profile_page_tab">
@@ -283,7 +91,7 @@
                                                                 First name (English Characters Only)
                                                                 <span class="text-danger">*</span>
                                                             </label>
-                                                            <input type="text" id="Firstname" class="validated-input " value="Elias">
+                                                            <input type="text" name="firstname" id="Firstname" class="validated-input " value="Elias">
                                                         </div>
                                                     </div>
                                                     <div class="sm-col-6">
@@ -291,7 +99,7 @@
                                                             <label for="Lastname">Last name (English Characters Only)
                                                                 <span class="text-danger">*</span>
                                                             </label>
-                                                            <input type="text" id="Lastname" class="validated-input " value="Bhuyan">
+                                                            <input type="text" name="lastname" id="Lastname" class="validated-input " value="Bhuyan">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -306,7 +114,7 @@
                                                                 <div>
                                                                     <div class="SingleDatePickerInput SingleDatePickerInput_1">
                                                                         <div class="DateInput DateInput_1">
-                                                                            <input type="date" class="DateInput_input DateInput_input_1" id="personal-details-date-of-birth" name="personal-details-date-of-birth-error-box" value="2022-03-14" placeholder="Date">
+                                                                            <input name="date_of_birth" type="date" class="DateInput_input DateInput_input_1" id="personal-details-date-of-birth" name="personal-details-date-of-birth-error-box" value="2022-03-14" placeholder="Date">
                                                                         </div>
                                                                     </div>
                                                                 </div>

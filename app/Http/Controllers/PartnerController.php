@@ -5,82 +5,36 @@ namespace App\Http\Controllers;
 use App\Models\Partner;
 use App\Http\Requests\StorePartnerRequest;
 use App\Http\Requests\UpdatePartnerRequest;
+use Illuminate\View\View;
 
 class PartnerController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    public function home()
     {
-        //
+        return view('partner.index');
     }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function signup()
     {
-        //
+        return view('partner.signup');
     }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\StorePartnerRequest  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(StorePartnerRequest $request)
     {
-        //
+        $partner = Partner::create($request->all());
+        session(['partner_name'=>$request->lastname]);
+        return redirect('partner/dashboard',201);
     }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Partner  $partner
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Partner $partner)
+    public function dashboard(): View
     {
-        //
+        return view('partner.dashboard.index');
     }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Partner  $partner
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Partner $partner)
+    public function signin(StorePartnerRequest $request)
     {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdatePartnerRequest  $request
-     * @param  \App\Models\Partner  $partner
-     * @return \Illuminate\Http\Response
-     */
-    public function update(UpdatePartnerRequest $request, Partner $partner)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Partner  $partner
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Partner $partner)
-    {
-        //
+        $partner = Partner::where('email',$request->email)->where('password',$request->password)->first();
+        if($partner){
+            session(['partner_name'=>$partner->lastname]);
+            return redirect('partner/dashboard',201);
+        }else{
+            return redirect()->back()->with('error','error');
+        }
     }
 }

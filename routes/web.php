@@ -6,6 +6,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PropertyController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\PartnerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +23,20 @@ use App\Http\Controllers\AdminController;
 Route::prefix('hotel-admin')->group(function(){
     Route::get('dashboard',fn()=>view('hotel-admin.dashboard'));
     Route::view('signin','hotel-admin.signin-signup');
+});
+Route::prefix('partner')->group(function(){
+    Route::controller(PartnerController::class)->group(function(){
+        Route::get('home','home');
+        Route::get('signup','signup');
+        Route::post('signup','store');
+        Route::post('signin','signin');
+        Route::view('faq','partner.dashboard.faq');
+        Route::view('index','partner.index');
+        Route::view('dashboard','partner.dashboard.dashboard');
+        Route::view('profile','partner.dashboard.profile');
+        Route::view('report','partner.dashboard.report');
+        Route::view('tools','partner.dashboard.tools');
+    });
 });
 
 
