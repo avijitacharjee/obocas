@@ -154,7 +154,7 @@
                             <ul class="ext-action-dropdown__content">
 
                                 <li>
-                                    <a href="change-password.html"
+                                    <a href="change-password"
                                         class="ext-action-dropdown__item">
                                         <span>
                                             <svg width="20" height="20" fill="currentColor"
@@ -172,7 +172,7 @@
                                 </li>
 
                                 <li>
-                                    <a href="notification-settings.html"
+                                    <a href="notification-settings"
                                         class="ext-action-dropdown__item">
                                         <span>
                                             <svg width="20" height="20" fill="currentColor"
@@ -190,7 +190,7 @@
                                 </li>
 
                                 <li>
-                                    <a href="contacts.html" class="ext-action-dropdown__item">
+                                    <a href="contacts" class="ext-action-dropdown__item">
                                         <span>
                                             <svg width="20" height="20" fill="currentColor"
                                                 viewBox="0 0 24 24" role="presentation"
@@ -207,7 +207,7 @@
                                 </li>
 
                                 <li>
-                                    <a href="security.html" class="ext-action-dropdown__item">
+                                    <a href="security" class="ext-action-dropdown__item">
                                         <span>
                                             <svg width="20" height="20" fill="currentColor"
                                                 viewBox="0 0 24 24" role="presentation"
@@ -328,7 +328,7 @@
                                 <ul class="ext-navigation-submenu-item__list">
                                     <!-- <li data-nav-tag="availability_calendar"
                                         class="ext-navigation-submenu-item">
-                                        <a href="calendar.html"
+                                        <a href="calendar"
                                             class="ext-navigation-submenu-item__link">
                                             <span class="ext-navigation-submenu-item__icon">
                                             </span>
@@ -507,7 +507,7 @@
 
                                     </li>
                                     <li data-nav-tag="rooms" class="ext-navigation-submenu-item">
-                                        <a href="room-details.html"
+                                        <a href="room-details"
                                             class="ext-navigation-submenu-item__link">
                                             <span class="ext-navigation-submenu-item__icon">
                                             </span>
@@ -588,7 +588,7 @@
                             <div class="ext-navigation-top-item__submenu dropdown-menu">
                                 <ul class="ext-navigation-submenu-item__list">
                                     <li class="ext-navigation-submenu-item">
-                                        <a href="reservation-messages.html"
+                                        <a href="reservation-messages"
                                             class="ext-navigation-submenu-item__link">
                                             <span class="ext-navigation-submenu-item__icon">
                                             </span>
