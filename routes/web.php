@@ -44,7 +44,7 @@ Route::prefix('hotel-admin')->group(function(){
     Route::view('policies','hotel-admin.policies');
     Route::view('property-page-score','hotel-admin.property-page-score');
     Route::view('rate-plans','hotel-admin.rate-plans');
-    Route::view('reservation-messagges','hotel-admin.reservation-messages');
+    Route::view('reservation-messages','hotel-admin.reservation-messages');
     Route::view('reservation-statements','hotel-admin.reservation-statements');
     Route::view('reservations','hotel-admin.reservations');
     Route::view('review-edit-reat-plan','hotel-admin.review-edit-reat-plan');

@@ -17,7 +17,7 @@
 
     <link rel="stylesheet" href="{{ asset("/hotel-admin/assets/css/style.min.css") }}">
     <link rel="stylesheet" href="{{ asset("/hotel-admin/assets/css/pages/security.min.css") }}">
-
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
 </head>
 
 
@@ -3160,28 +3160,28 @@
                                 </form>
 
 
-                                <script type="text/x-handlebars-template" id="tfa-modal-template">
+                                {{-- <script type="text/x-handlebars-template" id="tfa-modal-template">
                                     <div class="modal fade" id="tfa-modal-window" tabindex="-1" role="dialog" aria-labelledby="tfa-modal-window">
-                          <div class="modal-dialog" role="document">
-                              <form class="modal-content tfa_modal_form">
-                  
-                                  <div class="tfa_modal_header">
-                                      <div class="am_headline">{{title}}</div>
-                                  </div>
-                                  <div class="tfa_modal_body">
-                                      {{message}}
-                                  </div>
-                                  <div class="tfa_modal_footer">
-                                      <button type="submit" class="btn btn-primary tfa_modal_btn">{{ctaLabel}}</button>
-                                      {{#if referralUrl}}
-                                      <a href="{{referralUrl}}" class="pull-right tfa_modal_btn">Not now</a>
-                                      {{/if}}
-                                  </div>
-                  
-                              </form>
-                          </div>
-                      </div>
-                  </script>
+                                        <div class="modal-dialog" role="document">
+                                            <form class="modal-content tfa_modal_form">
+                                
+                                                <div class="tfa_modal_header">
+                                                    <div class="am_headline">{{title}}</div>
+                                                </div>
+                                                <div class="tfa_modal_body">
+                                                    {{message}}
+                                                </div>
+                                                <div class="tfa_modal_footer">
+                                                    <button type="submit" class="btn btn-primary tfa_modal_btn">{{ctaLabel}}</button>
+                                                    {{#if referralUrl}}
+                                                    <a href="referralUrl" class="pull-right tfa_modal_btn">Not now</a>
+                                                    {{/if}}
+                                                </div>
+                                
+                                            </form>
+                                        </div>
+                                    </div>
+                                </script>
 
                                 <!-- Number template -->
                                 <script type="text/x-handlebars-template" id="phone-number-template">
@@ -3206,7 +3206,7 @@
                           </div>
                       </td>
                       {{/if}}
-                  </script>
+                  </script> --}}
 
 
 

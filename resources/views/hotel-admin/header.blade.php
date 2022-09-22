@@ -223,7 +223,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#" class="ext-action-dropdown__item">
+                                    <a href="hotel-admin/signin" class="ext-action-dropdown__item">
                                         <span>
                                             <svg width="20" height="20" fill="currentColor"
                                                 viewBox="0 0 128 128" role="presentation"
