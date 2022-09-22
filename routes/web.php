@@ -21,8 +21,37 @@ use App\Http\Controllers\PartnerController;
 
 
 Route::prefix('hotel-admin')->group(function(){
-    Route::get('dashboard',fn()=>view('hotel-admin.dashboard'));
+    Route::get('dashboard',fn()=>view('hotel-admin.home'));
     Route::view('signin','hotel-admin.signin-signup');
+    Route::view('change-password','hotel-admin.change-password');
+    Route::view('notification-settings','hotel-admin.notification-settings');
+    Route::view('contacts','hotel-admin.contacts');
+    Route::view('add-new-rate-plan-final','hotel-admin.add-new-rate-plan-final');
+    Route::view('add-new-rate-plan','hotel-admin.add-new-rate-plan');
+    Route::view('calendar','hotel-admin.calendar');
+    Route::view('damage-deposit','hotel-admin.damage-deposit');
+    Route::view('date-changes-non-refundable-booking','hotel-admin.date-changes-non-refundable-booking');
+    Route::view('edit-room-details','hotel-admin.edit-room-details');
+    Route::view('facilities-services','hotel-admin.facilities-services');
+    Route::view('financial-overview','hotel-admin.financial-overview');
+    Route::view('general-info','hotel-admin.general-info');
+    Route::view('get-time-squers','hotel-admin.get-time-squers');
+    Route::view('guest-reviews','hotel-admin.guest-reviews');
+    Route::view('invoices','hotel-admin.invoices');
+    Route::view('obocas-messages','hotel-admin.obocas-messages');
+    Route::view('open-close-rooms','hotel-admin.open-close-rooms');
+    Route::view('photos','hotel-admin.photos');
+    Route::view('policies','hotel-admin.policies');
+    Route::view('property-page-score','hotel-admin.property-page-score');
+    Route::view('rate-plans','hotel-admin.rate-plans');
+    Route::view('reservation-messagges','hotel-admin.reservation-messages');
+    Route::view('reservation-statements','hotel-admin.reservation-statements');
+    Route::view('reservations','hotel-admin.reservations');
+    Route::view('review-edit-reat-plan','hotel-admin.review-edit-reat-plan');
+    Route::view('room-details','hotel-admin.room-details');
+    Route::view('security','hotel-admin.security');
+    Route::view('vat-tax-changes','hotel-admin.vat-tax-changes');
+    Route::view("what's-nearby","hotel-admin.what's-nrearby");
 });
 Route::prefix('partner')->group(function(){
     Route::controller(PartnerController::class)->group(function(){
