@@ -57,7 +57,7 @@ class PropertyController extends Controller
         return redirect('/property8');
     }
     public function property8(Request $request){
-        session(['property_images'=>$this->saveImages($request->images)]);
+        session(['pp_property_images'=>$this->saveImages($request->images)]);
         return redirect('/property9');
     }
     public function property9(Request $request){

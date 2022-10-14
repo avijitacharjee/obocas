@@ -10,7 +10,6 @@ $hotel = true;
                 <h3 class="page-title">List of Hotels</h3>
                 <ul class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{ url('index.html') }}">Dashboard</a></li>
-                    {{-- <li class="breadcrumb-item"><a href="{{ url('javascript:(0);') }}">Users</a></li> --}}
                     <li class="breadcrumb-item active">Hotels</li>
                 </ul>
             </div>
@@ -35,8 +34,8 @@ $hotel = true;
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    @foreach($properties as $property)
+                                @foreach($properties as $property)
+                                    <tr>
                                         <td>
                                             <h2 class="table-avatar">
                                                 <a href="{{ url('profile.html') }}" class="avatar avatar-sm mr-2"><img
@@ -58,8 +57,8 @@ $hotel = true;
                                                 <label for="status_1" class="checktoggle">checkbox</label>
                                             </div>
                                         </td>
-                                    @endforeach
-                                </tr>
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>

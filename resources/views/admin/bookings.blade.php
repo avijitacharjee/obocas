@@ -34,8 +34,8 @@ $booking = true;
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    @foreach($bookings as $booking)
+                                @foreach($bookings as $booking)
+                                    <tr>
                                         <td>
                                             <h2 class="table-avatar">
                                                 <a href="{{ url('profile.html') }}" class="avatar avatar-sm mr-2"><img
@@ -57,8 +57,8 @@ $booking = true;
                                                 <label for="status_1" class="checktoggle">checkbox</label>
                                             </div>
                                         </td>
-                                    @endforeach
-                                </tr>
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>

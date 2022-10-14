@@ -58,25 +58,26 @@ Route::prefix('hotel-admin')->group(function(){
         Route::post('notification-settings','storeNotificationSettings');
     });
 });
-Route::prefix('partner')->group(function(){
-    Route::controller(PartnerController::class)->group(function(){
-        Route::get('home','home');
-        Route::get('signup','signup');
-        Route::post('signup','store');
-        Route::post('signin','signin');
-        Route::view('faq','partner.dashboard.faq');
-        Route::view('index','partner.index');
-        Route::view('dashboard','partner.dashboard.dashboard');
-        Route::view('profile','partner.dashboard.profile');
-        Route::view('report','partner.dashboard.report');
-        Route::view('tools','partner.dashboard.tools');
+Route::prefix('partner')->group(function (){
+    Route::controller(PartnerController::class)->group(function (){
+        Route::get('home', 'home');
+        Route::get('signup', 'signup');
+        Route::post('signup', 'store');
+        Route::post('signin', 'signin');
+        Route::view('faq', 'partner.dashboard.faq');
+        Route::view('index', 'partner.index');
+        Route::view('dashboard', 'partner.dashboard.dashboard');
+        Route::view('profile', 'partner.dashboard.profile');
+        Route::view('report', 'partner.dashboard.report');
+        Route::view('tools', 'partner.dashboard.tools');
     });
 });
 
 
 Route::post('/',[AuthController::class,'register']);
 
-Route::view('/signin','public.signin');
+Route::view('/signin','public.sign-otp');
+Route::view('/signin1','public.signin');
 Route::post('booking1',function(){
     return view('public.booking-step-one');
 });

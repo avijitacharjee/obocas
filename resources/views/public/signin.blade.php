@@ -83,10 +83,10 @@
                                                 </div>
                                             </div>
                                             <!-- /Form Input -->
-
+                                            <div id="recaptcha-container">
                                             <!-- Gmial Login -->
                                             <div class="">
-                                                <button type="submit" class="_2emQHDWTNbBMVHK80Tj0A2 _2V1p8Jqj0mC6lhwPQD7Wm2 _3idbYJ1oAGD-sl-6gdCR2e _1Oxra6oXUcB9EXOfxAD2i2 _2b3nVYidxpTD-0_hVml1lP _2__0gVPBP36LBlyHwThlOQ">
+                                                <button id="submitButton" type="submit" class="_2emQHDWTNbBMVHK80Tj0A2 _2V1p8Jqj0mC6lhwPQD7Wm2 _3idbYJ1oAGD-sl-6gdCR2e _1Oxra6oXUcB9EXOfxAD2i2 _2b3nVYidxpTD-0_hVml1lP _2__0gVPBP36LBlyHwThlOQ">
                                                     <span class="_1jp30RWusTBQoML9GSCZ_C">Continue with email</span>
                                                 </button>
                                             </div>
@@ -160,6 +160,7 @@
                                                 </div>
                                             </div>
                                             <!-- /Social Authantication -->
+                                            
                                         </form>
                                         <!-- /LogIn Form -->
 
@@ -170,7 +171,8 @@
                     </div>
                 </div>
             </div>
-
+            
+            </div>
             <!-- Copy-Right Footer -->
             <div class="account-access__footer">
                 <div class="u-text-center bui_font_caption portal_footer">
@@ -191,7 +193,103 @@
         <!-- /Login Box -->
 
     </div>
+    {{-- <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-analytics.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+      
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+          apiKey: "AIzaSyBIRf02BZJCrKsiVghRaOMFNtr45UyxssM",
+          authDomain: "obocas-42c54.firebaseapp.com",
+          projectId: "obocas-42c54",
+          storageBucket: "obocas-42c54.appspot.com",
+          messagingSenderId: "265687564684",
+          appId: "1:265687564684:web:416b6d62d1faca003556a9",
+          measurementId: "G-M1L467TRJV"
+        };
+      
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+      </script>
+    <script type="module">
+        import { getAuth, RecaptchaVerifier, signInWithPhoneNumber } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js';
+        const auth = getAuth();
+        auth.languageCode = 'it';
+        window.recaptchaVerifier = new RecaptchaVerifier('recaptcha-container', {}, auth);
+        const recaptchaResponse = grecaptcha.getResponse(recaptchaWidgetId);
 
+        const phoneNumber = '+8801878362896';
+        const appVerifier = window.recaptchaVerifier;
+
+        signInWithPhoneNumber(auth, phoneNumber, appVerifier)
+            .then((confirmationResult) => {
+            // SMS sent. Prompt user to type the code from the message, then sign the
+            // user in with confirmationResult.confirm(code).
+            window.confirmationResult = confirmationResult;
+            // ...
+            }).catch((error) => {
+            // Error; SMS not sent
+            // ...
+            });
+        console.log(document.getElementById('submitButton'));
+    </script> --}}
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+        <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase.js"></script>
+        <script>
+            var firebaseConfig = {
+                apiKey: "AIzaSyBIRf02BZJCrKsiVghRaOMFNtr45UyxssM",
+                authDomain: "obocas-42c54.firebaseapp.com",
+                projectId: "obocas-42c54",
+                storageBucket: "obocas-42c54.appspot.com",
+                messagingSenderId: "265687564684",
+                appId: "1:265687564684:web:416b6d62d1faca003556a9",
+                measurementId: "G-M1L467TRJV"
+            };
+            firebase.initializeApp(firebaseConfig);
+        </script>
+        <script type="text/javascript">
+            window.onload = function () {
+                render();
+            };
+            
+            function render() {
+                window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container');
+                recaptchaVerifier.render();
+            }
+            
+            function sendOTP() {
+                var number = $("#number").val();
+                firebase.auth().signInWithPhoneNumber(number, window.recaptchaVerifier).then(function (confirmationResult) {
+                    window.confirmationResult = confirmationResult;
+                    coderesult = confirmationResult;
+                    console.log(coderesult);
+                    $("#successAuth").text("Message sent");
+                    $("#successAuth").show();
+                }).catch(function (error) {
+                    $("#error").text(error.message);
+                    $("#error").show();
+                });
+            }
+            
+            function verify() {
+                var code = $("#verification").val();
+                coderesult.confirm(code).then(function (result) {
+                    var user = result.user;
+                    console.log(user);
+                    $("#successOtpAuth").text("Auth is successful");
+                    $("#successOtpAuth").show();
+                }).catch(function (error) {
+                    $("#error").text(error.message);
+                    $("#error").show();
+                });
+            }
+        </script>
 </body>
 
 </html>

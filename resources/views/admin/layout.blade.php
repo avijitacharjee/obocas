@@ -291,7 +291,7 @@
         @yield('js')
 		<!-- <script src="assets/plugins/apexchart/apexcharts.min.js"></script> -->
 		<!-- <script src="assets/plugins/apexchart/dsh-apaxcharts.js"></script> -->
-		<script src="{{ asset('/admin/assets/plugins/apexchart/apexcharts.js') }}"></script>
+		{{-- <script src="{{ asset('/admin/assets/plugins/apexchart/apexcharts.js') }}"></script> --}}
 		<!-- Custom JS -->
 		<script src="{{ asset('/admin/assets/js/script.js') }}"></script>
 </body>
