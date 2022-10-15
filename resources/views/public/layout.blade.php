@@ -21,13 +21,15 @@
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/index-cloudfront.css') }}" />
     <!-- Bstatic -->
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/bstatic.min.css') }}">
-    
-	  <link rel="shortcut icon" type="image/x-icon" href="{{ asset('/admin/assets/img/favicon.png') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/assets/css/avijit.css') }}">
+
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('/admin/assets/img/favicon.png') }}">
+
   </head>
   <body>
   @include('public.header')
   @yield('content')
-  @include('public.footer')
+  @include('public.footer1')
     <!-- Bootstrap & Jquery -->
   <script src="{{ asset('frontend/assets/js/jquery-1.12.4.min.js') }}"></script>
   <script src="{{ asset('frontend/assets/js/bootstrap.bundle.min.js') }}"></script>
@@ -44,7 +46,7 @@
     import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-analytics.js";
     // TODO: Add SDKs for Firebase products that you want to use
     // https://firebase.google.com/docs/web/setup#available-libraries
-  
+
     // Your web app's Firebase configuration
     // For Firebase JS SDK v7.20.0 and later, measurementId is optional
     const firebaseConfig = {
@@ -56,7 +58,7 @@
       appId: "1:265687564684:web:416b6d62d1faca003556a9",
       measurementId: "G-M1L467TRJV"
     };
-  
+
     // Initialize Firebase
     const app = initializeApp(firebaseConfig);
     const analytics = getAnalytics(app);

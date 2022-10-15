@@ -454,7 +454,7 @@
 
                                     </fieldset>
 
-                                    <input type="submit" name="" value=""
+                                    <input type="submit" name="" value="Next"
                                         class="btn btn-block btn-primary btn-lg save_and_proceed">
                                 </form>
                             </div>
