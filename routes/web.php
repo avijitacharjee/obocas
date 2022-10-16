@@ -128,5 +128,8 @@ Route::prefix('admin')->group(function(){
         Route::get('dashboard','index');
         Route::get('hotels','hotels');
         Route::get('bookings','bookings');
+        Route::get('images/add', 'addImage');
+        Route::post('images/add', 'storeImage');
+        Route::get('images', 'images');
     });
 });

@@ -114,7 +114,7 @@ class PropertyController extends Controller
     public function index(): View
     {
         $hotels = Property::all();
-        foreach($hotels as $hotel){
+        foreach ($hotels as $hotel){
             $images = explode(';',$hotel->property_images);
         }
         $hotels->images=$images;
@@ -128,32 +128,5 @@ class PropertyController extends Controller
         session(['booking_property_id'=>$property->id]);
         return view('public.booking-step-one')
             ->with('property',$property);
-    }
-    public function edit(Property $property)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdatePropertyRequest  $request
-     * @param  \App\Models\Property  $property
-     * @return \Illuminate\Http\Response
-     */
-    public function update(UpdatePropertyRequest $request, Property $property)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Property  $property
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Property $property)
-    {
-        //
     }
 }

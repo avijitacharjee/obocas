@@ -18,6 +18,14 @@
                     <a href="{{ url('admin/bookings') }}" class={{ isset($hotel) ? 'active' : '' }}><i
                             class="feather-home"></i><span>Booking List</span></a>
                 </li>
+                <li class="submenu">
+                    <a href="{{ url('#') }}"><i class="feather-book-open"></i><span>Images</span> <span
+                            class="menu-arrow"></span></a>
+                    <ul style="display: none;">
+                        <li><a href="{{ url('admin/images/add') }}"> Add Image </a></li>
+                        <li><a href="{{ url('admin/images') }}"> Show all </a></li>
+                    </ul>
+                </li>
                 <!-- <li>
                     <a href="{{ url('mentee.html') }}"><i class="feather-users"></i><span>User List</span></a>
                 </li>
