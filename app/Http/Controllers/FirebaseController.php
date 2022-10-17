@@ -7,6 +7,8 @@ use Kreait\Firebase;
 use Kreait\Firebase\Factory;
 use Kreait\Firebase\ServiceAccount;
 use Kreait\Firebase\Database;
+use Kreait\Firebase\Exception\Auth\FailedToVerifyToken;
+
 class FirebaseController extends Controller
 {
     public function index(){
@@ -33,5 +35,17 @@ class FirebaseController extends Controller
     public function auth(){
         $factory = (new Factory)->withServiceAccount(__DIR__.'/../../../obocas-42c54-2207975b4958.json');
         $auth = $factory->createAuth();
+        $idTokenString = 'JZmxsufPSbMeNdOCbqx12YePctO2';
+        $verifiedIdToken = null;
+        try {
+            $verifiedIdToken = $auth->verifyIdToken($idTokenString);
+        } catch (FailedToVerifyToken $e) {
+            echo 'The token is invalid: '.$e->getMessage();
+        }
+
+        $uid = $verifiedIdToken->claims()->get('sub');
+
+        $user = $auth->getUser($uid);
+        dd($user);
     }
 }
