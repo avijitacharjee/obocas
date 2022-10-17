@@ -6,6 +6,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PropertyController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\FirebaseController;
 use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\HotelAdminController;
 
@@ -131,5 +132,8 @@ Route::prefix('admin')->group(function(){
         Route::get('images/add', 'addImage');
         Route::post('images/add', 'storeImage');
         Route::get('images', 'images');
+        Route::get('images/delete/{carousalImage}','destroyImage');
     });
 });
+Route::get('firebase',[FirebaseController::class,'index']);
+Route::get('fauth', [FirebaseController::class , 'auth']);

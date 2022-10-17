@@ -608,19 +608,17 @@
   </div>
   <!-- /Banner -->
   <!-- Carousel -->
+  @if($carousalImages)
   <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel" style="margin: 0px 100px">
     <div class="carousel-inner">
-      <div class="carousel-item active" data-bs-interval="3000">
-        <img src="{{ asset('frontend/assets/images/logo.png')}}" class="d-block w-100" alt="...">
-      </div>
-      <div class="carousel-item" data-bs-interval="3000">
-        <img src="{{ asset('frontend/assets/images/logo.png')}}" class="d-block w-100" alt="...">
-      </div>
-      <div class="carousel-item" data-bs-interval="1000">
-        <img src="{{ asset('frontend/assets/images/logo.png')}}" class="d-block w-100" alt="...">
-      </div>
+      @foreach ($carousalImages as $carousalImage)
+        <div @class(['carousel-item','active'=>$loop->first]) data-bs-interval="3000">
+            <img src="{{ asset('')}}storage/{{$carousalImage->image}}" class="d-block w-100" alt="...">
+        </div>
+      @endforeach
     </div>
   </div>
+  @endif
   <!-- /Carousel -->
   <div id="" class="container">
     <div class="features-images">

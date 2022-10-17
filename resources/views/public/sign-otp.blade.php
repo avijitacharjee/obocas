@@ -74,6 +74,46 @@
                 </div>
             </div>
         </div>
+        <div class="row" id="profile" style="visibility:hidden">
+            <h3 style="width: 100%; text-align:center">Complete your profile</h3>
+            <form>
+                <!-- Email input -->
+                <div class="form-outline mb-4">
+                  <label class="form-label" for="form2Example1">Full name</label>
+                  <input type="text" id="form2Example1" class="form-control" />
+                </div>
+
+                <!-- Password input -->
+                <div class="form-outline mb-4">
+                  <label class="form-label" for="form2Example2">Email</label>
+                  <input type="email" id="form2Example2" class="form-control" />
+                </div>
+
+                <!-- Submit button -->
+                <button type="button" style="margin:auto;" class="btn btn-primary btn-block mb-4">Sign in</button>
+
+                <!-- Register buttons -->
+                <div class="text-center">
+                  <p>Not a member? <a href="#!">Register</a></p>
+                  <p>or sign up with:</p>
+                  <button type="button" class="btn btn-link btn-floating mx-1">
+                    <i class="fab fa-facebook-f"></i>
+                  </button>
+
+                  <button type="button" class="btn btn-link btn-floating mx-1">
+                    <i class="fab fa-google"></i>
+                  </button>
+
+                  <button type="button" class="btn btn-link btn-floating mx-1">
+                    <i class="fab fa-twitter"></i>
+                  </button>
+
+                  <button type="button" class="btn btn-link btn-floating mx-1">
+                    <i class="fab fa-github"></i>
+                  </button>
+                </div>
+              </form>
+        </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
@@ -119,10 +159,16 @@
             coderesult.confirm(code).then(function(result) {
                 var user = result.user;
                 console.log(user);
+                if(user.displayName=='' || user.displayName==null){
+                    document.getElementById('profile').style.visibility = 'visible';
+                }
+                // user.updateProfile({
+                //     displayName: 'Avijit Acharjee',
+                // }).then(function(response){console.log('updated');}).catch(function(error){console.log(error);});
                 $("#successOtpAuth").text("Auth is successful. Redirecting....");
                 $("#successOtpAuth").show();
                 setTimeout(() => {
-                    window.location.replace('/');
+                    //window.location.replace('/');
                 }, 1000);
             }).catch(function(error) {
                 $("#error").text(error.message);

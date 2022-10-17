@@ -1,7 +1,4 @@
 @extends('admin.layout')
-@php
-$images = true;
-@endphp
 @section('content')
     <!-- Page Header -->
     <div class="page-header">
@@ -26,33 +23,25 @@ $images = true;
                         <table class="datatable table table-hover table-center mb-0">
                             <thead>
                                 <tr>
-                                    <th>Name</th>
-                                    <th>Email</th>
-                                    <th>Phone</th>
-                                    <th>Travel purpose</th>
+                                    <th>Image</th>
+                                    <th>Type</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @if(count($images))
+                                @if($images)
                                     @foreach($images as $image)
                                         <tr>
                                             <td>
                                                 <h2 class="table-avatar">
-                                                    <a href="{{ url('profile.html') }}" class="avatar avatar-sm mr-2"><img
-                                                            class="avatar-img rounded-circle"
-                                                            src="{{ asset('/admin/assets/img/profiles/avatar-08.jpg') }}"
-                                                            alt="User Image"></a>
-                                                    <a href="{{ url('profile.html') }}">abcdfa</a>
+                                                    <a class="avatar avatar-sm mr-2"><img
+                                                            width="400px" height="400px"
+                                                            src="{{ asset('')}}storage/{{$image->image}}"
+                                                            alt="User Image"/></a>
                                                 </h2>
                                             </td>
                                             <td>{{$image->type}}</td>
-                                            <td>
-                                                <div class="status-toggle d-flex justify-content-center">
-                                                    <input type="checkbox" id="status_1" class="check" checked>
-                                                    <label for="status_1" class="checktoggle">checkbox</label>
-                                                </div>
-                                            </td>
+                                            <td><a href="/admin/images/delete/{{$image->id}}">Delete</a></td>
                                         </tr>
                                     @endforeach
                                 @endif

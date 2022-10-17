@@ -4,10 +4,16 @@ namespace App\Http\Controllers;
 
 use App\Models\Property;
 use App\Http\Requests\StorePropertyRequest;
+use App\Models\CarousalImage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\View\View;
+
+use Kreait\Firebase;
+use Kreait\Firebase\Factory;
+use Kreait\Firebase\ServiceAccount;
+use Kreait\Firebase\Database;
 
 class PropertyController extends Controller
 {
@@ -47,7 +53,7 @@ class PropertyController extends Controller
         foreach($values as $key=>$value){
             session(['pp_'.$key=>$value]);
         }
-        return redirect('/property7');
+        return redirect('/property8');
     }
     public function property7(Request $request){
         $values = $request->all();
@@ -120,7 +126,8 @@ class PropertyController extends Controller
         $hotels->images=$images;
         session()->flush();
         return view('public.index')
-            ->with('hotels',$hotels);
+            ->with('hotels',$hotels)
+            ->with('carousalImages',CarousalImage::where('type','index')->get());
     }
 
     public function show(Property $property): View

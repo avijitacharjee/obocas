@@ -26,13 +26,17 @@ class AdminController extends Controller
     }
     public function images()
     {
-        $images = CarousalImage::take(5)->get();
         return view('admin.images')
-            ->with('images',$images);
+            ->with('images',CarousalImage::all());
     }
     public function addImage()
     {
         return view('admin.add-image');
+    }
+    public function destroyImage(CarousalImage $carousalImage)
+    {
+        $carousalImage->delete();
+        return redirect()->back();
     }
     public function storeImage(Request $request)
     {

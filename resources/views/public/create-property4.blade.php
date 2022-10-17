@@ -52,7 +52,7 @@
 
                 <div class="row
                              top_progress
-                            
+
                            " id="content_wrapper">
 
                     <nav class="menu
@@ -60,7 +60,7 @@
                                     col-sm-6
                                     col-xs-10
                                      compact_menu
-                                    
+
                                     no_icons
                                     nav_account
                                     hor_nav_mobile">
@@ -274,30 +274,13 @@
                                                     <option value="xt">繁體中文</option>
                                                 </select>
                                             </form>
-
-
-
-
-
-
                                         </li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
                     </nav>
-
-
-
-
-
-
-
-
-
                     <div id="" class="">
-
-
                         <div class="row">
                             <div class="">
                                 <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
@@ -305,17 +288,13 @@
                                         Layout and pricing
                                     </h1>
                                 </div>
-
                             </div>
-
                             <div class="">
                                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                     <div class="page_description">
                                         <p>
-
                                             Tell us about your first room. Once you've entered all the necessary
                                             information, you'll be able to fill in the details of your other rooms.
-
                                         </p>
                                     </div>
                                     <div class="seg-return-to-overview js-return-to-overview hidden">
@@ -325,16 +304,11 @@
                                     </div>
                                 </div>
                             </div>
-
                         </div>
-
                         <div class="desktop-hnav-clear-line"></div>
-
                         <div class="row">
-
                             <div class="main-content col-md-12">
                                 <div class="row">
-
                                     <div id="main_content_section" class="col-md-9">
                                         <div id="property-layout-empty-state" class="seg-cr-empty-state">
                                             <div class="property-layout-empty-state__body">
@@ -355,7 +329,7 @@
                                                 <br>
                                             </div>
                                         </div>
-                                        
+
                                         <form id="room_form" action="/property4" method="POST" class="hidden">
                                             @csrf
                                             <div
@@ -558,12 +532,13 @@
                                                                     <div class="currency_tooltip_btn">
                                                                         <div class="currency_tooltip_wrapper">
                                                                             <div class="currency_tooltip">Please fill in
-                                                                                the price per night in U.S. dollars.
+                                                                                the price per night in BDT.
                                                                             </div>
                                                                             <div class="currency_tooltip_arrow"></div>
-                                                                        </div><span
-                                                                            class="flag_icon_price flag_us"></span>
-                                                                    </div>US$/per night
+                                                                        </div>
+                                                                        {{-- <span
+                                                                            class="flag_icon_price flag_us"></span> --}}
+                                                                    </div>BDT/per night
                                                                 </span>
                                                                 <input type="tel" id="room_price_x_persons"
                                                                     name="room_price_x_persons" value=""
