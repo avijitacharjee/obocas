@@ -6,14 +6,11 @@ use App\Models\Property;
 use App\Http\Requests\StorePropertyRequest;
 use App\Models\CarousalImage;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\View\View;
 
-use Kreait\Firebase;
-use Kreait\Firebase\Factory;
-use Kreait\Firebase\ServiceAccount;
-use Kreait\Firebase\Database;
 
 class PropertyController extends Controller
 {
@@ -135,5 +132,10 @@ class PropertyController extends Controller
         session(['booking_property_id'=>$property->id]);
         return view('public.booking-step-one')
             ->with('property',$property);
+    }
+    public function search(Request $request): View
+    {
+        Log::channel('debug')->info($request->all());
+        return view('public.searchresults')->with('properties', Property::all());
     }
 }

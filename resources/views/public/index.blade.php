@@ -31,11 +31,13 @@
           <div class="container">
             <div class="row">
               <div class="col-12">
-                <form id="" action="#"
+                <form id="" action="/search"
+                  method="GET"
                   class="sb-searchbox sb-searchbox--painted sb-searchbox--xp js--sb-searchbox"
                   data-component="search/searchbox/searchbox-xp" data-sb-id="main"
                   data-sb-flags=" AEJPAcBacPONDcFGHT:0 calendar_on_destination_change:1 open_location_in_map_checkbox:1 with_popular_nearby_suggestions:1 can_show_sb_entire_place_checkbox:1 icon_revamp:1 region_second_line:1"
                   data-is-first-visible="1">
+                  @csrf
                   <div class="xp__fieldset js--sb-fieldset accommodation " data-view="accommodation">
                     <div class="row">
                       <div class="col-lg-3 col-sm-12 pr-md-0">
