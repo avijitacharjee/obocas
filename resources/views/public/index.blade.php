@@ -611,15 +611,37 @@
   <!-- /Banner -->
   <!-- Carousel -->
   @if($carousalImages)
-  <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel" style="margin: 0px 100px">
-    <div class="carousel-inner">
-      @foreach ($carousalImages as $carousalImage)
-        <div @class(['carousel-item','active'=>$loop->first]) data-bs-interval="3000">
-            <img src="{{ asset('')}}storage/{{$carousalImage->image}}" class="d-block w-100" alt="...">
+  <div class="row">
+    <div class="col-md-6">
+        <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel" style="margin: 0px 0px 10px 120px">
+            <div class="carousel-inner" style="border-radius: 10px;
+            background: linear-gradient(145deg, #f0f0f0, #cacaca);
+            box-shadow:  20px 20px 60px #929292,
+                         -20px -20px 60px #ffffff;">
+                @foreach ($carousalImages as $carousalImage)
+                <div @class(['carousel-item','active'=>$loop->first]) data-bs-interval="3000">
+                    <img src="{{ asset('')}}storage/{{$carousalImage->image}}" class="d-block w-100" alt="...">
+                </div>
+                @endforeach
+            </div>
         </div>
-      @endforeach
+    </div>
+    <div class="col-md-6">
+        <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel" style="margin: 0px 120px 0px 0px">
+            <div class="carousel-inner" style="border-radius: 10px;
+            background: linear-gradient(145deg, #f0f0f0, #cacaca);
+            box-shadow:  20px 20px 60px #929292,
+                         -20px -20px 60px #ffffff;">
+                @foreach ($carousalImages as $carousalImage)
+                <div @class(['carousel-item','active'=>$loop->first]) data-bs-interval="2500">
+                    <img src="{{ asset('')}}storage/{{$carousalImage->image}}" class="d-block w-100" alt="...">
+                </div>
+                @endforeach
+            </div>
+        </div>
     </div>
   </div>
+
   @endif
   <!-- /Carousel -->
   <div id="" class="container">
@@ -632,7 +654,7 @@
               <div class="unified-postcard__overlay">
                 <div class="unified-postcard__header">
                   <h3>
-                    <a href="">Kuala Lumpur</a>
+                    <a href="">Dhaka</a>
                   </h3>
                   <p>
                     4,223 properties
@@ -649,7 +671,7 @@
               <div class="unified-postcard__overlay">
                 <div class="unified-postcard__header">
                   <h3>
-                    <a href="">Kuala Lumpur</a>
+                    <a href="">Chittagong</a>
                   </h3>
                   <p>
                     4,223 properties
@@ -669,7 +691,7 @@
                 <div class="unified-postcard__header">
                   <h3>
                     <a href="">
-                    Bangkok
+                    Cox's Bazar
                     </a>
                   </h3>
                   <p>
@@ -688,7 +710,7 @@
                 <div class="unified-postcard__header">
                   <h3>
                     <a href="">
-                    Bangkok
+                    Sylhet
                     </a>
                   </h3>
                   <p>
@@ -707,7 +729,7 @@
                 <div class="unified-postcard__header">
                   <h3>
                     <a href="">
-                    Bangkok
+                        Rangamati
                     </a>
                   </h3>
                   <p>
@@ -721,7 +743,7 @@
       </div>
     </div>
     <!-- Explore Bangladesh -->
-    <div class="bui-spacer--largest popular-destinations-carousel-block mt-5">
+    {{-- <div class="bui-spacer--largest popular-destinations-carousel-block mt-5">
       <div class="bui-title bui-title--headline_3 bui-spacer--large">
         <span class="bui-title__text">Explore Bangladesh</span>
         <span class="bui-title__subtitle">These popular destinations have a lot to offer</span>
@@ -748,10 +770,10 @@
         </ul>
       </div>
       <!-- Slider -->
-    </div>
+    </div> --}}
     <!-- Explore Bangladesh -->
     <!-- Get inspiration for your next trip -->
-    <div class="d-index__section bui-spacer--largest promote_articles mt-5">
+    {{-- <div class="d-index__section bui-spacer--largest promote_articles mt-5">
       <h2 class="bui-f-font-display_two bui-spacer--large d-index__header-section">
         Get inspiration for your next trip
       </h2>
@@ -846,7 +868,7 @@
           <!-- Single type-2 -->
         </div>
       </div>
-    </div>
+    </div> --}}
     <!-- Get inspiration for your next trip -->
     <!-- Homes guests love -->
     <div class="d-index__section bui-spacer--largest bh-carousel--new">
@@ -868,9 +890,9 @@
                 <h3 class="bui-card__title bh-carousel--new__title">
                   <span>{{$hotel->property_name}}</span>
                 </h3>
-                <p class="bui-card__subtitle"> Krakow </p>
+                <p class="bui-card__subtitle"> {{$hotel->city}} </p>
                 <p class="bh-carousel--new__price bui_color_black">
-                  Starting from BDT 7,719
+                  Starting from BDT {{$hotel->cot_price}}
                 </p>
                 <div style="margin-top: 4px">
                   <div
