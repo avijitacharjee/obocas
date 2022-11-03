@@ -75,7 +75,10 @@ Route::prefix('partner')->group(function (){
 });
 
 
-Route::post('/',[AuthController::class,'register']);
+Route::controller(AuthController::class)->group(function(){
+    Route::post('/','register');
+    Route::post('/sign-otp', 'signOtp');
+});
 
 Route::view('/signin','public.sign-otp');
 Route::view('/signin1','public.signin');

@@ -121,7 +121,14 @@ class PropertyController extends Controller
             $images = explode(';',$hotel->property_images);
         }
         $hotels->images=$images;
+
+        $email = session('email');
+        $id = session('id');
+        $name = session('name');
         session()->flush();
+        session(['email'=>$email]);
+        session(['id'=>$id]);
+        session(['name' => $name]);
         return view('public.index')
             ->with('hotels',$hotels)
             ->with('carousalImages',CarousalImage::where('type','index')->get());

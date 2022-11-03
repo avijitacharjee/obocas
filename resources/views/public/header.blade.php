@@ -32,13 +32,13 @@
           </div>
           <!-- /Property List -->
           <!-- SingIn & SingUp -->
-          <div class="bui-group__item">
+          {{-- <div class="bui-group__item">
             <a class="bui-button bui-button--secondary js-header-login-link" href="#">
             <span class="bui-button__text">
             Register
             </span>
             </a>
-          </div>
+          </div> --}}
           <div class="bui-group__item">
             <svg class="bk-icon -streamline-account_create" height="24" style="display:none;" width="24"
               viewBox="0 0 24 24" role="presentation">
@@ -47,7 +47,11 @@
             </svg>
             <a class="bui-button bui-button--secondary js-header-login-link" href="/signin">
             <span class="bui-button__text">
-            Sign in
+                @if(session('name')!='')
+                    {{session('name')}}
+                @else
+                    Sign in
+                @endif
             </span>
             </a>
           </div>

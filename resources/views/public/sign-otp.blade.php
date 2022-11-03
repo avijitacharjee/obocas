@@ -36,7 +36,7 @@
                 <div class="_1pRpeQP2z_3ktRb8Urjtv6">
                     <div class="daGIlH2FHgTbq-rtCh3t">
                         <a href="#">
-                            <img src="{{asset('frontend/assets/images/logo.png')}}" alt="">
+                            <img src="{{ asset('frontend/assets/images/logo.png') }}" alt="">
                         </a>
                     </div>
                 </div>
@@ -45,55 +45,53 @@
     </div>
     <!-- /Header -->
     <div class="container mt-5">
-        <div class="row">
-            <div class="col-6">
-                <div class="card">
-                    <div class="card-header">Add Phone Number</div>
-                    <div class="card-body">
-                        <div class="alert alert-danger" id="error" style="display: none;"></div>
-                        <div class="alert alert-success" id="successAuth" style="display: none;"></div>
-                        <form>
-                            <input type="text" id="number" class="form-control" placeholder="+62 ********">
+        <form action="/sign-otp" method="POST">
+            @csrf
+            <div class="row">
+                <div class="col-6">
+                    <div class="card">
+                        <div class="card-header">Add Phone Number</div>
+                        <div class="card-body">
+                            <div class="alert alert-danger" id="error" style="display: none;"></div>
+                            <div class="alert alert-success" id="successAuth" style="display: none;"></div>
+                            <input name="phone" type="text" id="number" class="form-control"
+                                placeholder="+880 ********">
                             <div id="recaptcha-container" class="mt-2"></div>
                             <button type="button" class="btn btn-primary mt-3" onclick="sendOTP();">Send OTP</button>
-                        </form>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-6">
-                <div class="card">
-                    <div class="card-header">Add verification code</div>
-                    <div class="card-body">
-                        <div class="alert alert-success" id="successOtpAuth" style="display: none;"></div>
-                        <form>
+                <div class="col-6">
+                    <div class="card">
+                        <div class="card-header">Add verification code</div>
+                        <div class="card-body">
+                            <div class="alert alert-success" id="successOtpAuth" style="display: none;"></div>
                             <input type="text" id="verification" class="form-control"
                                 placeholder="Verification code">
                             <button type="button" class="btn btn-success mt-3" onclick="verify()">Verify code</button>
-                        </form>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="row" id="profile" style="visibility:hidden">
-            <h3 style="width: 100%; text-align:center">Complete your profile</h3>
-            <form>
+            <div class="row" id="profile" style="visibility:hidden">
+                <h3 style="width: 100%; text-align:center">Complete your profile</h3>
                 <!-- Email input -->
                 <div class="form-outline mb-4">
-                  <label class="form-label" for="form2Example1">Full name</label>
-                  <input type="text" id="form2Example1" class="form-control" />
+                    <label class="form-label" for="form2Example1">Full name</label>
+                    <input name="name" type="text" id="form2Example1" class="form-control" />
                 </div>
 
                 <!-- Password input -->
                 <div class="form-outline mb-4">
-                  <label class="form-label" for="form2Example2">Email</label>
-                  <input type="email" id="form2Example2" class="form-control" />
+                    <label class="form-label" for="form2Example2">Email</label>
+                    <input name="email" type="email" id="form2Example2" class="form-control" />
                 </div>
 
                 <!-- Submit button -->
-                <button type="button" style="margin:auto;" class="btn btn-primary btn-block mb-4">Sign in</button>
+                <button type="submit" style="margin:auto;" class="btn btn-primary btn-block mb-4">Sign in</button>
 
                 <!-- Register buttons -->
-                <div class="text-center">
+                {{-- <div class="text-center">
                   <p>Not a member? <a href="#!">Register</a></p>
                   <p>or sign up with:</p>
                   <button type="button" class="btn btn-link btn-floating mx-1">
@@ -111,9 +109,9 @@
                   <button type="button" class="btn btn-link btn-floating mx-1">
                     <i class="fab fa-github"></i>
                   </button>
-                </div>
-              </form>
-        </div>
+                </div> --}}
+            </div>
+        </form>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
@@ -136,43 +134,53 @@
         };
 
         function render() {
-            window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container');
-            recaptchaVerifier.render();
+            // window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container');
+            // recaptchaVerifier.render();
         }
 
+        // function sendOTP() {
+        //     var number = $("#number").val();
+        //     firebase.auth().signInWithPhoneNumber(number, window.recaptchaVerifier).then(function(confirmationResult) {
+        //         window.confirmationResult = confirmationResult;
+        //         coderesult = confirmationResult;
+        //         console.log(coderesult);
+        //         $("#successAuth").text("Message sent");
+        //         $("#successAuth").show();
+        //     }).catch(function(error) {
+        //         $("#error").text(error.message);
+        //         $("#error").show();
+        //     });
+        // }
+
+        // function verify() {
+        //     var code = $("#verification").val();
+        //     coderesult.confirm(code).then(function(result) {
+        //         var user = result.user;
+        //         console.log(user);
+        //         if(user.displayName=='' || user.displayName==null){
+        //             document.getElementById('profile').style.visibility = 'visible';
+        //         }
+        //         // user.updateProfile({
+        //         //     displayName: 'Avijit Acharjee',
+        //         // }).then(function(response){console.log('updated');}).catch(function(error){console.log(error);});
+        //         $("#successOtpAuth").text("Auth is successful. Redirecting....");
+        //         $("#successOtpAuth").show();
+        //         setTimeout(() => {
+        //             //window.location.replace('/');
+        //         }, 1000);
+        //     }).catch(function(error) {
+        //         $("#error").text(error.message);
+        //         $("#error").show();
+        //     });
+        // }
         function sendOTP() {
             var number = $("#number").val();
-            firebase.auth().signInWithPhoneNumber(number, window.recaptchaVerifier).then(function(confirmationResult) {
-                window.confirmationResult = confirmationResult;
-                coderesult = confirmationResult;
-                console.log(coderesult);
-                $("#successAuth").text("Message sent");
-                $("#successAuth").show();
-            }).catch(function(error) {
-                $("#error").text(error.message);
-                $("#error").show();
-            });
-        }
-
-        function verify() {
-            var code = $("#verification").val();
-            coderesult.confirm(code).then(function(result) {
-                var user = result.user;
-                console.log(user);
-                if(user.displayName=='' || user.displayName==null){
+            $.get("http://localhost:8000/api/check-user-by-phone?phone=" + number, function(data, status) {
+                if (data.success) {
+                    console.log(data.user);
+                } else {
                     document.getElementById('profile').style.visibility = 'visible';
                 }
-                // user.updateProfile({
-                //     displayName: 'Avijit Acharjee',
-                // }).then(function(response){console.log('updated');}).catch(function(error){console.log(error);});
-                $("#successOtpAuth").text("Auth is successful. Redirecting....");
-                $("#successOtpAuth").show();
-                setTimeout(() => {
-                    //window.location.replace('/');
-                }, 1000);
-            }).catch(function(error) {
-                $("#error").text(error.message);
-                $("#error").show();
             });
         }
     </script>
