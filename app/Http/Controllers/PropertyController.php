@@ -130,8 +130,8 @@ class PropertyController extends Controller
         session(['id'=>$id]);
         session(['name' => $name]);
         return view('public.index')
-            ->with('hotels',$hotels)
-            ->with('carousalImages',CarousalImage::where('type','index')->get());
+            ->with('hotels', $hotels)
+            ->with('carousalImages', CarousalImage::where('type', 'index')->get());
     }
 
     public function show(Property $property): View

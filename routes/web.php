@@ -75,9 +75,13 @@ Route::prefix('partner')->group(function (){
 });
 
 
-Route::controller(AuthController::class)->group(function(){
+Route::controller(AuthController::class)->group(function (){
     Route::post('/','register');
     Route::post('/sign-otp', 'signOtp');
+    Route::get('/verify-otp', 'verifyOtpView');
+    Route::post('/verify-otp','verifyOtp');
+    Route::view('/complete-profile', 'complete-profile');
+    Route::post('/complete-profile', 'completeProfile');
 });
 
 Route::view('/signin','public.sign-otp');
