@@ -1855,12 +1855,12 @@
                                                     <div
                                                         class="bui-price-display__value prco-text-nowrap-helper prco-inline-block-maker-helper ">
                                                         <span class="prco-valign-middle-helper">
-                                                            BDT&nbsp;252,582
+                                                            BDT&nbsp;{{$property->cot_price}}
                                                         </span>
                                                     </div>
                                                     <span class="bui-u-sr-only">
                                                         Price
-                                                        BDT&nbsp;252,582
+                                                        BDT&nbsp;{{$property->cot_price}}
                                                     </span>
                                                 </div>
                                             </li>
@@ -1894,12 +1894,12 @@
                                                 <div
                                                     class="bui-price-display__value prco-text-nowrap-helper prco-inline-block-maker-helper ">
                                                     <span class="prco-valign-middle-helper">
-                                                        BDT&nbsp;252,582
+                                                        BDT&nbsp;{{$property->cot_price}}
                                                     </span>
                                                 </div>
                                                 <span class="bui-u-sr-only">
                                                     Price
-                                                    BDT&nbsp;252,582
+                                                    BDT&nbsp;{{$property->cot_price}}
                                                 </span>
                                             </li>
                                             <li class="cheapest-info-item">

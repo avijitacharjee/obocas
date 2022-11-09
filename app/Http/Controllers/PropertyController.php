@@ -143,6 +143,13 @@ class PropertyController extends Controller
     public function search(Request $request): View
     {
         Log::channel('debug')->info($request->all());
-        return view('public.searchresults')->with('properties', Property::all());
+        $lowestPrice = Property::orderBy('cot_price', 'ASC')->get();
+        $heighestPrice = Property::orderBy('cot_price', 'DESC')->get();
+        $bestReviewed = Property::all();
+        return view('public.searchresults')
+            ->with('properties', Property::all())
+            ->with('lowestPrice',$lowestPrice)
+            ->with('heighestPrice',$heighestPrice)
+            ->with('bestReviewed',$bestReviewed);
     }
 }

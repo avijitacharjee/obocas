@@ -122,7 +122,7 @@ Route::controller(PropertyController::class)->group(function(){
     Route::post('property10','property10');
 
     Route::get('property/{property}','show');
-    Route::post('search', 'search');
+    // Route::post('search', 'search');
     Route::get('search', 'search');
 });
 
