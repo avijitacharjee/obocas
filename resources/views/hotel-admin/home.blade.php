@@ -8,6 +8,7 @@
 	<link rel="stylesheet" href="assets/css/pages/index.min.css">
 @endsection
 @section('content')
+
 <!-- Main Content -->
 <main class="main">
 	<div class="bui-container">
@@ -622,13 +623,15 @@
 																<!-- /Table Head -->
 																<!-- Table Body -->
 																<tbody>
-																	<tr>
-																		<td>XYZ</td>
+																	@foreach($bookings as $booking)
+                                                                    <tr>
+																		<td>{{$booking->firstname}}</td>
 																		<td>12-02-2022</td>
 																		<td>12-02-2022</td>
 																		<td>5</td>
 																		<td>12-02-2022</td>
 																	</tr>
+                                                                    @endforeach
 																</tbody>
 																<!-- /Table Body -->
 															</table>

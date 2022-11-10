@@ -23,7 +23,6 @@ use App\Http\Controllers\HotelAdminController;
 
 
 Route::prefix('hotel-admin')->group(function(){
-    Route::get('dashboard',fn()=>view('hotel-admin.home'));
     Route::view('signin','hotel-admin.signin-signup');
     Route::view('change-password','hotel-admin.change-password');
     Route::view('contacts','hotel-admin.contacts');
@@ -47,7 +46,7 @@ Route::prefix('hotel-admin')->group(function(){
     Route::view('rate-plans','hotel-admin.rate-plans');
     Route::view('reservation-messages','hotel-admin.reservation-messages');
     Route::view('reservation-statements','hotel-admin.reservation-statements');
-    Route::view('reservations','hotel-admin.reservations');
+    // Route::view('reservations','hotel-admin.reservations');
     Route::view('review-edit-reat-plan','hotel-admin.review-edit-reat-plan');
     Route::view('room-details','hotel-admin.room-details');
     Route::view('security','hotel-admin.security');
@@ -57,6 +56,8 @@ Route::prefix('hotel-admin')->group(function(){
     Route::controller(HotelAdminController::class)->group(function(){
         Route::get('notification-settings','notificationSettings');
         Route::post('notification-settings','storeNotificationSettings');
+        Route::get('dashboard','home');
+        Route::get('reservations', 'reservations');
     });
 });
 Route::prefix('partner')->group(function (){
