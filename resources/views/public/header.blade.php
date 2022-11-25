@@ -17,6 +17,7 @@
       <div
         class="bui-group bui-button-group bui-group--inline bui-group--align-end bui-group--vertical-align-middle">
         <div class="nav-dasktop">
+          @auth
           <!-- Property List -->
           <div class="bui-group__item">
             <svg class="bk-icon -streamline-property_add" height="24" style="display:none;" width="24"
@@ -31,6 +32,7 @@
             </a>
           </div>
           <!-- /Property List -->
+          @endauth
           <!-- SingIn & SingUp -->
           {{-- <div class="bui-group__item">
             <a class="bui-button bui-button--secondary js-header-login-link" href="#">

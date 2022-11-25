@@ -50,14 +50,14 @@
             <div class="row">
                 <div class="col-12">
                     <div class="card">
-                        <div class="card-header">Add Phone Number</div>
+                        <div class="card-header">Phone Number</div>
                         <div class="card-body">
                             <div class="alert alert-danger" id="error" style="display: none;"></div>
                             <div class="alert alert-success" id="successAuth" style="display: none;"></div>
                             <input name="phone" type="text" id="number" class="form-control"
                                 placeholder="01x xxxxxx">
                             <div id="recaptcha-container" class="mt-2"></div>
-                            <button type="submit" class="btn btn-primary mt-3">Send OTP</button>
+                            <button type="submit" class="btn btn-primary mt-3">Continue</button>
                         </div>
                     </div>
                 </div>

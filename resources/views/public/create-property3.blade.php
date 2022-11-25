@@ -140,7 +140,7 @@
                         <div class="row">
                             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                 <h1 id="property-name" class="sticked-header alignment_header_main">
-                                    Welcome Melon Mia!
+                                    Welcome {{session('name')}}!
                                 </h1>
                             </div>
 
@@ -238,7 +238,7 @@
                                                 <label for="location_contact_name">Contact name </label>
 
                                                 <input type="text" id="location_contact_name"
-                                                    name="location_contact_name" value="Melon Mia" class="form-control"
+                                                    name="location_contact_name" value="{{session('name')}}" class="form-control"
                                                     placeholder="Who will receive the letter?">
 
 

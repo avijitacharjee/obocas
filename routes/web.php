@@ -39,7 +39,6 @@ Route::prefix('hotel-admin')->group(function(){
     Route::view('guest-reviews','hotel-admin.guest-reviews');
     Route::view('invoices','hotel-admin.invoices');
     Route::view('obocas-messages','hotel-admin.obocas-messages');
-    Route::view('open-close-rooms','hotel-admin.open-close-rooms');
     Route::view('photos','hotel-admin.photos');
     Route::view('policies','hotel-admin.policies');
     Route::view('property-page-score','hotel-admin.property-page-score');
@@ -48,16 +47,21 @@ Route::prefix('hotel-admin')->group(function(){
     Route::view('reservation-statements','hotel-admin.reservation-statements');
     // Route::view('reservations','hotel-admin.reservations');
     Route::view('review-edit-reat-plan','hotel-admin.review-edit-reat-plan');
-    Route::view('room-details','hotel-admin.room-details');
     Route::view('security','hotel-admin.security');
-    Route::view('vat-tax-changes','hotel-admin.vat-tax-changes');
-    Route::view("what's-nearby","hotel-admin.what's-nrearby");
+    Route::view('vat-tax-charges','hotel-admin.vat-tax-charges');
+    Route::view("what's-nearby","hotel-admin.what's-nearby");
 
     Route::controller(HotelAdminController::class)->group(function(){
+        Route::get('room-details','roomDetails');
         Route::get('notification-settings','notificationSettings');
         Route::post('notification-settings','storeNotificationSettings');
         Route::get('dashboard','home');
         Route::get('reservations', 'reservations');
+
+        Route::view('add-room1', 'hotel-admin.rooms.add-room1');
+        Route::post('add-room1', 'storeRoom1');
+        Route::get('open-close-rooms','openCloseRooms');
+        Route::post('open-close-rooms', 'storeOpenCloseRooms');
     });
 });
 Route::prefix('partner')->group(function (){
@@ -83,6 +87,7 @@ Route::controller(AuthController::class)->group(function (){
     Route::post('/verify-otp','verifyOtp');
     Route::view('/complete-profile', 'complete-profile');
     Route::post('/complete-profile', 'completeProfile');
+    Route::post('/verify-pass', 'verifyPass');
 });
 
 Route::view('/signin','public.sign-otp');

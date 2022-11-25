@@ -429,7 +429,7 @@
                             <!-- Sub Menu -->
                             <div class="ext-navigation-top-item__submenu dropdown-menu">
                                 <ul class="ext-navigation-submenu-item__list">
-                                    <li data-nav-tag="content_score"
+                                    {{-- <li data-nav-tag="content_score"
                                         class="ext-navigation-submenu-item">
                                         <a href="property-page-score"
                                             class="ext-navigation-submenu-item__link">
@@ -441,10 +441,10 @@
 
                                         </a>
 
-                                    </li>
-                                    <li data-nav-tag="general_info"
+                                    </li> --}}
+                                    {{-- <li data-nav-tag="general_info"
                                         class="ext-navigation-submenu-item">
-                                        <a href="hotel-admin/general-info"
+                                        <a href="/hotel-admin/general-info"
                                             class="ext-navigation-submenu-item__link"><span
                                                 class="ext-navigation-submenu-item__icon">
                                             </span> <span
@@ -453,7 +453,7 @@
 
                                         </a>
 
-                                    </li>
+                                    </li> --}}
                                     <li data-nav-tag="vat_tax_charges"
                                         class="ext-navigation-submenu-item">
                                         <a href="vat-tax-charges"
@@ -466,7 +466,7 @@
                                         </a>
 
                                     </li>
-                                    <li data-nav-tag="photos" class="ext-navigation-submenu-item">
+                                    {{-- <li data-nav-tag="photos" class="ext-navigation-submenu-item">
                                         <a href="photos"
                                             class="ext-navigation-submenu-item__link">
                                             <span class="ext-navigation-submenu-item__icon">
@@ -479,7 +479,7 @@
                                             </span>
                                         </a>
 
-                                    </li>
+                                    </li> --}}
                                     <li data-nav-tag="policies" class="ext-navigation-submenu-item">
                                         <a href="policies"
                                             class="ext-navigation-submenu-item__link"><span

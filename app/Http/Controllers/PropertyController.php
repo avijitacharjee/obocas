@@ -6,6 +6,7 @@ use App\Models\Property;
 use App\Http\Requests\StorePropertyRequest;
 use App\Models\CarousalImage;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
@@ -114,7 +115,7 @@ class PropertyController extends Controller
             return 'no images';
         }
     }
-    public function index(): View
+    public function index()
     {
         $hotels = Property::all();
         foreach ($hotels as $hotel){
