@@ -97,17 +97,13 @@ class PropertyController extends Controller
         return redirect('/');
     }
     public function saveImages($images){
-        if($images)
-        {
+        if ($images) {
             $imageNames='';
-            foreach($images as $key=>$image)
-            {
+            foreach ($images as $key=>$image) {
                 $extension = 'png';
                 $imageName = date("Y-m-d-h-i-s").Str::random(5).'.'.$extension;
-                //$image->store('property');
                 $imageFullName = 'images/'.$imageName;
                 $image->storeAs('public',$imageFullName);
-                // Storage::disk('public')->put($imageFullName,$image->str);
                 $imageNames = $imageNames.$imageFullName.';';
             }
             return substr($imageNames,0,-1);

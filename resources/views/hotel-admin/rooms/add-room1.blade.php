@@ -333,7 +333,7 @@
                                             </div>
                                         </div>
 
-                                        <form id="room_form" action="/hotel-admin/add-room1" method="POST" class="hidden">
+                                        <form id="room_form" action="/hotel-admin/add-room1" method="POST" class="hidden" enctype="multipart/form-data">
                                             @csrf
                                             <div
                                                 class="update-later-message col-xs-12 update-later-message--block alignment_header_message">
@@ -575,7 +575,7 @@
                                                         <div id="pricing_div_x_persons" class="pricing_div_persons">
                                                             <label id="discount_avail_label">Select an image</label>
                                                             <div class="radio-block" id="discount">
-                                                                <input type="file" accept="image/png,image/jpeg" class="file"
+                                                                <input type="file" accept="image/png,image/jpeg" class="file" name="images[]" multiple
                                                                 />
                                                             </div>
 

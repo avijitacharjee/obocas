@@ -35,7 +35,12 @@
 											<div class="col-xs-12 col-sm-6 col-lg-4">
 												<div class="roomcard large-roomcard">
 													<div class="roomcard-header"
-														style="background: url('assets/images/illustrated_bedroom.jpg');">
+                                                        @if(isset($room->images))
+                                                            style="background: url('{{asset('/storage')}}/{{explode(';',$room->images)[0]}}');"
+                                                        @else
+														    style="background: url('assets/images/illustrated_bedroom.jpg');"
+                                                        @endif
+                                                        >
 														<div class="roomcard-warning-banner">
 															<div class="bui-alert bui-alert--error u-bleed@small"
 																role="status"><span class="bui-alert__icon"

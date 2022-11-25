@@ -12,6 +12,7 @@ use App\Models\PropertyPath;
 use App\Models\Room;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Str;
 
 class HotelAdminController extends Controller
 {
@@ -70,14 +71,15 @@ class HotelAdminController extends Controller
         $room->room_price = $request->room_price;
         $room->discount_available = $request->discount_available;
         $room->is_booked = false;
+        $room->images = $this->saveImages($request->images);
         $room->save();
         return back()->with('message','Successfully Added');
     }
-    public function roomDetails(){
+    public function roomDetails() {
         $rooms = Room::where('user_id', Auth::user()->id)->get();
         return view('hotel-admin.room-details')->with('rooms',$rooms);
     }
-    public function openCloseRooms(){
+    public function openCloseRooms() {
         $rooms = Room::where('user_id', Auth::user()->id)->get();
         return view('hotel-admin.open-close-rooms')->with('rooms',$rooms);
     }
@@ -308,5 +310,24 @@ class HotelAdminController extends Controller
     }
     public function storeRatePlan(){
         return back()->with('message', 'Successfully Saved');
+    }
+    public function saveImages($images){
+        if($images)
+        {
+            $imageNames='';
+            foreach($images as $key=>$image)
+            {
+                $extension = 'png';
+                $imageName = date("Y-m-d-h-i-s").Str::random(5).'.'.$extension;
+                //$image->store('property');
+                $imageFullName = 'images/'.$imageName;
+                $image->storeAs('public',$imageFullName);
+                // Storage::disk('public')->put($imageFullName,$image->str);
+                $imageNames = $imageNames.$imageFullName.';';
+            }
+            return substr($imageNames,0,-1);
+        }else {
+            return 'no images';
+        }
     }
 }
