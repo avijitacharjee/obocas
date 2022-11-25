@@ -519,7 +519,7 @@
                                     </li>
 
                                     <li class="ext-navigation-submenu-item">
-                                        <a href="get-time-squers"
+                                        <a href="/hotel-admin/how-to-get"
                                             class="ext-navigation-submenu-item__link">
                                             <span class="ext-navigation-submenu-item__icon">
                                             </span>

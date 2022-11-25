@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Booking;
 use Illuminate\Http\Request;
 use App\Models\NotificationSetting;
+use App\Models\Property;
+use App\Models\PropertyPath;
 use App\Models\Room;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
@@ -84,5 +86,24 @@ class HotelAdminController extends Controller
         $room->closed_on = implode(',', $request->days);
         $room->save();
         return back();
+    }
+    public function howToGet(Request $request){
+        $property = Property::where('user_id',Auth::user()->id)->first();
+        $propertyPath = PropertyPath::firstOrNew(['property_id'=>$property->id]);
+        return view('hotel-admin.get-time-squers')->with('propertyPath', $propertyPath);
+    }
+    public function storeHowToGet(Request $request){
+        $property = Property::where('user_id',Auth::user()->id)->first();
+        $propertyPath = PropertyPath::firstOrNew(['property_id'=>$property->id]);
+        $propertyPath->property_id = $property->id;
+        $propertyPath->airport_name = $request->airport_name;
+        $propertyPath->transport_type = $request->transport_type;
+        $propertyPath->to = $request->to;
+        $propertyPath->departs_every = $request->departs_every;
+        $propertyPath->journey_time = $request->duration;
+        $propertyPath->fare = $request->fare;
+        $propertyPath->save();
+        Log::channel('debug')->info($request->all());
+        return back()->with('message','Successfully saved');
     }
 }

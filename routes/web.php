@@ -62,6 +62,9 @@ Route::prefix('hotel-admin')->group(function(){
         Route::post('add-room1', 'storeRoom1');
         Route::get('open-close-rooms','openCloseRooms');
         Route::post('open-close-rooms', 'storeOpenCloseRooms');
+
+        Route::get('/how-to-get', 'howToGet');
+        Route::post('/how-to-get', 'storeHowToGet');
     });
 });
 Route::prefix('partner')->group(function (){
