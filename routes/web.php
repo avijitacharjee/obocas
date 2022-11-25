@@ -49,7 +49,6 @@ Route::prefix('hotel-admin')->group(function(){
     Route::view('review-edit-reat-plan','hotel-admin.review-edit-reat-plan');
     Route::view('security','hotel-admin.security');
     Route::view('vat-tax-charges','hotel-admin.vat-tax-charges');
-    Route::view("what's-nearby","hotel-admin.what's-nearby");
 
     Route::controller(HotelAdminController::class)->group(function(){
         Route::get('room-details','roomDetails');
@@ -65,6 +64,10 @@ Route::prefix('hotel-admin')->group(function(){
 
         Route::get('/how-to-get', 'howToGet');
         Route::post('/how-to-get', 'storeHowToGet');
+
+
+        Route::get("what's-nearby","nearBy");
+        Route::post('/nearby', 'storeNearBy');
     });
 });
 Route::prefix('partner')->group(function (){

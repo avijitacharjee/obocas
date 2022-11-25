@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Booking;
+use App\Models\Nearby;
 use Illuminate\Http\Request;
 use App\Models\NotificationSetting;
 use App\Models\Property;
@@ -103,7 +104,184 @@ class HotelAdminController extends Controller
         $propertyPath->journey_time = $request->duration;
         $propertyPath->fare = $request->fare;
         $propertyPath->save();
-        Log::channel('debug')->info($request->all());
         return back()->with('message','Successfully saved');
+    }
+    public function nearBy(){
+        $property = Property::where('user_id',Auth::user()->id)->first();
+        $nearbyRestaurant = Nearby::firstOrNew([
+            'property_id'=>$property->id,
+            'type'=>'restaurant'
+        ]);
+        $nearbyRestaurant->category = "Shopping and dining";
+        $nearbyRestaurant->unit = "km";
+        $nearbyRestaurant->save();
+
+        $nearbyCafe = Nearby::firstOrNew([
+            'property_id'=>$property->id,
+            'type'=>'cafe'
+        ]);
+        $nearbyCafe->category = "Shopping and dining";
+        $nearbyCafe->unit = "km";
+        $nearbyCafe->save();
+
+        $nearbyStore = Nearby::firstOrNew([
+            'property_id'=>$property->id,
+            'type'=>'store'
+        ]);
+        $nearbyStore->category = "Shopping and dining";
+        $nearbyStore->unit = "km";
+        $nearbyStore->save();
+
+        $nearbyMarket = Nearby::firstOrNew([
+            'property_id'=>$property->id,
+            'type'=>'market'
+        ]);
+        $nearbyMarket->category = "Shopping and dining";
+        $nearbyMarket->unit = "km";
+        $nearbyMarket->save();
+
+        $nearbyMountain = Nearby::firstOrNew([
+            'property_id'=>$property->id,
+            'type'=>'mountain'
+        ]);
+        $nearbyMountain->category = "Places of interest";
+        $nearbyMountain->unit = "km";
+        $nearbyMountain->save();
+
+        $nearbyLake = Nearby::firstOrNew([
+            'property_id'=>$property->id,
+            'type'=>'lake'
+        ]);
+        $nearbyLake->category = "Places of interest";
+        $nearbyLake->unit = "km";
+        $nearbyLake->save();
+
+        $nearbyRiver = Nearby::firstOrNew([
+            'property_id'=>$property->id,
+            'type'=>'river'
+        ]);
+        $nearbyRiver->category = "Places of interest";
+        $nearbyRiver->unit = "km";
+        $nearbyRiver->save();
+
+        $nearbySea = Nearby::firstOrNew([
+            'property_id'=>$property->id,
+            'type'=>'sea'
+        ]);
+        $nearbySea->category = "Places of interest";
+        $nearbySea->unit = "km";
+        $nearbySea->save();
+
+        $nearbyBeach = Nearby::firstOrNew([
+            'property_id'=>$property->id,
+            'type'=>'beach'
+        ]);
+        $nearbyBeach->category = "Places of interest";
+        $nearbyBeach->unit = "km";
+        $nearbyBeach->save();
+        return view('hotel-admin.nearby')
+            ->with('nearbyRestaurant',$nearbyRestaurant)
+            ->with('nearbyCafe',$nearbyCafe)
+            ->with('nearbyStore',$nearbyStore)
+            ->with('nearbyMarket',$nearbyMarket)
+            ->with('nearbyMountain',$nearbyMountain)
+            ->with('nearbyLake',$nearbyLake)
+            ->with('nearbyRiver',$nearbyRiver)
+            ->with('nearbySea',$nearbySea)
+            ->with('nearbyBeach',$nearbyBeach);
+    }
+    public function storeNearBy(Request $request){
+        $property = Property::where('user_id',Auth::user()->id)->first();
+
+        $nearbyRestaurant = Nearby::firstOrNew([
+            'property_id'=>$property->id,
+            'type'=>'restaurant'
+        ]);
+        $nearbyRestaurant->name = $request->restaurant_name;
+        $nearbyRestaurant->distance = $request->restaurant_distance;
+        $nearbyRestaurant->category = "Shopping and dining";
+        $nearbyRestaurant->unit = "km";
+        $nearbyRestaurant->save();
+
+        $nearbyCafe = Nearby::firstOrNew([
+            'property_id'=>$property->id,
+            'type'=>'cafe'
+        ]);
+        $nearbyCafe->name = $request->cafe_name;
+        $nearbyCafe->distance = $request->cafe_distance;
+        $nearbyCafe->category = "Shopping and dining";
+        $nearbyCafe->unit = "km";
+        $nearbyCafe->save();
+
+        $nearbyStore = Nearby::firstOrNew([
+            'property_id'=>$property->id,
+            'type'=>'store'
+        ]);
+        $nearbyStore->name = $request->store_name;
+        $nearbyStore->distance = $request->store_distance;
+        $nearbyStore->category = "Shopping and dining";
+        $nearbyStore->unit = "km";
+        $nearbyStore->save();
+
+        $nearbyMarket = Nearby::firstOrNew([
+            'property_id'=>$property->id,
+            'type'=>'market'
+        ]);
+        $nearbyMarket->name = $request->market_name;
+        $nearbyMarket->distance = $request->market_distance;
+        $nearbyMarket->category = "Shopping and dining";
+        $nearbyMarket->unit = "km";
+        $nearbyMarket->save();
+
+        $nearbyMountain = Nearby::firstOrNew([
+            'property_id'=>$property->id,
+            'type'=>'mountain'
+        ]);
+        $nearbyMountain->name = $request->mountain_name;
+        $nearbyMountain->distance = $request->mountain_distance;
+        $nearbyMountain->category = "Places of interest";
+        $nearbyMountain->unit = "km";
+        $nearbyMountain->save();
+
+        $nearbyLake = Nearby::firstOrNew([
+            'property_id'=>$property->id,
+            'type'=>'lake'
+        ]);
+        $nearbyLake->name = $request->lake_name;
+        $nearbyLake->distance = $request->lake_distance;
+        $nearbyLake->category = "Places of interest";
+        $nearbyLake->unit = "km";
+        $nearbyLake->save();
+
+        $nearbyRiver = Nearby::firstOrNew([
+            'property_id'=>$property->id,
+            'type'=>'river'
+        ]);
+        $nearbyRiver->name = $request->river_name;
+        $nearbyRiver->distance = $request->river_distance;
+        $nearbyRiver->category = "Places of interest";
+        $nearbyRiver->unit = "km";
+        $nearbyRiver->save();
+
+        $nearbySea = Nearby::firstOrNew([
+            'property_id'=>$property->id,
+            'type'=>'sea'
+        ]);
+        $nearbySea->name = $request->sea_name;
+        $nearbySea->distance = $request->sea_distance;
+        $nearbySea->category = "Places of interest";
+        $nearbySea->unit = "km";
+        $nearbySea->save();
+
+        $nearbyBeach = Nearby::firstOrNew([
+            'property_id'=>$property->id,
+            'type'=>'beach'
+        ]);
+        $nearbyBeach->name = $request->beach_name;
+        $nearbyBeach->distance = $request->beach_distance;
+        $nearbyBeach->category = "Places of interest";
+        $nearbyBeach->unit = "km";
+        $nearbyBeach->save();
+        return back();
     }
 }

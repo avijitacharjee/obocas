@@ -398,7 +398,7 @@
                             <td>Active</td>
                             <td>BTD 2500</td>
                             <td>On</td>
-                            <td>2525858</td>
+                            <td>{{$booking->id}}</td>
                         </tr>
                     @endforeach
                 </tbody>

@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Property;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -15,6 +16,12 @@ return new class extends Migration
     {
         Schema::create('nearbies', function (Blueprint $table) {
             $table->id();
+            $table->foreignIdFor(Property::class);
+            $table->string('category');
+            $table->string('type');
+            $table->string('name')->nullable();
+            $table->integer('distance')->nullable();
+            $table->string('unit')->nullable();
             $table->timestamps();
         });
     }
