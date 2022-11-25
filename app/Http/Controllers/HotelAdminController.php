@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Booking;
+use App\Models\Facility;
 use App\Models\Nearby;
 use Illuminate\Http\Request;
 use App\Models\NotificationSetting;
@@ -283,5 +284,29 @@ class HotelAdminController extends Controller
         $nearbyBeach->unit = "km";
         $nearbyBeach->save();
         return back();
+    }
+    public function facility(){
+        $facilities = Facility::all();
+        return view('hotel-admin.facilities-services')
+            ->with('facilities',$facilities);
+    }
+    public function storeFacility(Request $request){
+        $facility = new Facility();
+        $facility->property_id = Property::where('user_id', Auth::user()->id)->first()->id;
+        $facility->name = $request->name;
+        $facility->is_available = $request->is_available;
+        $facility->save();
+        return back();
+    }
+    public function deleteFacility(Facility $facility){
+        $facility->delete();
+        return back();
+    }
+    public function ratePlan(){
+        $rooms = Room::where('user_id', Auth::user()->id)->get();
+        return view('hotel-admin.rate-plans')->with('rooms',$rooms);
+    }
+    public function storeRatePlan(){
+        return back()->with('message', 'Successfully Saved');
     }
 }

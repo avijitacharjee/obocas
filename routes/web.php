@@ -32,7 +32,7 @@ Route::prefix('hotel-admin')->group(function(){
     Route::view('damage-deposit','hotel-admin.damage-deposit');
     Route::view('date-changes-non-refundable-booking','hotel-admin.date-changes-non-refundable-booking');
     Route::view('edit-room-details','hotel-admin.edit-room-details');
-    Route::view('facilities-services','hotel-admin.facilities-services');
+    //Route::view('facilities-services','hotel-admin.facilities-services');
     Route::view('financial-overview','hotel-admin.financial-overview');
     Route::view('general-info','hotel-admin.general-info');
     Route::view('get-time-squers','hotel-admin.get-time-squers');
@@ -42,7 +42,6 @@ Route::prefix('hotel-admin')->group(function(){
     Route::view('photos','hotel-admin.photos');
     Route::view('policies','hotel-admin.policies');
     Route::view('property-page-score','hotel-admin.property-page-score');
-    Route::view('rate-plans','hotel-admin.rate-plans');
     Route::view('reservation-messages','hotel-admin.reservation-messages');
     Route::view('reservation-statements','hotel-admin.reservation-statements');
     // Route::view('reservations','hotel-admin.reservations');
@@ -68,6 +67,14 @@ Route::prefix('hotel-admin')->group(function(){
 
         Route::get("what's-nearby","nearBy");
         Route::post('/nearby', 'storeNearBy');
+
+        Route::get('/facilities-services', 'facility');
+        Route::post('/facility/add', 'storeFacility');
+
+        Route::get('/facility/delete/{facility}', 'deleteFacility');
+
+        Route::get('rate-plans','ratePlan');
+        Route::post('rate-plans', 'storeRatePlan');
     });
 });
 Route::prefix('partner')->group(function (){

@@ -1,13 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="msapplication-config" content="none">
-    <meta name="format-detection" content="telephone=no">
-    <meta name="description" content="">
-    <title>Obocas Admin</title>
+@extends('hotel-admin.layout')
+@section('css-imports')
     <!-- favicon Icon -->
     <link rel="shortcut icon" href="{{ asset('/hotel-admin/assets/images/favicon.png') }}" type="image/png" />
     <link rel="stylesheet" href="{{ asset('/hotel-admin/assets/css/bootstrap-v3.min.css') }}">
@@ -22,17 +14,8 @@
 
     <link rel="stylesheet" href="{{ asset('/hotel-admin/assets/css/pages/facilities-services.min.css') }}">
 
-
-</head>
-
-<body>
-
-
-    <div id="main-container" class="container-fluid tfa_phone_alt container-fluid--color">
-
-        <main id="content" class="main">
-            <div class="page-body">
-                <div class="">
+@endsection
+@section('content')
                     <div class="bui-container bui-container--center">
                         <div class="page-header-component-title th__page-header">
                             <div class="row">
@@ -120,8 +103,6 @@
 
                         <div class="row">
                             <div class="col-sm-12 main-content">
-                                <form id="facilities_form" method="POST" role="form">
-
                                     <!-- Top Facilities -->
                                     <div class="facilities_section">
                                         <fieldset id="most_popular" class="facility-section--incomplete">
@@ -138,109 +119,88 @@
                                             </p>
 
                                             <div class="row">
-
-                                                <ul class="col-sm-6">
+                                                @foreach ($facilities as $facility)
+                                                   <ul class="col-sm-6">
                                                     <li id="container_3"
                                                         class="facility_items facility_item facility_items_active">
 
                                                         <div class="facility_items_body clearfix">
                                                             <div class="col-sm-8">
                                                                 <span class="facility-item__name">
-                                                                    Restaurant
+                                                                    {{$facility->name}}
                                                                 </span>
-                                                                <a href="{{ url('#') }}"
-                                                                    class="photo_uploader btn-default">
-                                                                    <i class="fa-solid fa-camera"></i>
-                                                                </a>
+
                                                             </div>
                                                             <div class="col-sm-4 facility-item__radio-buttons">
                                                                 <div class="bui-inline-container">
                                                                     <label class="bui-radio">
-                                                                        <input class="bui-radio__input" type="radio"
-                                                                            value="1" name="facility_3" checked />
+                                                                        <input class="bui-radio__input" type="radio" onclick="return false;"
+                                                                             checked />
                                                                         <span class="bui-radio__label">
                                                                             Yes
                                                                         </span>
                                                                     </label>
                                                                     <label class="bui-radio">
-                                                                        <input class="bui-radio__input" type="radio"
-                                                                            value="0" name="facility_3" />
+                                                                        <input class="bui-radio__input" type="radio" onclick="return false;"
+                                                                            />
                                                                         <span class="bui-radio__label">
                                                                             No
                                                                         </span>
                                                                     </label>
+                                                                    <a href="{{ url('/hotel-admin/facility/delete') }}/{{$facility->id}}"
+                                                                        class="btn-default">
+                                                                        <i class="fa-solid fa-trash"></i>
+                                                                    </a>
                                                                 </div>
+
                                                             </div>
                                                         </div>
                                                     </li>
                                                 </ul>
-                                                <ul class="col-sm-6">
-                                                    <li id="container_17"
-                                                        class="facility_items facility_item facility_items_active  facility_items_expanded">
-                                                        <div class="facility_items_body clearfix">
-                                                            <div class="col-sm-8">
-                                                                <span class="facility-item__name">
-                                                                    Airport shuttle
-                                                                </span>
-                                                                <a href="{{ url('#') }}"
-                                                                    class="photo_uploader  btn-default">
-                                                                    <i class="fa-solid fa-camera"></i>
-                                                                </a>
-                                                            </div>
-                                                            <div class="col-sm-4 facility-item__radio-buttons">
-                                                                <div class="bui-inline-container">
-                                                                    <label class="bui-radio">
-                                                                        <input class="bui-radio__input" type="radio"
-                                                                            value="1" name="facility_17"
-                                                                            checked />
-                                                                        <span class="bui-radio__label">
-                                                                            Yes
-                                                                        </span>
-                                                                    </label>
-                                                                    <label class="bui-radio">
-                                                                        <input class="bui-radio__input" type="radio"
-                                                                            value="0" name="facility_17" />
-                                                                        <span class="bui-radio__label">
-                                                                            No
-                                                                        </span>
-                                                                    </label>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                </ul>
+                                                @endforeach
+
                                             </div>
                                         </fieldset>
                                     </div>
                                     <!-- Top Facilities -->
-                                    <input type="submit" name="save" id="save" value="Save"
-                                        class="btn btn-primary btn-block btn-lg btn-save-bottom">
+                                    <fieldset>
+                                        <legend>Add new Facility</legend>
+                                        <form action="/hotel-admin/facility/add" method="POST">
+                                            @csrf
+                                            <div style="display: flex; flex-direction: row;margin-bottom: 20px;">
+                                                <div class="input-group" style="width: 70%">
+                                                    <input name="name" type="text" class="form-control" placeholder="Write facility here">
+                                                </div>
+                                                <div class="col-sm-6 facility-item__radio-buttons" style="width: 30%">
+                                                    <div class="bui-inline-container">
+                                                        <span>Available:</span>
+                                                        <label class="bui-radio">
+                                                            <input class="bui-radio__input" type="radio"
+                                                                value="1" name="is_available"
+                                                                checked />
+                                                            <span class="bui-radio__label">
+                                                                Yes
+                                                            </span>
+                                                        </label>
+                                                        <label class="bui-radio">
+                                                            <input class="bui-radio__input" type="radio"
+                                                                value="0" name="is_available" />
+                                                            <span class="bui-radio__label">
+                                                                No
+                                                            </span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
 
-                                </form>
+
+
+                                            <input type="submit" name="save" id="save" value="Add"
+                                                class="btn btn-primary btn-block btn-lg btn-save-bottom">
+                                        </form>
+                                    </fieldset>
+
                             </div>
                         </div>
                     </div>
-
-                </div>
-            </div>
-        </main>
-
-
-    </div>
-    <!-- close div#main-container -->
-
-    <!-- Footer -->
-
-
-    <!-- ===================== Required Js File Links ===================== -->
-    <!-- jquery js  -->
-    <script src="{{ asset('/hotel-admin/assets/js/jquery-1.12.4.min.js') }}"></script>
-    <!-- bootstrap js  -->
-    <script src="{{ asset('/hotel-admin/assets/js/bootstrap.bundle.min.js') }}"></script>
-    <!-- custom Js  -->
-    <script src="{{ asset('/hotel-admin/assets/js/script.js') }}"></script>
-
-
-</body>
-
-</html>
+@endsection
