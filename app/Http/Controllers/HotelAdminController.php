@@ -330,4 +330,8 @@ class HotelAdminController extends Controller
             return 'no images';
         }
     }
+    public function logout(){
+        Auth::logout();
+        return redirect('/signin');
+    }
 }

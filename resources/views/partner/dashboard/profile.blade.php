@@ -37,6 +37,7 @@
             <div class="page-component post-login">
                 @include('partner.dashboard.header')
                 <div class="page-component-content profile">
+                <form action="/partner/profile" method="POST">
                     <!-- Profile -->
                     <div class="profile-content-container profile_page_tab">
                         <div class="pc-row">
@@ -91,7 +92,7 @@
                                                                 First name (English Characters Only)
                                                                 <span class="text-danger">*</span>
                                                             </label>
-                                                            <input type="text" name="firstname" id="Firstname" class="validated-input " value="Elias">
+                                                            <input type="text" name="firstname" id="Firstname" class="validated-input " value="{{$partner->firstname}}">
                                                         </div>
                                                     </div>
                                                     <div class="sm-col-6">
@@ -348,8 +349,8 @@
                         </div>
                     </div>
                     <!-- /Bank Information -->
+                </form>
                 </div>
-
 
                 <!-- Page Footer -->
                 <div class="page-component-footer">

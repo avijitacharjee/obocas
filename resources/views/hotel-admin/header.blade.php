@@ -8,7 +8,7 @@
                 <img src="assets/images/logo.png" alt="Logo" class="ext-header__logo">
             </a>
             <div data-test-id="property-details" class="ext-header__property-details">
-                Time squers - 7962700
+                {{auth()->user()->property->property_name}}
             </div>
         </section>
         <div class="ext-header__side-items">
@@ -223,7 +223,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="hotel-admin/signin" class="ext-action-dropdown__item">
+                                    <a href="/hotel-admin/logout" class="ext-action-dropdown__item">
                                         <span>
                                             <svg width="20" height="20" fill="currentColor"
                                                 viewBox="0 0 128 128" role="presentation"

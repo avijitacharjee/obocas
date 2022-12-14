@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Partner;
 use App\Http\Requests\StorePartnerRequest;
 use App\Http\Requests\UpdatePartnerRequest;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\View\View;
 
 class PartnerController extends Controller
@@ -19,8 +21,7 @@ class PartnerController extends Controller
     }
     public function store(StorePartnerRequest $request)
     {
-        $partner = Partner::create($request->all());
-        session(['partner_name'=>$request->lastname]);
+
         return redirect('partner/dashboard',201);
     }
     public function dashboard(): View
@@ -29,12 +30,19 @@ class PartnerController extends Controller
     }
     public function signin(StorePartnerRequest $request)
     {
-        $partner = Partner::where('email',$request->email)->where('password',$request->password)->first();
+        $partner = User::where('email', $request->email)->first();
         if($partner){
-            session(['partner_name'=>$partner->lastname]);
-            return redirect('partner/dashboard',201);
+            if(Hash::check($partner,$partner->password)){
+                return redirect('partner/dashboard',201);
+            }else {
+                return back()->with('error', 'Invalid password');
+            }
         }else{
             return redirect()->back()->with('error','error');
         }
+    }
+    public function profile(){
+        $partner = Partner::find(auth()->user()->partner->id);
+        return view('partner.dashboard.profile')->with('partner', $partner);
     }
 }

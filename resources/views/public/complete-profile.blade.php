@@ -67,7 +67,7 @@
             </div>
             <!-- Password input -->
             <div class="form-outline mb-4">
-                <label class="form-label" for="form2Example2">Confirm Password</label>
+                <label class="form-label" for="form2Example2">Confirm  Password</label>
                 <input name="confirm-password" type="password" id="form2Example2" class="form-control" />
             </div>
             <input type="hidden" name="phone" value="{{$phone}}">

@@ -40,7 +40,7 @@
     <div id="loaging"></div>
     <div id="page-container">
         <div class="page-component post-login">
-            
+
             @include('partner.dashboard.header')
 
             <!-- Dashboard -->
@@ -57,11 +57,11 @@
                                                 <div class="tool-item-content">
                                                     <div class="main-content">
                                                         <div class="tool-item-title">Text Links</div>
-                                                        <div class="icon-container">
+                                                        <div class="icon-container" onclick="copyText()">
                                                             <i class="ficon fa-solid fa-link"></i>
                                                         </div>
                                                         <div class="tool-item-description">Place deep links right inside
-                                                            your content.</div>
+                                                            your content. </div>
                                                     </div>
                                                     <div class="tool-item-extra">
                                                         <div class="percentage-container">
@@ -74,6 +74,14 @@
                                                 </div>
                                             </a>
                                         </div>
+                                        <script>
+                                            function copyText() {
+                                                /* Copy text into clipboard */
+                                                navigator.clipboard.writeText
+                                                    ("http://localhost:8000/signin?coupon="+"{{session('partner_name')}}");
+                                                alert('Link has been copied to your clipboard');
+                                            }
+                                        </script>
                                         <div class="tool-item-container ">
                                             <a target="" class="destination-container traffic-tracking" id="image-links"
                                                 href="{{ url("#") }}">

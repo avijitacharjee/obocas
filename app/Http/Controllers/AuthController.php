@@ -91,6 +91,14 @@ class AuthController extends Controller
             }
         }
     }
+    public function signin(Request $request){
+        if($request->coupon){
+            session(['coupon'=>$request->coupon]);
+        }else {
+            session(['coupon' => null]);
+        }
+        return view('public.sign-otp');
+    }
 
     // public function signOtp(Request $request){
     //     $user = new User();
