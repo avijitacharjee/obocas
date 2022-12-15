@@ -116,10 +116,14 @@
                                     </div>
                                     <div class="text-input-field ">
                                         <label for="passwordConfirm">Re-Enter Password</label>
-                                        <input type="password" name="password" id="passwordConfirm" class="validated-input" placeholder="Re-Enter Password">
+                                        <input type="password" name="password_confirm" id="passwordConfirm" class="validated-input" placeholder="Re-Enter Password">
                                     </div>
                                 </div>
-
+                                @if(session('error'))
+                                <div class="error-message hidden">
+                                    {{session('error')}}
+                                </div>
+                                @endif
                                 <div class="agreement-holder">
                                     <input type="checkbox" name="" id="agree">
                                     <span class="agreement-text-holder">
@@ -127,9 +131,9 @@
                                         <a href="{{ url("#") }}">Affiliate Agreement</a>
                                     </span>
                                 </div>
-                                <div class="error-message hidden">
+                                {{-- <div class="error-message hidden">
                                     Please acknowledge that you understand and consent to our affiliate agreement.
-                                </div>
+                                </div> --}}
                                 <div class="email-subscription">
                                     <input type="checkbox" name="subscription" id="subscription">
                                     <span class="subscription-text-holder">I
@@ -164,7 +168,7 @@
     <!-- ===================== Required Css File Links ===================== -->
     <!-- jquery js  -->
     <script src="{{ asset("/partner/assets/js/jquery-1.12.4.min.js") }}"></script>
-    
+
     <!-- bootstrap js  -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
