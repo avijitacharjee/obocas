@@ -14,22 +14,22 @@
 
     <!-- ===================== Required Css File Links ===================== -->
     <!-- favicon Icon -->
-    <link rel="shortcut icon" href="{{ asset("/partner-dashboard/assets/images/favicon.png") }}" type="image/png" />
+    <link rel="shortcut icon" href="{{ asset('/partner-dashboard/assets/images/favicon.png') }}" type="image/png" />
     <!-- fontawesome css (version:-5.15.3) -->
-    <link rel="stylesheet" href="{{ asset("/partner-dashboard/assets/css/all.min.css") }}">
+    <link rel="stylesheet" href="{{ asset('/partner-dashboard/assets/css/all.min.css') }}">
     <!-- bootstrap css -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
     <!-- Plugin -->
-    <link rel="stylesheet" href="{{ asset("/partner-dashboard/assets/css/slick.css") }}">
-    <link rel="stylesheet" href="{{ asset("/partner-dashboard/assets/css/slick-theme.css") }}">
+    <link rel="stylesheet" href="{{ asset('/partner-dashboard/assets/css/slick.css') }}">
+    <link rel="stylesheet" href="{{ asset('/partner-dashboard/assets/css/slick-theme.css') }}">
 
     <!-- ===================== Project Css File Links ===================== -->
-    <link rel="stylesheet" href="{{ asset("/partner-dashboard/assets/css/default.css") }}">
+    <link rel="stylesheet" href="{{ asset('/partner-dashboard/assets/css/default.css') }}">
     <!-- style css -->
-    <link rel="stylesheet" href="{{ asset("/partner-dashboard/assets/css/style.css") }}">
-    <link rel="stylesheet" href="{{ asset("/partner-dashboard/assets/webfonts/localfont/local-font-stylesheet.css") }}">
+    <link rel="stylesheet" href="{{ asset('/partner-dashboard/assets/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('/partner-dashboard/assets/webfonts/localfont/local-font-stylesheet.css') }}">
 
 </head>
 
@@ -37,7 +37,7 @@
     <div id="loaging"></div>
     <div id="page-container">
         <div class="page-component post-login">
-           @include('partner.dashboard.header')
+            @include('partner.dashboard.header')
             <!-- Reporting -->
             <div class="page-component-content">
                 <div class="reporting-page report_page_tab">
@@ -80,9 +80,9 @@
                                     <div class="stat-duo-container white-card">
                                         <div class="simple-stat-container">
                                             <div class="color red"></div>
-                                            <div class="text-header">Bookings Month-to-Date</div>
+                                            <div class="text-header">Bookings This Month</div>
                                             <div class="text-content">
-                                                <div class="text-value">0</div>
+                                                <div class="text-value">{{$bookingsThisMonth}}</div>
                                                 <div class="text-unit">Bookings</div>
                                             </div>
                                         </div>
@@ -93,9 +93,9 @@
                                     <div class="stat-duo-container white-card">
                                         <div class="simple-stat-container">
                                             <div class="color purple"></div>
-                                            <div class="text-header">Total Pending Checkout</div>
+                                            <div class="text-header">Bookings today</div>
                                             <div class="text-content">
-                                                <div class="text-value">0</div>
+                                                <div class="text-value">{{$bookingsToday}}</div>
                                                 <div class="text-unit">Bookings</div>
                                             </div>
                                         </div>
@@ -159,9 +159,9 @@
                                     <div class="stat-duo-container white-card">
                                         <div class="simple-stat-container">
                                             <div class="color red"></div>
-                                            <div class="text-header">Bookings Month-to-Date</div>
+                                            <div class="text-header">Bookings This Month</div>
                                             <div class="text-content">
-                                                <div class="text-value">0</div>
+                                                <div class="text-value">{{$bookingsThisMonth}}</div>
                                                 <div class="text-unit">Bookings</div>
                                             </div>
                                         </div>
@@ -172,9 +172,9 @@
                                     <div class="stat-duo-container white-card">
                                         <div class="simple-stat-container">
                                             <div class="color purple"></div>
-                                            <div class="text-header">Total Pending Checkout</div>
+                                            <div class="text-header">Bookings Today</div>
                                             <div class="text-content">
-                                                <div class="text-value">0</div>
+                                                <div class="text-value">{{$bookingsToday}}</div>
                                                 <div class="text-unit">Bookings</div>
                                             </div>
                                         </div>
@@ -190,9 +190,9 @@
                                     <div class="color red"></div>
                                     <div class="text-container">
                                         <div class="text-value">
-                                            <div class="text-header">Bookings Month-to-Date</div>
+                                            <div class="text-header">Bookings This Month</div>
                                             <div class="text-content">
-                                                <div class="text-number">0</div>
+                                                <div class="text-number">{{$bookingsThisMonth}}</div>
                                                 <div class="text-unit">Bookings</div>
                                             </div>
                                         </div>
@@ -203,9 +203,9 @@
                                     <div class="color purple"></div>
                                     <div class="text-container">
                                         <div class="text-value">
-                                            <div class="text-header">Total Pending Checkout</div>
+                                            <div class="text-header">Bookings Today</div>
                                             <div class="text-content">
-                                                <div class="text-number">0</div>
+                                                <div class="text-number">{{$bookingsToday}}</div>
                                                 <div class="text-unit">Bookings</div>
                                             </div>
                                         </div>
@@ -267,10 +267,13 @@
                                 <div class="buttons-wrapper">
                                     <h4 class="title sub-title-dark">Date Type</h4>
 
-                                    <button id="1" class="button button-border button-border-blue booking">Booking
+                                    <button id="1"
+                                        class="button button-border button-border-blue booking">Booking
                                         Date</button>
-                                    <button id="2" class="button button-border departure">Departure Date</button>
-                                    <button id="3" class="button last button-border payment">Payment Date</button>
+                                    <button id="2" class="button button-border departure">Departure
+                                        Date</button>
+                                    <button id="3" class="button last button-border payment">Payment
+                                        Date</button>
 
                                 </div>
                                 <div class="date-picker-wrapper">
@@ -306,7 +309,7 @@
                     </div>
                 </div>
 
-                <div class="invoice-page report_page_tab d-none">
+                <div class="invoice-page report_page_tab">
                     <div class="invoice-table-container white-card">
                         <h3 class="title">Invoice</h3>
                         <div class="content-container ">
@@ -321,14 +324,14 @@
                                                     style="margin-left: 0px; width: 1138px;">
                                                     <thead>
                                                         <tr role="row">
-                                                            <th class="sorting_disabled" rowspan="1" colspan="1"
-                                                                style="width: 326px;">
-                                                                <div>Invoice ID</div>
+                                                            <th class="sorting_disabled" rowspan="1"
+                                                                colspan="1" style="width: 326px;">
+                                                                <div>Name</div>
                                                             </th>
-                                                            <th class="sorting_disabled" rowspan="1" colspan="1"
-                                                                style="width: 439px;">
+                                                            <th class="sorting_disabled" rowspan="1"
+                                                                colspan="1" style="width: 439px;">
                                                                 <div>
-                                                                    <span>Invoice Year/Month</span>
+                                                                    <span>Year/Month</span>
                                                                     <div id="invoice-tooltips" class="icon-tool-tip">
                                                                         <button>
                                                                             <i class="fa-solid fa-circle-question"></i>
@@ -336,9 +339,9 @@
                                                                     </div>
                                                                 </div>
                                                             </th>
-                                                            <th class="sorting_disabled" rowspan="1" colspan="1"
-                                                                style="width: 326px;">
-                                                                <div></div>
+                                                            <th class="sorting_disabled" rowspan="1"
+                                                                colspan="1" style="width: 326px;">
+                                                                <div>Phone</div>
                                                             </th>
                                                         </tr>
                                                     </thead>
@@ -347,15 +350,15 @@
                                         </div>
                                         <div class="dataTables_scrollBody"
                                             style="position: relative; overflow: auto; width: 100%;">
-                                            <table id="invoice-table" class="display dataTable no-footer" role="grid"
-                                                style="width: 1123px;">
+                                            <table id="invoice-table" class="display dataTable no-footer"
+                                                role="grid" style="width: 1123px;">
                                                 <thead>
                                                     <tr role="row" style="height: 0px;">
                                                         <th class="sorting_disabled" rowspan="1" colspan="1"
                                                             style="width: 326px; padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-bottom-width: 0px; height: 0px;">
                                                             <div class="dataTables_sizing"
                                                                 style="height:0;overflow:hidden;">
-                                                                <div>Invoice ID</div>
+                                                                <div>Name</div>
                                                             </div>
                                                         </th>
                                                         <th class="sorting_disabled" rowspan="1" colspan="1"
@@ -363,7 +366,7 @@
                                                             <div class="dataTables_sizing"
                                                                 style="height:0;overflow:hidden;">
                                                                 <div>
-                                                                    <span>Invoice Year/Month</span>
+                                                                    <span>Year/Month</span>
                                                                     <div id="invoice-tooltips" class="icon-tool-tip">
                                                                         <button>
                                                                             <i class="fa-solid fa-circle-question"></i>
@@ -372,26 +375,35 @@
                                                                 </div>
                                                             </div>
                                                         </th>
-                                                        <th class="sorting_disabled" rowspan="1" colspan="1"
-                                                            style="width: 326px; padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-bottom-width: 0px; height: 0px;">
-                                                            <div class="dataTables_sizing"
-                                                                style="height:0;overflow:hidden;">
-                                                                <div></div>
+                                                        <th class="sorting_disabled" rowspan="1" colspan="1">
+                                                            <div class="dataTables_sizing">
+                                                                <div>
+                                                                    Payment
+                                                                </div>
                                                             </div>
                                                         </th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr class="odd">
-                                                        <td valign="top" colspan="3" class="dataTables_empty">
-                                                            No data available in table
-                                                        </td>
-                                                    </tr>
+                                                    @foreach ($bookings as $booking)
+                                                        <tr>
+                                                           <td>
+                                                            {{$booking->firstname}} {{$booking->lastname}}
+                                                            </td>
+                                                            <td>
+                                                                {{date('jS M, Y',strtotime($booking->created_at))}}
+                                                            </td>
+                                                            <td>
+                                                                {{$booking->phone}}
+                                                            </td>
+                                                        </tr>
+                                                    @endforeach
                                                 </tbody>
                                             </table>
                                         </div>
                                     </div>
-                                    <div class="dataTables_paginate paging_simple_numbers" id="invoice-table_paginate">
+                                    <div class="dataTables_paginate paging_simple_numbers"
+                                        id="invoice-table_paginate">
                                         <a class="paginate_button previous disabled" id="invoice-table_previous">
                                             <i class="fa-solid fa-caret-left"></i>
                                         </a>
@@ -421,20 +433,24 @@
                     <div class="footer-links pc-row">
                         <div class="footer-item">
                             <h4>
-                                <a class="footer-light-text footer-menu-dashboard DashboardMenu" href="{{ url("#") }}">Dashboard</a>
+                                <a class="footer-light-text footer-menu-dashboard DashboardMenu"
+                                    href="{{ url('#') }}">Dashboard</a>
                             </h4>
                         </div>
                         <div class="footer-item">
                             <h4>
-                                <a class="footer-light-text footer-menu-tools ToolsMenu" href="{{ url("#") }}">Tools</a>
+                                <a class="footer-light-text footer-menu-tools ToolsMenu"
+                                    href="{{ url('#') }}">Tools</a>
                             </h4>
                             <ul>
                                 <li>
-                                    <a class="footer-light-text footer-menu-text-links TextLinkMenu" href="{{ url("#") }}">Text
+                                    <a class="footer-light-text footer-menu-text-links TextLinkMenu"
+                                        href="{{ url('#') }}">Text
                                         Links</a>
                                 </li>
                                 <li>
-                                    <a class="footer-light-text footer-menu-image-links ImageLinkMenu" href="{{ url("#") }}">Image
+                                    <a class="footer-light-text footer-menu-image-links ImageLinkMenu"
+                                        href="{{ url('#') }}">Image
                                         Link</a>
                                 </li>
 
@@ -443,21 +459,24 @@
                         <div class="footer-item">
                             <h4>
                                 <a class="footer-light-text footer-menu-profiles personalDetailMenu"
-                                    href="{{ url("#") }}">Profile</a>
+                                    href="{{ url('#') }}">Profile</a>
                             </h4>
                             <ul>
                                 <li>
-                                    <a class="footer-light-text footer-menu-profiles personalDetailMenu" href="{{ url("#") }}">
+                                    <a class="footer-light-text footer-menu-profiles personalDetailMenu"
+                                        href="{{ url('#') }}">
                                         Personal Details
                                     </a>
                                 </li>
                                 <li>
-                                    <a class="footer-light-text footer-menu-addsites addSiteMenu" href="{{ url("#") }}">
+                                    <a class="footer-light-text footer-menu-addsites addSiteMenu"
+                                        href="{{ url('#') }}">
                                         Manage Your Sites
                                     </a>
                                 </li>
                                 <li>
-                                    <a class="footer-light-text footer-menu-bank-info bankInfoMenu" href="{{ url("#") }}">
+                                    <a class="footer-light-text footer-menu-bank-info bankInfoMenu"
+                                        href="{{ url('#') }}">
                                         Bank Information
                                     </a>
                                 </li>
@@ -465,27 +484,31 @@
                         </div>
                         <div class="footer-item">
                             <h4>
-                                <a class="footer-light-text footer-menu-reporting ReportingMenu" href="{{ url("#") }}">Reporting</a>
+                                <a class="footer-light-text footer-menu-reporting ReportingMenu"
+                                    href="{{ url('#') }}">Reporting</a>
                             </h4>
                             <ul>
                                 <li>
                                     <a class="footer-light-text footer-menu-reporting BookingReportMenu"
-                                        href="{{ url("#") }}">Reporting</a>
+                                        href="{{ url('#') }}">Reporting</a>
                                 </li>
                                 <li>
-                                    <a class="footer-light-text footer-menu-invoice InvoiceMenu" href="{{ url("#") }}">Invoice</a>
+                                    <a class="footer-light-text footer-menu-invoice InvoiceMenu"
+                                        href="{{ url('#') }}">Invoice</a>
                                 </li>
                             </ul>
                         </div>
                         <div class="footer-item">
                             <h4>
-                                <a class="footer-light-text footer-menu-faq faqMenu" href="{{ url("#") }}">FAQ</a>
+                                <a class="footer-light-text footer-menu-faq faqMenu"
+                                    href="{{ url('#') }}">FAQ</a>
                             </h4>
                         </div>
                     </div>
                     <div class="footer-copyright">
                         <h6 class="copyright-text footer-light-text">
-                            Copyright © 2022 <a href="{{ url("index.html") }}">Obocos</a> Company Ltd. All Rights Reserved
+                            Copyright © 2022 <a href="{{ url('index.html') }}">Obocos</a> Company Ltd. All Rights
+                            Reserved
                         </h6>
                     </div>
                 </div>
@@ -503,17 +526,17 @@
         </div>
     </div>
 
-    <script src="{{ asset("/partner-dashboard/assets/js/jquery-1.12.4.min.js") }}"></script>
+    <script src="{{ asset('/partner-dashboard/assets/js/jquery-1.12.4.min.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
     </script>
 
-    <script src="{{ asset("/partner-dashboard/assets/js/jquery-migrate-1.2.1.min.js") }}"></script>
-    <script src="{{ asset("/partner-dashboard/assets/js/slick.min.js") }}"></script>
-    <script src="{{ asset("/partner-dashboard/assets/js/script.js") }}"></script>
+    <script src="{{ asset('/partner-dashboard/assets/js/jquery-migrate-1.2.1.min.js') }}"></script>
+    <script src="{{ asset('/partner-dashboard/assets/js/slick.min.js') }}"></script>
+    <script src="{{ asset('/partner-dashboard/assets/js/script.js') }}"></script>
 
     <script type="text/javascript">
-        $(document).ready(function () {
+        $(document).ready(function() {
             $('.your-class').slick({
                 slidesToShow: 2,
                 arrows: true,

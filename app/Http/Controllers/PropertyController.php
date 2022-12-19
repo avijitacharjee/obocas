@@ -111,8 +111,11 @@ class PropertyController extends Controller
             return 'no images';
         }
     }
-    public function index()
+    public function index(Request $request)
     {
+        if($request->coupon){
+            session(['coupon'=>$request->coupon]);
+        }
         $hotels = Property::all();
         foreach ($hotels as $hotel){
             $images = explode(';',$hotel->property_images);
@@ -122,10 +125,10 @@ class PropertyController extends Controller
         $email = session('email');
         $id = session('id');
         $name = session('name');
-        session()->flush();
-        session(['email'=>$email]);
-        session(['id'=>$id]);
-        session(['name' => $name]);
+        // //session()->flush();
+        // session(['email'=>$email]);
+        // session(['id'=>$id]);
+        // session(['name' => $name]);
         return view('public.index')
             ->with('hotels', $hotels)
             ->with('carousalImages', CarousalImage::where('type', 'index')->get());

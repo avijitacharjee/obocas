@@ -78,7 +78,7 @@
                                             function copyText() {
                                                 /* Copy text into clipboard */
                                                 navigator.clipboard.writeText
-                                                    ("http://localhost:8000/signin?coupon="+"{{session('partner_name')}}");
+                                                    (`${window.location.origin}/signin?coupon={{auth()->user()->partner->firstname}}`);
                                                 alert('Link has been copied to your clipboard');
                                             }
                                         </script>
@@ -205,7 +205,7 @@
                                                     Your Profile
                                                     &nbsp; - &nbsp;
                                                 </span>
-                                                <span>17% Complete</span>
+                                                <span>{{$percentage}}% Complete</span>
                                             </div>
                                             <div class="status-bar status-bar-expand">
                                                 <ul>
@@ -219,25 +219,25 @@
                                                             <div class="line"></div>
                                                             <div class="detail">Confirm Email</div>
                                                         </li>
-                                                        <li id="implement-tool" class="">
+                                                        <li id="implement-tool" @class(['active' => isset($partner->tool_implemented_at)])>
                                                             <div class="archive-container">
                                                                 <div class="archive card-inner-title">
-                                                                    <span class="hide">✓</span>
+                                                                    <span >✓</span>
                                                                 </div>
                                                             </div>
                                                             <div class="line"></div>
                                                             <div class="detail">Implement a tool</div>
                                                         </li>
-                                                        <li id="profile-info" class="">
+                                                        <li id="profile-info" @class(['active' => isset($partner->profile_completed_at)])>
                                                             <div class="archive-container">
                                                                 <div class="archive card-inner-title">
-                                                                    <span class="hide">✓</span>
+                                                                    <span class="">✓</span>
                                                                 </div>
                                                             </div>
                                                             <div class="line"></div>
                                                             <div class="detail">Complete Profile Information</div>
                                                         </li>
-                                                        <li id="gen-visit" class="">
+                                                        <li id="gen-visit" @class(['active' => isset($partner->visitor_generator_at)])>
                                                             <div class="archive-container">
                                                                 <div class="archive card-inner-title">
                                                                     <span class="hide">✓</span>
@@ -246,7 +246,7 @@
                                                             <div class="line"></div>
                                                             <div class="detail">Generate a Visitor</div>
                                                         </li>
-                                                        <li id="gen-book" class="">
+                                                        <li id="gen-book" @class(['active' => isset($partner->booking_generated_at)])>
                                                             <div class="archive-container">
                                                                 <div class="archive card-inner-title">
                                                                     <span class="hide">✓</span>
@@ -255,7 +255,7 @@
                                                             <div class="line"></div>
                                                             <div class="detail">Generate a Booking</div>
                                                         </li>
-                                                        <li id="update-pay" class="">
+                                                        <li id="update-pay" @class(['active' => isset($partner->payment_info_updated_at)])>
                                                             <div class="archive-container">
                                                                 <div class="archive card-inner-title">
                                                                     <span class="hide">✓</span>

@@ -750,8 +750,8 @@
                                                                                 </div>
                                                                                 <div
                                                                                     class="bp-u-text-ellipsis bui-f-color-grayscale">
-                                                                                    Elias
-                                                                                    Bhuyan
+                                                                                    {{session('booking_firstname')}}
+                                                                                    {{session('booking_lastname')}}
                                                                                 </div>
                                                                             </li>
                                                                             <li class="bui-list__item">
@@ -915,7 +915,7 @@
 
                                     </div>
 
-                        
+
                             </div>
                         </div>
                         <!-- Form -->

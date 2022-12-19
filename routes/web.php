@@ -84,6 +84,13 @@ Route::group([
 
         Route::get('logout', 'logout');
     });
+    Route::fallback(function () {
+        if (auth()->user() && auth()->user()->role->name == "HotelAdmin") {
+            return redirect('/hotel-admin/dashboard');
+        } else {
+            return redirect('/signup');
+        }
+    });
 });
 Route::group([
     'prefix' => 'partner',
@@ -93,14 +100,22 @@ Route::group([
     Route::post('signup', 'store');
     Route::post('signin', 'signin');
     Route::redirect('/', '/partner/dashboard');
-    Route::middleware(PartnerMiddleware::class)->group(function(){
+    Route::middleware(PartnerMiddleware::class)->group(function () {
         Route::get('home', 'home');
         Route::view('faq', 'partner.dashboard.faq');
         Route::view('index', 'partner.index');
-        Route::view('dashboard', 'partner.dashboard.dashboard');
+        Route::get('dashboard', 'dashboard');
         Route::get('profile', 'profile');
-        Route::view('report', 'partner.dashboard.report');
+        Route::get('report', 'report');
         Route::view('tools', 'partner.dashboard.tools');
+        Route::post('profile', 'updateProfile');
+    });
+    Route::fallback(function () {
+        if (auth()->user() && auth()->user()->role->name == "Partner") {
+            return redirect('/partner/dashboard');
+        } else {
+            return redirect('/partner/signup');
+        }
     });
 });
 

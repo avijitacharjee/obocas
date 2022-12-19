@@ -1,6 +1,5 @@
 <?php
 
-use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -15,7 +14,11 @@ return new class extends Migration
     public function up()
     {
         Schema::table('partners', function (Blueprint $table) {
-            $table->foreignIdFor(User::class)->after('id')->constrained(); // needs to be activated when migrate fresh
+            $table->after('phone',function($table){
+                $table->date('dob')->nullable();
+                $table->string('company_name')->nullable();
+                $table->boolean('is_subscriber')->default(false);
+            });
         });
     }
 
