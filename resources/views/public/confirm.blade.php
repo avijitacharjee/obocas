@@ -7,7 +7,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=on" />
-    
+
     <title>Step Three</title>
     <!-- Bootstrap -->
     <link rel="stylesheet" href="{{ asset('/frontend/assets/css/bootstrap.min.css') }}">
@@ -25,7 +25,7 @@
     <link rel="stylesheet" href="{{ asset('/frontend/assets/css/search-page.min.css') }}">
     <!-- Hotle -->
     <link rel="stylesheet" href="{{ asset('/frontend/assets/css/hotel.min.css') }}">
-    
+
 </head>
 
 <body class="contrast-bg">
@@ -185,7 +185,7 @@
             </div>
         </div>
 
-        <div class="slider mb-5">
+        {{-- <div class="slider mb-5">
             <div class="row">
                 <div class="col-12">
                     <div class="cdr-container">
@@ -373,7 +373,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
 
         <!-- Check Your Details -->
         <div class="check-details">
@@ -457,18 +457,18 @@
                                 <tbody>
                                     <tr>
                                         <th scope="row">Confirmation number</th>
-                                        <td>3421.258.058</td>
+                                        <td>{{$booking->id}}{{$booking->phone}}</td>
                                     </tr>
-                                    <tr>
+                                    {{-- <tr>
                                         <th scope="row">PIN Code</th>
                                         <td>
                                             2674
                                             <i class=""></i>
                                         </td>
-                                    </tr>
+                                    </tr> --}}
                                     <tr>
                                         <th scope="row">Booking Details</th>
-                                        <td>2 weeks, 1 room</td>
+                                        <td>{{$booking->number_of_days}} nights, 1 room</td>
                                     </tr>
                                     <tr>
                                         <th scope="row">You booked for</th>
@@ -476,11 +476,11 @@
                                     </tr>
                                     <tr>
                                         <th scope="row">Check-in</th>
-                                        <td>Thursday, March 31, 2022 (from 2:00 PM)</td>
+                                        <td>{{$booking->from_date}} (from 2:00 PM)</td>
                                     </tr>
                                     <tr>
                                         <th scope="row">Check-out</th>
-                                        <td>Thursday, April 14, 2022 (until 12:00 PM)</td>
+                                        <td>{{$booking->to_date}} (until 12:00 PM)</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -495,7 +495,7 @@
                                             1 room
                                         </div>
                                         <div class="col">
-                                            BDT 80,057
+                                            BDT {{$booking->total_amount}}
                                         </div>
                                     </div>
                                 </div>
@@ -508,7 +508,7 @@
                                                 Price
                                             </div>
                                             <div class="room-price-note">
-                                                (for 2 guests)
+                                                (for {{$booking->number_of_persons}} guests)
                                             </div>
                                         </div>
                                         <div class="col">
@@ -518,15 +518,15 @@
                                                     .</span>
                                                 &nbsp;
                                                 <span class="room-price">
-                                                    BDT&nbsp;80,057
+                                                    BDT&nbsp; {{$booking->total_amount}}
                                                 </span>
                                             </div>
-                                            <div class="room-price-converted">
+                                            {{-- <div class="room-price-converted">
                                                 US$928.20
-                                            </div>
+                                            </div> --}}
                                         </div>
                                     </div>
-                                    <div class="row mb-4">
+                                    {{-- <div class="row mb-4">
                                         <div class="col">
                                             <div class="pb-pricebreakdown--excluded-desc">
                                                 <div class="pb-pricebreakdown--excluded-desc-header">
@@ -549,7 +549,7 @@
                                             <span class="dimmed dimmed--dark">(26.5000%)
                                             </span>
                                         </div>
-                                    </div>
+                                    </div> --}}
                                     <div class="row mb-4">
                                         <div class="col">
                                             <div class="room-price-final">
@@ -562,14 +562,14 @@
                                         <div class="col">
                                             <div>
                                                 <span class="price-approx">approx.&nbsp;</span>
-                                                <span class="room-price-final">BDT&nbsp;101,272</span>
+                                                <span class="room-price-final">BDT&nbsp;{{$booking->total_amount}}</span>
                                             </div>
-                                            <div>
+                                            {{-- <div>
                                                 <span class="price-approx">
                                                     You'll pay <span class="room-price-converted">1,174.17</span> in
                                                     <span class="room-price-converted">USD</span>.
                                                 </span>
-                                            </div>
+                                            </div> --}}
                                         </div>
                                     </div>
                                     <div class="row mb-4">
@@ -579,7 +579,7 @@
                                             </h4>
                                             <div class="pb-pricebreakdown--additional-info-text"
                                                 data-et-view="bQbYSCZFceHEVJdYJNdDaXFCVCGXT:1">
-                                                Booking.com doesn't charge guests any reservation, administration,
+                                                obocas.com doesn't charge guests any reservation, administration,
                                                 or other fees.<br>
                                                 Your card issuer may charge you a foreign transaction fee.
                                             </div>

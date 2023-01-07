@@ -169,6 +169,7 @@ Route::controller(PropertyController::class)->group(function () {
     Route::post('property10', 'property10');
 
     Route::get('property/{property}', 'show');
+    Route::get('p/{property}', 'show1');
     // Route::post('search', 'search');
     Route::get('search', 'search');
 });

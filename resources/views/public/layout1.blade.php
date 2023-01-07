@@ -18,7 +18,6 @@
     <!-- Project Css-->
     <!-- CloudFront Css-->
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/cloudfront.min.css') }}" />
-    <link rel="stylesheet" href="{{ asset('frontend/assets/css/index-cloudfront.css') }}" />
     <!-- Bstatic -->
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/bstatic.min.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/avijit.css') }}">

@@ -23,13 +23,12 @@ $(function() {
     //=========/Index Tab
     $(".singin-popup-btn").on('click', function() {
         $(".singin-popup").toggleClass("d-none");
-    });    
+    });
     $(".singin-popup-close").on('click', function() {
     // $(".signin-modal-container").on('click', function() {
         $(".singin-popup").addClass("d-none");
     });
-
-
-
-
+    $("#sign_up_btn").on('click', function () {
+        $(".singin-popup").addClass("d-none");
+    });
 });

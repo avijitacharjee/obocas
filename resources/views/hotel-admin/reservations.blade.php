@@ -118,7 +118,6 @@
                             </span>
                         </button>
                         <!-- /Table Show Button -->
-
                     </div>
                 </fieldset>
 
@@ -398,7 +397,7 @@
                             <td>Active</td>
                             <td>BTD 2500</td>
                             <td>On</td>
-                            <td>{{$booking->id}}</td>
+                            <td><a href="tel:{{$booking->phone}}">{{$booking->id}}{{$booking->phone}}</a></td>
                         </tr>
                     @endforeach
                 </tbody>

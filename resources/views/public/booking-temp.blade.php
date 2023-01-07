@@ -1,11 +1,136 @@
-@extends('public.layout1')
-@section('css')
-    <link rel="stylesheet" href="{{ asset('frontend/assets/css/hotel.min.css') }}">
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!--====== Required meta tags =======-->
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=on" />
+
+    <title>Steap one</title>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="{{ asset('frontend/assets/css/bootstrap.min.css') }}">
+    <!-- Slick Slider -->
+    <link rel="stylesheet" href="{{ asset('frontend/assets/css/slick.css') }}">
+    <!-- FrontAwesome -->
+    <link rel="stylesheet" href="{{ asset('frontend/assets/css/all.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/assets/css/bui-react.min.css') }}">
+    <!-- Project Css-->
+    <!-- CloudFront Css-->
+    <link rel="stylesheet" href="{{ asset('frontend/assets/css/cloudfront.min.css') }}" />
+    <!-- Bstatic -->
+    <link rel="stylesheet" href="{{ asset('frontend/assets/css/bstatic.min.css') }}">
+    <!-- Search -->
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/search-page.min.css') }}">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
-@endsection
-@section('content')
+    <!-- Hotle -->
+    <link rel="stylesheet" href="{{ asset('frontend/assets/css/hotel.min.css') }}">
+
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="bui-header bui-header--logo-large bui-u-hidden-print bui-header--rounded-tabs">
+        <!-- Nav Top -->
+        <nav class="header-menu container">
+            <!-- Nav Left Part -->
+            <!-- Logo -->
+            <div class="bui-header__main">
+                <div class="bui-header__logo d-lg-block d-md-none">
+                    <span>
+                        <img src="{{ asset('frontend/assets/images/logo.png') }}" alt="">
+                    </span>
+                </div>
+
+                <div class="bui-header__logo d-lg-none d-md-block">
+                    <span>
+                        <i class="fa-solid fa-angle-left"></i>
+                    </span>
+                </div>
+            </div>
+            <!-- /Logo -->
+            <!-- /Nav Left Part -->
+
+            <!-- Nav Right Part -->
+            <div
+                class="bui-group bui-button-group bui-group--inline bui-group--align-end bui-group--vertical-align-middle">
+
+                <div class="nav-dasktop">
+                    <!-- Property List -->
+                    <div class="bui-group__item">
+                        <svg class="bk-icon -streamline-property_add" height="24" style="display:none;"
+                            width="24" viewBox="0 0 24 24" role="presentation" focusable="false">
+                            <path
+                                d="M8.25 19h-3a.75.75 0 0 1-.75-.75v-7.5a.75.75 0 0 0-1.5 0v7.5a2.25 2.25 0 0 0 2.25 2.25h3a.75.75 0 0 0 0-1.5zM1.234 9.823l8.782-7.43a.75.75 0 0 1 .969 0l7.279 6.159a.75.75 0 1 0 .968-1.146l-7.279-6.159a2.25 2.25 0 0 0-2.906 0L.265 8.678a.75.75 0 1 0 .968 1.146zM15.75 2.5h3L18 1.75v3a.75.75 0 0 0 1.5 0v-3a.75.75 0 0 0-.75-.75h-3a.75.75 0 0 0 0 1.5zm6.75 14.25a5.25 5.25 0 1 1-10.5 0 5.25 5.25 0 0 1 10.5 0zm1.5 0a6.75 6.75 0 1 0-13.5 0 6.75 6.75 0 0 0 13.5 0zm-7.5-3v6a.75.75 0 0 0 1.5 0v-6a.75.75 0 0 0-1.5 0zm-2.25 3.75h6a.75.75 0 0 0 0-1.5h-6a.75.75 0 0 0 0 1.5z" />
+                        </svg>
+                        <a class="bui-button bui-button--light bui-traveller-header__product-action" href="#">
+                            <span class="bui-button__text">
+                                List your property
+                            </span>
+                        </a>
+                    </div>
+                    <!-- /Property List -->
+
+                    <!-- SingIn & SingUp -->
+                    <div class="bui-group__item">
+                        <a class="bui-button bui-button--secondary " href="#">
+                            <span class="bui-button__text">
+                                Register
+                            </span>
+                        </a>
+                    </div>
+                    <div class="bui-group__item">
+                        <svg class="bk-icon -streamline-account_create" height="24" style="display:none;"
+                            width="24" viewBox="0 0 24 24" role="presentation" focusable="false">
+                            <path
+                                d="M22.5 17.25a5.25 5.25 0 1 1-10.5 0 5.25 5.25 0 0 1 10.5 0zm1.5 0a6.75 6.75 0 1 0-13.5 0 6.75 6.75 0 0 0 13.5 0zm-7.5-3v6a.75.75 0 0 0 1.5 0v-6a.75.75 0 0 0-1.5 0zM14.25 18h6a.75.75 0 0 0 0-1.5h-6a.75.75 0 0 0 0 1.5zM1.5 17.25a6.003 6.003 0 0 1 8.356-5.518.75.75 0 0 0 .588-1.38A7.504 7.504 0 0 0 0 17.25a.75.75 0 0 0 1.5 0zm9.375-12.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0zm1.5 0a4.875 4.875 0 1 0-9.75 0 4.875 4.875 0 0 0 9.75 0z" />
+                        </svg>
+                        <a class="bui-button bui-button--secondary " href="signin.html">
+                            <span class="bui-button__text">
+                                Sign in
+                            </span>
+                        </a>
+                    </div>
+                    <!-- /SingIn & SingUp -->
+                </div>
+
+                <div class="nav-mobile">
+                    <div
+                        class="bui-group bui-group--inline bui-group--small bui-group--align-end bui-group--vertical-align-middle bui-button-group">
+                        <div class="bui-group__item">
+                            <a class="bui-button bui-traveller-header__profile bui-button--light bui-button--large "
+                                type="button" href="signin.html">
+                                <span class="bui-button__icon bui-bubble-container">
+                                    <i class="fa-solid fa-circle-user"></i>
+                                </span>
+                            </a>
+                        </div>
+                        <div class="bui-group__item">
+                            <button class="bui-button bui-button--light bui-button--large mobile-menu-btn">
+                                <span class="bui-button__icon">
+                                    <span class="bui-icon bui-icon--large">
+                                        <i class="fa-solid fa-bars"></i>
+                                    </span>
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- Nav Right Part -->
+
+        </nav>
+        <!-- /Nav Top -->
+
+    </header>
+    <!-- Header -->
+
     <div class="container">
+
         <!-- Bradcrumb -->
         <div class="row mt-4 mb-4">
             <div class="col-12">
@@ -19,8 +144,8 @@
                                     </a>
                                 </div>
                             </li>
-                            <svg class="bk-icon -iconset-navarrow_right bui-breadcrumb__icon" height="16" width="16"
-                                viewBox="0 0 128 128">
+                            <svg class="bk-icon -iconset-navarrow_right bui-breadcrumb__icon" height="16"
+                                width="16" viewBox="0 0 128 128">
                                 <path
                                     d="M54.3 96a4 4 0 0 1-2.8-6.8L76.7 64 51.5 38.8a4 4 0 0 1 5.7-5.6L88 64 57.2 94.8a4 4 0 0 1-2.9 1.2z">
                                 </path>
@@ -33,8 +158,8 @@
                                     </a>
                                 </div>
                             </li>
-                            <svg class="bk-icon -iconset-navarrow_right bui-breadcrumb__icon" height="16" width="16"
-                                viewBox="0 0 128 128">
+                            <svg class="bk-icon -iconset-navarrow_right bui-breadcrumb__icon" height="16"
+                                width="16" viewBox="0 0 128 128">
                                 <path
                                     d="M54.3 96a4 4 0 0 1-2.8-6.8L76.7 64 51.5 38.8a4 4 0 0 1 5.7-5.6L88 64 57.2 94.8a4 4 0 0 1-2.9 1.2z">
                                 </path>
@@ -47,8 +172,8 @@
                                     </a>
                                 </div>
                             </li>
-                            <svg class="bk-icon -iconset-navarrow_right bui-breadcrumb__icon" height="16" width="16"
-                                viewBox="0 0 128 128">
+                            <svg class="bk-icon -iconset-navarrow_right bui-breadcrumb__icon" height="16"
+                                width="16" viewBox="0 0 128 128">
                                 <path
                                     d="M54.3 96a4 4 0 0 1-2.8-6.8L76.7 64 51.5 38.8a4 4 0 0 1 5.7-5.6L88 64 57.2 94.8a4 4 0 0 1-2.9 1.2z">
                                 </path>
@@ -85,7 +210,8 @@
                 </div>
                 <!-- Search Box -->
                 <div class="sb-searchbox__outer sb-searchbox-universal">
-                    <form id="frm" class="sb-searchbox sb-face-lift sb-searchbox--painted   -small  js--sb-searchbox">
+                    <form id="frm"
+                        class="sb-searchbox sb-face-lift sb-searchbox--painted   -small  js--sb-searchbox">
                         <div class="sb-searchbox__row u-clearfix -title">
                             <h2 class="-searchbox__title">
                                 <span class="sb-searchbox__title-text">
@@ -99,8 +225,9 @@
                             </label>
                             <div>
                                 <div class="c-autocomplete sb-destination -with-icon region_second_line">
-                                    <svg class="bk-icon -streamline-magnifying_glass sb-destination__icon" fill="#333333"
-                                        focusable="false" height="20" width="20" viewBox="0 0 24 24">
+                                    <svg class="bk-icon -streamline-magnifying_glass sb-destination__icon"
+                                        fill="#333333" focusable="false" height="20" width="20"
+                                        viewBox="0 0 24 24">
                                         <path
                                             d="M17.464 6.56a8.313 8.313 0 1 1-15.302 6.504A8.313 8.313 0 0 1 17.464 6.56zm1.38-.586C16.724.986 10.963-1.339 5.974.781.988 2.9-1.337 8.662.783 13.65c2.12 4.987 7.881 7.312 12.87 5.192 4.987-2.12 7.312-7.881 5.192-12.87zM15.691 16.75l7.029 7.03a.75.75 0 0 0 1.06-1.06l-7.029-7.03a.75.75 0 0 0-1.06 1.06z">
                                         </path>
@@ -115,9 +242,9 @@
                         <div class="sb-searchbox__row u-clearfix">
                             <div
                                 class="sb-dates
-                                    js--sb-dates
-                                    -compact
-                                    xp__dates">
+                                        js--sb-dates
+                                        -compact
+                                        xp__dates">
 
                                 <!-- Check-in & Check-out date -->
                                 <div class="sb-dates__grid u-clearfix">
@@ -136,8 +263,8 @@
                                                     <span
                                                         class="sb-date-field__icon sb-date-field__icon-btn bk-svg-wrapper calendar-restructure-sb">
                                                         <svg class="bk-icon -streamline-calendar sb-date-picker_icon-svg"
-                                                            fill="#BDBDBD" focusable="false" height="20" width="20"
-                                                            viewBox="0 0 24 24">
+                                                            fill="#BDBDBD" focusable="false" height="20"
+                                                            width="20" viewBox="0 0 24 24">
                                                             <path
                                                                 d="M22.502 13.5v8.25a.75.75 0 0 1-.75.75h-19.5a.75.75 0 0 1-.75-.75V5.25a.75.75 0 0 1 .75-.75h19.5a.75.75 0 0 1 .75.75v8.25zm1.5 0V5.25A2.25 2.25 0 0 0 21.752 3h-19.5a2.25 2.25 0 0 0-2.25 2.25v16.5A2.25 2.25 0 0 0 2.252 24h19.5a2.25 2.25 0 0 0 2.25-2.25V13.5zm-23.25-3h22.5a.75.75 0 0 0 0-1.5H.752a.75.75 0 0 0 0 1.5zM7.502 6V.75a.75.75 0 0 0-1.5 0V6a.75.75 0 0 0 1.5 0zm10.5 0V.75a.75.75 0 0 0-1.5 0V6a.75.75 0 0 0 1.5 0z">
                                                             </path>
@@ -156,7 +283,8 @@
                                                             </div>
                                                             <select
                                                                 class="sb-date-field__select-field js-date-field__select"
-                                                                aria-label="Check-in month" data-no-old-calendar="1">
+                                                                aria-label="Check-in month"
+                                                                data-no-old-calendar="1">
                                                                 <option value="" selected=""></option>
                                                             </select>
                                                             <input type="hidden" class="js-date-field__year"
@@ -179,12 +307,13 @@
                                                             </select>
                                                         </div>
                                                     </div>
-                                                    <div class="sb-date-field__display" data-placeholder="Check-in Date"
+                                                    <div class="sb-date-field__display"
+                                                        data-placeholder="Check-in Date"
                                                         data-date-format="date_with_weekday" data-display="">
                                                         Tuesday, April 5, 2022</div>
                                                     <svg class="bk-icon -streamline-arrow_nav_down sb-date-field__icon-arrow-down"
-                                                        fill="#333333" focusable="false" height="18" width="18"
-                                                        viewBox="0 0 24 24">
+                                                        fill="#333333" focusable="false" height="18"
+                                                        width="18" viewBox="0 0 24 24">
                                                         <path
                                                             d="M18 9.45c0 .2-.078.39-.22.53l-5 5a1.08 1.08 0 0 1-.78.32 1.1 1.1 0 0 1-.78-.32l-5-5a.75.75 0 0 1 0-1.06.74.74 0 0 1 1.06 0L12 13.64l4.72-4.72a.74.74 0 0 1 1.06 0 .73.73 0 0 1 .22.53zm-5.72 4.47zm-.57 0z">
                                                         </path>
@@ -232,7 +361,8 @@
                                                             </div>
                                                             <select
                                                                 class="sb-date-field__select-field js-date-field__select"
-                                                                aria-label=" Check-out month" data-no-old-calendar="1">
+                                                                aria-label=" Check-out month"
+                                                                data-no-old-calendar="1">
                                                                 <option value="" disabled=""></option>
                                                                 <option value="2-2022">March 2022</option>
                                                                 <option value="3-2022" selected="">April
@@ -266,8 +396,8 @@
                                                             <div class="sb-date-field__select-value">
                                                                 <span class="js-date-field__value"
                                                                     data-placeholder="
-                                                                    Check-out day
-                                                                    ">6,
+                                        Check-out day
+                                        ">6,
                                                                     Wednesday</span>
                                                                 <i
                                                                     class="sb-date-field__select-icon bicon-downchevron"></i>
@@ -276,8 +406,8 @@
                                                                 class="sb-date-field__select-field js-date-field__select"
                                                                 name="checkout_monthday" data-selected="15"
                                                                 aria-label="
-                                                                Check-out day
-                                                                "
+                                        Check-out day
+                                        "
                                                                 data-no-old-calendar="1">
                                                                 <option value="" disabled=""></option>
                                                                 <option value="1">1, Friday</option>
@@ -315,13 +445,14 @@
                                                         </div>
                                                     </div>
 
-                                                    <div class="sb-date-field__display" data-placeholder="Check-out Date"
+                                                    <div class="sb-date-field__display"
+                                                        data-placeholder="Check-out Date"
                                                         data-date-format="date_with_weekday" data-display="">
                                                         Wednesday, April 6, 2022</div>
 
                                                     <svg class="bk-icon -streamline-arrow_nav_down sb-date-field__icon-arrow-down"
-                                                        fill="#333333" focusable="false" height="18" width="18"
-                                                        viewBox="0 0 24 24">
+                                                        fill="#333333" focusable="false" height="18"
+                                                        width="18" viewBox="0 0 24 24">
                                                         <path
                                                             d="M18 9.45c0 .2-.078.39-.22.53l-5 5a1.08 1.08 0 0 1-.78.32 1.1 1.1 0 0 1-.78-.32l-5-5a.75.75 0 0 1 0-1.06.74.74 0 0 1 1.06 0L12 13.64l4.72-4.72a.74.74 0 0 1 1.06 0 .73.73 0 0 1 .22.53zm-5.72 4.47zm-.57 0z">
                                                         </path>
@@ -336,16 +467,17 @@
                                 <!-- /Check-in & Check-out date -->
 
                                 <!-- Data Calender -->
-                                <div class="xp-calendar " data-component="search/dates/single-calendar" data-sb-id="main"
-                                    data-render-los="1" data-separate-triggers="1" data-choose-mode="end">
+                                <div class="xp-calendar " data-component="search/dates/single-calendar"
+                                    data-sb-id="main" data-render-los="1" data-separate-triggers="1"
+                                    data-choose-mode="end">
 
                                     <div class="bui-calendar" style="display: none;">
                                         <div class="bui-calendar__main b-a11y-calendar-contrasts">
 
                                             <div class="bui-calendar__control bui-calendar__control--prev"
                                                 data-bui-ref="calendar-prev">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                                    viewBox="0 0 24 24">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                                    height="24" viewBox="0 0 24 24">
                                                     <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z">
                                                     </path>
                                                 </svg>
@@ -353,8 +485,8 @@
 
                                             <div class="bui-calendar__control bui-calendar__control--next"
                                                 data-bui-ref="calendar-next">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                                    viewBox="0 0 24 24">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                                    height="24" viewBox="0 0 24 24">
                                                     <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z">
                                                     </path>
                                                 </svg>
@@ -393,17 +525,22 @@
                                                         <tbody>
 
                                                             <tr class="bui-calendar__row">
-                                                                <td class="bui-calendar__date bui-calendar__date--empty">
+                                                                <td
+                                                                    class="bui-calendar__date bui-calendar__date--empty">
                                                                 </td>
-                                                                <td class="bui-calendar__date bui-calendar__date--empty">
+                                                                <td
+                                                                    class="bui-calendar__date bui-calendar__date--empty">
                                                                 </td>
-                                                                <td class="bui-calendar__date bui-calendar__date--empty">
+                                                                <td
+                                                                    class="bui-calendar__date bui-calendar__date--empty">
                                                                 </td>
-                                                                <td class="bui-calendar__date bui-calendar__date--empty">
+                                                                <td
+                                                                    class="bui-calendar__date bui-calendar__date--empty">
                                                                 </td>
                                                                 <td class="bui-calendar__date"
-                                                                    data-bui-ref="calendar-date" data-date="2022-04-01"
-                                                                    role="gridcell" tabindex="-1">
+                                                                    data-bui-ref="calendar-date"
+                                                                    data-date="2022-04-01" role="gridcell"
+                                                                    tabindex="-1">
                                                                     <span aria-label="1 April 2022" role="checkbox"
                                                                         aria-checked="false">
                                                                         <span>1</span>
@@ -411,8 +548,9 @@
                                                                 </td>
 
                                                                 <td class="bui-calendar__date"
-                                                                    data-bui-ref="calendar-date" data-date="2022-04-02"
-                                                                    role="gridcell" tabindex="-1">
+                                                                    data-bui-ref="calendar-date"
+                                                                    data-date="2022-04-02" role="gridcell"
+                                                                    tabindex="-1">
                                                                     <span aria-label="2 April 2022" role="checkbox"
                                                                         aria-checked="false">
                                                                         <span>2</span>
@@ -420,8 +558,9 @@
                                                                 </td>
 
                                                                 <td class="bui-calendar__date"
-                                                                    data-bui-ref="calendar-date" data-date="2022-04-03"
-                                                                    role="gridcell" tabindex="-1">
+                                                                    data-bui-ref="calendar-date"
+                                                                    data-date="2022-04-03" role="gridcell"
+                                                                    tabindex="-1">
                                                                     <span aria-label="3 April 2022" role="checkbox"
                                                                         aria-checked="false">
                                                                         <span>3</span>
@@ -431,8 +570,9 @@
 
                                                             <tr class="bui-calendar__row">
                                                                 <td class="bui-calendar__date"
-                                                                    data-bui-ref="calendar-date" data-date="2022-04-04"
-                                                                    role="gridcell" tabindex="-1">
+                                                                    data-bui-ref="calendar-date"
+                                                                    data-date="2022-04-04" role="gridcell"
+                                                                    tabindex="-1">
                                                                     <span aria-label="4 April 2022" role="checkbox"
                                                                         aria-checked="false">
                                                                         <span>4</span>
@@ -440,8 +580,9 @@
                                                                 </td>
 
                                                                 <td class="bui-calendar__date bui-calendar__date--selected"
-                                                                    data-bui-ref="calendar-date" data-date="2022-04-05"
-                                                                    role="gridcell" tabindex="-1">
+                                                                    data-bui-ref="calendar-date"
+                                                                    data-date="2022-04-05" role="gridcell"
+                                                                    tabindex="-1">
                                                                     <span aria-label="5 April 2022" role="checkbox"
                                                                         aria-checked="true">
                                                                         <span>5</span>
@@ -449,8 +590,9 @@
                                                                 </td>
 
                                                                 <td class="bui-calendar__date bui-calendar__date--selected"
-                                                                    data-bui-ref="calendar-date" data-date="2022-04-06"
-                                                                    role="gridcell" tabindex="-1">
+                                                                    data-bui-ref="calendar-date"
+                                                                    data-date="2022-04-06" role="gridcell"
+                                                                    tabindex="-1">
                                                                     <span aria-label="6 April 2022" role="checkbox"
                                                                         aria-checked="true">
                                                                         <span>6</span>
@@ -458,8 +600,9 @@
                                                                 </td>
 
                                                                 <td class="bui-calendar__date"
-                                                                    data-bui-ref="calendar-date" data-date="2022-04-07"
-                                                                    role="gridcell" tabindex="-1">
+                                                                    data-bui-ref="calendar-date"
+                                                                    data-date="2022-04-07" role="gridcell"
+                                                                    tabindex="-1">
                                                                     <span aria-label="7 April 2022" role="checkbox"
                                                                         aria-checked="false">
                                                                         <span>7</span>
@@ -467,8 +610,9 @@
                                                                 </td>
 
                                                                 <td class="bui-calendar__date"
-                                                                    data-bui-ref="calendar-date" data-date="2022-04-08"
-                                                                    role="gridcell" tabindex="-1">
+                                                                    data-bui-ref="calendar-date"
+                                                                    data-date="2022-04-08" role="gridcell"
+                                                                    tabindex="-1">
                                                                     <span aria-label="8 April 2022" role="checkbox"
                                                                         aria-checked="false">
                                                                         <span>8</span>
@@ -476,8 +620,9 @@
                                                                 </td>
 
                                                                 <td class="bui-calendar__date"
-                                                                    data-bui-ref="calendar-date" data-date="2022-04-09"
-                                                                    role="gridcell" tabindex="-1">
+                                                                    data-bui-ref="calendar-date"
+                                                                    data-date="2022-04-09" role="gridcell"
+                                                                    tabindex="-1">
                                                                     <span aria-label="9 April 2022" role="checkbox"
                                                                         aria-checked="false">
                                                                         <span>9</span>
@@ -485,8 +630,9 @@
                                                                 </td>
 
                                                                 <td class="bui-calendar__date"
-                                                                    data-bui-ref="calendar-date" data-date="2022-04-10"
-                                                                    role="gridcell" tabindex="-1">
+                                                                    data-bui-ref="calendar-date"
+                                                                    data-date="2022-04-10" role="gridcell"
+                                                                    tabindex="-1">
                                                                     <span aria-label="10 April 2022" role="checkbox"
                                                                         aria-checked="false">
                                                                         <span>10</span>
@@ -496,8 +642,9 @@
 
                                                             <tr class="bui-calendar__row">
                                                                 <td class="bui-calendar__date"
-                                                                    data-bui-ref="calendar-date" data-date="2022-04-11"
-                                                                    role="gridcell" tabindex="-1">
+                                                                    data-bui-ref="calendar-date"
+                                                                    data-date="2022-04-11" role="gridcell"
+                                                                    tabindex="-1">
                                                                     <span aria-label="11 April 2022" role="checkbox"
                                                                         aria-checked="false">
                                                                         <span>11</span>
@@ -505,8 +652,9 @@
                                                                 </td>
 
                                                                 <td class="bui-calendar__date"
-                                                                    data-bui-ref="calendar-date" data-date="2022-04-12"
-                                                                    role="gridcell" tabindex="-1">
+                                                                    data-bui-ref="calendar-date"
+                                                                    data-date="2022-04-12" role="gridcell"
+                                                                    tabindex="-1">
                                                                     <span aria-label="12 April 2022" role="checkbox"
                                                                         aria-checked="false">
                                                                         <span>12</span>
@@ -514,8 +662,9 @@
                                                                 </td>
 
                                                                 <td class="bui-calendar__date"
-                                                                    data-bui-ref="calendar-date" data-date="2022-04-13"
-                                                                    role="gridcell" tabindex="-1">
+                                                                    data-bui-ref="calendar-date"
+                                                                    data-date="2022-04-13" role="gridcell"
+                                                                    tabindex="-1">
                                                                     <span aria-label="13 April 2022" role="checkbox"
                                                                         aria-checked="false">
                                                                         <span>13</span>
@@ -523,8 +672,9 @@
                                                                 </td>
 
                                                                 <td class="bui-calendar__date"
-                                                                    data-bui-ref="calendar-date" data-date="2022-04-14"
-                                                                    role="gridcell" tabindex="-1">
+                                                                    data-bui-ref="calendar-date"
+                                                                    data-date="2022-04-14" role="gridcell"
+                                                                    tabindex="-1">
                                                                     <span aria-label="14 April 2022" role="checkbox"
                                                                         aria-checked="false">
                                                                         <span>14</span>
@@ -532,8 +682,9 @@
                                                                 </td>
 
                                                                 <td class="bui-calendar__date"
-                                                                    data-bui-ref="calendar-date" data-date="2022-04-15"
-                                                                    role="gridcell" tabindex="-1">
+                                                                    data-bui-ref="calendar-date"
+                                                                    data-date="2022-04-15" role="gridcell"
+                                                                    tabindex="-1">
                                                                     <span aria-label="15 April 2022" role="checkbox"
                                                                         aria-checked="false">
                                                                         <span>15</span>
@@ -541,8 +692,9 @@
                                                                 </td>
 
                                                                 <td class="bui-calendar__date"
-                                                                    data-bui-ref="calendar-date" data-date="2022-04-16"
-                                                                    role="gridcell" tabindex="-1">
+                                                                    data-bui-ref="calendar-date"
+                                                                    data-date="2022-04-16" role="gridcell"
+                                                                    tabindex="-1">
                                                                     <span aria-label="16 April 2022" role="checkbox"
                                                                         aria-checked="false">
                                                                         <span>16</span>
@@ -550,8 +702,9 @@
                                                                 </td>
 
                                                                 <td class="bui-calendar__date"
-                                                                    data-bui-ref="calendar-date" data-date="2022-04-17"
-                                                                    role="gridcell" tabindex="-1">
+                                                                    data-bui-ref="calendar-date"
+                                                                    data-date="2022-04-17" role="gridcell"
+                                                                    tabindex="-1">
                                                                     <span aria-label="17 April 2022" role="checkbox"
                                                                         aria-checked="false">
                                                                         <span>17</span>
@@ -561,8 +714,9 @@
 
                                                             <tr class="bui-calendar__row">
                                                                 <td class="bui-calendar__date"
-                                                                    data-bui-ref="calendar-date" data-date="2022-04-18"
-                                                                    role="gridcell" tabindex="-1">
+                                                                    data-bui-ref="calendar-date"
+                                                                    data-date="2022-04-18" role="gridcell"
+                                                                    tabindex="-1">
                                                                     <span aria-label="18 April 2022" role="checkbox"
                                                                         aria-checked="false">
                                                                         <span>18</span>
@@ -570,8 +724,9 @@
                                                                 </td>
 
                                                                 <td class="bui-calendar__date"
-                                                                    data-bui-ref="calendar-date" data-date="2022-04-19"
-                                                                    role="gridcell" tabindex="-1">
+                                                                    data-bui-ref="calendar-date"
+                                                                    data-date="2022-04-19" role="gridcell"
+                                                                    tabindex="-1">
                                                                     <span aria-label="19 April 2022" role="checkbox"
                                                                         aria-checked="false">
                                                                         <span>19</span>
@@ -579,8 +734,9 @@
                                                                 </td>
 
                                                                 <td class="bui-calendar__date"
-                                                                    data-bui-ref="calendar-date" data-date="2022-04-20"
-                                                                    role="gridcell" tabindex="-1">
+                                                                    data-bui-ref="calendar-date"
+                                                                    data-date="2022-04-20" role="gridcell"
+                                                                    tabindex="-1">
                                                                     <span aria-label="20 April 2022" role="checkbox"
                                                                         aria-checked="false">
                                                                         <span>20</span>
@@ -588,8 +744,9 @@
                                                                 </td>
 
                                                                 <td class="bui-calendar__date"
-                                                                    data-bui-ref="calendar-date" data-date="2022-04-21"
-                                                                    role="gridcell" tabindex="-1">
+                                                                    data-bui-ref="calendar-date"
+                                                                    data-date="2022-04-21" role="gridcell"
+                                                                    tabindex="-1">
                                                                     <span aria-label="21 April 2022" role="checkbox"
                                                                         aria-checked="false">
                                                                         <span>21</span>
@@ -597,8 +754,9 @@
                                                                 </td>
 
                                                                 <td class="bui-calendar__date"
-                                                                    data-bui-ref="calendar-date" data-date="2022-04-22"
-                                                                    role="gridcell" tabindex="-1">
+                                                                    data-bui-ref="calendar-date"
+                                                                    data-date="2022-04-22" role="gridcell"
+                                                                    tabindex="-1">
                                                                     <span aria-label="22 April 2022" role="checkbox"
                                                                         aria-checked="false">
                                                                         <span>22</span>
@@ -606,8 +764,9 @@
                                                                 </td>
 
                                                                 <td class="bui-calendar__date"
-                                                                    data-bui-ref="calendar-date" data-date="2022-04-23"
-                                                                    role="gridcell" tabindex="-1">
+                                                                    data-bui-ref="calendar-date"
+                                                                    data-date="2022-04-23" role="gridcell"
+                                                                    tabindex="-1">
                                                                     <span aria-label="23 April 2022" role="checkbox"
                                                                         aria-checked="false">
                                                                         <span>23</span>
@@ -615,8 +774,9 @@
                                                                 </td>
 
                                                                 <td class="bui-calendar__date"
-                                                                    data-bui-ref="calendar-date" data-date="2022-04-24"
-                                                                    role="gridcell" tabindex="-1">
+                                                                    data-bui-ref="calendar-date"
+                                                                    data-date="2022-04-24" role="gridcell"
+                                                                    tabindex="-1">
                                                                     <span aria-label="24 April 2022" role="checkbox"
                                                                         aria-checked="false">
                                                                         <span>24</span>
@@ -626,8 +786,9 @@
 
                                                             <tr class="bui-calendar__row">
                                                                 <td class="bui-calendar__date"
-                                                                    data-bui-ref="calendar-date" data-date="2022-04-25"
-                                                                    role="gridcell" tabindex="-1">
+                                                                    data-bui-ref="calendar-date"
+                                                                    data-date="2022-04-25" role="gridcell"
+                                                                    tabindex="-1">
                                                                     <span aria-label="25 April 2022" role="checkbox"
                                                                         aria-checked="false">
                                                                         <span>25</span>
@@ -635,8 +796,9 @@
                                                                 </td>
 
                                                                 <td class="bui-calendar__date"
-                                                                    data-bui-ref="calendar-date" data-date="2022-04-26"
-                                                                    role="gridcell" tabindex="-1">
+                                                                    data-bui-ref="calendar-date"
+                                                                    data-date="2022-04-26" role="gridcell"
+                                                                    tabindex="-1">
                                                                     <span aria-label="26 April 2022" role="checkbox"
                                                                         aria-checked="false">
                                                                         <span>26</span>
@@ -644,8 +806,9 @@
                                                                 </td>
 
                                                                 <td class="bui-calendar__date"
-                                                                    data-bui-ref="calendar-date" data-date="2022-04-27"
-                                                                    role="gridcell" tabindex="-1">
+                                                                    data-bui-ref="calendar-date"
+                                                                    data-date="2022-04-27" role="gridcell"
+                                                                    tabindex="-1">
                                                                     <span aria-label="27 April 2022" role="checkbox"
                                                                         aria-checked="false">
                                                                         <span>27</span>
@@ -653,8 +816,9 @@
                                                                 </td>
 
                                                                 <td class="bui-calendar__date"
-                                                                    data-bui-ref="calendar-date" data-date="2022-04-28"
-                                                                    role="gridcell" tabindex="-1">
+                                                                    data-bui-ref="calendar-date"
+                                                                    data-date="2022-04-28" role="gridcell"
+                                                                    tabindex="-1">
                                                                     <span aria-label="28 April 2022" role="checkbox"
                                                                         aria-checked="false">
                                                                         <span>28</span>
@@ -662,8 +826,9 @@
                                                                 </td>
 
                                                                 <td class="bui-calendar__date"
-                                                                    data-bui-ref="calendar-date" data-date="2022-04-29"
-                                                                    role="gridcell" tabindex="-1">
+                                                                    data-bui-ref="calendar-date"
+                                                                    data-date="2022-04-29" role="gridcell"
+                                                                    tabindex="-1">
                                                                     <span aria-label="29 April 2022" role="checkbox"
                                                                         aria-checked="false">
                                                                         <span>29</span>
@@ -671,14 +836,16 @@
                                                                 </td>
 
                                                                 <td class="bui-calendar__date"
-                                                                    data-bui-ref="calendar-date" data-date="2022-04-30"
-                                                                    role="gridcell" tabindex="-1">
+                                                                    data-bui-ref="calendar-date"
+                                                                    data-date="2022-04-30" role="gridcell"
+                                                                    tabindex="-1">
                                                                     <span aria-label="30 April 2022" role="checkbox"
                                                                         aria-checked="false">
                                                                         <span>30</span>
                                                                     </span>
                                                                 </td>
-                                                                <td class="bui-calendar__date bui-calendar__date--empty">
+                                                                <td
+                                                                    class="bui-calendar__date bui-calendar__date--empty">
                                                                 </td>
                                                             </tr>
 
@@ -715,21 +882,28 @@
                                                         <tbody>
 
                                                             <tr class="bui-calendar__row">
-                                                                <td class="bui-calendar__date bui-calendar__date--empty">
+                                                                <td
+                                                                    class="bui-calendar__date bui-calendar__date--empty">
                                                                 </td>
-                                                                <td class="bui-calendar__date bui-calendar__date--empty">
+                                                                <td
+                                                                    class="bui-calendar__date bui-calendar__date--empty">
                                                                 </td>
-                                                                <td class="bui-calendar__date bui-calendar__date--empty">
+                                                                <td
+                                                                    class="bui-calendar__date bui-calendar__date--empty">
                                                                 </td>
-                                                                <td class="bui-calendar__date bui-calendar__date--empty">
+                                                                <td
+                                                                    class="bui-calendar__date bui-calendar__date--empty">
                                                                 </td>
-                                                                <td class="bui-calendar__date bui-calendar__date--empty">
+                                                                <td
+                                                                    class="bui-calendar__date bui-calendar__date--empty">
                                                                 </td>
-                                                                <td class="bui-calendar__date bui-calendar__date--empty">
+                                                                <td
+                                                                    class="bui-calendar__date bui-calendar__date--empty">
                                                                 </td>
                                                                 <td class="bui-calendar__date"
-                                                                    data-bui-ref="calendar-date" data-date="2022-05-01"
-                                                                    role="gridcell" tabindex="-1">
+                                                                    data-bui-ref="calendar-date"
+                                                                    data-date="2022-05-01" role="gridcell"
+                                                                    tabindex="-1">
                                                                     <span aria-label="1 May 2022" role="checkbox"
                                                                         aria-checked="false">
                                                                         <span>1</span>
@@ -739,8 +913,9 @@
 
                                                             <tr class="bui-calendar__row">
                                                                 <td class="bui-calendar__date"
-                                                                    data-bui-ref="calendar-date" data-date="2022-05-02"
-                                                                    role="gridcell" tabindex="-1">
+                                                                    data-bui-ref="calendar-date"
+                                                                    data-date="2022-05-02" role="gridcell"
+                                                                    tabindex="-1">
                                                                     <span aria-label="2 May 2022" role="checkbox"
                                                                         aria-checked="false">
                                                                         <span>2</span>
@@ -748,8 +923,9 @@
                                                                 </td>
 
                                                                 <td class="bui-calendar__date"
-                                                                    data-bui-ref="calendar-date" data-date="2022-05-03"
-                                                                    role="gridcell" tabindex="-1">
+                                                                    data-bui-ref="calendar-date"
+                                                                    data-date="2022-05-03" role="gridcell"
+                                                                    tabindex="-1">
                                                                     <span aria-label="3 May 2022" role="checkbox"
                                                                         aria-checked="false">
                                                                         <span>3</span>
@@ -757,8 +933,9 @@
                                                                 </td>
 
                                                                 <td class="bui-calendar__date"
-                                                                    data-bui-ref="calendar-date" data-date="2022-05-04"
-                                                                    role="gridcell" tabindex="-1">
+                                                                    data-bui-ref="calendar-date"
+                                                                    data-date="2022-05-04" role="gridcell"
+                                                                    tabindex="-1">
                                                                     <span aria-label="4 May 2022" role="checkbox"
                                                                         aria-checked="false">
                                                                         <span>4</span>
@@ -766,8 +943,9 @@
                                                                 </td>
 
                                                                 <td class="bui-calendar__date"
-                                                                    data-bui-ref="calendar-date" data-date="2022-05-05"
-                                                                    role="gridcell" tabindex="-1">
+                                                                    data-bui-ref="calendar-date"
+                                                                    data-date="2022-05-05" role="gridcell"
+                                                                    tabindex="-1">
                                                                     <span aria-label="5 May 2022" role="checkbox"
                                                                         aria-checked="false">
                                                                         <span>5</span>
@@ -775,8 +953,9 @@
                                                                 </td>
 
                                                                 <td class="bui-calendar__date"
-                                                                    data-bui-ref="calendar-date" data-date="2022-05-06"
-                                                                    role="gridcell" tabindex="-1">
+                                                                    data-bui-ref="calendar-date"
+                                                                    data-date="2022-05-06" role="gridcell"
+                                                                    tabindex="-1">
                                                                     <span aria-label="6 May 2022" role="checkbox"
                                                                         aria-checked="false">
                                                                         <span>6</span>
@@ -784,8 +963,9 @@
                                                                 </td>
 
                                                                 <td class="bui-calendar__date"
-                                                                    data-bui-ref="calendar-date" data-date="2022-05-07"
-                                                                    role="gridcell" tabindex="-1">
+                                                                    data-bui-ref="calendar-date"
+                                                                    data-date="2022-05-07" role="gridcell"
+                                                                    tabindex="-1">
                                                                     <span aria-label="7 May 2022" role="checkbox"
                                                                         aria-checked="false">
                                                                         <span>7</span>
@@ -793,8 +973,9 @@
                                                                 </td>
 
                                                                 <td class="bui-calendar__date"
-                                                                    data-bui-ref="calendar-date" data-date="2022-05-08"
-                                                                    role="gridcell" tabindex="-1">
+                                                                    data-bui-ref="calendar-date"
+                                                                    data-date="2022-05-08" role="gridcell"
+                                                                    tabindex="-1">
                                                                     <span aria-label="8 May 2022" role="checkbox"
                                                                         aria-checked="false">
                                                                         <span>8</span>
@@ -804,8 +985,9 @@
 
                                                             <tr class="bui-calendar__row">
                                                                 <td class="bui-calendar__date"
-                                                                    data-bui-ref="calendar-date" data-date="2022-05-09"
-                                                                    role="gridcell" tabindex="-1">
+                                                                    data-bui-ref="calendar-date"
+                                                                    data-date="2022-05-09" role="gridcell"
+                                                                    tabindex="-1">
                                                                     <span aria-label="9 May 2022" role="checkbox"
                                                                         aria-checked="false">
                                                                         <span>9</span>
@@ -813,8 +995,9 @@
                                                                 </td>
 
                                                                 <td class="bui-calendar__date"
-                                                                    data-bui-ref="calendar-date" data-date="2022-05-10"
-                                                                    role="gridcell" tabindex="-1">
+                                                                    data-bui-ref="calendar-date"
+                                                                    data-date="2022-05-10" role="gridcell"
+                                                                    tabindex="-1">
                                                                     <span aria-label="10 May 2022" role="checkbox"
                                                                         aria-checked="false">
                                                                         <span>10</span>
@@ -822,8 +1005,9 @@
                                                                 </td>
 
                                                                 <td class="bui-calendar__date"
-                                                                    data-bui-ref="calendar-date" data-date="2022-05-11"
-                                                                    role="gridcell" tabindex="-1">
+                                                                    data-bui-ref="calendar-date"
+                                                                    data-date="2022-05-11" role="gridcell"
+                                                                    tabindex="-1">
                                                                     <span aria-label="11 May 2022" role="checkbox"
                                                                         aria-checked="false">
                                                                         <span>11</span>
@@ -831,8 +1015,9 @@
                                                                 </td>
 
                                                                 <td class="bui-calendar__date"
-                                                                    data-bui-ref="calendar-date" data-date="2022-05-12"
-                                                                    role="gridcell" tabindex="-1">
+                                                                    data-bui-ref="calendar-date"
+                                                                    data-date="2022-05-12" role="gridcell"
+                                                                    tabindex="-1">
                                                                     <span aria-label="12 May 2022" role="checkbox"
                                                                         aria-checked="false">
                                                                         <span>12</span>
@@ -840,8 +1025,9 @@
                                                                 </td>
 
                                                                 <td class="bui-calendar__date"
-                                                                    data-bui-ref="calendar-date" data-date="2022-05-13"
-                                                                    role="gridcell" tabindex="-1">
+                                                                    data-bui-ref="calendar-date"
+                                                                    data-date="2022-05-13" role="gridcell"
+                                                                    tabindex="-1">
                                                                     <span aria-label="13 May 2022" role="checkbox"
                                                                         aria-checked="false">
                                                                         <span>13</span>
@@ -849,8 +1035,9 @@
                                                                 </td>
 
                                                                 <td class="bui-calendar__date"
-                                                                    data-bui-ref="calendar-date" data-date="2022-05-14"
-                                                                    role="gridcell" tabindex="-1">
+                                                                    data-bui-ref="calendar-date"
+                                                                    data-date="2022-05-14" role="gridcell"
+                                                                    tabindex="-1">
                                                                     <span aria-label="14 May 2022" role="checkbox"
                                                                         aria-checked="false">
                                                                         <span>14</span>
@@ -858,8 +1045,9 @@
                                                                 </td>
 
                                                                 <td class="bui-calendar__date"
-                                                                    data-bui-ref="calendar-date" data-date="2022-05-15"
-                                                                    role="gridcell" tabindex="-1">
+                                                                    data-bui-ref="calendar-date"
+                                                                    data-date="2022-05-15" role="gridcell"
+                                                                    tabindex="-1">
                                                                     <span aria-label="15 May 2022" role="checkbox"
                                                                         aria-checked="false">
                                                                         <span>15</span>
@@ -869,8 +1057,9 @@
 
                                                             <tr class="bui-calendar__row">
                                                                 <td class="bui-calendar__date"
-                                                                    data-bui-ref="calendar-date" data-date="2022-05-16"
-                                                                    role="gridcell" tabindex="-1">
+                                                                    data-bui-ref="calendar-date"
+                                                                    data-date="2022-05-16" role="gridcell"
+                                                                    tabindex="-1">
                                                                     <span aria-label="16 May 2022" role="checkbox"
                                                                         aria-checked="false">
                                                                         <span>16</span>
@@ -878,8 +1067,9 @@
                                                                 </td>
 
                                                                 <td class="bui-calendar__date"
-                                                                    data-bui-ref="calendar-date" data-date="2022-05-17"
-                                                                    role="gridcell" tabindex="-1">
+                                                                    data-bui-ref="calendar-date"
+                                                                    data-date="2022-05-17" role="gridcell"
+                                                                    tabindex="-1">
                                                                     <span aria-label="17 May 2022" role="checkbox"
                                                                         aria-checked="false">
                                                                         <span>17</span>
@@ -887,8 +1077,9 @@
                                                                 </td>
 
                                                                 <td class="bui-calendar__date"
-                                                                    data-bui-ref="calendar-date" data-date="2022-05-18"
-                                                                    role="gridcell" tabindex="-1">
+                                                                    data-bui-ref="calendar-date"
+                                                                    data-date="2022-05-18" role="gridcell"
+                                                                    tabindex="-1">
                                                                     <span aria-label="18 May 2022" role="checkbox"
                                                                         aria-checked="false">
                                                                         <span>18</span>
@@ -896,8 +1087,9 @@
                                                                 </td>
 
                                                                 <td class="bui-calendar__date"
-                                                                    data-bui-ref="calendar-date" data-date="2022-05-19"
-                                                                    role="gridcell" tabindex="-1">
+                                                                    data-bui-ref="calendar-date"
+                                                                    data-date="2022-05-19" role="gridcell"
+                                                                    tabindex="-1">
                                                                     <span aria-label="19 May 2022" role="checkbox"
                                                                         aria-checked="false">
                                                                         <span>19</span>
@@ -905,8 +1097,9 @@
                                                                 </td>
 
                                                                 <td class="bui-calendar__date"
-                                                                    data-bui-ref="calendar-date" data-date="2022-05-20"
-                                                                    role="gridcell" tabindex="-1">
+                                                                    data-bui-ref="calendar-date"
+                                                                    data-date="2022-05-20" role="gridcell"
+                                                                    tabindex="-1">
                                                                     <span aria-label="20 May 2022" role="checkbox"
                                                                         aria-checked="false">
                                                                         <span>20</span>
@@ -914,8 +1107,9 @@
                                                                 </td>
 
                                                                 <td class="bui-calendar__date"
-                                                                    data-bui-ref="calendar-date" data-date="2022-05-21"
-                                                                    role="gridcell" tabindex="-1">
+                                                                    data-bui-ref="calendar-date"
+                                                                    data-date="2022-05-21" role="gridcell"
+                                                                    tabindex="-1">
                                                                     <span aria-label="21 May 2022" role="checkbox"
                                                                         aria-checked="false">
                                                                         <span>21</span>
@@ -923,8 +1117,9 @@
                                                                 </td>
 
                                                                 <td class="bui-calendar__date"
-                                                                    data-bui-ref="calendar-date" data-date="2022-05-22"
-                                                                    role="gridcell" tabindex="-1">
+                                                                    data-bui-ref="calendar-date"
+                                                                    data-date="2022-05-22" role="gridcell"
+                                                                    tabindex="-1">
                                                                     <span aria-label="22 May 2022" role="checkbox"
                                                                         aria-checked="false">
                                                                         <span>22</span>
@@ -934,8 +1129,9 @@
 
                                                             <tr class="bui-calendar__row">
                                                                 <td class="bui-calendar__date"
-                                                                    data-bui-ref="calendar-date" data-date="2022-05-23"
-                                                                    role="gridcell" tabindex="-1">
+                                                                    data-bui-ref="calendar-date"
+                                                                    data-date="2022-05-23" role="gridcell"
+                                                                    tabindex="-1">
                                                                     <span aria-label="23 May 2022" role="checkbox"
                                                                         aria-checked="false">
                                                                         <span>23</span>
@@ -943,8 +1139,9 @@
                                                                 </td>
 
                                                                 <td class="bui-calendar__date"
-                                                                    data-bui-ref="calendar-date" data-date="2022-05-24"
-                                                                    role="gridcell" tabindex="-1">
+                                                                    data-bui-ref="calendar-date"
+                                                                    data-date="2022-05-24" role="gridcell"
+                                                                    tabindex="-1">
                                                                     <span aria-label="24 May 2022" role="checkbox"
                                                                         aria-checked="false">
                                                                         <span>24</span>
@@ -952,8 +1149,9 @@
                                                                 </td>
 
                                                                 <td class="bui-calendar__date"
-                                                                    data-bui-ref="calendar-date" data-date="2022-05-25"
-                                                                    role="gridcell" tabindex="-1">
+                                                                    data-bui-ref="calendar-date"
+                                                                    data-date="2022-05-25" role="gridcell"
+                                                                    tabindex="-1">
                                                                     <span aria-label="25 May 2022" role="checkbox"
                                                                         aria-checked="false">
                                                                         <span>25</span>
@@ -961,8 +1159,9 @@
                                                                 </td>
 
                                                                 <td class="bui-calendar__date"
-                                                                    data-bui-ref="calendar-date" data-date="2022-05-26"
-                                                                    role="gridcell" tabindex="-1">
+                                                                    data-bui-ref="calendar-date"
+                                                                    data-date="2022-05-26" role="gridcell"
+                                                                    tabindex="-1">
                                                                     <span aria-label="26 May 2022" role="checkbox"
                                                                         aria-checked="false">
                                                                         <span>26</span>
@@ -970,8 +1169,9 @@
                                                                 </td>
 
                                                                 <td class="bui-calendar__date"
-                                                                    data-bui-ref="calendar-date" data-date="2022-05-27"
-                                                                    role="gridcell" tabindex="-1">
+                                                                    data-bui-ref="calendar-date"
+                                                                    data-date="2022-05-27" role="gridcell"
+                                                                    tabindex="-1">
                                                                     <span aria-label="27 May 2022" role="checkbox"
                                                                         aria-checked="false">
                                                                         <span>27</span>
@@ -979,8 +1179,9 @@
                                                                 </td>
 
                                                                 <td class="bui-calendar__date"
-                                                                    data-bui-ref="calendar-date" data-date="2022-05-28"
-                                                                    role="gridcell" tabindex="-1">
+                                                                    data-bui-ref="calendar-date"
+                                                                    data-date="2022-05-28" role="gridcell"
+                                                                    tabindex="-1">
                                                                     <span aria-label="28 May 2022" role="checkbox"
                                                                         aria-checked="false">
                                                                         <span>28</span>
@@ -988,8 +1189,9 @@
                                                                 </td>
 
                                                                 <td class="bui-calendar__date"
-                                                                    data-bui-ref="calendar-date" data-date="2022-05-29"
-                                                                    role="gridcell" tabindex="-1">
+                                                                    data-bui-ref="calendar-date"
+                                                                    data-date="2022-05-29" role="gridcell"
+                                                                    tabindex="-1">
                                                                     <span aria-label="29 May 2022" role="checkbox"
                                                                         aria-checked="false">
                                                                         <span>29</span>
@@ -999,8 +1201,9 @@
 
                                                             <tr class="bui-calendar__row">
                                                                 <td class="bui-calendar__date"
-                                                                    data-bui-ref="calendar-date" data-date="2022-05-30"
-                                                                    role="gridcell" tabindex="-1">
+                                                                    data-bui-ref="calendar-date"
+                                                                    data-date="2022-05-30" role="gridcell"
+                                                                    tabindex="-1">
                                                                     <span aria-label="30 May 2022" role="checkbox"
                                                                         aria-checked="false">
                                                                         <span>30</span>
@@ -1008,22 +1211,28 @@
                                                                 </td>
 
                                                                 <td class="bui-calendar__date"
-                                                                    data-bui-ref="calendar-date" data-date="2022-05-31"
-                                                                    role="gridcell" tabindex="-1">
+                                                                    data-bui-ref="calendar-date"
+                                                                    data-date="2022-05-31" role="gridcell"
+                                                                    tabindex="-1">
                                                                     <span aria-label="31 May 2022" role="checkbox"
                                                                         aria-checked="false">
                                                                         <span>31</span>
                                                                     </span>
                                                                 </td>
-                                                                <td class="bui-calendar__date bui-calendar__date--empty">
+                                                                <td
+                                                                    class="bui-calendar__date bui-calendar__date--empty">
                                                                 </td>
-                                                                <td class="bui-calendar__date bui-calendar__date--empty">
+                                                                <td
+                                                                    class="bui-calendar__date bui-calendar__date--empty">
                                                                 </td>
-                                                                <td class="bui-calendar__date bui-calendar__date--empty">
+                                                                <td
+                                                                    class="bui-calendar__date bui-calendar__date--empty">
                                                                 </td>
-                                                                <td class="bui-calendar__date bui-calendar__date--empty">
+                                                                <td
+                                                                    class="bui-calendar__date bui-calendar__date--empty">
                                                                 </td>
-                                                                <td class="bui-calendar__date bui-calendar__date--empty">
+                                                                <td
+                                                                    class="bui-calendar__date bui-calendar__date--empty">
                                                                 </td>
                                                             </tr>
 
@@ -1035,7 +1244,8 @@
 
                                             </div>
 
-                                            <div class="bui-calendar__display" data-bui-ref="calendar-selected-display">
+                                            <div class="bui-calendar__display"
+                                                data-bui-ref="calendar-selected-display">
                                                 Tuesday, April 5, 2022 - Wednesday, April 6, 2022 (1-night
                                                 stay)
                                             </div>
@@ -1056,11 +1266,12 @@
                         <!-- Papole Select -->
                         <div class="sb-searchbox__row u-clearfix">
                             <div class="xp__fieldset js--sb-fieldset accommodation sb--guests__toggle_container">
-                                <div class="xp__input-group xp__guests" data-component="search/group/group-with-modal"
-                                    data-sb-id="main" tabindex="0" data-sb-group-show-close-button="1">
-                                    <label id="xp__guests__toggle" for="xp__guests__input" class="xp__guests__toggle"
-                                        data-group-toggle="" role="button" aria-expanded="true"
-                                        aria-controls="xp__guests__inputs-container"
+                                <div class="xp__input-group xp__guests"
+                                    data-component="search/group/group-with-modal" data-sb-id="main"
+                                    tabindex="0" data-sb-group-show-close-button="1">
+                                    <label id="xp__guests__toggle" for="xp__guests__input"
+                                        class="xp__guests__toggle" data-group-toggle="" role="button"
+                                        aria-expanded="true" aria-controls="xp__guests__inputs-container"
                                         data-et-click="INLGHUDSJNQQdKBUPfECIAEcOHT:3 INLGHUDSJNQQdKBUPfECIAEcOHT:4 "
                                         data-group-toggle-shown="1">
                                         <span class="xp__guests__count">
@@ -1086,7 +1297,8 @@
 
                                     <div class="xp__guests__modal_container focussable " data-group-modal=""
                                         style="display: none;" role="region" aria-label="Rooms and occupancy">
-                                        <div id="xp__guests__inputs-container" class="xp__guests__inputs focussable">
+                                        <div id="xp__guests__inputs-container"
+                                            class="xp__guests__inputs focussable">
                                             <div data-component="search/group/group" data-sb-id="main"
                                                 data-sb-width="small" data-sb-bbtool-searchbox="0"
                                                 data-sb-group-children-hide="0" data-sb-group-children-ages-hide="0"
@@ -1095,10 +1307,11 @@
                                                 data-sb-group-use_adults_label="0" data-sb-group-always-expanded="0"
                                                 data-sb-group-use-bui-stepper="1"
                                                 data-sb-group-bui-steppers-accessible="1"
-                                                data-fe_sb_group_descriptive_dropdowns="1" data-fe_sb_universal_design="0"
-                                                data-fe_sb_xpi="1" data-fe_remove_duplicate_ids="0"
-                                                data-fe_sb_unique_id="" data-sb_reorder_rooms_block="1"
-                                                data-sb-facelift="0" data-fe_sb_show_children_age_bracket="0"
+                                                data-fe_sb_group_descriptive_dropdowns="1"
+                                                data-fe_sb_universal_design="0" data-fe_sb_xpi="1"
+                                                data-fe_remove_duplicate_ids="0" data-fe_sb_unique_id=""
+                                                data-sb_reorder_rooms_block="1" data-sb-facelift="0"
+                                                data-fe_sb_show_children_age_bracket="0"
                                                 data-fe_sb_mandatory_child_ages="1"
                                                 data-fe_fam_d_index_mandatory_ages_new_copy="0"
                                                 data-fe_sb_dont_use_default_child_age="1">
@@ -1117,13 +1330,15 @@
                                                             <div class="bui-stepper__wrapper sb-group__stepper-a11y">
                                                                 <input style="display: none" type="number"
                                                                     class="bui-stepper__input"
-                                                                    data-bui-ref="input-stepper-field" id="group_adults"
-                                                                    name="group_adults" min="1" max="30"
-                                                                    value="1" data-group-adults-count="">
+                                                                    data-bui-ref="input-stepper-field"
+                                                                    id="group_adults" name="group_adults"
+                                                                    min="1" max="30" value="1"
+                                                                    data-group-adults-count="">
                                                                 <button
                                                                     class="bui-button bui-button--secondary bui-stepper__subtract-button sb-group__stepper-button-disabled"
                                                                     data-bui-ref="input-stepper-subtract-button"
-                                                                    type="button" aria-label="Decrease number of Adults"
+                                                                    type="button"
+                                                                    aria-label="Decrease number of Adults"
                                                                     aria-describedby="group_adults_desc">
                                                                     <span class="bui-button__text">−</span>
                                                                 </button>
@@ -1131,7 +1346,8 @@
                                                                     data-bui-ref="input-stepper-value">1</span>
                                                                 <button
                                                                     class="bui-button bui-button--secondary bui-stepper__add-button "
-                                                                    data-bui-ref="input-stepper-add-button" type="button"
+                                                                    data-bui-ref="input-stepper-add-button"
+                                                                    type="button"
                                                                     aria-label="Increase number of Adults"
                                                                     aria-describedby="group_adults_desc">
                                                                     <span class="bui-button__text">+</span>
@@ -1156,9 +1372,10 @@
                                                             <div class="bui-stepper__wrapper sb-group__stepper-a11y">
                                                                 <input style="display: none" type="number"
                                                                     class="bui-stepper__input"
-                                                                    data-bui-ref="input-stepper-field" id="group_children"
-                                                                    name="group_children" min="0" max="10"
-                                                                    value="0" data-group-children-count="">
+                                                                    data-bui-ref="input-stepper-field"
+                                                                    id="group_children" name="group_children"
+                                                                    min="0" max="10" value="0"
+                                                                    data-group-children-count="">
                                                                 <button
                                                                     class="bui-button bui-button--secondary bui-stepper__subtract-button sb-group__stepper-button-disabled"
                                                                     data-bui-ref="input-stepper-subtract-button"
@@ -1171,7 +1388,8 @@
                                                                     data-bui-ref="input-stepper-value">0</span>
                                                                 <button
                                                                     class="bui-button bui-button--secondary bui-stepper__add-button "
-                                                                    data-bui-ref="input-stepper-add-button" type="button"
+                                                                    data-bui-ref="input-stepper-add-button"
+                                                                    type="button"
                                                                     aria-label="Increase number of Children"
                                                                     aria-describedby="group_children_desc">
                                                                     <span class="bui-button__text">+</span>
@@ -1195,13 +1413,15 @@
                                                             <div class="bui-stepper__wrapper sb-group__stepper-a11y">
                                                                 <input style="display: none" type="number"
                                                                     class="bui-stepper__input"
-                                                                    data-bui-ref="input-stepper-field" id="no_rooms"
-                                                                    name="no_rooms" min="1" max="30"
-                                                                    value="1" data-group-rooms-count="">
+                                                                    data-bui-ref="input-stepper-field"
+                                                                    id="no_rooms" name="no_rooms" min="1"
+                                                                    max="30" value="1"
+                                                                    data-group-rooms-count="">
                                                                 <button
                                                                     class="bui-button bui-button--secondary bui-stepper__subtract-button sb-group__stepper-button-disabled"
                                                                     data-bui-ref="input-stepper-subtract-button"
-                                                                    type="button" aria-label="Decrease number of Rooms"
+                                                                    type="button"
+                                                                    aria-label="Decrease number of Rooms"
                                                                     aria-describedby="no_rooms_desc">
                                                                     <span class="bui-button__text">−</span>
                                                                 </button>
@@ -1210,7 +1430,8 @@
                                                                 <button
                                                                     class="bui-button bui-button--secondary bui-stepper__add-button "
                                                                     data-bui-ref="input-stepper-add-button"
-                                                                    type="button" aria-label="Increase number of Rooms"
+                                                                    type="button"
+                                                                    aria-label="Increase number of Rooms"
                                                                     aria-describedby="no_rooms_desc">
                                                                     <span class="bui-button__text">+</span>
                                                                 </button>
@@ -1252,7 +1473,8 @@
                                     <span class="sb-bui-checkbox__icon">
                                         <span class="bui-button__text">
                                             <svg class="bk-icon -streamline-question_mark_circle" fill="#333333"
-                                                focusable="false" height="14" width="14" viewBox="0 0 24 24">
+                                                focusable="false" height="14" width="14"
+                                                viewBox="0 0 24 24">
                                                 <path
                                                     d="M9.75 9a2.25 2.25 0 1 1 3 2.122 2.25 2.25 0 0 0-1.5 2.122v1.006a.75.75 0 0 0 1.5 0v-1.006c0-.318.2-.602.5-.708A3.75 3.75 0 1 0 8.25 9a.75.75 0 1 0 1.5 0zM12 16.5a1.125 1.125 0 1 0 0 2.25 1.125 1.125 0 0 0 0-2.25.75.75 0 0 0 0 1.5.375.375 0 1 1 0-.75.375.375 0 0 1 0 .75.75.75 0 0 0 0-1.5zM22.5 12c0 5.799-4.701 10.5-10.5 10.5S1.5 17.799 1.5 12 6.201 1.5 12 1.5 22.5 6.201 22.5 12zm1.5 0c0-6.627-5.373-12-12-12S0 5.373 0 12s5.373 12 12 12 12-5.373 12-12z">
                                                 </path>
@@ -1263,8 +1485,8 @@
 
                                 <div class="bui-form__group sb-bui-checkbox">
                                     <label class="bui-checkbox">
-                                        <input name="sb_travel_purpose" class="bui-checkbox__input" type="checkbox"
-                                            value="business" checked="checked">
+                                        <input name="sb_travel_purpose" class="bui-checkbox__input"
+                                            type="checkbox" value="business" checked="checked">
                                         <span class="bui-checkbox__label">
                                             I'm traveling for work
                                         </span>
@@ -1272,7 +1494,8 @@
                                     <span class="sb-bui-checkbox__icon">
                                         <span class="bui-button__text">
                                             <svg class="bk-icon -streamline-question_mark_circle" fill="#333333"
-                                                focusable="false" height="14" width="14" viewBox="0 0 24 24">
+                                                focusable="false" height="14" width="14"
+                                                viewBox="0 0 24 24">
                                                 <path
                                                     d="M9.75 9a2.25 2.25 0 1 1 3 2.122 2.25 2.25 0 0 0-1.5 2.122v1.006a.75.75 0 0 0 1.5 0v-1.006c0-.318.2-.602.5-.708A3.75 3.75 0 1 0 8.25 9a.75.75 0 1 0 1.5 0zM12 16.5a1.125 1.125 0 1 0 0 2.25 1.125 1.125 0 0 0 0-2.25.75.75 0 0 0 0 1.5.375.375 0 1 1 0-.75.375.375 0 0 1 0 .75.75.75 0 0 0 0-1.5zM22.5 12c0 5.799-4.701 10.5-10.5 10.5S1.5 17.799 1.5 12 6.201 1.5 12 1.5 22.5 6.201 22.5 12zm1.5 0c0-6.627-5.373-12-12-12S0 5.373 0 12s5.373 12 12 12 12-5.373 12-12z">
                                                 </path>
@@ -1303,7 +1526,7 @@
                 <div class="sb-searchbox__spacing"></div>
 
                 <!-- Map -->
-                {{-- <div class="map">
+                <div class="map">
                     <a id="googleMap" class="loc_block_link_underline_fix map_static_zoom show_map map_static_hover"
                         href="#" style=" height:110px;">
                         <div class="txp-map-cta-wrap">
@@ -1324,7 +1547,7 @@
                             </svg>
                         </span>
                     </a>
-                </div> --}}
+                </div>
                 <!-- /Map -->
             </div>
             <!-- Left Side -->
@@ -1398,7 +1621,8 @@
                                     </button>
                                     <div class="bui-dropdown__content" data-bui-ref="dropdown-slot"
                                         id="dropdown_share_center">
-                                        <div class="bui-dropdown-menu" id="dropdown_secondary_menu" role="menu">
+                                        <div class="bui-dropdown-menu" id="dropdown_secondary_menu"
+                                            role="menu">
                                             <ul class="bui-dropdown-menu__items">
                                                 <li class="bui-dropdown-menu__item">
                                                     <a href="http://www.facebook.com/share.php?u=DATA"
@@ -1450,7 +1674,8 @@
                                 </div>
                                 <!-- Shear -->
                                 <div class="topbook_pricematch">
-                                    <div id="rate_guarantee" class="bpg_hp_no_availability hp-availability-block-usp">
+                                    <div id="rate_guarantee"
+                                        class="bpg_hp_no_availability hp-availability-block-usp">
                                         <a href="#" class="open-bpg-in-overlay-insteadpp_bpg_tooltip_holder">
                                             We Price Match
                                         </a>
@@ -1531,8 +1756,8 @@
                                     <a href="#" class="bh-photo-grid-item bh-photo-grid-photo1 active-image "
                                         style="background-image: url('{{ asset('/storage') }}/{{ explode(';', $property->property_images)[0] }}');"
                                         title="">
-                                        <img src="{{ asset('frontend/assets/images/galllery-1.jpg') }}" class="hide"
-                                            alt="">
+                                        <img src="{{ asset('frontend/assets/images/galllery-1.jpg') }}"
+                                            class="hide" alt="">
                                     </a>
                                 </div>
                             </div>
@@ -1639,12 +1864,13 @@
         </div>
 
     </div>
+
     <div class="container">
         <div class="row mt-4">
             <div class="col-12">
 
                 <!-- Cheapest option at this property -->
-                {{-- <div class="row" id="Reserve">
+                <div class="row" id="Reserve">
                     <div class="col-12">
                         <div class="b-group-rec-block bui-f-depth-1">
                             <h3 class="bui-container bui-text bui-text--variant-headline_3 ">
@@ -1790,17 +2016,17 @@
                                             </li>
                                             <li class="cheapest-info-item">
                                                 <div class="bui-f-font-caption bui-f-color-grayscale-darker ">
-                                                    You'll earn <b class="bui-f-color-constructive">BDT&nbsp;22,366</b>
+                                                    You'll earn <b
+                                                        class="bui-f-color-constructive">BDT&nbsp;22,366</b>
                                                     credit on this booking.
                                                 </div>
                                             </li>
                                             <li class="cheapest-info-item">
                                                 <div>
                                                     <a class="txp-group-cta bui-button bui-button--primary bui-button--large bui-button--wide s-grup-rcommendation-reserve-btn"
-                                                        href="/booking2?property_id={{$property->id}}&adults={{request('group_adults',0)}}&childs={{request('group_children',0)}}">
+                                                        href="/booking2">
                                                         <span class="bui-button__text">
                                                             Reserve
-                                                            //bm1
                                                         </span>
                                                     </a>
 
@@ -1818,7 +2044,7 @@
                             </div>
                         </div>
                     </div>
-                </div> --}}
+                </div>
                 <!-- /Cheapest option at this property -->
 
                 <!-- Most popular facilities & Others -->
@@ -1828,7 +2054,7 @@
                             <div class="hp_desc_main_content">
                                 <div id="summary" class="">
                                     <div id="property_description_content">
-                                        {{-- <p>Located just 3.1 mi from the Hazrat Shahjalal
+                                        <p>Located just 3.1 mi from the Hazrat Shahjalal
                                             International Airport, Nascent Gardenia Baridhara
                                             operates a 24-hour front desk to assist guests at all
                                             hours and a fitness center. Free WiFi is available in
@@ -1843,7 +2069,7 @@
                                         <p>Dining options include Curry &amp; Leaf, an in-house
                                             multi-cuisine restaurant, and a NOVO Signature
                                             Restaurant that serves Japanese delights. Room service
-                                            can be requested for in-room dining comforts. </p> --}}
+                                            can be requested for in-room dining comforts. </p>
                                     </div>
                                 </div>
                                 <p class="summary  hotel_meta_style">
@@ -1874,8 +2100,8 @@
                                         Most popular facilities
                                     </h3>
                                     <div class="important_facility">
-                                        <svg class="bk-icon -iconset-shuttle hp__important_facility_icon" height="20"
-                                            width="20" viewBox="0 0 128 128">
+                                        <svg class="bk-icon -iconset-shuttle hp__important_facility_icon"
+                                            height="20" width="20" viewBox="0 0 128 128">
                                             <path
                                                 d="M92 100a10 10 0 1 1-10 10 10 10 0 0 1 10-10zm-66 10a10 10 0 1 0 10-10 10 10 0 0 0-10 10zM16 56h88.2a8 8 0 0 1 7.6 5.5l7.8 26.3a8 8 0 0 1 .4 2.5V106a6 6 0 0 1-6 6h-6.1a16 16 0 1 0-31.8 0H52a16 16 0 1 0-31.8 0H16a8 8 0 0 1-8-8V64a8 8 0 0 1 8-8zm72 24l25 8-7-24H88zm-24 0h16V64H64zm-24 0h16V64H40zm-24 0h16V64H16zm28.2-44.6l8 4.5 4.4 8a.4.4 0 0 0 .6 0l1-1a.4.4 0 0 0 0-.3V37l6.5-5.9L76.1 46a1.4 1.4 0 0 0 2 .4l1-.5a1.4 1.4 0 0 0 .5-1.8L72 24.2l9-8.4a10.2 10.2 0 0 0 3-6.4A1.4 1.4 0 0 0 82.6 8a10.2 10.2 0 0 0-6.5 2.9L67.6 20l-19.8-7.5a1.4 1.4 0 0 0-1.8.6l-.5 1A1.4 1.4 0 0 0 46 16l15 11.5-5.8 6.2h-9.7a.4.4 0 0 0-.3.1l-1 1a.4.4 0 0 0 0 .6z">
                                             </path>
@@ -1898,8 +2124,8 @@
                                         </div>
                                     @endif
                                     <div class="important_facility">
-                                        <svg class="bk-icon -iconset-fitness hp__important_facility_icon" height="20"
-                                            width="20" viewBox="0 0 128 128">
+                                        <svg class="bk-icon -iconset-fitness hp__important_facility_icon"
+                                            height="20" width="20" viewBox="0 0 128 128">
                                             <path
                                                 d="M80 85.6L42.4 48l5.6-5.6L85.6 80zM13.2 19a4 4 0 1 0 5.7-5.7l-4-4A4 4 0 0 0 9.2 15zM56 8l-8 8-8-8L8 40l8 8-8 8 8.1 8.1 48-48zm58.9 101.1a4 4 0 1 0-5.7 5.7l4 4a4 4 0 1 0 5.7-5.7zm5.2-37l-8.1-8.2-48 48 8.2 8.1 8-8 8 8 32-32-8-8z">
                                             </path>
@@ -1949,8 +2175,8 @@
                                         Tea/Coffee Maker in All Rooms
                                     </div>
                                     <div class="important_facility">
-                                        <svg class="bk-icon -iconset-coffee hp__important_facility_icon" height="20"
-                                            width="20" viewBox="0 0 128 128">
+                                        <svg class="bk-icon -iconset-coffee hp__important_facility_icon"
+                                            height="20" width="20" viewBox="0 0 128 128">
                                             <path
                                                 d="M104 116a4 4 0 0 1-4 4H28a4 4 0 0 1 0-8h72a4 4 0 0 1 4 4zM40 96V50a2 2 0 0 1 2-2h44a2 2 0 0 1 2 2v6.4a20 20 0 0 1 0 39.2v.4a8 8 0 0 1-8 8H48a8 8 0 0 1-8-8zm48-31.3v22.6a12 12 0 0 0 0-22.6zM49 88a4 4 0 0 0 8 0V64a4 4 0 0 0-8 0zm-1-52a4 4 0 0 0 4-4V16a4 4 0 0 0-8 0v16a4 4 0 0 0 4 4zm16 4a4 4 0 0 0 4-4V12a4 4 0 0 0-8 0v24a4 4 0 0 0 4 4zm16-4a4 4 0 0 0 4-4V16a4 4 0 0 0-8 0v16a4 4 0 0 0 4 4z">
                                             </path>
@@ -2025,28 +2251,24 @@
                             <div class="ph-footer">
 
                                 <button
-                                id="reserveButton"
-                                    @disabled(!isset($numOfPersons))
                                     class=" txp-sidebar-cta bui-button bui-button--primary call_to_action--wide js-ph__ctapx--fw-cta"
                                     type="button">
                                     <span class="bui-button__text">
-                                        @if(isset($numOfPersons))
-                                        Reserve for {{$numOfPersons}} persons for {{$numOfDays}} days
+                                        Reserve for 2 adults,
+                                        1 child
                                         <span class="b-button__from-text">
-                                            (for BDT&nbsp;{{$amount}})
+                                            (for BDT&nbsp;252,582)
                                         </span>
-                                        @else
-                                            Please select dates to reserve
-                                        @endif
                                     </span>
                                 </button>
 
-                                {{-- <div class="hp-lists-ph">
+                                <div class="hp-lists-ph">
                                     <div class="txp-sidebar-block hp-lists hp-lists--save-wl-below-ph hide">
                                         <button type="button"
                                             class="wl-entrypoint bui-button bui-button--secondary bui-button--wide small">
-                                            <svg class="bk-icon -iconset-heart_outline" fill="#0071C2" height="16"
-                                                width="16" viewBox="0 0 128 128" size="medium">
+                                            <svg class="bk-icon -iconset-heart_outline" fill="#0071C2"
+                                                height="16" width="16" viewBox="0 0 128 128"
+                                                size="medium">
                                                 <path
                                                     d="M119.5 40.3a29 29 0 0 0-22.8-23.7 33.8 33.8 0 0 0-32.7 13 33.7 33.7 0 0 0-32.7-13A29 29 0 0 0 8.5 40.3c-1.3 7.2-.6 18.8 9.4 33.3A140 140 0 0 0 62 111.5a3.7 3.7 0 0 0 4 0c20.2-12 35-24.8 44.1-38 10-14.4 10.7-26 9.5-33.2zm-55.5 63c-33-20.1-50.8-43-47.7-61.6A20.7 20.7 0 0 1 33 24.3a22.3 22.3 0 0 1 4.5-.4c8.8 0 17.3 5.2 23.2 14.6a4 4 0 0 0 3.4 1.8 4 4 0 0 0 3.4-1.8c6-9.4 14.4-14.6 23.2-14.6a22.3 22.3 0 0 1 4.5.5 20.7 20.7 0 0 1 16.6 17.2c3 18.6-14.8 41.6-47.8 61.7z">
                                                 </path>
@@ -2060,7 +2282,7 @@
                                             Saved to 96 lists
                                         </p>
                                     </div>
-                                </div> --}}
+                                </div>
                             </div>
                         </div>
 
@@ -2078,27 +2300,464 @@
                             <h2 class="hp-dates-summary__header" id="availability" name="">
                                 Availability
                             </h2>
-                            <form action="" method="GET" class="my-3">
-                                <label for="">Select dates</label>
-                                <div class="form-group">
-                                    <input type="text" name="dates" class="form-control">
+                            <div id="rate_guarantee" class="bpg_hp_no_availability hp-availability-block-usp">
+                                <a href="#" class="open-bpg-in-overlay-instead pp_bpg_tooltip_holder">We Price
+                                    Match
+                                </a>
+                            </div>
+                        </div>
+                        <!-- RE-Search Form -->
+                        <div class="sb-searchbox__outer" data-sb-outer="">
+                            <form method="" action="#" role="search"
+                                class=" sb-searchbox sb-searchbox--painted sb-searchbox--xp -minified js-sb-frm-hp js--sb-searchbox"
+                                data-component="search/searchbox/searchbox-xp" data-sb-id="main"
+                                data-sb-flags=" AEJPAcBacPONDcFGHT:0 show_overlay_on_submit:1 icon_revamp:1 region_second_line:1"
+                                data-is-first-visible="1" data-skip-hp-refresh="1" data-show-overlay-on-submit="1"
+                                data-sb-action-for-group="/hotel/bd/nascent-gardenia-baridhara.html#group_recommendation">
+
+
+                                <div class="xp__fieldset js--sb-fieldset accommodation -no-destination"
+                                    data-view="accommodation">
+                                    <div data-visible="accommodation,flights,rentalcars"
+                                        class="xp__dates xp__group">
+                                        <div class="xp__dates-inner">
+                                            <div data-component="search/dates/dates-errors"
+                                                data-view-id="accommodation" data-sb-id="main" role="alert"
+                                                data-dates-errors=""></div>
+                                            <div data-visible="accommodation,flights,rentalcars"
+                                                class="xp__input-group xp__date-time">
+                                                <div class="xp__dates-inner xp__dates__checkin">
+                                                    <div data-visible="accommodation,flights,rentalcars"
+                                                        class="xp__group xp__date c2-wrapper-s-hidden">
+                                                        <div class="sb-date-field b-datepicker"
+                                                            data-component="search/dates/date-field-select"
+                                                            data-sb-id="main" data-mode="checkin"
+                                                            data-calendar2-type="checkin"
+                                                            data-calendar2-title="Check-in">
+                                                            <div class="sb-searchbox__input sb-date-field__field sb-date__field-svg_icon"
+                                                                data-field="">
+                                                                <span
+                                                                    class="sb-date-field__icon sb-date-field__icon-btn bk-svg-wrapper calendar-restructure-sb">
+                                                                    <svg class="bk-icon -streamline-calendar sb-date-picker_icon-svg"
+                                                                        fill="#BDBDBD" height="20"
+                                                                        width="20" viewBox="0 0 24 24">
+                                                                        <path
+                                                                            d="M22.502 13.5v8.25a.75.75 0 0 1-.75.75h-19.5a.75.75 0 0 1-.75-.75V5.25a.75.75 0 0 1 .75-.75h19.5a.75.75 0 0 1 .75.75v8.25zm1.5 0V5.25A2.25 2.25 0 0 0 21.752 3h-19.5a2.25 2.25 0 0 0-2.25 2.25v16.5A2.25 2.25 0 0 0 2.252 24h19.5a2.25 2.25 0 0 0 2.25-2.25V13.5zm-23.25-3h22.5a.75.75 0 0 0 0-1.5H.752a.75.75 0 0 0 0 1.5zM7.502 6V.75a.75.75 0 0 0-1.5 0V6a.75.75 0 0 0 1.5 0zm10.5 0V.75a.75.75 0 0 0-1.5 0V6a.75.75 0 0 0 1.5 0z">
+                                                                        </path>
+                                                                    </svg>
+                                                                    <i class="sb-date-field__icon-text sb-date-field__icon-text-wide"
+                                                                        data-icon-day="" data-placeholder="+">20</i>
+                                                                </span>
+                                                                <div class="sb-date-field__controls sb-date-field__controls__ie-fix"
+                                                                    data-controls="">
+                                                                    <div class="sb-date-field__select -month-year js-date-field__part"
+                                                                        data-type="month-year">
+                                                                        <div class="sb-date-field__select-value">
+                                                                            <span class="js-date-field__value"
+                                                                                data-placeholder="Check-in month ">March
+                                                                                2022</span>
+                                                                            <i
+                                                                                class="sb-date-field__select-icon bicon-downchevron"></i>
+                                                                        </div>
+                                                                        <select
+                                                                            class="sb-date-field__select-field js-date-field__select"
+                                                                            aria-label="Check-in month"
+                                                                            data-no-old-calendar="1">
+                                                                            <option value="" disabled="">
+                                                                            </option>
+
+                                                                        </select>
+
+                                                                    </div>
+                                                                    <div class="sb-date-field__select -day js-date-field__part"
+                                                                        data-type="date">
+                                                                        <div class="sb-date-field__select-value">
+                                                                            <span class="js-date-field__value"
+                                                                                data-placeholder="Check-in day">20,
+                                                                                Sunday</span>
+                                                                            <i
+                                                                                class="sb-date-field__select-icon bicon-downchevron"></i>
+                                                                        </div>
+                                                                        <select
+                                                                            class="sb-date-field__select-field js-date-field__select"
+                                                                            name="checkin_monthday"
+                                                                            data-selected="19"
+                                                                            aria-label="Check-in day"
+                                                                            data-no-old-calendar="1">
+                                                                            <option value="" disabled="">
+                                                                            </option>
+
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="sb-date-field__display"
+                                                                    data-placeholder="Check-in"
+                                                                    data-date-format="short_date_with_weekday_without_year"
+                                                                    data-display="">Sun,
+                                                                    Mar 20</div>
+                                                                <i
+                                                                    class="sb-date-field__chevron bicon-downchevron"></i>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div data-visible="accommodation,flights,rentalcars"
+                                                class="xp__input-group xp__date-time">
+                                                <div class="xp__dates-inner xp__dates__checkout">
+                                                    <div data-visible="accommodation,flights,rentalcars"
+                                                        class="xp__group xp__date c2-wrapper-s-hidden">
+                                                        <div class="sb-date-field b-datepicker"
+                                                            data-component="search/dates/date-field-select"
+                                                            data-sb-id="main" data-mode="checkout"
+                                                            data-calendar2-type="checkout"
+                                                            data-calendar2-title="Check-out">
+                                                            <div class="sb-searchbox__input sb-date-field__field sb-date__field-svg_icon"
+                                                                data-field="">
+                                                                <span
+                                                                    class="sb-date-field__icon sb-date-field__icon-btn bk-svg-wrapper calendar-restructure-sb">
+                                                                    <svg class="bk-icon -streamline-calendar sb-date-picker_icon-svg"
+                                                                        fill="#BDBDBD" height="20"
+                                                                        width="20" viewBox="0 0 24 24">
+                                                                        <path
+                                                                            d="M22.502 13.5v8.25a.75.75 0 0 1-.75.75h-19.5a.75.75 0 0 1-.75-.75V5.25a.75.75 0 0 1 .75-.75h19.5a.75.75 0 0 1 .75.75v8.25zm1.5 0V5.25A2.25 2.25 0 0 0 21.752 3h-19.5a2.25 2.25 0 0 0-2.25 2.25v16.5A2.25 2.25 0 0 0 2.252 24h19.5a2.25 2.25 0 0 0 2.25-2.25V13.5zm-23.25-3h22.5a.75.75 0 0 0 0-1.5H.752a.75.75 0 0 0 0 1.5zM7.502 6V.75a.75.75 0 0 0-1.5 0V6a.75.75 0 0 0 1.5 0zm10.5 0V.75a.75.75 0 0 0-1.5 0V6a.75.75 0 0 0 1.5 0z">
+                                                                        </path>
+                                                                    </svg>
+                                                                    <i class="sb-date-field__icon-text sb-date-field__icon-text-wide"
+                                                                        data-icon-day="" data-placeholder="+">21</i>
+                                                                </span>
+                                                                <div class="sb-date-field__controls sb-date-field__controls__ie-fix"
+                                                                    data-controls="">
+                                                                    <div class="sb-date-field__select -month-year js-date-field__part"
+                                                                        data-type="month-year">
+                                                                        <div class="sb-date-field__select-value">
+                                                                            <span class="js-date-field__value"
+                                                                                data-placeholder="Check-out month">April
+                                                                                2022</span>
+                                                                            <i
+                                                                                class="sb-date-field__select-icon bicon-downchevron"></i>
+                                                                        </div>
+                                                                        <select
+                                                                            class="sb-date-field__select-field js-date-field__select"
+                                                                            aria-label="Check-out month"
+                                                                            data-no-old-calendar="1">
+                                                                            <option value="" disabled="">
+                                                                            </option>
+
+                                                                        </select>
+                                                                        <input type="hidden"
+                                                                            class="js-date-field__year"
+                                                                            name="checkout_year" value="2022">
+                                                                        <input type="hidden"
+                                                                            class="js-date-field__month"
+                                                                            name="checkout_month" value="4">
+                                                                    </div>
+                                                                    <div class="sb-date-field__select -day js-date-field__part"
+                                                                        data-type="date">
+                                                                        <div class="sb-date-field__select-value">
+                                                                            <span class="js-date-field__value"
+                                                                                data-placeholder="Check-out day">21,
+                                                                                Thursday</span>
+                                                                            <i
+                                                                                class="sb-date-field__select-icon bicon-downchevron"></i>
+                                                                        </div>
+                                                                        <select
+                                                                            class="sb-date-field__select-field js-date-field__select"
+                                                                            name="checkout_monthday"
+                                                                            data-selected="21"
+                                                                            aria-label="Check-out day"
+                                                                            data-no-old-calendar="1">
+                                                                            <option value="" disabled="">
+                                                                            </option>
+
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="sb-date-field__display"
+                                                                    data-placeholder="Check-out"
+                                                                    data-date-format="short_date_with_weekday_without_year"
+                                                                    data-display="">Thu,
+                                                                    Apr 21</div>
+                                                                <i
+                                                                    class="sb-date-field__chevron bicon-downchevron"></i>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="xp-calendar searchbox-calendar--with-prices"
+                                            data-component="search/dates/single-calendar-with-prices"
+                                            data-sb-id="main" data-render-los="1">
+                                            <div class="bui-calendar" style="display: none;">
+                                                <div class="bui-calendar__main b-a11y-calendar-contrasts">
+                                                    <div class="bui-calendar__control bui-calendar__control--prev bui-calendar__control--hidden"
+                                                        data-bui-ref="calendar-prev">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                                            height="24" viewBox="0 0 24 24">
+                                                            <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z">
+                                                            </path>
+                                                        </svg>
+                                                    </div>
+                                                    <div class="bui-calendar__control bui-calendar__control--next"
+                                                        data-bui-ref="calendar-next">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                                            height="24" viewBox="0 0 24 24">
+                                                            <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z">
+                                                            </path>
+                                                        </svg>
+                                                    </div>
+                                                    <div class="bui-calendar__content"
+                                                        data-bui-ref="calendar-content">
+                                                        <div class="bui-calendar__wrapper"
+                                                            data-bui-ref="calendar-month">
+                                                            <div class="bui-calendar__month"
+                                                                id="bui-calendar-1647383489644vujhb"
+                                                                aria-live="polite">
+                                                                March 2022</div>
+                                                            <table class="bui-calendar__dates"
+                                                                aria-labelledby="bui-calendar-1647383489644vujhb">
+
+                                                                <thead class="bui-calendar__row">
+                                                                    <tr>
+                                                                        <th scope="col"
+                                                                            class="bui-calendar__day-name">
+                                                                            Mo
+                                                                        </th>
+
+                                                                    </tr>
+                                                                </thead>
+
+                                                                <tbody>
+                                                                    <tr class="bui-calendar__row">
+                                                                        <td
+                                                                            class="bui-calendar__date bui-calendar__date--empty">
+                                                                        </td>
+
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+
+                                                        <div class="bui-calendar__wrapper"
+                                                            data-bui-ref="calendar-month">
+                                                            <div class="bui-calendar__month"
+                                                                id="bui-calendar-1647383489644vujhb"
+                                                                aria-live="polite">
+                                                                April 2022</div>
+
+                                                        </div>
+                                                    </div>
+                                                    <div
+                                                        class="bui-calendar__display calendar-dates-prices-info-section">
+                                                        <div class="calendar-dates-prices-info-message">
+                                                            Approximate prices in BDT for a 1-night stay
+                                                        </div>
+                                                        <div class="calendar-dates-prices-loader"
+                                                            style="display: none;">
+                                                            <div aria-label="Label"
+                                                                class="bui-spinner bui-spinner--size-small calendar-dates-prices-loading__spinner"
+                                                                role="alert" aria-busy="true">
+                                                                <div class="bui-spinner__inner"></div>
+                                                            </div>
+                                                            <div class="bui-text calendar-dates-prices-loading__text">
+                                                                Loading dates...</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="bui-calendar__display"
+                                                        data-bui-ref="calendar-selected-display">Sun, Mar 20
+                                                        - Thu, Apr 21 (32-night stay)</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div data-visible="accommodation,flights" class="xp__input-group xp__guests"
+                                        data-component="search/group/group-with-modal" data-sb-id="main"
+                                        tabindex="0">
+                                        <div data-component="xp-index/guest-errors" data-sb-id="main"
+                                            data-view-id="accommodation" role="alert">
+                                        </div>
+                                        <label id="xp__guests__toggle" for="xp__guests__input" class="xp__input"
+                                            data-group-toggle="" role="button" aria-expanded="false"
+                                            aria-controls="xp__guests__inputs-container">
+                                            <span class="invisible_spoken">Rooms and occupancy</span>
+                                            <span class="xp__guests__count">
+                                                <span data-adults-count="">2 adults</span>
+                                                <span data-visible="accommodation">
+                                                    &nbsp;·&nbsp;
+                                                    <span data-children-count="">1 child</span>
+                                                </span>
+                                                <span data-visible="accommodation">
+                                                    &nbsp;·&nbsp;
+                                                    <span data-room-count="">1 room</span>
+                                                </span>
+                                            </span>
+                                        </label>
+                                        <div id="xp__guests__inputs-container"
+                                            class="xp__guests__inputs focussable " data-group-modal=""
+                                            style="display: none;" role="region"
+                                            aria-label="Rooms and occupancy">
+                                            <div data-component="search/group/group" data-sb-id="main"
+                                                data-sb-width="medium" data-sb-bbtool-searchbox="0"
+                                                data-sb-group-children-hide="0" data-sb-group-children-ages-hide="0"
+                                                data-sb-group-infants-hide="1" data-sb-group-pets-hide="0"
+                                                data-sb-group-rooms-hide="0" data-sb-group-block-labels="0"
+                                                data-sb-group-use_adults_label="0" data-sb-group-always-expanded="0"
+                                                data-sb-group-use-bui-stepper="1"
+                                                data-sb-group-bui-steppers-accessible="0"
+                                                data-fe_sb_group_descriptive_dropdowns="0"
+                                                data-fe_sb_universal_design="0" data-fe_sb_xpi="1"
+                                                data-fe_remove_duplicate_ids="0" data-fe_sb_unique_id=""
+                                                data-sb_reorder_rooms_block="1" data-sb-facelift="0"
+                                                data-fe_sb_show_children_age_bracket="0"
+                                                data-fe_sb_mandatory_child_ages="0"
+                                                data-fe_fam_d_index_mandatory_ages_new_copy="0"
+                                                data-fe_sb_dont_use_default_child_age="0">
+                                                <div class="u-clearfix" data-render="">
+                                                    <div class="sb-group__field sb-group__field-adults">
+                                                        <div class="bui-stepper" data-bui-component="InputStepper">
+                                                            <div class="bui-stepper__title-wrapper">
+                                                                <label class="bui-stepper__title"
+                                                                    for="group_adults">Adults</label>
+                                                            </div>
+                                                            <div class="bui-stepper__wrapper">
+                                                                <input type="range" class="bui-stepper__input"
+                                                                    data-bui-ref="input-stepper-field"
+                                                                    id="group_adults" name="group_adults"
+                                                                    min="1" max="30" value="2"
+                                                                    data-group-adults-count="">
+                                                                <button
+                                                                    class="bui-button bui-button--secondary bui-stepper__subtract-button"
+                                                                    data-bui-ref="input-stepper-subtract-button"
+                                                                    type="button">
+                                                                    <span class="bui-button__text">-</span>
+                                                                </button>
+                                                                <span class="bui-stepper__display"
+                                                                    data-bui-ref="input-stepper-value">2</span>
+                                                                <button
+                                                                    class="bui-button bui-button--secondary bui-stepper__add-button"
+                                                                    data-bui-ref="input-stepper-add-button"
+                                                                    type="button">
+                                                                    <span class="bui-button__text">+</span>
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="sb-group__field sb-group-children ">
+                                                        <div class="bui-stepper" data-bui-component="InputStepper">
+                                                            <div class="bui-stepper__title-wrapper">
+                                                                <label class="bui-stepper__title"
+                                                                    for="group_children">Children</label>
+                                                            </div>
+                                                            <div class="bui-stepper__wrapper">
+                                                                <input type="range" class="bui-stepper__input"
+                                                                    data-bui-ref="input-stepper-field"
+                                                                    id="group_children" name="group_children"
+                                                                    min="0" max="10" value="1"
+                                                                    data-group-children-count="">
+                                                                <button
+                                                                    class="bui-button bui-button--secondary bui-stepper__subtract-button"
+                                                                    data-bui-ref="input-stepper-subtract-button"
+                                                                    type="button">
+                                                                    <span class="bui-button__text">-</span>
+                                                                </button>
+                                                                <span class="bui-stepper__display"
+                                                                    data-bui-ref="input-stepper-value">1</span>
+                                                                <button
+                                                                    class="bui-button bui-button--secondary bui-stepper__add-button"
+                                                                    data-bui-ref="input-stepper-add-button"
+                                                                    type="button">
+                                                                    <span class="bui-button__text">+</span>
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="sb-group__field sb-group__field-rooms">
+                                                        <div class="bui-stepper" data-bui-component="InputStepper">
+                                                            <div class="bui-stepper__title-wrapper">
+                                                                <label class="bui-stepper__title"
+                                                                    for="no_rooms">Rooms</label>
+                                                            </div>
+                                                            <div class="bui-stepper__wrapper">
+                                                                <input type="range" class="bui-stepper__input"
+                                                                    data-bui-ref="input-stepper-field"
+                                                                    id="no_rooms" name="no_rooms" min="1"
+                                                                    max="30" value="1"
+                                                                    data-group-rooms-count="">
+                                                                <button
+                                                                    class="bui-button bui-button--secondary bui-stepper__subtract-button"
+                                                                    data-bui-ref="input-stepper-subtract-button"
+                                                                    type="button" disabled="">
+                                                                    <span class="bui-button__text">-</span>
+                                                                </button>
+                                                                <span class="bui-stepper__display"
+                                                                    data-bui-ref="input-stepper-value">1</span>
+                                                                <button
+                                                                    class="bui-button bui-button--secondary bui-stepper__add-button"
+                                                                    data-bui-ref="input-stepper-add-button"
+                                                                    type="button">
+                                                                    <span class="bui-button__text">+</span>
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="sb-group__children__field clearfix">
+                                                        <label
+                                                            class="sb-searchbox__label -small sb-group__children__label">
+                                                            How old is the child you're traveling with?
+                                                        </label>
+                                                        <select name="age" data-group-child-age="0"
+                                                            aria-label="Child 1 age">
+                                                            <option class="sb_child_ages_empty_zero" value="12 ">
+                                                                Age at
+                                                                check-out</option>
+                                                            <option value="0">0 years old</option>
+                                                            <option value="1">1 year old </option>
+                                                            <option value="2" selected="">2 years old
+                                                            </option>
+                                                            <option value="3">3 years old</option>
+                                                            <option value="4">4 years old</option>
+                                                            <option value="5">5 years old</option>
+                                                            <option value="6">6 years old</option>
+                                                            <option value="7">7 years old</option>
+                                                            <option value="8">8 years old</option>
+                                                            <option value="9"> 9 years old </option>
+                                                            <option value="10">10 years old</option>
+                                                            <option value="11">11 years old </option>
+                                                            <option value="12">12 years old</option>
+                                                            <option value="13">13 years old</option>
+                                                            <option value="14">14 years old</option>
+                                                            <option value="15">15 years old </option>
+                                                            <option value="16">16 years old</option>
+                                                            <option value="17">17 years old
+                                                            </option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="xp__button">
+                                        <div class="sb-searchbox-submit-col -button-messages">
+                                        </div>
+                                        <div class="sb-searchbox-submit-col -submit-button ">
+                                            <button data-sb-id="main" type="submit" class="sb-searchbox__button "
+                                                data-et-click="    customGoal:INLGHUDSJNQQdKBUPfECIAEcOHT:4    ">
+                                                <span>
+                                                    Change search
+                                                </span>
+                                                <span class="sb-submit-helper"></span>
+                                            </button>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="form-group mt-2">
-                                    <label for="">Number of persons</label>
-                                    <input type="number" name="number_of_persons" class="form-control" value="1" min="1">
-                                </div>
-                                @if ($errors)
-                                    <ul>
-                                        @foreach ($errors as $error)
-                                            <li style="color: red">{{$error}}</li>
-                                        @endforeach
-                                    </ul>
-                                @endif
-                                <div class="form-group mt-2">
-                                    <input type="submit" value="Check availability" class="btn btn-success float-end">
-                                </div>
+
                             </form>
                         </div>
+                        <!-- RE-Search Form -->
+
                     </div>
                 </div>
                 <!-- /Change Search Box -->
@@ -2109,7 +2768,7 @@
                     <div class="col-12">
                         <div class="pp-section-header">
                             <h2 class="pp-section-title bui-text bui-text--variant-headline_2">
-                                4 reasons to choose {{ $property->property_name }}
+                                4 reasons to choose Nascent Gardenia Baridhara
                             </h2>
                         </div>
                     </div>
@@ -2148,8 +2807,8 @@
                             <div class="col-lg-3 col-md-6">
                                 <li class="property_usp_item">
                                     <div class="property_usp_icon inverse">
-                                        <svg class="bk-icon -streamline-manage_booking" height="32" width="32"
-                                            viewBox="0 0 24 24">
+                                        <svg class="bk-icon -streamline-manage_booking" height="32"
+                                            width="32" viewBox="0 0 24 24">
                                             <path
                                                 d="M18 16.5a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0zm1.5 0a2.25 2.25 0 1 0-4.5 0 2.25 2.25 0 0 0 4.5 0zm-1.694-5.582l.442 1.453a1.744 1.744 0 0 0 2.06 1.194l1.473-.341a.588.588 0 0 1 .557.976l-1.032 1.112a1.75 1.75 0 0 0 0 2.383l1.031 1.11a.589.589 0 0 1-.56.976l-1.468-.34a1.744 1.744 0 0 0-2.06 1.195l-.442 1.445a.58.58 0 0 1-1.113.004l-.442-1.456a1.744 1.744 0 0 0-2.06-1.194l-1.473.341a.588.588 0 0 1-.557-.976l1.032-1.112a1.75 1.75 0 0 0 0-2.383l-1.031-1.11a.589.589 0 0 1 .56-.976l1.468.34a1.744 1.744 0 0 0 2.06-1.195l.442-1.452a.58.58 0 0 1 1.112.002zm1.437-.432a2.08 2.08 0 0 0-3.985-.009l-.441 1.452a.244.244 0 0 1-.29.168l-1.47-.34a2.089 2.089 0 0 0-1.994 3.46l1.031 1.11a.25.25 0 0 1 0 .34l-1.03 1.112a2.089 2.089 0 0 0 1.989 3.46l1.476-.342a.244.244 0 0 1 .287.167l.442 1.454a2.079 2.079 0 0 0 3.984-.003l.441-1.443a.244.244 0 0 1 .29-.169l1.47.34a2.089 2.089 0 0 0 1.994-3.46l-1.031-1.11a.25.25 0 0 1 0-.34l1.03-1.112a2.089 2.089 0 0 0-1.989-3.46l-1.476.342a.244.244 0 0 1-.287-.167l-.443-1.454zM3.75 7.5h10.5a.75.75 0 0 0 0-1.5H3.75a.75.75 0 0 0 0 1.5zm0 4.5H7.5a.75.75 0 0 0 0-1.5H3.75a.75.75 0 0 0 0 1.5zm0 4.5H7.5a.75.75 0 0 0 0-1.5H3.75a.75.75 0 0 0 0 1.5zm3.75 3H2.25a.75.75 0 0 1-.75-.75V2.25a.75.75 0 0 1 .75-.75h10.629a.75.75 0 0 1 .53.22L16.28 4.59c.14.14.219.331.219.53V6.75a.75.75 0 0 0 1.5 0V5.121a2.25 2.25 0 0 0-.659-1.59L14.47.659A2.25 2.25 0 0 0 12.88 0H2.25A2.25 2.25 0 0 0 0 2.25v16.5A2.25 2.25 0 0 0 2.25 21H7.5a.75.75 0 0 0 0-1.5z">
                                             </path>
@@ -2163,8 +2822,8 @@
                             <div class="col-lg-3 col-md-6">
                                 <li class="property_usp_item">
                                     <div class="property_usp_icon inverse">
-                                        <svg class="bk-icon -streamline-speech_bubble" height="32" width="32"
-                                            viewBox="0 0 24 24">
+                                        <svg class="bk-icon -streamline-speech_bubble" height="32"
+                                            width="32" viewBox="0 0 24 24">
                                             <path
                                                 d="M12.751 0C6.546-.009 1.51 5.014 1.5 11.219a11.235 11.235 0 0 0 1.696 5.952l-.04-.718-3.083 6.475c-.304.637.362 1.303 1 1l6.473-3.084-.718-.04c5.276 3.28 12.213 1.663 15.494-3.614 3.28-5.276 1.663-12.213-3.614-15.494A11.25 11.25 0 0 0 12.748 0zm0 1.5A9.75 9.75 0 1 1 7.62 19.53a.75.75 0 0 0-.718-.04L.428 22.573l1 1 3.082-6.476a.75.75 0 0 0-.04-.718A9.735 9.735 0 0 1 3 11.22c.008-5.377 4.372-9.729 9.749-9.721z">
                                             </path>
@@ -2182,7 +2841,7 @@
                 <!-- /Why choose Us-->
 
                 <!-- Guest reviews -->
-                {{-- <div class="row mt-5" id="GuestReviews">
+                <div class="row mt-5" id="GuestReviews">
                     <!-- Review Header -->
                     <div class="col-12">
                         <h2 class="bui-f-font-display_two">
@@ -2242,7 +2901,8 @@
                                     </span>
                                     <span class="c-score-bar__score">9.4</span>
                                     <div class="c-score-bar__bar">
-                                        <span class="c-score-bar__value" data-value="9.4" style="width:94%"></span>
+                                        <span class="c-score-bar__value" data-value="9.4"
+                                            style="width:94%"></span>
                                     </div>
                                 </div>
                             </div>
@@ -2259,7 +2919,8 @@
                                     </span>
                                     <span class="c-score-bar__score">9.2</span>
                                     <div class="c-score-bar__bar">
-                                        <span class="c-score-bar__value" data-value="9.2" style="width:92%"></span>
+                                        <span class="c-score-bar__value" data-value="9.2"
+                                            style="width:92%"></span>
                                     </div>
                                 </div>
                             </div>
@@ -2268,7 +2929,8 @@
                                     <span class="c-score-bar__title mb-1">Cleanliness</span>
                                     <span class="c-score-bar__score">8.9</span>
                                     <div class="c-score-bar__bar">
-                                        <span class="c-score-bar__value" data-value="8.9" style="width:89%"></span>
+                                        <span class="c-score-bar__value" data-value="8.9"
+                                            style="width:89%"></span>
                                     </div>
                                 </div>
                             </div>
@@ -2287,7 +2949,8 @@
                                     </span>
                                     <span class="c-score-bar__score">9.2</span>
                                     <div class="c-score-bar__bar">
-                                        <span class="c-score-bar__value" data-value="9.2" style="width:92%"></span>
+                                        <span class="c-score-bar__value" data-value="9.2"
+                                            style="width:92%"></span>
                                     </div>
                                 </div>
                             </div>
@@ -2304,7 +2967,8 @@
                                     </span>
                                     <span class="c-score-bar__score">8.9</span>
                                     <div class="c-score-bar__bar">
-                                        <span class="c-score-bar__value" data-value="8.9" style="width:89%"></span>
+                                        <span class="c-score-bar__value" data-value="8.9"
+                                            style="width:89%"></span>
                                     </div>
                                 </div>
                             </div>
@@ -2313,7 +2977,8 @@
                                     <span class="c-score-bar__title mb-1">Value for money</span>
                                     <span class="c-score-bar__score">8.1</span>
                                     <div class="c-score-bar__bar">
-                                        <span class="c-score-bar__value" data-value="8.1" style="width:81%"></span>
+                                        <span class="c-score-bar__value" data-value="8.1"
+                                            style="width:81%"></span>
                                     </div>
                                 </div>
                             </div>
@@ -2326,8 +2991,8 @@
 
                                     <div class="v2_review-scores__body__legend ">
                                         <span class="v2_review-scores__body__legend__rating_better">
-                                            <svg class="bk-icon -iconset-arrow_up_bold" fill="#006607" height="14"
-                                                width="14" viewBox="0 0 128 128">
+                                            <svg class="bk-icon -iconset-arrow_up_bold" fill="#006607"
+                                                height="14" width="14" viewBox="0 0 128 128">
                                                 <path
                                                     d="M101.7 61.7a8 8 0 0 1-11.4 0L72 43.3V104a8 8 0 0 1-16 0V43.3L37.7 61.7a8 8 0 0 1-11.4-11.4L64 12.7l37.7 37.6a8 8 0 0 1 0 11.4z">
                                                 </path>
@@ -2400,7 +3065,7 @@
                         </div>
 
                     </div>
-                </div> --}}
+                </div>
                 <!-- /Guest reviews -->
 
                 <!-- Hotel Surroundings -->
@@ -2413,13 +3078,13 @@
                                 <div class="hp_location_block__header_title">
                                     Hotel surroundings *
                                 </div>
-                                {{-- <span class="show_map_surroundings">
+                                <span class="show_map_surroundings">
                                     <a class=" loc_block_link_underline_fix bui-linkshow_on_map_hp_link"
                                         href="#map_opened-hotel_surroundings" style="white-space:nowrap"
                                         role="button">
                                         Excellent location - show map
                                     </a>
-                                </span> --}}
+                                </span>
                             </div>
                             <div>
                                 <button class="bui-button hp-scroll-up-to-dates" type="button">
@@ -2446,20 +3111,20 @@
                                         </span>
                                     </div>
                                     <ul class="bui-list bui-list--divided bui-list--text">
-                                        @foreach ($property->nearbyShoppings as $nearby)
-                                            <li class="bui-list__item col-lg-6">
-                                                <div class="bui-list__body">
-                                                    <div class="bui-list__description">
-                                                        {{ $nearby->name }}
-                                                    </div>
-                                                    <div
-                                                        class="bui-list__item-action hp_location_block__section_list_distance">
-                                                        {{ $nearby->distance }} {{ $nearby->unit }}
-                                                    </div>
+
+                                        <li class="bui-list__item">
+                                            <div class="bui-list__body">
+                                                <div class="bui-list__description">
+                                                    High Commission of Malaysia
                                                 </div>
-                                            </li>
-                                        @endforeach
-                                        {{-- <li class="bui-list__item">
+                                                <div
+                                                    class="bui-list__item-action hp_location_block__section_list_distance">
+                                                    0.2 km
+                                                </div>
+                                            </div>
+                                        </li>
+
+                                        <li class="bui-list__item">
                                             <div class="bui-list__body">
                                                 <div class="bui-list__description">
                                                     United Hospital Dhaka
@@ -2481,7 +3146,7 @@
                                                     0.6 km
                                                 </div>
                                             </div>
-                                        </li> --}}
+                                        </li>
 
                                     </ul>
                                 </div>
@@ -2496,24 +3161,24 @@
                                                     d="M13.5 3a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zM15 3a3 3 0 1 0-6 0 3 3 0 0 0 6 0zm6 4.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm1.5 0a3 3 0 1 0-6 0 3 3 0 0 0 6 0zM6 7.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm1.5 0a3 3 0 1 0-6 0 3 3 0 0 0 6 0zM21 15a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm1.5 0a3 3 0 1 0-6 0 3 3 0 0 0 6 0zm-9-3.75a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm1.5 0a3 3 0 1 0-6 0 3 3 0 0 0 6 0zM6 15a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm1.5 0a3 3 0 1 0-6 0 3 3 0 0 0 6 0zm10.066 1.277a7.5 7.5 0 0 1-3.077 2.05.75.75 0 0 0 .498 1.415 9 9 0 0 0 3.693-2.46.75.75 0 1 0-1.114-1.005zm1.798-6.466c.177.922.183 1.869.015 2.792a.75.75 0 1 0 1.476.268c.2-1.106.194-2.24-.019-3.344a.75.75 0 1 0-1.472.284zm-5.337-5.784a7.5 7.5 0 0 1 3.54 2.196.75.75 0 0 0 1.113-1.004 9.002 9.002 0 0 0-4.247-2.636.75.75 0 1 0-.406 1.444zM6.434 6.223a7.5 7.5 0 0 1 3.539-2.196.75.75 0 1 0-.406-1.444A9.001 9.001 0 0 0 5.32 5.219a.75.75 0 0 0 1.114 1.004zM4.636 12.69a7.602 7.602 0 0 1 0-2.878.75.75 0 1 0-1.472-.284 9.102 9.102 0 0 0 0 3.446.75.75 0 0 0 1.472-.284zm4.876 5.639a7.517 7.517 0 0 1-3.035-2.005.75.75 0 0 0-1.106 1.014 9.017 9.017 0 0 0 3.641 2.405.75.75 0 1 0 .5-1.414zM7.31 21.872A1.5 1.5 0 0 0 8.672 24h6.656a1.5 1.5 0 0 0 1.362-2.128l-3.314-8.217c-.361-.785-1.252-1.114-2.005-.767a1.5 1.5 0 0 0-.733.734l-3.343 8.283zm1.377.595l3.328-8.25-.015.033 3.313 8.217.015.033H8.672z">
                                                 </path>
                                             </svg>
-                                            What's nearby
+                                            Top attractions
                                         </span>
                                     </div>
                                     <ul class="bui-list bui-list--divided bui-list--text">
-                                        {{-- @foreach ($property->nearbies->chunk($property->nearbies->count() / 2)[1] as $nearby)
+
                                         <li class="bui-list__item">
                                             <div class="bui-list__body">
                                                 <div class="bui-list__description">
-                                                    {{$nearby->name}}
+                                                    High Commission of Canada
                                                 </div>
                                                 <div
                                                     class="bui-list__item-action hp_location_block__section_list_distance">
-                                                    {{$nearby->distance}} {{$nearby->unit}}
+                                                    0.9 km
                                                 </div>
                                             </div>
                                         </li>
-                                        @endforeach --}}
-                                        {{-- <li class="bui-list__item">
+
+                                        <li class="bui-list__item">
                                             <div class="bui-list__body">
                                                 <div class="bui-list__description">
                                                     Embassy of Russian Federation
@@ -2535,7 +3200,7 @@
                                                     1 km
                                                 </div>
                                             </div>
-                                        </li> --}}
+                                        </li>
 
                                     </ul>
                                 </div>
@@ -2547,8 +3212,8 @@
                                 <div class="hp_location_block__section_container">
                                     <div class="bui-title bui-title--heading bui-spacer--large">
                                         <span class="bui-title__text">
-                                            <svg class="bk-icon -streamline-food location_section_icon" height="20"
-                                                width="20" viewBox="0 0 24 24">
+                                            <svg class="bk-icon -streamline-food location_section_icon"
+                                                height="20" width="20" viewBox="0 0 24 24">
                                                 <path
                                                     d="M5.999.75v22.5a.75.75 0 0 0 1.5 0V.75a.75.75 0 0 0-1.5 0zm3 0V7.5a2.259 2.259 0 0 1-2.252 2.25 2.258 2.258 0 0 1-2.248-2.252V.75a.75.75 0 0 0-1.5 0V7.5a3.76 3.76 0 0 0 3.748 3.75 3.76 3.76 0 0 0 3.752-3.748V.75a.75.75 0 0 0-1.5 0zm6.75 15.75h3c1.183.046 2.203-.9 2.25-2.111a2.22 2.22 0 0 0 0-.168c-.25-6.672-.828-9.78-3.231-13.533a1.508 1.508 0 0 0-2.77.81V23.25a.75.75 0 0 0 1.5 0V1.503c0 .003.001 0 .003 0a.006.006 0 0 1 .008.002c2.21 3.45 2.75 6.354 2.99 12.773v.053a.696.696 0 0 1-.721.67L15.749 15a.75.75 0 0 0 0 1.5z">
                                                 </path>
@@ -2557,21 +3222,19 @@
                                         </span>
                                     </div>
                                     <ul class="bui-list bui-list--divided bui-list--text">
-                                        @foreach ($property->nearbyRestaurants as $nearby)
-                                            <li class="bui-list__item">
-                                                <div class="bui-list__body">
-                                                    <div class="bui-list__description">
-                                                        <span class="hp_location_block__section_list_key_tag">
-                                                            {{ $nearby->type }}
-                                                        </span> {{ $nearby->name }}
-                                                    </div>
-                                                    <div
-                                                        class="bui-list__item-action hp_location_block__section_list_distance">
-                                                        {{ $nearby->distance }} {{ $nearby->unit }}
-                                                    </div>
+                                        <li class="bui-list__item">
+                                            <div class="bui-list__body">
+                                                <div class="bui-list__description">
+                                                    <span class="hp_location_block__section_list_key_tag">
+                                                        Restaurant
+                                                    </span> The Mandarin
                                                 </div>
-                                            </li>
-                                        @endforeach
+                                                <div
+                                                    class="bui-list__item-action hp_location_block__section_list_distance">
+                                                    2 km
+                                                </div>
+                                            </div>
+                                        </li>
                                     </ul>
                                 </div>
                             </div>
@@ -2590,63 +3253,61 @@
                                         </span>
                                     </div>
                                     <ul class="bui-list bui-list--divided bui-list--text">
-                                        @foreach ($property->nearbyPlaces as $nearby)
-                                            <li class="bui-list__item">
-                                                <div class="bui-list__body">
-                                                    <div class="bui-list__description">
-                                                        <span class="hp_location_block__section_list_key_tag">
-                                                            {{ $nearby->type }}
-                                                        </span> {{ $nearby->name }}
-                                                    </div>
-                                                    <div
-                                                        class="bui-list__item-action hp_location_block__section_list_distance">
-                                                        {{ $nearby->distance }} {{ $nearby->unit }}
-                                                    </div>
+                                        <li class="bui-list__item">
+                                            <div class="bui-list__body">
+                                                <div class="bui-list__description">
+                                                    <span class="hp_location_block__section_list_key_tag">
+                                                        Lake
+                                                    </span> Baridhara Lake
                                                 </div>
-                                            </li>
-                                        @endforeach
+                                                <div
+                                                    class="bui-list__item-action hp_location_block__section_list_distance">
+                                                    0.1 km
+                                                </div>
+                                            </div>
+                                        </li>
                                     </ul>
                                 </div>
                             </div>
 
-                            @if ($property->propertyPath)
-                                <div class="col-12">
-                                    <div class="hp_location_block__section_container">
-                                        <div class="bui-title bui-title--strong_1 bui-spacer--large">
-                                            <div class="bui-f-font-strong bui-spacer--medium">
-                                                How to get to {{ $property->property_name }} from
-                                                {{ $property->propertyPath->airport_name }}
-                                            </div>
-                                            <ul class="bui-list bui-list--divided bui-list--text">
-                                                <div class="hp_location_block__dot">
-                                                    <svg class="bk-icon -streamline-taxi_sign location_section_icon"
-                                                        height="16" width="16" viewBox="0 0 24 24">
-                                                        <path
-                                                            d="M21.75 15.5V8a.75.75 0 0 0-1.5 0v7.5a.75.75 0 0 0 1.5 0zm-16.5 0V8a.75.75 0 0 0-1.5 0v7.5a.75.75 0 0 0 1.5 0zM3 8.75h3a.75.75 0 0 0 0-1.5H3a.75.75 0 0 0 0 1.5zm6.75 6.75v-6a.75.75 0 0 1 1.5 0v6a.75.75 0 0 0 1.5 0v-6a2.25 2.25 0 0 0-4.5 0v6a.75.75 0 0 0 1.5 0zM9 13.25h3a.75.75 0 0 0 0-1.5H9a.75.75 0 0 0 0 1.5zm5.304-4.971l3 7.5a.75.75 0 0 0 1.392-.557l-3-7.5a.75.75 0 0 0-1.392.557zm3-.558l-3 7.5a.75.75 0 0 0 1.392.557l3-7.5a.75.75 0 0 0-1.392-.557zM.75 5h22.5a.75.75 0 0 0 0-1.5H.75a.75.75 0 0 0 0 1.5zm0 15h22.5a.75.75 0 0 0 0-1.5H.75a.75.75 0 0 0 0 1.5z">
-                                                        </path>
-                                                    </svg> Taxi
-                                                </div>
-                                                <div class="hp_location_block__dot">
-                                                    <svg class="bk-icon -streamline-transport_bus_front location_section_icon"
-                                                        height="16" width="16" viewBox="0 0 24 24">
-                                                        <path
-                                                            d="M4.5 20.213v1.5a2.25 2.25 0 0 0 4.5 0v-1.5a.75.75 0 0 0-1.5 0v1.5a.75.75 0 0 1-1.5 0v-1.5a.75.75 0 0 0-1.5 0zm13.5 0v1.5a.75.75 0 0 1-1.5 0v-1.5a.75.75 0 0 0-1.5 0v1.5a2.25 2.25 0 0 0 4.5 0v-1.5a.75.75 0 0 0-1.5 0zm1.5-1.5a.75.75 0 0 1-.75.75H5.25a.75.75 0 0 1-.75-.75v-13.5a3.75 3.75 0 0 1 3.75-3.75h7.5a3.75 3.75 0 0 1 3.75 3.75v13.5zm1.5 0v-13.5c0-2.9-2.35-5.25-5.25-5.25h-7.5A5.25 5.25 0 0 0 3 5.213v13.5a2.25 2.25 0 0 0 2.25 2.25h13.5a2.25 2.25 0 0 0 2.25-2.25zM9.75 4.463h4.5a.75.75 0 0 0 0-1.5h-4.5a.75.75 0 0 0 0 1.5zm-6 3h16.5l-.75-.75v7.5l.75-.75H3.75l.75.75v-7.5l-.75.75zm0-1.5a.75.75 0 0 0-.75.75v7.5c0 .414.336.75.75.75h16.5a.75.75 0 0 0 .75-.75v-7.5a.75.75 0 0 0-.75-.75H3.75zm3 12h3a.75.75 0 0 0 0-1.5h-3a.75.75 0 0 0 0 1.5zm7.5 0h3a.75.75 0 0 0 0-1.5h-3a.75.75 0 0 0 0 1.5zm-10.5-10.5h-1.5A2.25 2.25 0 0 0 0 9.713v4.5a.75.75 0 0 0 1.5 0v-4.5a.75.75 0 0 1 .75-.75h1.5a.75.75 0 0 0 0-1.5zm16.5 1.5h1.5a.75.75 0 0 1 .75.75v4.5a.75.75 0 0 0 1.5 0v-4.5a2.25 2.25 0 0 0-2.25-2.25h-1.5a.75.75 0 0 0 0 1.5z">
-                                                        </path>
-                                                    </svg> Public transportation
-                                                </div>
-                                                <div class="hp_location_block__dot">
-                                                    <svg class="bk-icon -streamline-parking_sign location_section_icon"
-                                                        height="16" width="16" viewBox="0 0 24 24">
-                                                        <path
-                                                            d="M22.5 12c0 5.799-4.701 10.5-10.5 10.5S1.5 17.799 1.5 12 6.201 1.5 12 1.5 22.5 6.201 22.5 12zm1.5 0c0-6.627-5.373-12-12-12S0 5.373 0 12s5.373 12 12 12 12-5.373 12-12zm-9.75-1.5a1.5 1.5 0 0 1-1.5 1.5H10.5l.75.75v-4.5L10.5 9h2.25a1.5 1.5 0 0 1 1.5 1.5zm1.5 0a3 3 0 0 0-3-3H10.5a.75.75 0 0 0-.75.75v4.5c0 .414.336.75.75.75h2.25a3 3 0 0 0 3-3zm-4.5 6.75v-4.5a.75.75 0 0 0-1.5 0v4.5a.75.75 0 0 0 1.5 0z">
-                                                        </path>
-                                                    </svg> Free parking is available.
-                                                </div>
-                                            </ul>
+
+                            <div class="col-12">
+                                <div class="hp_location_block__section_container">
+                                    <div class="bui-title bui-title--strong_1 bui-spacer--large">
+                                        <div class="bui-f-font-strong bui-spacer--medium">
+                                            How to get to Nascent Gardenia Baridhara from Hazrat Shahjalal
+                                            International Airport
                                         </div>
+                                        <ul class="bui-list bui-list--divided bui-list--text">
+                                            <div class="hp_location_block__dot">
+                                                <svg class="bk-icon -streamline-taxi_sign location_section_icon"
+                                                    height="16" width="16" viewBox="0 0 24 24">
+                                                    <path
+                                                        d="M21.75 15.5V8a.75.75 0 0 0-1.5 0v7.5a.75.75 0 0 0 1.5 0zm-16.5 0V8a.75.75 0 0 0-1.5 0v7.5a.75.75 0 0 0 1.5 0zM3 8.75h3a.75.75 0 0 0 0-1.5H3a.75.75 0 0 0 0 1.5zm6.75 6.75v-6a.75.75 0 0 1 1.5 0v6a.75.75 0 0 0 1.5 0v-6a2.25 2.25 0 0 0-4.5 0v6a.75.75 0 0 0 1.5 0zM9 13.25h3a.75.75 0 0 0 0-1.5H9a.75.75 0 0 0 0 1.5zm5.304-4.971l3 7.5a.75.75 0 0 0 1.392-.557l-3-7.5a.75.75 0 0 0-1.392.557zm3-.558l-3 7.5a.75.75 0 0 0 1.392.557l3-7.5a.75.75 0 0 0-1.392-.557zM.75 5h22.5a.75.75 0 0 0 0-1.5H.75a.75.75 0 0 0 0 1.5zm0 15h22.5a.75.75 0 0 0 0-1.5H.75a.75.75 0 0 0 0 1.5z">
+                                                    </path>
+                                                </svg> Taxi
+                                            </div>
+                                            <div class="hp_location_block__dot">
+                                                <svg class="bk-icon -streamline-transport_bus_front location_section_icon"
+                                                    height="16" width="16" viewBox="0 0 24 24">
+                                                    <path
+                                                        d="M4.5 20.213v1.5a2.25 2.25 0 0 0 4.5 0v-1.5a.75.75 0 0 0-1.5 0v1.5a.75.75 0 0 1-1.5 0v-1.5a.75.75 0 0 0-1.5 0zm13.5 0v1.5a.75.75 0 0 1-1.5 0v-1.5a.75.75 0 0 0-1.5 0v1.5a2.25 2.25 0 0 0 4.5 0v-1.5a.75.75 0 0 0-1.5 0zm1.5-1.5a.75.75 0 0 1-.75.75H5.25a.75.75 0 0 1-.75-.75v-13.5a3.75 3.75 0 0 1 3.75-3.75h7.5a3.75 3.75 0 0 1 3.75 3.75v13.5zm1.5 0v-13.5c0-2.9-2.35-5.25-5.25-5.25h-7.5A5.25 5.25 0 0 0 3 5.213v13.5a2.25 2.25 0 0 0 2.25 2.25h13.5a2.25 2.25 0 0 0 2.25-2.25zM9.75 4.463h4.5a.75.75 0 0 0 0-1.5h-4.5a.75.75 0 0 0 0 1.5zm-6 3h16.5l-.75-.75v7.5l.75-.75H3.75l.75.75v-7.5l-.75.75zm0-1.5a.75.75 0 0 0-.75.75v7.5c0 .414.336.75.75.75h16.5a.75.75 0 0 0 .75-.75v-7.5a.75.75 0 0 0-.75-.75H3.75zm3 12h3a.75.75 0 0 0 0-1.5h-3a.75.75 0 0 0 0 1.5zm7.5 0h3a.75.75 0 0 0 0-1.5h-3a.75.75 0 0 0 0 1.5zm-10.5-10.5h-1.5A2.25 2.25 0 0 0 0 9.713v4.5a.75.75 0 0 0 1.5 0v-4.5a.75.75 0 0 1 .75-.75h1.5a.75.75 0 0 0 0-1.5zm16.5 1.5h1.5a.75.75 0 0 1 .75.75v4.5a.75.75 0 0 0 1.5 0v-4.5a2.25 2.25 0 0 0-2.25-2.25h-1.5a.75.75 0 0 0 0 1.5z">
+                                                    </path>
+                                                </svg> Public transportation
+                                            </div>
+                                            <div class="hp_location_block__dot">
+                                                <svg class="bk-icon -streamline-parking_sign location_section_icon"
+                                                    height="16" width="16" viewBox="0 0 24 24">
+                                                    <path
+                                                        d="M22.5 12c0 5.799-4.701 10.5-10.5 10.5S1.5 17.799 1.5 12 6.201 1.5 12 1.5 22.5 6.201 22.5 12zm1.5 0c0-6.627-5.373-12-12-12S0 5.373 0 12s5.373 12 12 12 12-5.373 12-12zm-9.75-1.5a1.5 1.5 0 0 1-1.5 1.5H10.5l.75.75v-4.5L10.5 9h2.25a1.5 1.5 0 0 1 1.5 1.5zm1.5 0a3 3 0 0 0-3-3H10.5a.75.75 0 0 0-.75.75v4.5c0 .414.336.75.75.75h2.25a3 3 0 0 0 3-3zm-4.5 6.75v-4.5a.75.75 0 0 0-1.5 0v4.5a.75.75 0 0 0 1.5 0z">
+                                                    </path>
+                                                </svg> Free parking is available.
+                                            </div>
+                                        </ul>
                                     </div>
                                 </div>
-                            @endif
+                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -2689,8 +3350,8 @@
                                 </div>
                                 @if ($property->facility_wifi == 'on')
                                     <div class="important_facility">
-                                        <svg class="bk-icon -iconset-wifi hp__important_facility_icon" height="20"
-                                            width="20" viewBox="0 0 128 128">
+                                        <svg class="bk-icon -iconset-wifi hp__important_facility_icon"
+                                            height="20" width="20" viewBox="0 0 128 128">
                                             <circle cx="64" cy="100" r="12"></circle>
                                             <path
                                                 d="M118.3 32.7A94.9 94.9 0 0 0 64 16 94.9 94.9 0 0 0 9.7 32.7a4 4 0 1 0 4.6 6.6A87 87 0 0 1 64 24a87 87 0 0 1 49.7 15.3 4 4 0 1 0 4.6-6.6zM87.7 68.4a54.9 54.9 0 0 0-47.4 0 4 4 0 0 0 3.4 7.2 47 47 0 0 1 40.6 0 4 4 0 0 0 3.4-7.2z">
@@ -2724,8 +3385,8 @@
                                 @endif
                                 @if ($property->facility_room_service)
                                     <div class="important_facility">
-                                        <svg class="bk-icon -iconset-gourmet hp__important_facility_icon" height="20"
-                                            width="20" viewBox="0 0 128 128">
+                                        <svg class="bk-icon -iconset-gourmet hp__important_facility_icon"
+                                            height="20" width="20" viewBox="0 0 128 128">
                                             <path
                                                 d="M112 68a4 4 0 0 1-4 4H20a4 4 0 0 1 0-8h88a4 4 0 0 1 4 4zM26 56h76a2 2 0 0 0 2-2.1 40 40 0 0 0-32-37.1V16a8 8 0 0 0-16 0v.8a40 40 0 0 0-32 37 2 2 0 0 0 2 2.2zm77 24s-27 6-42.7 0C53.6 80 42 83 36 88s-20 15.5-20 15.5L32 120l19.8-19a12 12 0 0 1 8.5-3.5L81.7 96a4 4 0 0 0 2.4-.8l20.1-11.6A2 2 0 0 0 103 80z">
                                             </path>
@@ -2735,8 +3396,8 @@
                                 @endif
                                 @if ($property->facility_restaurant)
                                     <div class="important_facility">
-                                        <svg class="bk-icon -iconset-food hp__important_facility_icon" height="20"
-                                            width="20" viewBox="0 0 128 128">
+                                        <svg class="bk-icon -iconset-food hp__important_facility_icon"
+                                            height="20" width="20" viewBox="0 0 128 128">
                                             <path
                                                 d="M44.1 8.9L48 44a12 12 0 0 1-12 12h-3.6l3.4 59.8a4 4 0 0 1-4 4.2h-7.6a4 4 0 0 1-4-4.2L23.6 56H20A12 12 0 0 1 8 44l3.9-35.1a1 1 0 0 1 1-.9H15a1 1 0 0 1 1 1v19a4 4 0 0 0 4 4h4.8L26 9a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1l1.2 23H36a4 4 0 0 0 4-4V9a1 1 0 0 1 1-1h2.1a1 1 0 0 1 1 .9zM60 24v48h8l-3.8 43.8a4 4 0 0 0 4 4.2h7.6a4 4 0 0 0 4-4.2L80 8h-4a16 16 0 0 0-16 16zm60 8c0-13.3-7.2-24-16-24S88 18.8 88 32c0 11 5 20.2 11.6 23l-3.4 60.8a4 4 0 0 0 4 4.2h7.6a4 4 0 0 0 4-4.2L108.4 55c6.7-2.8 11.6-12 11.6-23z">
                                             </path>
@@ -2745,8 +3406,8 @@
                                     </div>
                                 @endif
                                 <div class="important_facility">
-                                    <svg class="bk-icon -iconset-tea_maker hp__important_facility_icon" height="20"
-                                        width="20" viewBox="0 0 128 128">
+                                    <svg class="bk-icon -iconset-tea_maker hp__important_facility_icon"
+                                        height="20" width="20" viewBox="0 0 128 128">
                                         <path
                                             d="M102 40H58a2 2 0 0 0-2 2v46a8 8 0 0 0 8 8h32a8 8 0 0 0 8-8v-.4a20 20 0 0 0 0-39.2V42a2 2 0 0 0-2-2zM73 80a4 4 0 0 1-8 0V56a4 4 0 0 1 8 0zm39-12a12 12 0 0 1-8 11.3V56.7a12 12 0 0 1 8 11.3zm0-60H16a8 8 0 0 0-8 8v96a8 8 0 0 0 8 8h96a8 8 0 0 0 8-8v-6a2 2 0 0 0-2-2H50a2 2 0 0 1-2-2V26a2 2 0 0 1 2-2h14v8h32v-8h22a2 2 0 0 0 2-2v-6a8 8 0 0 0-8-8zM28 64a8 8 0 1 1 8-8 8 8 0 0 1-8 8zm0-24a8 8 0 1 1 8-8 8 8 0 0 1-8 8z">
                                         </path>
@@ -2772,7 +3433,7 @@
                     <!-- Most Popular Faclities -->
 
                     <!-- Faclities List -->
-                    {{-- <div class="col-12">
+                    <div class="col-12">
                         <div class="row">
                             <div class="col-lg-4 col-md-6 mb-3">
                                 <div class="bui-spacer--large">
@@ -2780,9 +3441,10 @@
                                         <div
                                             class="bui-title bui-title--strong_1 bui-spacer--medium hotel-facilities-group__title">
                                             <div class="bui-title__text hotel-facilities-group__title-text">
-                                                <span class="bui-icon bui-icon--medium hotel-facilities-group__icon"><svg
-                                                        class="bk-icon -streamline-bath" height="16" width="16"
-                                                        viewBox="0 0 24 24">
+                                                <span
+                                                    class="bui-icon bui-icon--medium hotel-facilities-group__icon"><svg
+                                                        class="bk-icon -streamline-bath" height="16"
+                                                        width="16" viewBox="0 0 24 24">
                                                         <path
                                                             d="M12.75 15h10.5l-.74-.873-.664 3.986a5.25 5.25 0 0 1-5.179 4.387H7.333a5.25 5.25 0 0 1-5.18-4.387l-.663-3.986L.75 15h4.5a.75.75 0 0 0 0-1.5H.75a.75.75 0 0 0-.74.873l.664 3.986A6.75 6.75 0 0 0 7.334 24h9.333a6.75 6.75 0 0 0 6.659-5.64l.664-3.987a.75.75 0 0 0-.74-.873h-10.5a.75.75 0 0 0 0 1.5zM12 19.5H6v-5.25a.75.75 0 0 1 .75-.75h4.5a.75.75 0 0 1 .75.75v5.25zm0 1.5a1.5 1.5 0 0 0 1.5-1.5v-5.25A2.25 2.25 0 0 0 11.25 12h-4.5a2.25 2.25 0 0 0-2.25 2.25v5.25A1.5 1.5 0 0 0 6 21h6zm4.5-17.25a2.25 2.25 0 0 1 4.5 0v10.5a.75.75 0 0 0 1.5 0V3.75a3.75 3.75 0 1 0-7.5 0 .75.75 0 0 0 1.5 0zm-3 3a2.25 2.25 0 0 1 4.5 0l.75-.75h-6l.75.75zm-1.5 0c0 .414.336.75.75.75h6a.75.75 0 0 0 .75-.75 3.75 3.75 0 1 0-7.5 0z">
                                                         </path>
@@ -2791,7 +3453,8 @@
                                                 Bathroom
                                             </div>
                                         </div>
-                                        <ul class="bui-list bui-list--text bui-list--icon hotel-facilities-group__list">
+                                        <ul
+                                            class="bui-list bui-list--text bui-list--icon hotel-facilities-group__list">
 
                                             <li class="bui-list__item facilities-group__list-item">
                                                 <span class="bui-list__icon">
@@ -2868,9 +3531,10 @@
                                         <div
                                             class="bui-title bui-title--strong_1 bui-spacer--medium hotel-facilities-group__title">
                                             <div class="bui-title__text hotel-facilities-group__title-text">
-                                                <span class="bui-icon bui-icon--medium hotel-facilities-group__icon"><svg
-                                                        class="bk-icon -streamline-food" height="16" width="16"
-                                                        viewBox="0 0 24 24">
+                                                <span
+                                                    class="bui-icon bui-icon--medium hotel-facilities-group__icon"><svg
+                                                        class="bk-icon -streamline-food" height="16"
+                                                        width="16" viewBox="0 0 24 24">
                                                         <path
                                                             d="M5.999.75v22.5a.75.75 0 0 0 1.5 0V.75a.75.75 0 0 0-1.5 0zm3 0V7.5a2.259 2.259 0 0 1-2.252 2.25 2.258 2.258 0 0 1-2.248-2.252V.75a.75.75 0 0 0-1.5 0V7.5a3.76 3.76 0 0 0 3.748 3.75 3.76 3.76 0 0 0 3.752-3.748V.75a.75.75 0 0 0-1.5 0zm6.75 15.75h3c1.183.046 2.203-.9 2.25-2.111a2.22 2.22 0 0 0 0-.168c-.25-6.672-.828-9.78-3.231-13.533a1.508 1.508 0 0 0-2.77.81V23.25a.75.75 0 0 0 1.5 0V1.503c0 .003.001 0 .003 0a.006.006 0 0 1 .008.002c2.21 3.45 2.75 6.354 2.99 12.773v.053a.696.696 0 0 1-.721.67L15.749 15a.75.75 0 0 0 0 1.5z">
                                                         </path>
@@ -2878,7 +3542,8 @@
                                                 </span>Food &amp; Drink
                                             </div>
                                         </div>
-                                        <ul class="bui-list bui-list--text bui-list--icon hotel-facilities-group__list">
+                                        <ul
+                                            class="bui-list bui-list--text bui-list--icon hotel-facilities-group__list">
 
                                             <li class="bui-list__item facilities-group__list-item">
                                                 <span class="bui-list__icon">
@@ -2965,7 +3630,8 @@
                                                 Safety &amp; security
                                             </div>
                                         </div>
-                                        <ul class="bui-list bui-list--text bui-list--icon hotel-facilities-group__list">
+                                        <ul
+                                            class="bui-list bui-list--text bui-list--icon hotel-facilities-group__list">
 
                                             <li class="bui-list__item facilities-group__list-item">
                                                 <span class="bui-list__icon">
@@ -3021,7 +3687,7 @@
                             </div>
 
                         </div>
-                    </div> --}}
+                    </div>
                     <!-- Faclities List -->
 
                     <div class="col-12">
@@ -3089,7 +3755,8 @@
                                         <span class="timebar__label" style="left: 58.3333%; margin-left: -21px;">
                                             {{ $property->checkin_start_preset }}&nbsp;PM
                                         </span>
-                                        <span class="timebar__caption" style="left: 79.3333%; margin-left: -47.5px;">
+                                        <span class="timebar__caption"
+                                            style="left: 79.3333%; margin-left: -47.5px;">
                                             From {{ $property->checkin_start_preset }}&nbsp;PM
                                             <span class="timebar__caption-pointer"></span>
                                         </span>
@@ -3127,7 +3794,8 @@
                                             style="left: 52.0833%; margin-left: -24.5px;">{{ $property->checkout_end_preset }}&nbsp;AM</span>
 
 
-                                        <span class="timebar__caption" style="left: 26.0417%; margin-left: -49.5px;">
+                                        <span class="timebar__caption"
+                                            style="left: 26.0417%; margin-left: -49.5px;">
                                             Until {{ $property->checkout_end_preset }}&nbsp;AM
                                             <span class="timebar__caption-pointer"></span></span>
 
@@ -3218,29 +3886,384 @@
                                                 class="payment_methods_readability ppd_payment_methods_readability creditcard americanexpress"
                                                 alt="American Express" title="American Express">
                                         @endif
+
                                     </p>
+
                                 </div>
                             </div>
+
                         </div>
+
                     </div>
                 </div>
                 <!-- Rouls -->
+
             </div>
         </div>
     </div>
-@endsection
-@section('js')
+
+
+    <!-- Buttom Section -->
+    <div id="footer_menu_track" class="mt-4">
+        <!-- Subscribe Section -->
+        <div id="newsletter_form_footer_container" class="newsletter_subscribe_with_sprites">
+            <!-- Form -->
+            <form action="#" method="post" name="newsletterform" id="emk-footer"
+                class="footerForm emk-subscription-entry-point ">
+                <div class="emk_footer_update emk_footer_centered emk_footer_update_space">
+                    <div class="footerconstraint-inner">
+                        <div class="emk_footer_banner_block">
+                            <h2>Save time, save money!</h2>
+                        </div>
+                        <div class="emk_footer_subbanner_block">
+                            Sign up and we&#39;ll send the best deals to you
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="emk_footer_form_layout">
+                            <label for="newsletter_to" class="invisible_spoken">
+                                Enter your email address and we&#39;ll send you our best deals
+                            </label>
+                            <div class="subscription_form_wrap">
+                                <input type="email" id="newsletter_to" class="input_newsletter_subscription_to"
+                                    placeholder="Your email" value="" />
+                                <button id="newsletter_button_footer">
+                                    Subscribe
+                                </button>
+                            </div>
+                            <label class="emk_footer_gta_addition_left">
+                                <input type="checkbox" name="" value="1" />
+                                Send me a link to get the FREE Obocas.com app!
+                            </label>
+                        </div>
+
+                    </div>
+
+                </div>
+            </form>
+
+        </div>
+        <!-- /Subscribe Section -->
+
+        <div style="clear: both;"></div>
+
+        <!-- Footer -->
+        <div id="footer_top_menu" class="footer-top-menu ">
+            <div class="footer-top-partners clearfix js-footer-top-menu">
+                <div class="footerconstraint-inner clearfix">
+                    <div id="footertopnav-partners">
+                        <p class="footer-top-partner-text footer-top-partner-buttons">
+                            <a ref="nofollow" href="" class="footer-top-button">
+                                List your property
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="footerconstraint-inner clearfix container text-center">
+                <div id="footertopnav">
+                    <ul class="footer-top-links-list">
+                        <li class="footer-top-link">
+                            <a href="">
+                                Your account
+                            </a>
+                        </li>
+                        <li class="footer-top-link">
+                            <a class="manage" href="">
+                                Make changes online to your booking
+                            </a>
+                        </li>
+                        <li class="footer-top-link">
+                            <a class="cuca" href="">
+                                Contact Customer Service
+                            </a>
+                        </li>
+
+                        <li class="footer-top-link">
+                            <a href="">
+                                Become an affiliate
+                            </a>
+
+                        </li>
+                        <li class="footer-top-link">
+                            <a href="" class="tracked">Booking.com
+                                for Business</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="footerconstraint-inner">
+            <div id="footer" class="footer-navigation-links-wrapper clearfix container">
+                <div id="footer_links" class="footer-navigation-links">
+                    <div class="footer-navigation-links-column footer-seo-links-to-html-sitemaps">
+                        <ul class="footer-navigation-links-list">
+                            <li class="footer-navigation-link">
+                                <a href="">
+                                    Countries
+                                </a>
+                            </li>
+                            <li class="footer-navigation-link">
+                                <a href="">
+                                    Regions
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="footer-navigation-links-column">
+                        <ul class="footer-navigation-links-list footer-seo-links-to-index">
+                            <li class="footer-navigation-link">
+                                <a href="">
+                                    Homes
+                                </a>
+                            </li>
+                            <li class="footer-navigation-link">
+                                <a href="">
+                                    Apartments
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="footer-navigation-links-column">
+                        <ul class="footer-navigation-links-list">
+                            <li class="footer-navigation-link">
+                                <a href="">
+                                    Unique places to stay
+                                </a>
+                            </li>
+                            <li class="footer-navigation-link">
+                                <a href="">
+                                    All destinations
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="footer-navigation-links-column">
+                        <ul class="footer-navigation-links-list">
+                            <li class="footer-navigation-link">
+                                <a href="">
+                                    Car rental
+                                </a>
+                            </li>
+                            <li class="footer-navigation-link">
+                                <a href="">
+                                    Flight finder
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
+                    <div class="footer-navigation-links-column">
+                        <ul class="footer-navigation-links-list">
+                            <li class="footer-navigation-link">
+                                <a href="">
+                                    Coronavirus (COVID-19) FAQs
+                                </a>
+                            </li>
+                            <li class="footer-navigation-link">
+                                <a href="">About Booking.com</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer -->
+
+    </div>
+    <!-- /Buttom Section -->
+
+
+
+    <!-- Mobile Side Menu Modal -->
+    <div class="bui-overlay__content">
+        <div class="bui-modal bui-modal--fill bui-modal--full-screen bui-modal--active">
+            <div class="bui-modal__inner">
+                <div class="bui-modal__slot">
+                    <button type="button" class="bui-modal__close">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="presentation">
+                            <path
+                                d="M13 12l6.26-6.26a.73.73 0 0 0-1-1L12 11 5.74 4.71a.73.73 0 1 0-1 1L11 12l-6.29 6.26a.73.73 0 0 0 .52 1.24.73.73 0 0 0 .51-.21L12 13l6.26 6.26a.74.74 0 0 0 1 0 .74.74 0 0 0 0-1z">
+                            </path>
+                        </svg>
+                    </button>
+                    <div class="bui-modal__body">
+                        <div class="bui-traveller-header__mobile-content">
+                            <div class="bui-box bui-box--size-large">
+                                <h2 class="bui-f-font-display_two" aria-label="More links, settings and support">
+                                    More
+                                </h2>
+                            </div>
+                            <ul>
+
+                                <li>
+                                    <a class="bui-list-item bui-list-item--size-large" href="">
+                                        <div class="bui-inline-container bui-inline-container--align">
+                                            <div class="bui-inline-container__start">
+                                                <span class="bui-icon bui-icon--large bui-icon--color-neutral">
+                                                    <svg class="bk-icon -streamline-property_add" height="24"
+                                                        width="24" viewBox="0 0 24 24" role="presentation"
+                                                        focusable="false">
+                                                        <path
+                                                            d="M8.25 19h-3a.75.75 0 0 1-.75-.75v-7.5a.75.75 0 0 0-1.5 0v7.5a2.25 2.25 0 0 0 2.25 2.25h3a.75.75 0 0 0 0-1.5zM1.234 9.823l8.782-7.43a.75.75 0 0 1 .969 0l7.279 6.159a.75.75 0 1 0 .968-1.146l-7.279-6.159a2.25 2.25 0 0 0-2.906 0L.265 8.678a.75.75 0 1 0 .968 1.146zM15.75 2.5h3L18 1.75v3a.75.75 0 0 0 1.5 0v-3a.75.75 0 0 0-.75-.75h-3a.75.75 0 0 0 0 1.5zm6.75 14.25a5.25 5.25 0 1 1-10.5 0 5.25 5.25 0 0 1 10.5 0zm1.5 0a6.75 6.75 0 1 0-13.5 0 6.75 6.75 0 0 0 13.5 0zm-7.5-3v6a.75.75 0 0 0 1.5 0v-6a.75.75 0 0 0-1.5 0zm-2.25 3.75h6a.75.75 0 0 0 0-1.5h-6a.75.75 0 0 0 0 1.5z">
+                                                        </path>
+                                                    </svg>
+                                                </span>
+                                            </div>
+                                            <div class="bui-inline-container__main">
+                                                List your property
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+
+
+                            <h3 class="bui-f-font-strong bui-traveller-header__menu-title">
+                                Inspiration
+                            </h3>
+                            <ul>
+
+                                <li>
+                                    <a class="bui-list-item bui-list-item--size-large" href="#">
+                                        <div class="bui-inline-container bui-inline-container--align">
+                                            <div class="bui-inline-container__start">
+                                                <span class="bui-icon bui-icon--large bui-icon--color-neutral">
+                                                    <svg class="bk-icon -streamline-book" height="24"
+                                                        width="24" viewBox="0 0 24 24" role="presentation"
+                                                        focusable="false">
+                                                        <path
+                                                            d="M21 22.5H5.25a1.5 1.5 0 0 1-1.5-1.5.75.75 0 0 0-1.5 0 3 3 0 0 0 3 3H21a.75.75 0 0 0 0-1.5zM6 0a3.75 3.75 0 0 0-3.75 3.75V21h1.5a1.5 1.5 0 0 1 1.5-1.5h15a1.5 1.5 0 0 0 1.5-1.5V1.5a1.5 1.5 0 0 0-1.5-1.5H6zm0 1.5h14.25V18h-15a3 3 0 0 0-3 3c0 1 1.5 1 1.5 0V3.75A2.25 2.25 0 0 1 6 1.5zm14.25 21.75v-4.5a.75.75 0 0 0-1.5 0v4.5a.75.75 0 0 0 1.5 0z">
+                                                        </path>
+                                                    </svg>
+                                                </span>
+                                            </div>
+                                            <div class="bui-inline-container__main">
+                                                Travel articles
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+
+                            </ul>
+                            <h3 class="bui-f-font-strong bui-traveller-header__menu-title">
+                                Settings and legal
+                            </h3>
+                            <ul>
+                                <li>
+                                    <a class="bui-list-item bui-list-item--size-large" href="#">
+                                        <div class="bui-inline-container bui-inline-container--align">
+                                            <div class="bui-inline-container__start">
+                                                <span class="bui-icon bui-icon--large bui-icon--color-neutral">
+                                                    <svg class="bk-icon -streamline-info_sign" height="24"
+                                                        width="24" viewBox="0 0 24 24" role="presentation"
+                                                        focusable="false">
+                                                        <path
+                                                            d="M14.25 15.75h-.75a.75.75 0 0 1-.75-.75v-3.75a1.5 1.5 0 0 0-1.5-1.5h-.75a.75.75 0 0 0 0 1.5h.75V15a2.25 2.25 0 0 0 2.25 2.25h.75a.75.75 0 0 0 0-1.5zM11.625 6a1.125 1.125 0 1 0 0 2.25 1.125 1.125 0 0 0 0-2.25.75.75 0 0 0 0 1.5.375.375 0 1 1 0-.75.375.375 0 0 1 0 .75.75.75 0 0 0 0-1.5zM22.5 12c0 5.799-4.701 10.5-10.5 10.5S1.5 17.799 1.5 12 6.201 1.5 12 1.5 22.5 6.201 22.5 12zm1.5 0c0-6.627-5.373-12-12-12S0 5.373 0 12s5.373 12 12 12 12-5.373 12-12z">
+                                                        </path>
+                                                    </svg>
+                                                </span>
+                                            </div>
+                                            <div class="bui-inline-container__main">
+                                                About Boacos.com
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a class="bui-list-item bui-list-item--size-large" href="#">
+                                        <div class="bui-inline-container bui-inline-container--align">
+                                            <div class="bui-inline-container__start">
+                                                <span class="bui-icon bui-icon--large bui-icon--color-neutral">
+                                                    <svg class="bk-icon -streamline-property_preferred"
+                                                        height="24" width="24" viewBox="0 0 24 24"
+                                                        role="presentation" focusable="false">
+                                                        <path
+                                                            d="M15.15 9.299l-3.981 5.308-2.389-2.388a.75.75 0 1 0-1.06 1.06l2.389 2.388a1.5 1.5 0 0 0 2.26-.16L16.35 10.2a.75.75 0 1 0-1.2-.9zm-3.836-7.472a.88.88 0 0 1 1.372 0l1.511 1.88a2.379 2.379 0 0 0 2.112.877l2.4-.261a.88.88 0 0 1 .974.971l-.262 2.402a2.38 2.38 0 0 0 .877 2.112l1.88 1.512a.88.88 0 0 1 0 1.37l-1.885 1.504a2.383 2.383 0 0 0-.878 2.114l.261 2.4a.88.88 0 0 1-.97.974l-2.403-.262a2.378 2.378 0 0 0-2.112.877l-1.506 1.873a.88.88 0 0 1-1.37 0l-1.511-1.88a2.38 2.38 0 0 0-2.113-.876l-2.4.261a.879.879 0 0 1-.974-.97l.262-2.403a2.381 2.381 0 0 0-.876-2.113l-1.88-1.51a.879.879 0 0 1 0-1.371l1.88-1.513a2.378 2.378 0 0 0 .876-2.111l-.261-2.4a.88.88 0 0 1 .97-.974l2.403.262a2.382 2.382 0 0 0 2.113-.876l1.51-1.867zM10.147.885l-1.511 1.87a.883.883 0 0 1-.784.325l-2.399-.26a2.379 2.379 0 0 0-2.626 2.629l.26 2.397a.878.878 0 0 1-.323.78L.883 10.139a2.379 2.379 0 0 0 0 3.709l1.88 1.51a.881.881 0 0 1 .324.782l-.26 2.4a2.378 2.378 0 0 0 2.63 2.626l2.396-.26a.881.881 0 0 1 .781.324l1.511 1.88a2.378 2.378 0 0 0 3.71 0l1.506-1.874a.878.878 0 0 1 .78-.324l2.4.26a2.378 2.378 0 0 0 2.626-2.628l-.26-2.398a.882.882 0 0 1 .324-.782l1.885-1.503a2.38 2.38 0 0 0 .002-3.71l-1.881-1.513a.88.88 0 0 1-.324-.78l.26-2.4a2.38 2.38 0 0 0-2.628-2.626l-2.398.26a.879.879 0 0 1-.78-.323L13.855.887a2.38 2.38 0 0 0-3.709 0z">
+                                                        </path>
+                                                    </svg>
+                                                </span>
+                                            </div>
+                                            <div class="bui-inline-container__main">
+                                                Become an affiliate
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a class="bui-list-item bui-list-item--size-large" href=""
+                                        rel="nofollow">
+                                        <div class="bui-inline-container bui-inline-container--align">
+                                            <div class="bui-inline-container__start">
+                                                <span class="bui-icon bui-icon--large bui-icon--color-neutral">
+                                                    <svg class="bk-icon -streamline-food_cookie" height="24"
+                                                        width="24" viewBox="0 0 24 24" role="presentation"
+                                                        focusable="false">
+                                                        <path
+                                                            d="M20.973 8.239a2.996 2.996 0 0 1-2.998-2.994v-.02a.75.75 0 0 0-1.207-.6 2.966 2.966 0 0 1-1.797.614 2.997 2.997 0 0 1-2.754-4.182.75.75 0 0 0-.72-1.045C4.883.28-.262 5.86.007 12.476c.268 6.615 5.849 11.76 12.464 11.492 6.615-.269 11.76-5.85 11.492-12.464a11.988 11.988 0 0 0-.562-3.172.75.75 0 0 0-1.064-.434c-.421.222-.89.339-1.366.341zm.003 1.5a4.458 4.458 0 0 0 2.06-.515l-.35-.663-.714.229c.288.898.453 1.832.491 2.774.235 5.788-4.266 10.67-10.054 10.905-5.787.235-10.67-4.266-10.905-10.054C1.27 6.628 5.771 1.745 11.558 1.51l-.03-.749-.689-.296a4.497 4.497 0 0 0 4.135 6.274 4.467 4.467 0 0 0 2.708-.924l-.457-.595-.75-.005v.03a4.496 4.496 0 0 0 4.498 4.494zm-12.003.75a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm1.5 0a3 3 0 1 0-6 0 3 3 0 0 0 6 0zm4.5 6.75a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0zm1.5 0a2.25 2.25 0 1 0-4.5 0 2.25 2.25 0 0 0 4.5 0zm-9.373 0a.375.375 0 1 1 0-.75.375.375 0 0 1 0 .75.75.75 0 0 0 0-1.5 1.125 1.125 0 1 0 0 2.25 1.125 1.125 0 0 0 0-2.25.75.75 0 0 0 0 1.5zm6.058-6.755a.375.375 0 1 1 .31-.43.376.376 0 0 1-.31.43h-.002a.75.75 0 0 0-.236-1.48h-.005a1.124 1.124 0 1 0 .364 2.22 1.125 1.125 0 0 0-.361-2.22.75.75 0 0 0 .24 1.48zm6 3a.375.375 0 1 1-.12-.74.375.375 0 0 1 .12.74.75.75 0 0 0-.24-1.48 1.125 1.125 0 1 0 .361 2.22 1.125 1.125 0 0 0-.361-2.22.75.75 0 0 0 .24 1.48z">
+                                                        </path>
+                                                    </svg>
+                                                </span>
+                                            </div>
+                                            <div class="bui-inline-container__main">
+                                                Privacy &amp; cookies
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="bui-list-item bui-list-item--size-large" href=""
+                                        rel="nofollow">
+                                        <div class="bui-inline-container bui-inline-container--align">
+                                            <div class="bui-inline-container__start">
+                                                <span class="bui-icon bui-icon--large bui-icon--color-neutral">
+                                                    <svg class="bk-icon -streamline-file_info" height="24"
+                                                        width="24" viewBox="0 0 24 24" role="presentation"
+                                                        focusable="false">
+                                                        <path
+                                                            d="M22.5 17.25a5.25 5.25 0 1 1-10.5 0 5.25 5.25 0 0 1 10.5 0zm1.5 0a6.75 6.75 0 1 0-13.5 0 6.75 6.75 0 0 0 13.5 0zm-6 3v-3a.75.75 0 0 0-1.5 0v3a.75.75 0 0 0 1.5 0zm-.75-6.689a1.125 1.125 0 1 0 0 2.25 1.125 1.125 0 0 0 0-2.25.75.75 0 0 0 0 1.5.375.375 0 1 1 0-.75.375.375 0 0 1 0 .75.75.75 0 0 0 0-1.5zM3.75 7.5h10.5a.75.75 0 0 0 0-1.5H3.75a.75.75 0 0 0 0 1.5zm0 4.5h6a.75.75 0 0 0 0-1.5h-6a.75.75 0 0 0 0 1.5zm0 4.5H7.5a.75.75 0 0 0 0-1.5H3.75a.75.75 0 0 0 0 1.5zm3.75 3H2.25a.75.75 0 0 1-.75-.75V2.25a.75.75 0 0 1 .75-.75h10.629a.75.75 0 0 1 .53.22L16.28 4.59c.14.14.219.331.219.53V7.5a.75.75 0 0 0 1.5 0V5.121a2.25 2.25 0 0 0-.659-1.59L14.47.659A2.25 2.25 0 0 0 12.88 0H2.25A2.25 2.25 0 0 0 0 2.25v16.5A2.25 2.25 0 0 0 2.25 21H7.5a.75.75 0 0 0 0-1.5z">
+                                                        </path>
+                                                    </svg>
+                                                </span>
+                                            </div>
+                                            <div class="bui-inline-container__main">
+                                                Terms and conditions
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Mobile Side Menu Modal -->
+
+
+
+
+
+    <!-- Bootstrap & Jquery -->
+    <script src="{{ asset('frontend/assets/js/jquery-1.12.4.min.js') }}"></script>
+    <script src="{{ asset('frontend/assets/js/bootstrap.bundle.min.js') }}"></script>
+
+    <!-- Slick Slider -->
+    <script src="{{ asset('frontend/assets/js/jquery-migrate-1.2.1.min.js') }}"></script>
+    <script src="{{ asset('frontend/assets/js/slick.min.js') }}"></script>
+
+    <!-- Search Box -->
     <script src="{{ asset('frontend/assets/js/search.min.js') }}"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
-    <script>
-        $('input[name="dates"]').daterangepicker({
-            minDate: moment()
-        });
-        $('#reserveButton').click(function(){
-            // var selected = <?php echo json_encode(isset($numOfPersons));?>;
-            // alert(selected);
-            window.location.href = "/booking2?property_id={{$property->id}}&dates={{request()->dates}}&number_of_persons={{request()->number_of_persons}}";
-        });
-    </script>
-@endsection
+    <!-- <script src="{{ asset('frontend/assets/js/google-map.js') }}"></script> -->
+
+    <!-- Custom -->
+    <script src="{{ asset('frontend/assets/js/script.js') }}"></script>
+
+
+</body>
+
+</html>

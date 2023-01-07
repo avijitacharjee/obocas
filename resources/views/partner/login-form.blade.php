@@ -1,5 +1,5 @@
 <!-- Signin Modal -->
-<div class="signin-modal-container d-none singin-popup">
+<div class="signin-modal-container singin-popup"> <!--d-none -->
     <div class="basic-modal-container">
         <div class="basic-modal-wrapper">
             <div class="basic-modal-popup-container">
@@ -17,7 +17,7 @@
                                         <label for="signin-email-input">Email</label>
                                     </dt>
                                     <dd class="email-input-container">
-                                        <input type="email" name="email" class="form-control iconable-textinput">
+                                        <input type="email" name="email" class="form-control iconable-textinput" required>
                                     </dd>
                                 </dl>
                                 <dl class="form-group">
@@ -26,7 +26,7 @@
                                     </dt>
                                     <dd class="password-input-container">
                                         <input type="password" name="password" class="form-control iconable-textinput "
-                                            id="signin-password-input">
+                                            id="signin-password-input" required>
                                     </dd>
                                     <div class="g-recapcha-c-align">
                                         <div class="g-recaptcha" id="ReCAPTCHA" data-sitekey=""
@@ -68,8 +68,8 @@
                                     <ul>
                                         <li>No account yet?</li>
                                         <li>
-                                            <a class="btn btn-primary create-account-button"
-                                                href="{{ url("/partner/signup") }}">Sign up</a>
+                                            <button type="button" class="btn btn-primary create-account-button" id="sign_up_btn"
+                                               >Sign up</button>
                                         </li>
                                     </ul>
                                 </div>

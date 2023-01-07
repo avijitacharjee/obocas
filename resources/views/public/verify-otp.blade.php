@@ -53,7 +53,7 @@
                         <div class="card-header">Add verification code</div>
                         <div class="card-body">
                             <div class="alert alert-success" id="successOtpAuth" style="display: none;"></div>
-                            <input type="text" id="verification" class="form-control" name="otp"
+                            <input type="password" id="verification" class="form-control" name="otp"
                                 placeholder="Verification code">
                             <input type="hidden" name="phone" value="{{$phone}}">
                             <input type="hidden" name="otpMain" value="{{$otp}}">

@@ -7,7 +7,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=on" />
-    
+
     <title>Step Tow</title>
     <!-- Bootstrap -->
     <link rel="stylesheet" href="{{ asset('/frontend/assets/css/bootstrap.min.css') }}">
@@ -245,10 +245,13 @@
                                                 Check-in</div>
                                             <time class="bui-date bui-date--large"
                                                 aria-describedby="bp-checkin-date__label">
-                                                <span class="bui-date__title">Sun, Mar 20, 2022</span>
-                                                <span class="bui-date__subtitle">
-                                                    From 2:00&nbsp;PM
+                                                <span class="bui-date__title">
+                                                    {{-- Sun, Mar 20, 2022 --}}
+                                                    {{$fromDate->format("D, M j, Y")}}
                                                 </span>
+                                                {{-- <span class="bui-date__subtitle">
+                                                    From 2:00&nbsp;PM
+                                                </span> --}}
                                             </time>
                                         </div>
                                         <div class="bui-date-range__item">
@@ -256,10 +259,10 @@
                                                 Check-out</div>
                                             <time class="bui-date bui-date--large"
                                                 aria-describedby="bp-checkout-date__label">
-                                                <span class="bui-date__title">Fri, Apr 15, 2022</span>
-                                                <span class="bui-date__subtitle">
+                                                <span class="bui-date__title">{{$toDate->format('D, M j, Y')}}</span>
+                                                {{-- <span class="bui-date__subtitle">
                                                     Until 12:30&nbsp;PM
-                                                </span>
+                                                </span> --}}
                                             </time>
                                         </div>
                                     </div>
@@ -268,7 +271,7 @@
                                     <div class="bui-group__item bui-f-font-emphasized">Total length of stay:
                                     </div>
                                     <div class="bui-group__item bui-f-font-strong">
-                                        26 nights
+                                        {{$fromDate->diff($toDate)->days}} nights
                                     </div>
                                 </div>
                                 <div class="bui-group__item">
@@ -288,19 +291,20 @@
                             </div>
                             <hr class="bui-divider">
                             <div class="bui-group bui-group--large">
-                                <div class="bui-group__item">
+                                {{-- <div class="bui-group__item">
                                     <div class="bui-group bui-group--small">
                                         <div class="bui-f-font-strong">You selected:</div>
                                         <ul class="bui-list bui-list--text bp-list--compact">
                                             <li class="bui-list__item">
                                                 <div>
                                                     Deluxe Room
+                                                    {{$property->roomtype_id}}
                                                 </div>
                                             </li>
                                         </ul>
                                     </div>
-                                </div>
-                                <div class="bui-group__item">
+                                </div> --}}
+                                {{-- <div class="bui-group__item">
                                     <div class="bp-booking-summary__change-selection">
                                         <div
                                             class="bui-group bui-button-group bui-group--inline bui-group--vertical-align-middle">
@@ -312,7 +316,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                     </div>
@@ -340,7 +344,7 @@
                                                 <div
                                                     class="bp-price-details__charge-value e2e-price-details__total-charge--user">
                                                     <span class="" style="display: inline-block;">
-                                                        BDT&nbsp;154,283.99
+                                                        BDT&nbsp;{{$property->room_price_x_persons*$numOfDays}}
                                                     </span> *
                                                 </div>
                                             </div>
@@ -348,40 +352,21 @@
                                         <div class="bui-group__item">
                                             <hr class="bui-divider">
                                         </div>
-                                        <div class="bui-group__item">
-                                            <div
-                                                class="bp-price-details__total-line bp-price-details__total-line--property  e2e-price-details__total-line--property">
-                                                <div class="bp-price-details__charge-type">
-                                                    <div class="bp-price-details__charge-name">
-                                                        Property's Currency
-                                                    </div>
-                                                    <div
-                                                        class="bp-price-details__charge-description bp-price-details__charge-description--currency e2e-price-details__currency-type">
-                                                        in US$
-                                                    </div>
-                                                </div>
-                                                <div
-                                                    class="bp-price-details__charge-value e2e-price-details__total-charge--property">
-                                                    <span class="" style="display: inline-block;">
-                                                        US$1,794
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div>
+
                                         <div
                                             class="bp-price-details__price-clarification bp-price-details__price-clarification--different-currency">
                                             <span class="">(for
-                                                2 guests
+                                                {{request()->number_of_persons}} guests
                                                 and</span> &nbsp;
                                             <span>
-                                                26 nights)
+                                                {{$numOfDays}} nights)
                                             </span>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="bui-card__text">
+                        {{-- <div class="bui-card__text">
                             <div class="bui-group bui-group--small">
                                 <h3 class="bui-f-font-strong">Additional charges</h3>
                                 <ul class="bp-price-details__charges">
@@ -411,11 +396,11 @@
                                     transaction fee.
                                 </p>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                 </section>
                 <!--  -->
-                <section class="bui-card bp-card--prepayment-schedule bui-u-bleed@small">
+                {{-- <section class="bui-card bp-card--prepayment-schedule bui-u-bleed@small">
                     <div class="bui-card__content">
                         <header class="bui-card__header">
                             <h2 class="bui-card__title">
@@ -443,9 +428,9 @@
                             </ul>
                         </div>
                     </div>
-                </section>
+                </section> --}}
                 <!--  -->
-                <section class="bui-card bp-card--cancellation-schedule bui-u-bleed@small">
+                {{-- <section class="bui-card bp-card--cancellation-schedule bui-u-bleed@small">
                     <div class="bui-card__content">
                         <header class="bui-card__header">
                             <h2 class="bui-card__title">
@@ -467,10 +452,10 @@
                             </ul>
                         </div>
                     </div>
-                </section>
+                </section> --}}
 
                 <!--  -->
-                <div class="bui-card bp-card--promo-code active_offer_block  ">
+                {{-- <div class="bui-card bp-card--promo-code active_offer_block  ">
                     <div class="bui-card__content">
                         <header class="bui-card__header">
                             <h2 class="bui-card__title">
@@ -512,9 +497,9 @@
 
                         </div>
                     </div>
-                </div>
+                </div> --}}
                 <!--  -->
-                <section class="bui-card bp-card--wallet-reward bui-u-bleed@small">
+                {{-- <section class="bui-card bp-card--wallet-reward bui-u-bleed@small">
                     <div class="bui-card__content">
                         <header class="bui-card__header">
                             <h2 class="bui-card__title">
@@ -556,7 +541,7 @@
                             </div>
                         </div>
                     </div>
-                </section>
+                </section> --}}
             </div>
             <div class="col-lg-8 mt-lg-0 mt-md-5">
                 <div class="row">
@@ -717,9 +702,11 @@
                         <!-- Form -->
                         <form class="book-form" action="/booking2" method="post">
                         @csrf
+                        <input type="hidden" name="dates" value="{{request()->dates}}">
+                        <input type="hidden" name="number_of_persons" value="{{request()->number_of_persons}}">
                         <div class="row mt-5">
                             <div class="col-12">
-                                
+
 
                                     <div class="row">
 
@@ -1344,7 +1331,7 @@
                                         </div>
                                     </div>
 
-                        
+
                             </div>
                         </div>
                         <!-- Form -->

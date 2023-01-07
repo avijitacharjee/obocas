@@ -83,6 +83,9 @@ class PartnerController extends Controller
     }
     public function updateProfile(Request $request)
     {
+        if($request->has('submitPass')){
+
+        }
         $partner = auth()->user()->partner;
         $partner->fill($request->only([
             'firtname',

@@ -10,6 +10,7 @@ use App\Models\NotificationSetting;
 use App\Models\Property;
 use App\Models\PropertyPath;
 use App\Models\Room;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
@@ -31,31 +32,39 @@ class HotelAdminController extends Controller
 
         $notificationSetting->get_other_notifications = 0;
         $notificationSetting->save();
-        return redirect()->back()->with('notificationSetting',$notificationSetting);
+        return redirect()->back()->with('notificationSetting', $notificationSetting);
     }
     public function notificationSettings()
     {
-        $notificationSetting = !NotificationSetting::exists()?
+        $notificationSetting = !NotificationSetting::exists() ?
             NotificationSetting::Create([
-                'user_id'=>1,
-                'email'=>'abc@example.com',
-                'get_email_notification'=>1,
-                'get_sms_notification'=>1,
-                'get_other_notifications'=>1,
-                'phone'=>'+880-1878-362896'
+                'user_id' => 1,
+                'email' => 'abc@example.com',
+                'get_email_notification' => 1,
+                'get_sms_notification' => 1,
+                'get_other_notifications' => 1,
+                'phone' => '+880-1878-362896'
             ])
             : NotificationSetting::first();
         return view('hotel-admin.notification-settings')
-            ->with('notificationSetting',$notificationSetting);
+            ->with('notificationSetting', $notificationSetting);
     }
-    public function home(){
-        return view('hotel-admin.home')->with('bookings',Booking::latest()->take(3)->get());
+    public function home()
+    {
+        return view('hotel-admin.home')->with('bookings', Booking::latest()->take(3)->get());
     }
-    public function reservations(){
+    public function reservations(Request $request)
+    {
         $reservations = Booking::all();
-        return view('hotel-admin.reservations')->with('reservations',$reservations);
+        // if ($request->has('date_from') && $request->has('date_to')) {
+        //     $start = Carbon::parse($request->date_from);
+        //     $end = Carbon::parse($request->date_to);
+        //     $reserevations = Booking::whereDate('created_at');
+        // }
+        return view('hotel-admin.reservations')->with('reservations', $reservations);
     }
-    public function storeRoom1(Request $request){
+    public function storeRoom1(Request $request)
+    {
         $room = new Room();
         $room->property_id = 1;
         $room->user_id = Auth::user()->id;
@@ -73,17 +82,20 @@ class HotelAdminController extends Controller
         $room->is_booked = false;
         $room->images = $this->saveImages($request->images);
         $room->save();
-        return back()->with('message','Successfully Added');
+        return back()->with('message', 'Successfully Added');
     }
-    public function roomDetails() {
+    public function roomDetails()
+    {
         $rooms = Room::where('user_id', Auth::user()->id)->get();
-        return view('hotel-admin.room-details')->with('rooms',$rooms);
+        return view('hotel-admin.room-details')->with('rooms', $rooms);
     }
-    public function openCloseRooms() {
+    public function openCloseRooms()
+    {
         $rooms = Room::where('user_id', Auth::user()->id)->get();
-        return view('hotel-admin.open-close-rooms')->with('rooms',$rooms);
+        return view('hotel-admin.open-close-rooms')->with('rooms', $rooms);
     }
-    public function storeOpenCloseRooms(Request $request){
+    public function storeOpenCloseRooms(Request $request)
+    {
         $room = Room::find($request->room_id);
         $room->closed_from = $request->date_from;
         $room->closed_till = $request->date_until;
@@ -91,14 +103,16 @@ class HotelAdminController extends Controller
         $room->save();
         return back();
     }
-    public function howToGet(Request $request){
-        $property = Property::where('user_id',Auth::user()->id)->first();
-        $propertyPath = PropertyPath::firstOrNew(['property_id'=>$property->id]);
+    public function howToGet(Request $request)
+    {
+        $property = Property::where('user_id', Auth::user()->id)->first();
+        $propertyPath = PropertyPath::firstOrNew(['property_id' => $property->id]);
         return view('hotel-admin.get-time-squers')->with('propertyPath', $propertyPath);
     }
-    public function storeHowToGet(Request $request){
-        $property = Property::where('user_id',Auth::user()->id)->first();
-        $propertyPath = PropertyPath::firstOrNew(['property_id'=>$property->id]);
+    public function storeHowToGet(Request $request)
+    {
+        $property = Property::where('user_id', Auth::user()->id)->first();
+        $propertyPath = PropertyPath::firstOrNew(['property_id' => $property->id]);
         $propertyPath->property_id = $property->id;
         $propertyPath->airport_name = $request->airport_name;
         $propertyPath->transport_type = $request->transport_type;
@@ -107,98 +121,100 @@ class HotelAdminController extends Controller
         $propertyPath->journey_time = $request->duration;
         $propertyPath->fare = $request->fare;
         $propertyPath->save();
-        return back()->with('message','Successfully saved');
+        return back()->with('message', 'Successfully saved');
     }
-    public function nearBy(){
-        $property = Property::where('user_id',Auth::user()->id)->first();
+    public function nearBy()
+    {
+        $property = Property::where('user_id', Auth::user()->id)->first();
         $nearbyRestaurant = Nearby::firstOrNew([
-            'property_id'=>$property->id,
-            'type'=>'restaurant'
+            'property_id' => $property->id,
+            'type' => 'restaurant'
         ]);
         $nearbyRestaurant->category = "Shopping and dining";
         $nearbyRestaurant->unit = "km";
         $nearbyRestaurant->save();
 
         $nearbyCafe = Nearby::firstOrNew([
-            'property_id'=>$property->id,
-            'type'=>'cafe'
+            'property_id' => $property->id,
+            'type' => 'cafe'
         ]);
         $nearbyCafe->category = "Shopping and dining";
         $nearbyCafe->unit = "km";
         $nearbyCafe->save();
 
         $nearbyStore = Nearby::firstOrNew([
-            'property_id'=>$property->id,
-            'type'=>'store'
+            'property_id' => $property->id,
+            'type' => 'store'
         ]);
         $nearbyStore->category = "Shopping and dining";
         $nearbyStore->unit = "km";
         $nearbyStore->save();
 
         $nearbyMarket = Nearby::firstOrNew([
-            'property_id'=>$property->id,
-            'type'=>'market'
+            'property_id' => $property->id,
+            'type' => 'market'
         ]);
         $nearbyMarket->category = "Shopping and dining";
         $nearbyMarket->unit = "km";
         $nearbyMarket->save();
 
         $nearbyMountain = Nearby::firstOrNew([
-            'property_id'=>$property->id,
-            'type'=>'mountain'
+            'property_id' => $property->id,
+            'type' => 'mountain'
         ]);
         $nearbyMountain->category = "Places of interest";
         $nearbyMountain->unit = "km";
         $nearbyMountain->save();
 
         $nearbyLake = Nearby::firstOrNew([
-            'property_id'=>$property->id,
-            'type'=>'lake'
+            'property_id' => $property->id,
+            'type' => 'lake'
         ]);
         $nearbyLake->category = "Places of interest";
         $nearbyLake->unit = "km";
         $nearbyLake->save();
 
         $nearbyRiver = Nearby::firstOrNew([
-            'property_id'=>$property->id,
-            'type'=>'river'
+            'property_id' => $property->id,
+            'type' => 'river'
         ]);
         $nearbyRiver->category = "Places of interest";
         $nearbyRiver->unit = "km";
         $nearbyRiver->save();
 
         $nearbySea = Nearby::firstOrNew([
-            'property_id'=>$property->id,
-            'type'=>'sea'
+            'property_id' => $property->id,
+            'type' => 'sea'
         ]);
         $nearbySea->category = "Places of interest";
         $nearbySea->unit = "km";
         $nearbySea->save();
 
         $nearbyBeach = Nearby::firstOrNew([
-            'property_id'=>$property->id,
-            'type'=>'beach'
+            'property_id' => $property->id,
+            'type' => 'beach'
         ]);
         $nearbyBeach->category = "Places of interest";
         $nearbyBeach->unit = "km";
         $nearbyBeach->save();
         return view('hotel-admin.nearby')
-            ->with('nearbyRestaurant',$nearbyRestaurant)
-            ->with('nearbyCafe',$nearbyCafe)
-            ->with('nearbyStore',$nearbyStore)
-            ->with('nearbyMarket',$nearbyMarket)
-            ->with('nearbyMountain',$nearbyMountain)
-            ->with('nearbyLake',$nearbyLake)
-            ->with('nearbyRiver',$nearbyRiver)
-            ->with('nearbySea',$nearbySea)
-            ->with('nearbyBeach',$nearbyBeach);
+            ->with('nearbyRestaurant', $nearbyRestaurant)
+            ->with('nearbyCafe', $nearbyCafe)
+            ->with('nearbyStore', $nearbyStore)
+            ->with('nearbyMarket', $nearbyMarket)
+            ->with('nearbyMountain', $nearbyMountain)
+            ->with('nearbyLake', $nearbyLake)
+            ->with('nearbyRiver', $nearbyRiver)
+            ->with('nearbySea', $nearbySea)
+            ->with('nearbyBeach', $nearbyBeach);
     }
-    public function storeNearBy(Request $request){
-        $property = Property::where('user_id',Auth::user()->id)->first();
+    public function storeNearBy(Request $request)
+    {
+        $property = Property::where('user_id', Auth::user()->id)->first();
 
         $nearbyRestaurant = Nearby::firstOrNew([
-            'property_id'=>$property->id,
-            'type'=>'restaurant'
+            'property_id' => $property->id,
+            'type' => 'restaurant'
         ]);
         $nearbyRestaurant->name = $request->restaurant_name;
         $nearbyRestaurant->distance = $request->restaurant_distance;
@@ -207,8 +223,8 @@ class HotelAdminController extends Controller
         $nearbyRestaurant->save();
 
         $nearbyCafe = Nearby::firstOrNew([
-            'property_id'=>$property->id,
-            'type'=>'cafe'
+            'property_id' => $property->id,
+            'type' => 'cafe'
         ]);
         $nearbyCafe->name = $request->cafe_name;
         $nearbyCafe->distance = $request->cafe_distance;
@@ -217,8 +233,8 @@ class HotelAdminController extends Controller
         $nearbyCafe->save();
 
         $nearbyStore = Nearby::firstOrNew([
-            'property_id'=>$property->id,
-            'type'=>'store'
+            'property_id' => $property->id,
+            'type' => 'store'
         ]);
         $nearbyStore->name = $request->store_name;
         $nearbyStore->distance = $request->store_distance;
@@ -227,8 +243,8 @@ class HotelAdminController extends Controller
         $nearbyStore->save();
 
         $nearbyMarket = Nearby::firstOrNew([
-            'property_id'=>$property->id,
-            'type'=>'market'
+            'property_id' => $property->id,
+            'type' => 'market'
         ]);
         $nearbyMarket->name = $request->market_name;
         $nearbyMarket->distance = $request->market_distance;
@@ -237,8 +253,8 @@ class HotelAdminController extends Controller
         $nearbyMarket->save();
 
         $nearbyMountain = Nearby::firstOrNew([
-            'property_id'=>$property->id,
-            'type'=>'mountain'
+            'property_id' => $property->id,
+            'type' => 'mountain'
         ]);
         $nearbyMountain->name = $request->mountain_name;
         $nearbyMountain->distance = $request->mountain_distance;
@@ -247,8 +263,8 @@ class HotelAdminController extends Controller
         $nearbyMountain->save();
 
         $nearbyLake = Nearby::firstOrNew([
-            'property_id'=>$property->id,
-            'type'=>'lake'
+            'property_id' => $property->id,
+            'type' => 'lake'
         ]);
         $nearbyLake->name = $request->lake_name;
         $nearbyLake->distance = $request->lake_distance;
@@ -257,8 +273,8 @@ class HotelAdminController extends Controller
         $nearbyLake->save();
 
         $nearbyRiver = Nearby::firstOrNew([
-            'property_id'=>$property->id,
-            'type'=>'river'
+            'property_id' => $property->id,
+            'type' => 'river'
         ]);
         $nearbyRiver->name = $request->river_name;
         $nearbyRiver->distance = $request->river_distance;
@@ -267,8 +283,8 @@ class HotelAdminController extends Controller
         $nearbyRiver->save();
 
         $nearbySea = Nearby::firstOrNew([
-            'property_id'=>$property->id,
-            'type'=>'sea'
+            'property_id' => $property->id,
+            'type' => 'sea'
         ]);
         $nearbySea->name = $request->sea_name;
         $nearbySea->distance = $request->sea_distance;
@@ -277,8 +293,8 @@ class HotelAdminController extends Controller
         $nearbySea->save();
 
         $nearbyBeach = Nearby::firstOrNew([
-            'property_id'=>$property->id,
-            'type'=>'beach'
+            'property_id' => $property->id,
+            'type' => 'beach'
         ]);
         $nearbyBeach->name = $request->beach_name;
         $nearbyBeach->distance = $request->beach_distance;
@@ -287,12 +303,14 @@ class HotelAdminController extends Controller
         $nearbyBeach->save();
         return back();
     }
-    public function facility(){
+    public function facility()
+    {
         $facilities = Facility::all();
         return view('hotel-admin.facilities-services')
-            ->with('facilities',$facilities);
+            ->with('facilities', $facilities);
     }
-    public function storeFacility(Request $request){
+    public function storeFacility(Request $request)
+    {
         $facility = new Facility();
         $facility->property_id = Property::where('user_id', Auth::user()->id)->first()->id;
         $facility->name = $request->name;
@@ -300,37 +318,40 @@ class HotelAdminController extends Controller
         $facility->save();
         return back();
     }
-    public function deleteFacility(Facility $facility){
+    public function deleteFacility(Facility $facility)
+    {
         $facility->delete();
         return back();
     }
-    public function ratePlan(){
+    public function ratePlan()
+    {
         $rooms = Room::where('user_id', Auth::user()->id)->get();
-        return view('hotel-admin.rate-plans')->with('rooms',$rooms);
+        return view('hotel-admin.rate-plans')->with('rooms', $rooms);
     }
-    public function storeRatePlan(){
+    public function storeRatePlan()
+    {
         return back()->with('message', 'Successfully Saved');
     }
-    public function saveImages($images){
-        if($images)
-        {
-            $imageNames='';
-            foreach($images as $key=>$image)
-            {
+    public function saveImages($images)
+    {
+        if ($images) {
+            $imageNames = '';
+            foreach ($images as $key => $image) {
                 $extension = 'png';
-                $imageName = date("Y-m-d-h-i-s").Str::random(5).'.'.$extension;
+                $imageName = date("Y-m-d-h-i-s") . Str::random(5) . '.' . $extension;
                 //$image->store('property');
-                $imageFullName = 'images/'.$imageName;
-                $image->storeAs('public',$imageFullName);
+                $imageFullName = 'images/' . $imageName;
+                $image->storeAs('public', $imageFullName);
                 // Storage::disk('public')->put($imageFullName,$image->str);
-                $imageNames = $imageNames.$imageFullName.';';
+                $imageNames = $imageNames . $imageFullName . ';';
             }
-            return substr($imageNames,0,-1);
-        }else {
+            return substr($imageNames, 0, -1);
+        } else {
             return 'no images';
         }
     }
-    public function logout(){
+    public function logout()
+    {
         Auth::logout();
         return redirect('/signin');
     }

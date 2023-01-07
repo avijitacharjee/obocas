@@ -50,7 +50,7 @@
                 <!-- Dropdown Hotel -->
                 <div class="ext-action-menu__item">
 
-                    <button class="ext-action-menu__section" type="button" data-bs-toggle="dropdown"
+                    {{-- <button class="ext-action-menu__section" type="button" data-bs-toggle="dropdown"
                         aria-expanded="false">
                         <div class="ext-action-menu__avatar"
                             style="background-image: url(assets/images/hotel.jfif);">
@@ -58,7 +58,7 @@
                         <div class="ext-action-menu__text">
                             User Photo
                         </div>
-                    </button>
+                    </button> --}}
 
                     <div class="ext-action-dropdown__menu dropdown-menu dropdown-menu-end">
                         <div class="ext-action-dropdown__content">

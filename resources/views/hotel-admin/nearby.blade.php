@@ -64,9 +64,9 @@
                                     </div><!-- /input-group -->
                                 </div>
 
-                                <div class="col-md-2 clear-delete-button-container">
+                                {{-- <div class="col-md-2 clear-delete-button-container">
                                     <a class="btn btn-default clear-button">Clear</a>
-                                </div>
+                                </div> --}}
 
                             </div>
 
@@ -106,9 +106,9 @@
                                     </div><!-- /input-group -->
                                 </div>
 
-                                <div class="col-md-2 clear-delete-button-container">
+                                {{-- <div class="col-md-2 clear-delete-button-container">
                                     <a class="btn btn-default clear-button">Clear</a>
-                                </div>
+                                </div> --}}
                             </div>
 
                         </div>
@@ -146,9 +146,9 @@
                                         <span class="help-block"></span>
                                     </div><!-- /input-group -->
                                 </div>
-                                <div class="col-md-2 clear-delete-button-container">
+                                {{-- <div class="col-md-2 clear-delete-button-container">
                                     <a class="btn btn-default clear-button">Clear</a>
-                                </div>
+                                </div> --}}
                             </div>
 
                         </div>
@@ -186,9 +186,9 @@
                                         <span class="help-block"></span>
                                     </div><!-- /input-group -->
                                 </div>
-                                <div class="col-md-2 clear-delete-button-container">
+                                {{-- <div class="col-md-2 clear-delete-button-container">
                                     <a class="btn btn-default clear-button">Clear</a>
-                                </div>
+                                </div> --}}
                             </div>
 
                         </div>
@@ -231,9 +231,9 @@
                                         <span class="help-block"></span>
                                     </div><!-- /input-group -->
                                 </div>
-                                <div class="col-md-2 clear-delete-button-container">
+                                {{-- <div class="col-md-2 clear-delete-button-container">
                                     <a class="btn btn-default clear-button">Clear</a>
-                                </div>
+                                </div> --}}
                             </div>
 
 
@@ -272,9 +272,9 @@
                                         <span class="help-block"></span>
                                     </div><!-- /input-group -->
                                 </div>
-                                <div class="col-md-2 clear-delete-button-container">
+                                {{-- <div class="col-md-2 clear-delete-button-container">
                                     <a class="btn btn-default clear-button">Clear</a>
-                                </div>
+                                </div> --}}
                             </div>
 
                         </div>
@@ -312,9 +312,9 @@
                                         <span class="help-block"></span>
                                     </div><!-- /input-group -->
                                 </div>
-                                <div class="col-md-2 clear-delete-button-container">
+                                {{-- <div class="col-md-2 clear-delete-button-container">
                                     <a class="btn btn-default clear-button">Clear</a>
-                                </div>
+                                </div> --}}
                             </div>
 
                         </div>
@@ -352,9 +352,9 @@
                                         <span class="help-block"></span>
                                     </div><!-- /input-group -->
                                 </div>
-                                <div class="col-md-2 clear-delete-button-container">
+                                {{-- <div class="col-md-2 clear-delete-button-container">
                                     <a class="btn btn-default clear-button">Clear</a>
-                                </div>
+                                </div> --}}
                             </div>
 
                         </div>
@@ -393,9 +393,9 @@
                                         <span class="help-block"></span>
                                     </div><!-- /input-group -->
                                 </div>
-                                <div class="col-md-2 clear-delete-button-container">
+                                {{-- <div class="col-md-2 clear-delete-button-container">
                                     <a class="btn btn-default clear-button">Clear</a>
-                                </div>
+                                </div> --}}
                             </div>
 
                         </div>

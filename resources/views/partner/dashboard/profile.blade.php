@@ -204,9 +204,9 @@
                                                                     Address (line1) (English Characters Only)
                                                                     <span class="text-danger">*</span>
                                                                 </label>
-                                                                <input type="text" id="Address1"
-                                                                    name="address1"
-                                                                    class="validated-input" value="{{auth()->user()->address?->address1}}">
+                                                                <input type="text" id="Address1" name="address1"
+                                                                    class="validated-input"
+                                                                    value="{{ auth()->user()->address?->address1 }}">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -217,9 +217,9 @@
                                                                     Address (line 2 - optional) (English Characters
                                                                     Only)
                                                                 </label>
-                                                                <input type="text" id="Address2"
-                                                                    name="address2"
-                                                                    class="validated-input " value="{{auth()->user()->address?->address2}}">
+                                                                <input type="text" id="Address2" name="address2"
+                                                                    class="validated-input "
+                                                                    value="{{ auth()->user()->address?->address2 }}">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -235,10 +235,12 @@
                                                                     class="Select selector-box-wrapper Select--single is-searchable has-value">
                                                                     <select class="Select-control" name="country"
                                                                         id="">
-                                                                            <option selected>--Select Country--</option>
-                                                                            @foreach ($countries as $country)
-                                                                                <option @selected($country==auth()->user()->address?->country) value="{{$country}}">{{$country}}</option>
-                                                                            @endforeach
+                                                                        <option selected>--Select Country--</option>
+                                                                        @foreach ($countries as $country)
+                                                                            <option @selected($country == auth()->user()->address?->country)
+                                                                                value="{{ $country }}">
+                                                                                {{ $country }}</option>
+                                                                        @endforeach
                                                                     </select>
                                                                 </div>
                                                             </div>
@@ -280,83 +282,124 @@
                                             </div>
                                         </div>
 
-                                    <div class="profile-section addinfo-details">
-                                        <div class="white-card ">
-                                            <h3 class="title">Complete additional information</h3>
-                                            <div class="content-container">
-                                                <div class="pc-row input-row">
-                                                    <div class="sm-col-6">
-                                                        <div id="" class="select-input-field preflang-container">
-                                                            <label>Preferred communication language</label>
-                                                            <div class="Select selector-box-wrapper Select--single is-searchable">
-                                                                <select class="Select-control" name="language" id="">
-                                                                    <option value="Bangla">Bangla</option>
-                                                                    <option value="Hindi">Hindi</option>
-                                                                    <option value="English">English</option>
-                                                                    <option value="Other">Other</option>
-                                                                </select>
+                                        <div class="profile-section addinfo-details">
+                                            <div class="white-card ">
+                                                <h3 class="title">Complete additional information</h3>
+                                                <div class="content-container">
+                                                    <div class="pc-row input-row">
+                                                        <div class="sm-col-6">
+                                                            <div id=""
+                                                                class="select-input-field preflang-container">
+                                                                <label>Preferred communication language</label>
+                                                                <div
+                                                                    class="Select selector-box-wrapper Select--single is-searchable">
+                                                                    <select class="Select-control" name="language"
+                                                                        id="">
+                                                                        <option value="Bangla">Bangla</option>
+                                                                        <option value="Hindi">Hindi</option>
+                                                                        <option value="English">English</option>
+                                                                        <option value="Other">Other</option>
+                                                                    </select>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
 
-                                                <div class="pc-row input-row">
-                                                    <div class="sm-col-12">
-                                                        <div class="get-email-holder">
-                                                            <input type="hidden" name="is_subscriber" value="0">
-                                                            <input type="checkbox" name="is_subscriber" id="get-email" @checked(auth()->user()->partner->is_subscriber) value="1">
-                                                            <div class="">
-                                                                <span>Do you want to receive a list of new bookings by
-                                                                    daily email?</span>
+                                                    <div class="pc-row input-row">
+                                                        <div class="sm-col-12">
+                                                            <div class="get-email-holder">
+                                                                <input type="hidden" name="is_subscriber"
+                                                                    value="0">
+                                                                <input type="checkbox" name="is_subscriber"
+                                                                    id="get-email" @checked(auth()->user()->partner->is_subscriber)
+                                                                    value="1">
+                                                                <div class="">
+                                                                    <span>Do you want to receive a list of new bookings
+                                                                        by
+                                                                        daily email?</span>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <div class="pc-row input-row">
-                                                    <div class="sm-col-12">
-                                                        <button type="submit" id="submit-btn" class="button button-blue">Save</button>
-                                                        <a class="button button-blue invert">Discard</a>
+                                                    <div class="pc-row input-row">
+                                                        <div class="sm-col-12">
+                                                            <button type="submit" id="submit-btn"
+                                                                class="button button-blue">Save</button>
+                                                            <a class="button button-blue invert">Discard</a>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                        <div class="profile-section contact-details">
+                                            <div class="white-card ">
+                                                <h3 id="top" class="title">
+                                                    Change password
+                                                    <span class="title-note">
+                                                        Note:
+                                                    </span>
+                                                </h3>
+                                                <div class="content-container">
 
+                                                    <div class="pc-row input-row">
+                                                        <div class="sm-col-12">
+                                                            <div class="text-input-field ">
+                                                                <label for="Address1">
+                                                                    Current Password
+                                                                    <span class="text-danger">*</span>
+                                                                </label>
+                                                                <input type="password" id="Address1"
+                                                                    name="current_password" class="validated-input"
+                                                                    value="">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="pc-row input-row">
+                                                        <div class="sm-col-12">
+                                                            <div class="text-input-field ">
+                                                                <label for="Address1">
+                                                                    New Password
+                                                                    <span class="text-danger">*</span>
+                                                                </label>
+                                                                <input type="password" id="password"
+                                                                    name="current_password" class="validated-input"
+                                                                    value="">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="pc-row input-row">
+                                                        <div class="sm-col-12">
+                                                            <div class="text-input-field ">
+                                                                <label for="Address1">
+                                                                    Retype new Password
+                                                                    <span class="text-danger">*</span>
+                                                                </label>
+                                                                <input type="password" id="confirm"
+                                                                    name="current_password" class="validated-input"
+                                                                    value="">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="pc-row input-row">
+                                                        <div class="sm-col-12">
+                                                            <button type="submit" id="submitPass" name="submitPass"
+                                                                value="1"
+                                                                class="button button-blue">Save</button>
+                                                            <a class="button button-blue invert">Discard</a>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <!-- /Profile -->
 
-                        <!-- Bank Information -->
-                        <div class="bank-info-component profile_page_tab d-none">
-                            <div class="bank-info-form" id="bank-info-form">
-                                <div class="bank-info-container pc-row">
-                                    <div class="bank-info__login-card white-card">
-                                        <h3 class="title pc-row">Bank Information</h3>
-                                        <div class="content-container">
-                                            <div class="pc-row input-row">
-                                                <div class="pc-inputbox">
-                                                    <label class="pc-inputbox__label">
-                                                        To view bank information, please provide
-                                                        your password.
-                                                        <span class="text-danger">*</span>
-                                                    </label>
-                                                    <div class="pc-inputbox__input-container">
-                                                        <input type="password" class="pc-inputbox__input"
-                                                            value="">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="pc-row bank-info__login-button">
-                                                <button type="submit" class="button button-blue">Submit</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- /Bank Information -->
+
                     </form>
                 </div>
 
@@ -466,6 +509,19 @@
     </script>
     <script src="{{ asset('/partner-dashboard/assets/js/script.js') }}"></script>
 
+    <script>
+        $('#submitPass').onclick(function(e) {
+            e.preventDefault();
+            const password = document.querySelector('input[name=password]');
+            const confirm = document.querySelector('input[name=confirm]');
+            if (confirm.value === password.value) {
+                confirm.setCustomValidity('');
+                return true;
+            } else {
+                confirm.setCustomValidity('Passwords do not match');
+            }
+        });
+    </script>
 </body>
 
 </html>

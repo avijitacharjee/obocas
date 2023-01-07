@@ -53,7 +53,7 @@
                         <div class="card-header">Enter password</div>
                         <div class="card-body">
                             <div class="alert alert-success" id="successOtpAuth" style="display: none;"></div>
-                            <input type="text" id="verification" class="form-control" name="password"
+                            <input type="password" id="verification" class="form-control" name="password"
                                 placeholder="Enter password">
                             <input type="hidden" name="phone" value="{{$user->phone}}">
                             <button type="submit" class="btn btn-success mt-3">Continue</button>
