@@ -1,0 +1,272 @@
+.fd9ddecf26 {
+    background: #fff;
+    border: none;
+    border-radius: 3px;
+    border-top: 5px;
+    box-sizing: border-box;
+    position: relative
+}
+
+.a5e528f0c0 {
+    font-size: 12px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    text-align: center;
+}
+
+
+
+.c266cda126 {
+    -ms-flex-positive: 1;
+    box-sizing: border-box;
+    display: block;
+    /* flex-grow: 1; */
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    position: relative;
+    text-align: center
+}
+
+.d6fb8b8181 {
+    border-style: solid;
+    border-width: 0 1px 0 0;
+    height: 0;
+    line-height: 0;
+    overflow: hidden
+}
+
+.fd9ddecf26>.a5e528f0c0>.c266cda126:not(.d6fb8b8181) {
+    border: 1px solid #0071c2;
+    border-left-width: 0
+}
+
+.fd9ddecf26>.a5e528f0c0>.c266cda126:first-child {
+    border-left-width: 1px;
+    border-radius: 2px 0 0 2px
+}
+
+.fd9ddecf26>.a5e528f0c0>.c266cda126:last-child {
+    border-radius: 0 2px 2px 0;
+    border-right-width: 1px
+}
+
+._aa3362ea2 {
+    background: #0071c2;
+    position: relative
+}
+
+.c266cda126 ._aa3362ea2 {
+    background: #ebf3ff
+}
+
+.acf4eb317b {
+    -ms-flex-negative: 0;
+    -ms-flex-positive: 0;
+    flex-grow: 0;
+    flex-shrink: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 42px
+}
+
+.c266cda126>.a5e528f0c0 {
+    display: none
+}
+
+._8a69141be>.a5e528f0c0 {
+    background: #fff;
+    border: none;
+    border-radius: 2px;
+    bottom: 0;
+    box-shadow: 0 1px 8px 0 rgba(0, 0, 0, .12), 0 2px 3px -1px rgba(0, 0, 0, .2);
+    display: block;
+    overflow: hidden;
+    padding: 4px 0;
+    position: absolute;
+    transform: translateY(100%);
+    z-index: 100
+}
+
+.acf4eb317b._8a69141be>.a5e528f0c0 {
+    right: -1px
+}
+
+._8a69141be:not(.acf4eb317b)>.a5e528f0c0 {
+    border-radius: 4px;
+    bottom: 4px;
+    left: 50%;
+    padding: 4px 0;
+    transform: translate(-50%, 100%)
+}
+
+._8a69141be>.a5e528f0c0 .a5b679fa41,
+._8a69141be>.a5e528f0c0 .a5b679fa41:link,
+._8a69141be>.a5e528f0c0 .a5b679fa41:visited {
+    fill: #333;
+    background-color: #fff;
+    color: #333;
+    padding: 12px 16px
+}
+
+._8a69141be>.a5e528f0c0 .a5b679fa41:focus,
+._8a69141be>.a5e528f0c0 .a5b679fa41:hover {
+    background: #f5f5f5;
+    outline: none
+}
+
+._8a69141be>.a5e528f0c0 .a5b679fa41:active {
+    background-color: #e6e6e6
+}
+
+.acf4eb317b>.a5e528f0c0 {
+    min-width: 200px
+}
+
+.acf4eb317b>.a5e528f0c0>.c266cda126 {
+    text-align: left
+}
+
+.acf4eb317b ._8a69141be>.a5e528f0c0 {
+    left: auto;
+    right: 4px;
+    transform: translateY(100%)
+}
+
+.a5b679fa41,
+.a5b679fa41:focus,
+.a5b679fa41:hover,
+.a5b679fa41:link,
+.a5b679fa41:visited {
+    color: #0071c2;
+    display: block;
+    font-weight: 400;
+    padding: 7px 8px;
+    text-decoration: none;
+    white-space: nowrap;
+    border-left: 1px solid #0071c2;
+}
+@media (max-width: 991.98px) {
+    
+}
+.a5b679fa41:focus {
+    outline: 2px solid #a3d7fc
+}
+
+.a5b679fa41:hover {
+    background-color: #ebf3ff
+}
+
+.a5b679fa41>svg {
+    fill: #003580;
+    display: inline;
+    vertical-align: middle
+}
+
+.a5b679fa41 .fc3d07b567 {
+    fill: #ff8000;
+    margin-left: 3px
+}
+
+._09c10e9de._aa3362ea2>span>.a5b679fa41:hover,
+._aa3362ea2>.a5b679fa41:hover {
+    background-color: transparent
+}
+
+._09c10e9de._aa3362ea2>span>.a5b679fa41,
+.fd9ddecf26>.a5e528f0c0>._aa3362ea2>.a5b679fa41 {
+    color: #fff
+}
+
+._09c10e9de._aa3362ea2>span>.a5b679fa41 svg,
+.fd9ddecf26>.a5e528f0c0>._aa3362ea2>.a5b679fa41 svg {
+    fill: #fff
+}
+
+._8a69141be:not(.acf4eb317b) .a5e528f0c0 .a5b679fa41 {
+    line-height: 18px;
+    padding: 2px 8px
+}
+
+.c266cda126>span {
+    display: block !important
+}
+
+.ac4355462e {
+    padding: 16px
+}
+
+._91f1d4dc9 {
+    vertical-align: middle
+}
+
+.c292f143b4 {
+    margin: 10px 0
+}
+
+.hasJS .e81ee022d6 {
+    height: 36px;
+    overflow: hidden
+}
+
+._9a7597969 {
+    height: 14px;
+    margin-bottom: -2px;
+    margin-top: 0;
+    width: 55px
+}
+
+html:not(.hasJS) body.bookings2 .c292f143b4>ul {
+    padding-right: 0 !important
+}
+
+html:not(.hasJS) body.bookings2 .c292f143b4>ul>li:last-child {
+    display: none
+}
+li.dasktop-search-item {
+    display: inline-block;
+    margin-bottom: 5px;
+    margin-right: 5px;
+}
+
+.wrap-hotelpage-top__book {
+    margin-left: 10px;
+}
+
+.form_wl_fix {
+    margin-top: -6px;
+    float: right;
+    position: relative;
+    text-align: center;
+}
+
+.wrap-hotelpage-top__book .txp-bui-header-pp {
+    margin-bottom: 1em;
+}
+
+button.hp_share_center_button, button.lists-hotel-dropdown-square-heart {
+    padding: 2px;
+    margin-left: 3px;
+    border-radius: 3px;
+    cursor: pointer;
+    border: 0;
+    position: relative;
+    background-color: #fff;
+    font-size: 20px;
+    margin-right: 5px;
+}
+.dasktop-search-item.nav-item a.active {
+    background-color: #0071c2;
+    color: #fff;
+}
+
+
+
+
+
+
+
+

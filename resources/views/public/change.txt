@@ -1,0 +1,481 @@
+<div class="row mt-5">
+                    <div class="col-12">
+                        <div class="hp-section-header hp-section-header--with-badge mb-3">
+                            <h2 class="hp-dates-summary__header" id="availability" name="">
+                                Availability
+                            </h2>
+                            <div id="rate_guarantee" class="bpg_hp_no_availability hp-availability-block-usp">
+                                <a href="#" class="open-bpg-in-overlay-instead pp_bpg_tooltip_holder">We Price
+                                    Match
+                                </a>
+                            </div>
+                        </div>
+                        <!-- RE-Search Form -->
+                        <div class="sb-searchbox__outer" data-sb-outer="">
+                            <form method="get" action="/property/{{$property->id}}" role="search"
+                                class=" sb-searchbox sb-searchbox--painted sb-searchbox--xp -minified js-sb-frm-hp js--sb-searchbox"
+                                data-component="search/searchbox/searchbox-xp" data-sb-id="main"
+                                data-sb-flags=" AEJPAcBacPONDcFGHT:0 show_overlay_on_submit:1 icon_revamp:1 region_second_line:1"
+                                data-is-first-visible="1" data-skip-hp-refresh="1" data-show-overlay-on-submit="1"
+                                {{-- data-sb-action-for-group="/hotel/bd/nascent-gardenia-baridhara.html#group_recommendation" --}}
+                                >
+
+
+                                <div class="xp__fieldset js--sb-fieldset accommodation -no-destination"
+                                    data-view="accommodation">
+                                    <div data-visible="accommodation,flights,rentalcars" class="xp__dates xp__group">
+                                        <div class="xp__dates-inner">
+                                            <div data-component="search/dates/dates-errors" data-view-id="accommodation"
+                                                data-sb-id="main" role="alert" data-dates-errors=""></div>
+                                            <div data-visible="accommodation,flights,rentalcars"
+                                                class="xp__input-group xp__date-time">
+                                                <div class="xp__dates-inner xp__dates__checkin">
+                                                    <div data-visible="accommodation,flights,rentalcars"
+                                                        class="xp__group xp__date c2-wrapper-s-hidden">
+                                                        <div class="sb-date-field b-datepicker"
+                                                            data-component="search/dates/date-field-select"
+                                                            data-sb-id="main" data-mode="checkin"
+                                                            data-calendar2-type="checkin"
+                                                            data-calendar2-title="Check-in">
+                                                            <div class="sb-searchbox__input sb-date-field__field sb-date__field-svg_icon"
+                                                                data-field="">
+                                                                <span
+                                                                    class="sb-date-field__icon sb-date-field__icon-btn bk-svg-wrapper calendar-restructure-sb">
+                                                                    <svg class="bk-icon -streamline-calendar sb-date-picker_icon-svg"
+                                                                        fill="#BDBDBD" height="20" width="20"
+                                                                        viewBox="0 0 24 24">
+                                                                        <path
+                                                                            d="M22.502 13.5v8.25a.75.75 0 0 1-.75.75h-19.5a.75.75 0 0 1-.75-.75V5.25a.75.75 0 0 1 .75-.75h19.5a.75.75 0 0 1 .75.75v8.25zm1.5 0V5.25A2.25 2.25 0 0 0 21.752 3h-19.5a2.25 2.25 0 0 0-2.25 2.25v16.5A2.25 2.25 0 0 0 2.252 24h19.5a2.25 2.25 0 0 0 2.25-2.25V13.5zm-23.25-3h22.5a.75.75 0 0 0 0-1.5H.752a.75.75 0 0 0 0 1.5zM7.502 6V.75a.75.75 0 0 0-1.5 0V6a.75.75 0 0 0 1.5 0zm10.5 0V.75a.75.75 0 0 0-1.5 0V6a.75.75 0 0 0 1.5 0z">
+                                                                        </path>
+                                                                    </svg>
+                                                                    <i class="sb-date-field__icon-text sb-date-field__icon-text-wide"
+                                                                        data-icon-day="" data-placeholder="+">{{date('n')}}</i>
+                                                                </span>
+                                                                <div class="sb-date-field__controls sb-date-field__controls__ie-fix"
+                                                                    data-controls="">
+                                                                    <div class="sb-date-field__select -month-year js-date-field__part"
+                                                                        data-type="month-year">
+                                                                        <div class="sb-date-field__select-value">
+                                                                            <span class="js-date-field__value"
+                                                                                data-placeholder="Check-in month ">{{date('F Y')}}
+                                                                            </span>
+                                                                            <i
+                                                                                class="sb-date-field__select-icon bicon-downchevron"></i>
+                                                                        </div>
+                                                                        <select
+                                                                            class="sb-date-field__select-field js-date-field__select"
+                                                                            aria-label="Check-in month"
+                                                                            data-no-old-calendar="1">
+                                                                            <option value="" disabled="">
+                                                                            </option>
+
+                                                                        </select>
+
+                                                                    </div>
+                                                                    <div class="sb-date-field__select -day js-date-field__part"
+                                                                        data-type="date">
+                                                                        <div class="sb-date-field__select-value">
+                                                                            <span class="js-date-field__value"
+                                                                                data-placeholder="Check-in day">20,
+                                                                                Sunday</span>
+                                                                            <i
+                                                                                class="sb-date-field__select-icon bicon-downchevron"></i>
+                                                                        </div>
+                                                                        <select
+                                                                            class="sb-date-field__select-field js-date-field__select"
+                                                                            name="checkin_monthday" data-selected="19"
+                                                                            aria-label="Check-in day"
+                                                                            data-no-old-calendar="1">
+                                                                            <option value="" disabled="">
+                                                                            </option>
+
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="sb-date-field__display"
+                                                                    data-placeholder="Check-in"
+                                                                    data-date-format="short_date_with_weekday_without_year"
+                                                                    data-display="">Sun,
+                                                                    Mar 20</div>
+                                                                <i class="sb-date-field__chevron bicon-downchevron"></i>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div data-visible="accommodation,flights,rentalcars"
+                                                class="xp__input-group xp__date-time">
+                                                <div class="xp__dates-inner xp__dates__checkout">
+                                                    <div data-visible="accommodation,flights,rentalcars"
+                                                        class="xp__group xp__date c2-wrapper-s-hidden">
+                                                        <div class="sb-date-field b-datepicker"
+                                                            data-component="search/dates/date-field-select"
+                                                            data-sb-id="main" data-mode="checkout"
+                                                            data-calendar2-type="checkout"
+                                                            data-calendar2-title="Check-out">
+                                                            <div class="sb-searchbox__input sb-date-field__field sb-date__field-svg_icon"
+                                                                data-field="">
+                                                                <span
+                                                                    class="sb-date-field__icon sb-date-field__icon-btn bk-svg-wrapper calendar-restructure-sb">
+                                                                    <svg class="bk-icon -streamline-calendar sb-date-picker_icon-svg"
+                                                                        fill="#BDBDBD" height="20" width="20"
+                                                                        viewBox="0 0 24 24">
+                                                                        <path
+                                                                            d="M22.502 13.5v8.25a.75.75 0 0 1-.75.75h-19.5a.75.75 0 0 1-.75-.75V5.25a.75.75 0 0 1 .75-.75h19.5a.75.75 0 0 1 .75.75v8.25zm1.5 0V5.25A2.25 2.25 0 0 0 21.752 3h-19.5a2.25 2.25 0 0 0-2.25 2.25v16.5A2.25 2.25 0 0 0 2.252 24h19.5a2.25 2.25 0 0 0 2.25-2.25V13.5zm-23.25-3h22.5a.75.75 0 0 0 0-1.5H.752a.75.75 0 0 0 0 1.5zM7.502 6V.75a.75.75 0 0 0-1.5 0V6a.75.75 0 0 0 1.5 0zm10.5 0V.75a.75.75 0 0 0-1.5 0V6a.75.75 0 0 0 1.5 0z">
+                                                                        </path>
+                                                                    </svg>
+                                                                    <i class="sb-date-field__icon-text sb-date-field__icon-text-wide"
+                                                                        data-icon-day="" data-placeholder="+">21</i>
+                                                                </span>
+                                                                <div class="sb-date-field__controls sb-date-field__controls__ie-fix"
+                                                                    data-controls="">
+                                                                    <div class="sb-date-field__select -month-year js-date-field__part"
+                                                                        data-type="month-year">
+                                                                        <div class="sb-date-field__select-value">
+                                                                            <span class="js-date-field__value"
+                                                                                data-placeholder="Check-out month">April
+                                                                                2022</span>
+                                                                            <i
+                                                                                class="sb-date-field__select-icon bicon-downchevron"></i>
+                                                                        </div>
+                                                                        <select
+                                                                            class="sb-date-field__select-field js-date-field__select"
+                                                                            aria-label="Check-out month"
+                                                                            data-no-old-calendar="1">
+                                                                            <option value="" disabled="">
+                                                                            </option>
+
+                                                                        </select>
+                                                                        <input type="hidden"
+                                                                            class="js-date-field__year"
+                                                                            name="checkout_year" value="2022">
+                                                                        <input type="hidden"
+                                                                            class="js-date-field__month"
+                                                                            name="checkout_month" value="4">
+                                                                    </div>
+                                                                    <div class="sb-date-field__select -day js-date-field__part"
+                                                                        data-type="date">
+                                                                        <div class="sb-date-field__select-value">
+                                                                            <span class="js-date-field__value"
+                                                                                data-placeholder="Check-out day">21,
+                                                                                Thursday</span>
+                                                                            <i
+                                                                                class="sb-date-field__select-icon bicon-downchevron"></i>
+                                                                        </div>
+                                                                        <select
+                                                                            class="sb-date-field__select-field js-date-field__select"
+                                                                            name="checkout_monthday" data-selected="21"
+                                                                            aria-label="Check-out day"
+                                                                            data-no-old-calendar="1">
+                                                                            <option value="" disabled="">
+                                                                            </option>
+
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="sb-date-field__display"
+                                                                    data-placeholder="Check-out"
+                                                                    data-date-format="short_date_with_weekday_without_year"
+                                                                    data-display="">Thu,
+                                                                    Apr 21</div>
+                                                                <i class="sb-date-field__chevron bicon-downchevron"></i>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="xp-calendar searchbox-calendar--with-prices"
+                                            data-component="search/dates/single-calendar-with-prices"
+                                             data-sb-id="main"
+                                            data-render-los="1">
+                                            <div class="bui-calendar" style="display: block;">
+                                                <div class="bui-calendar__main b-a11y-calendar-contrasts">
+                                                    <div class="bui-calendar__control bui-calendar__control--prev bui-calendar__control--hidden"
+                                                        data-bui-ref="calendar-prev">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                                            height="24" viewBox="0 0 24 24">
+                                                            <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z">
+                                                            </path>
+                                                        </svg>
+                                                    </div>
+                                                    <div class="bui-calendar__control bui-calendar__control--next"
+                                                        data-bui-ref="calendar-next">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                                            height="24" viewBox="0 0 24 24">
+                                                            <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z">
+                                                            </path>
+                                                        </svg>
+                                                    </div>
+                                                    <div class="bui-calendar__content" data-bui-ref="calendar-content">
+                                                        <div class="bui-calendar__wrapper"
+                                                            data-bui-ref="calendar-month">
+                                                            <div class="bui-calendar__month"
+                                                                id="bui-calendar-1647383489644vujhb" aria-live="polite">
+                                                                March 2022</div>
+                                                            <table class="bui-calendar__dates"
+                                                                aria-labelledby="bui-calendar-1647383489644vujhb">
+
+                                                                <thead class="bui-calendar__row">
+                                                                    <tr>
+                                                                        <th scope="col"
+                                                                            class="bui-calendar__day-name">
+                                                                            Mo
+                                                                        </th>
+
+                                                                    </tr>
+                                                                </thead>
+
+                                                                <tbody>
+                                                                    <tr class="bui-calendar__row">
+                                                                        <td
+                                                                            class="bui-calendar__date bui-calendar__date--empty">
+                                                                        </td>
+
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+
+                                                        <div class="bui-calendar__wrapper"
+                                                            data-bui-ref="calendar-month">
+                                                            <div class="bui-calendar__month"
+                                                                id="bui-calendar-1647383489644vujhb" aria-live="polite">
+                                                                April 2022</div>
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="bui-calendar__display calendar-dates-prices-info-section">
+                                                        <div class="calendar-dates-prices-info-message">
+                                                            Approximate prices in BDT for a 1-night stay
+                                                        </div>
+                                                        <div class="calendar-dates-prices-loader"
+                                                            style="display: none;">
+                                                            <div aria-label="Label"
+                                                                class="bui-spinner bui-spinner--size-small calendar-dates-prices-loading__spinner"
+                                                                role="alert" aria-busy="true">
+                                                                <div class="bui-spinner__inner"></div>
+                                                            </div>
+                                                            <div class="bui-text calendar-dates-prices-loading__text">
+                                                                Loading dates...</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="bui-calendar__display"
+                                                        data-bui-ref="calendar-selected-display">Sun, Mar 20
+                                                        - Thu, Apr 21 (32-night stay)</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {{-- <div class="xp-calendar " data-component="search/dates/single-calendar"
+                                            data-sb-id="main" data-render-los="1">
+                                            <div class="bui-calendar">
+                                                <div class="bui-calendar__main b-a11y-calendar-contrasts">
+                                                    <div class="bui-calendar__control bui-calendar__control--prev"
+                                                        data-bui-ref="calendar-prev">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                                            height="24" viewBox="0 0 24 24">
+                                                            <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+                                                        </svg>
+                                                    </div>
+                                                    <div class="bui-calendar__control bui-calendar__control--next"
+                                                        data-bui-ref="calendar-next">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                                            height="24" viewBox="0 0 24 24">
+                                                            <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" />
+                                                        </svg>
+                                                    </div>
+                                                    <div class="bui-calendar__content" data-bui-ref="calendar-content">
+                                                    </div>
+                                                    <div class="bui-calendar__display"
+                                                        data-bui-ref="calendar-selected-display">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div> --}}
+                                    </div>
+                                    <div data-visible="accommodation,flights" class="xp__input-group xp__guests"
+                                        data-component="search/group/group-with-modal" data-sb-id="main"
+                                        tabindex="0">
+                                        <div data-component="xp-index/guest-errors" data-sb-id="main"
+                                            data-view-id="accommodation" role="alert">
+                                        </div>
+                                        <label id="xp__guests__toggle" for="xp__guests__input" class="xp__input"
+                                            data-group-toggle="" role="button" aria-expanded="false"
+                                            aria-controls="xp__guests__inputs-container">
+                                            <span class="invisible_spoken">Rooms and occupancy</span>
+                                            <span class="xp__guests__count">
+                                                <span data-adults-count="">2 adults</span>
+                                                <span data-visible="accommodation">
+                                                    &nbsp;·&nbsp;
+                                                    <span data-children-count="">1 child</span>
+                                                </span>
+                                                <span data-visible="accommodation">
+                                                    &nbsp;·&nbsp;
+                                                    <span data-room-count="">1 room</span>
+                                                </span>
+                                            </span>
+                                        </label>
+                                        <div id="xp__guests__inputs-container" class="xp__guests__inputs focussable "
+                                            data-group-modal="" style="display: none;" role="region"
+                                            aria-label="Rooms and occupancy">
+                                            <div data-component="search/group/group" data-sb-id="main"
+                                                data-sb-width="medium" data-sb-bbtool-searchbox="0"
+                                                data-sb-group-children-hide="0" data-sb-group-children-ages-hide="0"
+                                                data-sb-group-infants-hide="1" data-sb-group-pets-hide="0"
+                                                data-sb-group-rooms-hide="0" data-sb-group-block-labels="0"
+                                                data-sb-group-use_adults_label="0" data-sb-group-always-expanded="0"
+                                                data-sb-group-use-bui-stepper="1"
+                                                data-sb-group-bui-steppers-accessible="0"
+                                                data-fe_sb_group_descriptive_dropdowns="0"
+                                                data-fe_sb_universal_design="0" data-fe_sb_xpi="1"
+                                                data-fe_remove_duplicate_ids="0" data-fe_sb_unique_id=""
+                                                data-sb_reorder_rooms_block="1" data-sb-facelift="0"
+                                                data-fe_sb_show_children_age_bracket="0"
+                                                data-fe_sb_mandatory_child_ages="0"
+                                                data-fe_fam_d_index_mandatory_ages_new_copy="0"
+                                                data-fe_sb_dont_use_default_child_age="0">
+                                                <div class="u-clearfix" data-render="">
+                                                    <div class="sb-group__field sb-group__field-adults">
+                                                        <div class="bui-stepper" data-bui-component="InputStepper">
+                                                            <div class="bui-stepper__title-wrapper">
+                                                                <label class="bui-stepper__title"
+                                                                    for="group_adults">Adults</label>
+                                                            </div>
+                                                            <div class="bui-stepper__wrapper">
+                                                                <input type="range" class="bui-stepper__input"
+                                                                    data-bui-ref="input-stepper-field" id="group_adults"
+                                                                    name="group_adults" min="1" max="30"
+                                                                    value="2" data-group-adults-count="">
+                                                                <button
+                                                                    class="bui-button bui-button--secondary bui-stepper__subtract-button"
+                                                                    data-bui-ref="input-stepper-subtract-button"
+                                                                    type="button">
+                                                                    <span class="bui-button__text">-</span>
+                                                                </button>
+                                                                <span class="bui-stepper__display"
+                                                                    data-bui-ref="input-stepper-value">2</span>
+                                                                <button
+                                                                    class="bui-button bui-button--secondary bui-stepper__add-button"
+                                                                    data-bui-ref="input-stepper-add-button"
+                                                                    type="button">
+                                                                    <span class="bui-button__text">+</span>
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="sb-group__field sb-group-children ">
+                                                        <div class="bui-stepper" data-bui-component="InputStepper">
+                                                            <div class="bui-stepper__title-wrapper">
+                                                                <label class="bui-stepper__title"
+                                                                    for="group_children">Children</label>
+                                                            </div>
+                                                            <div class="bui-stepper__wrapper">
+                                                                <input type="range" class="bui-stepper__input"
+                                                                    data-bui-ref="input-stepper-field"
+                                                                    id="group_children" name="group_children"
+                                                                    min="0" max="10" value="1"
+                                                                    data-group-children-count="">
+                                                                <button
+                                                                    class="bui-button bui-button--secondary bui-stepper__subtract-button"
+                                                                    data-bui-ref="input-stepper-subtract-button"
+                                                                    type="button">
+                                                                    <span class="bui-button__text">-</span>
+                                                                </button>
+                                                                <span class="bui-stepper__display"
+                                                                    data-bui-ref="input-stepper-value">1</span>
+                                                                <button
+                                                                    class="bui-button bui-button--secondary bui-stepper__add-button"
+                                                                    data-bui-ref="input-stepper-add-button"
+                                                                    type="button">
+                                                                    <span class="bui-button__text">+</span>
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="sb-group__field sb-group__field-rooms">
+                                                        <div class="bui-stepper" data-bui-component="InputStepper">
+                                                            <div class="bui-stepper__title-wrapper">
+                                                                <label class="bui-stepper__title"
+                                                                    for="no_rooms">Rooms</label>
+                                                            </div>
+                                                            <div class="bui-stepper__wrapper">
+                                                                <input type="range" class="bui-stepper__input"
+                                                                    data-bui-ref="input-stepper-field" id="no_rooms"
+                                                                    name="no_rooms" min="1" max="30"
+                                                                    value="1" data-group-rooms-count="">
+                                                                <button
+                                                                    class="bui-button bui-button--secondary bui-stepper__subtract-button"
+                                                                    data-bui-ref="input-stepper-subtract-button"
+                                                                    type="button" disabled="">
+                                                                    <span class="bui-button__text">-</span>
+                                                                </button>
+                                                                <span class="bui-stepper__display"
+                                                                    data-bui-ref="input-stepper-value">1</span>
+                                                                <button
+                                                                    class="bui-button bui-button--secondary bui-stepper__add-button"
+                                                                    data-bui-ref="input-stepper-add-button"
+                                                                    type="button">
+                                                                    <span class="bui-button__text">+</span>
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="sb-group__children__field clearfix">
+                                                        <label
+                                                            class="sb-searchbox__label -small sb-group__children__label">
+                                                            How old is the child you're traveling with?
+                                                        </label>
+                                                        <select name="age" data-group-child-age="0"
+                                                            aria-label="Child 1 age">
+                                                            <option class="sb_child_ages_empty_zero" value="12 ">
+                                                                Age at
+                                                                check-out</option>
+                                                            <option value="0">0 years old</option>
+                                                            <option value="1">1 year old </option>
+                                                            <option value="2" selected="">2 years old
+                                                            </option>
+                                                            <option value="3">3 years old</option>
+                                                            <option value="4">4 years old</option>
+                                                            <option value="5">5 years old</option>
+                                                            <option value="6">6 years old</option>
+                                                            <option value="7">7 years old</option>
+                                                            <option value="8">8 years old</option>
+                                                            <option value="9"> 9 years old </option>
+                                                            <option value="10">10 years old</option>
+                                                            <option value="11">11 years old </option>
+                                                            <option value="12">12 years old</option>
+                                                            <option value="13">13 years old</option>
+                                                            <option value="14">14 years old</option>
+                                                            <option value="15">15 years old </option>
+                                                            <option value="16">16 years old</option>
+                                                            <option value="17">17 years old
+                                                            </option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="xp__button">
+                                        <div class="sb-searchbox-submit-col -button-messages">
+                                        </div>
+                                        <div class="sb-searchbox-submit-col -submit-button ">
+                                            <button data-sb-id="main" type="submit" class="sb-searchbox__button "
+                                                data-et-click="    customGoal:INLGHUDSJNQQdKBUPfECIAEcOHT:4    ">
+                                                <span>
+                                                    Change search
+                                                </span>
+                                                <span class="sb-submit-helper"></span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </form>
+                        </div>
+                        <!-- RE-Search Form -->
+
+                    </div>
+                </div>
