@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\View\View;
+use DateTime;
 
 class PartnerController extends Controller
 {
@@ -61,9 +62,25 @@ class PartnerController extends Controller
         if ($partner->profile_completed_at) {
             $percentage += 20;
         }
+        $months = $this->lastNMonths(12);
+        $monthlyBookings= $this->monthlyBookings();
+        $data = [];
+        $dateTime = new DateTime();
+        for ($i = 0; $i < 12;$i++){
+            // $dateTime->setDate($months[$i]['year'],$months[$i]['month'],1);
+            array_push(
+                $data,
+                (object) [
+                    'd' => "{$months[$i]['year']}-{$months[$i]['month']}",
+                    'a'=>$monthlyBookings[$i]
+                    ]
+            );
+        }
+        // dd($data);
         return view('partner.dashboard.dashboard')
             ->with('partner', $partner)
-            ->with('percentage', $percentage);
+            ->with('percentage', $percentage)
+            ->with('data',$data);
     }
     public function signin(StorePartnerRequest $request)
     {
@@ -116,9 +133,16 @@ class PartnerController extends Controller
         $address->save();
         return back()->with('message', 'Successfully updated');
     }
-    public function report()
+    public function report(Request $request)
     {
         $bookings = auth()->user()->partner->bookings;
+        if($request->has('from_date')){
+            $fromDate = $request->from_date;
+            $toDate = $request->to_date;
+            $bookings = Booking::whereBetween('created_at', [$fromDate,$toDate])
+                ->where('partner_id',auth()->user()->partner->id)
+                ->get();
+        }
         $bookingsThisMonth = Booking::whereYear('created_at', Carbon::now()->year)
             ->whereMonth('created_at', Carbon::now()->month)
             ->where('partner_id', auth()->user()->partner->id)
@@ -133,5 +157,33 @@ class PartnerController extends Controller
             ->with('bookings', $bookings)
             ->with('bookingsThisMonth', $bookingsThisMonth)
             ->with('bookingsToday', $bookingsToday);
+    }
+    public function tools(){
+        return view('partner.dashboard.tools')
+            ->with('partner',auth()->user()->partner);
+    }
+    public function lastNMonths($n){
+        $months = array();
+        $now = now();
+        for($i = 1;$i<=$n;$i++){
+            array_push($months, [
+                'month_name'=>now()->subMonth($i)->monthName,
+                'month'=>now()->subMonth($i)->month,
+                'year'=>now()->subMonth($i)->year
+            ]);
+        }
+        return array_reverse($months);
+    }
+    public function monthlyBookings(){
+        $months = $this->lastNMonths(12);
+        $bookings = array();
+        foreach($months as $month){
+            $bookingsCount = Booking::whereYear('created_at', $month['year'])
+                ->whereMonth('created_at', $month['month'])
+                ->where('partner_id',auth()->user()->partner->id)
+                ->count();
+            array_push($bookings, $bookingsCount);
+        }
+        return $bookings;
     }
 }

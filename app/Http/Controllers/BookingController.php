@@ -55,7 +55,11 @@ class BookingController extends Controller
         // Booking::create($data);
         $booking = new Booking();
         $booking->fill($data);
-        $booking->partner_id = session('coupon');
+        if(session('coupon')){
+            $coupon = session('coupon');
+            $partner_id = (int) filter_var($coupon, FILTER_SANITIZE_NUMBER_INT);
+            $booking->partner_id = $partner_id;
+        }
         $booking->save();
         session(['booking_id'=> $booking->id]);
         return redirect('/booking-confirm');

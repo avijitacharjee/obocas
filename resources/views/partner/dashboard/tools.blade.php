@@ -36,45 +36,54 @@
         <div class="page-component post-login">
             @include('partner.dashboard.header')
             <!-- Tools -->
-            <div class="page-component-content tools">
-                <div class="tools-page-content">
+            <div>
+                <div class="">
                     <div class="items-container">
+
                         <div class="items">
-                            <div class="tool-item-container">
-                                <a class="destination-container traffic-tracking" href="{{ url("#") }}">
+                            <div class="tool-item-container ">
+                                <a class="destination-container traffic-tracking" id="text-links"
+                                    href="{{ url('#') }}">
                                     <div class="tool-item-content">
                                         <div class="main-content">
                                             <div class="tool-item-title">Text Links</div>
-                                            <div class="icon-container">
-                                                <i class="ficon ficon ficon-text-links"></i>
+                                            <div class="icon-container" onclick="copyText()">
+                                                <i class="ficon fa-solid fa-link"></i>
                                             </div>
-                                            <div class="tool-item-description">Place deep links right inside your
-                                                content.
-                                            </div>
+                                            <div class="tool-item-description">Place deep links right inside
+                                                your content. </div>
                                         </div>
                                         <div class="tool-item-extra">
                                             <div class="percentage-container">
                                                 <span>
-                                                    <span class="percentage">
-                                                        71
-                                                    </span> % of our top partners implemented this tool
+                                                    <span class="percentage">71</span> % of our top partners
+                                                    implemented this tool
                                                 </span>
                                             </div>
                                         </div>
                                     </div>
                                 </a>
                             </div>
+                            <script>
+                                function copyText() {
+                                    /* Copy text into clipboard */
+                                    navigator.clipboard.writeText(`${window.location.origin}/coupon/{{ auth()->user()->partner->coupon_code }}`);
+                                    alert('Link has been copied to your clipboard');
+                                }
+                            </script>
                             <div class="tool-item-container ">
-                                <a class="destination-container traffic-tracking" href="{{ url("#") }}">
+                                <a download="obocas-{{ $partner->id }}-qr.jpg"
+                                    href="{{ asset('/storage/') }}/qr/qr-{{ $partner->id }}.png"
+                                    title="ImageName" class="destination-container traffic-tracking"
+                                    id="image-links" href="{{ url('#') }}">
                                     <div class="tool-item-content">
                                         <div class="main-content">
                                             <div class="tool-item-title">Image Link</div>
                                             <div class="icon-container">
-                                                <i class="ficon ficon ficon-map-attraction"></i>
+                                                <i class="ficon fa-solid fa-camera"></i>
                                             </div>
-                                            <div class="tool-item-description">
-                                                Get our special hotel/city images and link them instantly
-                                            </div>
+                                            <div class="tool-item-description">Get our special hotel/city
+                                                images and link them instantly</div>
                                         </div>
                                         <div class="tool-item-extra">
                                             <div class="percentage-container">
@@ -84,130 +93,34 @@
                                     </div>
                                 </a>
                             </div>
-                            <div class="tool-item-container ">
-                                <a href="{{ url("#") }}" class="destination-container traffic-tracking">
-                                    <div class="tool-item-content">
-                                        <div class="main-content">
-                                            <div class="tool-item-title">Search Box</div>
-                                            <div class="icon-container">
-                                                <i class="ficon ficon ficon-search-box"></i>
-                                            </div>
-                                            <div class="tool-item-description">Let Users search properties within your
-                                                site.</div>
-                                        </div>
-                                        <div class="tool-item-extra">
-                                            <div class="percentage-container">
-                                                <span>
-                                                    <span class="percentage">
-                                                        69
-                                                    </span>% of our top partners implemented this tool
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="tool-item-container">
-                                <a href="{{ url("#") }}" class="destination-container traffic-tracking">
-                                    <div class="tool-item-content">
-                                        <div class="main-content">
-                                            <div class="tool-item-title">Banners</div>
-                                            <div class="icon-container">
-                                                <i class="ficon ficon ficon-dynamic-banner"></i>
-                                            </div>
-                                            <div class="tool-item-description">Build beautiful image banners that look
-                                                great on your site.</div>
-                                        </div>
-                                        <div class="tool-item-extra">
-                                            <div class="percentage-container">
-                                                <span>
-                                                    <span class="percentage">66
-                                                    </span>% of our top partners implemented this tool
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
                         </div>
+
                         <div class="items stats">
-                            <div class="tools-button-link">
-                                <a class="button-link-url traffic-tracking" href="{{ url("#") }}">
+
+                            <div class="tools-button-link  ">
+                                <a class="button-link-url traffic-tracking" href="{{ url('#') }}">
                                     <div class="percentage-container">
                                         <span>
-                                            <span class="percentage">71
-
-                                            </span>% of our top partners implemented this tool
+                                            <span class="percentage">71</span>% of our top partners
+                                            implemented this tool
                                         </span>
                                     </div>
                                 </a>
                             </div>
-                            <div class="tools-button-link">
-                                <a class="button-link-url traffic-tracking" href="{{ url("#") }}">
+                            <div class="tools-button-link  ">
+                                <a class="button-link-url traffic-tracking" href="{{ url('#') }}">
                                     <div class="percentage-container">
                                         <span>NEW !!</span>
                                     </div>
                                 </a>
                             </div>
-                            <div class="tools-button-link">
-                                <a class="button-link-url traffic-tracking" href="{{ url("#") }}">
-                                    <div class="percentage-container">
-                                        <span>
-                                            <span class="percentage">69
-                                            </span>% of our top partners implemented this tool
-                                        </span>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="tools-button-link">
-                                <a class="button-link-url traffic-tracking" href="{{ url("#") }}">
-                                    <div class="percentage-container">
-                                        <span>
-                                            <span class="percentage">
-                                                66
-                                            </span>% of our top partners implemented this tool
-                                        </span>
-                                    </div>
-                                </a>
-                            </div>
+
                         </div>
                         <div class="row-spacing"></div>
-                        <div class="items">
-                            <div class="tool-item-container ">
-                                <a target="" class="destination-container traffic-tracking"
-                                    data-trackingelement="HotelDataBannerMenu" data-trackingpage="Tools" id="hotel-data"
-                                    href="{{ url("/Tools/HotelData") }}">
-                                    <div class="tool-item-content">
-                                        <div class="main-content">
-                                            <div class="tool-item-title">Hotel Data File</div>
-                                            <div class="icon-container"><i class="ficon ficon ficon-hotel-data"></i>
-                                            </div>
-                                            <div class="tool-item-description">Design the experience ideal for your
-                                                users
-                                            </div>
-                                        </div>
-                                        <div class="tool-item-extra">
-                                            <div class="percentage-container"><span><span class="percentage">56</span>%
-                                                    of our top partners implemented this tool</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="items stats">
-                            <div class="tools-button-link  ">
-                                <a class="button-link-url traffic-tracking" data-trackingelement="HotelDataBannerMenu"
-                                    data-trackingpage="Tools" target="" href="{{ url("/Tools/HotelData") }}">
-                                    <div class="percentage-container"><span><span class="percentage">56</span>% of our
-                                            top partners implemented this tool</span>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="row-spacing"></div>
+
                     </div>
                 </div>
+
             </div>
             <!-- /Tools -->
 

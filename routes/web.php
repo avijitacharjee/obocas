@@ -99,15 +99,15 @@ Route::group([
     Route::get('signup', 'signup');
     Route::post('signup', 'store');
     Route::post('signin', 'signin');
+    Route::view('index', 'partner.index');
     Route::redirect('/', '/partner/dashboard');
     Route::middleware(PartnerMiddleware::class)->group(function () {
         Route::get('home', 'home');
         Route::view('faq', 'partner.dashboard.faq');
-        Route::view('index', 'partner.index');
         Route::get('dashboard', 'dashboard');
         Route::get('profile', 'profile');
         Route::get('report', 'report');
-        Route::view('tools', 'partner.dashboard.tools');
+        Route::get('tools', 'tools');
         Route::post('profile', 'updateProfile');
     });
     Route::fallback(function () {
@@ -194,3 +194,7 @@ Route::prefix('admin')->group(function () {
 });
 Route::get('firebase', [FirebaseController::class, 'index']);
 Route::get('fauth', [FirebaseController::class, 'auth']);
+Route::get('/coupon/{coupon_code}', function ($coupon_code) {
+    session(['coupon' => $coupon_code]);
+    return redirect('/');
+});

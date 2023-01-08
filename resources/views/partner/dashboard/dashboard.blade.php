@@ -14,24 +14,24 @@
 
     <!-- ===================== Required Css File Links ===================== -->
     <!-- favicon Icon -->
-    <link rel="shortcut icon" href="{{ asset("/partner-dashboard/assets/images/favicon.png") }}" type="image/png" />
+    <link rel="shortcut icon" href="{{ asset('/partner-dashboard/assets/images/favicon.png') }}" type="image/png" />
     <!-- fontawesome css (version:-5.15.3) -->
-    <link rel="stylesheet" href="{{ asset("/partner-dashboard/assets/css/all.min.css") }}">
+    <link rel="stylesheet" href="{{ asset('/partner-dashboard/assets/css/all.min.css') }}">
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
 
-    <link rel="stylesheet" href="{{ asset("/partner-dashboard/assets/plugins/morris/morris.css") }}">
+    <link rel="stylesheet" href="{{ asset('/partner-dashboard/assets/plugins/morris/morris.css') }}">
 
     <!-- Plugin -->
-    <link rel="stylesheet" href="{{ asset("/partner-dashboard/assets/css/slick.css") }}">
-    <link rel="stylesheet" href="{{ asset("/partner-dashboard/assets/css/slick-theme.css") }}">
+    <link rel="stylesheet" href="{{ asset('/partner-dashboard/assets/css/slick.css') }}">
+    <link rel="stylesheet" href="{{ asset('/partner-dashboard/assets/css/slick-theme.css') }}">
     <!-- ===================== Project Css File Links ===================== -->
-    <link rel="stylesheet" href="{{ asset("/partner-dashboard/assets/css/default.css") }}">
+    <link rel="stylesheet" href="{{ asset('/partner-dashboard/assets/css/default.css') }}">
     <!-- style css -->
-    <link rel="stylesheet" href="{{ asset("/partner-dashboard/assets/css/style.css") }}">
-    <link rel="stylesheet" href="{{ asset("/partner-dashboard/assets/webfonts/localfont/local-font-stylesheet.css") }}">
+    <link rel="stylesheet" href="{{ asset('/partner-dashboard/assets/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('/partner-dashboard/assets/webfonts/localfont/local-font-stylesheet.css') }}">
 
 </head>
 
@@ -53,7 +53,8 @@
 
                                     <div class="items">
                                         <div class="tool-item-container ">
-                                            <a class="destination-container traffic-tracking" id="text-links" href="{{ url("#") }}">
+                                            <a class="destination-container traffic-tracking" id="text-links"
+                                                href="{{ url('#') }}">
                                                 <div class="tool-item-content">
                                                     <div class="main-content">
                                                         <div class="tool-item-title">Text Links</div>
@@ -77,14 +78,15 @@
                                         <script>
                                             function copyText() {
                                                 /* Copy text into clipboard */
-                                                navigator.clipboard.writeText
-                                                    (`${window.location.origin}/coupon/{{auth()->user()->partner->coupon_code}}`);
+                                                navigator.clipboard.writeText(`${window.location.origin}/coupon/{{ auth()->user()->partner->coupon_code }}`);
                                                 alert('Link has been copied to your clipboard');
                                             }
                                         </script>
                                         <div class="tool-item-container ">
-                                            <a download="obocas-{{$partner->id}}-qr.jpg" href="{{asset('/storage/')}}/qr/qr-{{$partner->id}}.png" title="ImageName" class="destination-container traffic-tracking" id="image-links"
-                                                href="{{ url("#") }}">
+                                            <a download="obocas-{{ $partner->id }}-qr.jpg"
+                                                href="{{ asset('/storage/') }}/qr/qr-{{ $partner->id }}.png"
+                                                title="ImageName" class="destination-container traffic-tracking"
+                                                id="image-links" href="{{ url('#') }}">
                                                 <div class="tool-item-content">
                                                     <div class="main-content">
                                                         <div class="tool-item-title">Image Link</div>
@@ -107,7 +109,7 @@
                                     <div class="items stats">
 
                                         <div class="tools-button-link  ">
-                                            <a class="button-link-url traffic-tracking" href="{{ url("#") }}">
+                                            <a class="button-link-url traffic-tracking" href="{{ url('#') }}">
                                                 <div class="percentage-container">
                                                     <span>
                                                         <span class="percentage">71</span>% of our top partners
@@ -117,7 +119,7 @@
                                             </a>
                                         </div>
                                         <div class="tools-button-link  ">
-                                            <a class="button-link-url traffic-tracking" href="{{ url("#") }}">
+                                            <a class="button-link-url traffic-tracking" href="{{ url('#') }}">
                                                 <div class="percentage-container">
                                                     <span>NEW !!</span>
                                                 </div>
@@ -148,7 +150,9 @@
                                                             <div class="tier-level">
                                                                 <div class="booking-level-wrapper">
                                                                     <div class="booking-level">
-                                                                        <span class="current-booking">0</span> /0
+                                                                        <span
+                                                                            class="current-booking">{{ $partner->bookings->count() }}</span>
+                                                                        /{{ $partner->bookings_for_next_tier }}
                                                                         <br>Bookings
                                                                     </div>
                                                                 </div>
@@ -160,24 +164,28 @@
                                                     <div class="tier-status-wrapper">
                                                         <div class="current-tier-section">
                                                             <p class="tier-status-title">Your Status:</p>
-                                                            <h4 class="current-tier">Tier 0</h4>
+                                                            <h4 class="current-tier">Tier {{ $partner->tier }}</h4>
                                                             <p class="booking-commission current">
-                                                                0 Bookings
-                                                                <i class="fa-solid fa-caret-right"></i> 0% commission
+                                                                {{ $partner->bookings->count() }} Bookings
+                                                                <i class="fa-solid fa-caret-right"></i>
+                                                                {{ $partner->current_commission }}% commission
                                                             </p>
                                                         </div>
-                                                        <div class="next-tier-section">
-                                                            <p class="next-tier">Next tier:</p>
-                                                            <p class="booking-commission">
-                                                                1 Bookings
-                                                                <i class="fa-solid fa-caret-right"></i> 0% commission
-                                                            </p>
-                                                        </div>
+                                                        @if ($partner->tier < 5)
+                                                            <div class="next-tier-section">
+                                                                <p class="next-tier">Next tier:</p>
+                                                                <p class="booking-commission">
+                                                                    {{ $partner->bookings_for_next_tier }} Bookings
+                                                                    <i class="fa-solid fa-caret-right"></i>
+                                                                    {{ $partner->next_commission }}% commission
+                                                                </p>
+                                                            </div>
+                                                        @endif
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="learn-more learn-more-content">
+                                        {{-- <div class="learn-more learn-more-content">
                                             <div tabindex="0" class="learn-more-text">
                                                 <i class="fa-solid fa-circle-exclamation"></i>L earn More
                                             </div>
@@ -188,12 +196,15 @@
                                                     bookings for that month get paid at the higher commission
                                                     rate.</span>
                                             </div>
-                                        </div>
+                                        </div> --}}
                                     </div>
                                     <div class="light-blue-card tier-information-root">
-                                        <div class="tier-information">Another 0 departed bookings gets you to tier 0.
+                                        <div class="tier-information">Another
+                                            {{ $partner->bookings_needed_for_next_tier }} departed bookings gets you to
+                                            tier {{ $partner->tier + 1 }}.
                                             <br> When you get there, you'll earn an extra ~0 USD for your existing
-                                            bookings, and 0% commission on additional bookings.<br> Go for it!
+                                            bookings, and {{ $partner->next_commission }}% commission on additional
+                                            bookings.<br> Go for it!
                                         </div>
                                     </div>
                                 </div>
@@ -205,7 +216,7 @@
                                                     Your Profile
                                                     &nbsp; - &nbsp;
                                                 </span>
-                                                <span>{{$percentage}}% Complete</span>
+                                                <span>{{ $percentage }}% Complete</span>
                                             </div>
                                             <div class="status-bar status-bar-expand">
                                                 <ul>
@@ -222,7 +233,7 @@
                                                         <li id="implement-tool" @class(['active' => isset($partner->tool_implemented_at)])>
                                                             <div class="archive-container">
                                                                 <div class="archive card-inner-title">
-                                                                    <span >✓</span>
+                                                                    <span>✓</span>
                                                                 </div>
                                                             </div>
                                                             <div class="line"></div>
@@ -285,10 +296,10 @@
                                                 <div class="">
                                                     <div class="row slider-nav">
                                                         <div class="">
-                                                            <p>Yesterday</p>
+                                                            <p>Today</p>
                                                         </div>
                                                         <div class="">
-                                                            <p>Bookings vs Unique visitors</p>
+                                                            <p>Bookings</p>
                                                         </div>
                                                     </div>
 
@@ -310,24 +321,26 @@
 
                                                         <div class="sm-col-6">
                                                             <div class="stat-item">
-                                                                <div class="stat-result"><b>10%</b></div>
+                                                                <div class="stat-result">
+                                                                    <b>{{ $partner->current_commission }}%</b></div>
                                                                 <div class="stat-sub-item stat-bar">
                                                                     <div class="bar-progress">
                                                                         <div class="bar-percentage blue"
-                                                                            style="width: 10%;"></div>
+                                                                            style="width: {{ $partner->current_commission }}%;">
+                                                                        </div>
                                                                     </div>
                                                                 </div>
                                                                 <div class="stat-sub-item stat-text">
-                                                                    <span>Conversion Rate</span>
-                                                                    <div class="stat-diff-percent-content blue-text">
+                                                                    <span>Comission percentage</span>
+                                                                    {{-- <div class="stat-diff-percent-content blue-text">
                                                                         <i class="fa-solid fa-sort-up"></i>
                                                                         <span class="stat-diff-percentage">+0%</span>
-                                                                    </div>
+                                                                    </div> --}}
                                                                 </div>
                                                             </div>
                                                         </div>
 
-                                                        <div class="sm-col-6">
+                                                        {{-- <div class="sm-col-6">
                                                             <div class="stat-item">
                                                                 <div class="stat-result">
                                                                     <b>20</b>
@@ -347,7 +360,7 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
+                                                        </div> --}}
 
                                                     </div>
 
@@ -357,14 +370,14 @@
                                                                 <p>Yesterday</p>
                                                                 <div class="stat-item">
                                                                     <div class="stat-booking">
-                                                                        <div class="number"><b>0</b></div>
+                                                                        <div class="number"><b>{{$partner->yesterdayBookings->count()}}</b></div>
                                                                         <div class="title">Bookings</div>
                                                                     </div>
-                                                                    <div class="stat-fraction-line"></div>
+                                                                    {{-- <div class="stat-fraction-line"></div>
                                                                     <div class="stat-uniquevisitors">
                                                                         <div class="number"><b>0</b></div>
                                                                         <div class="title">Unique visitors</div>
-                                                                    </div>
+                                                                    </div> --}}
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -373,14 +386,14 @@
                                                                 <p>Month-to-Date</p>
                                                                 <div class="stat-item">
                                                                     <div class="stat-booking">
-                                                                        <div class="number"><b>0</b></div>
+                                                                        <div class="number"><b>{{$partner->monthToDateBookings->count()}}</b></div>
                                                                         <div class="title">Bookings</div>
                                                                     </div>
-                                                                    <div class="stat-fraction-line"></div>
+                                                                    {{-- <div class="stat-fraction-line"></div>
                                                                     <div class="stat-uniquevisitors">
                                                                         <div class="number"><b>0</b></div>
                                                                         <div class="title">Unique visitors</div>
-                                                                    </div>
+                                                                    </div> --}}
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -393,7 +406,7 @@
 
                                         </div>
 
-                                        <div class="pc-row">
+                                        {{-- <div class="pc-row">
                                             <p class="stat-title">Month-to-Date</p>
                                         </div>
                                         <div class="pc-row">
@@ -459,7 +472,7 @@
                                             <div class="sm-col-4">
                                                 <p class="special-note">*based on departure date</p>
                                             </div>
-                                        </div>
+                                        </div> --}}
                                     </div>
                                 </div>
                             </div>
@@ -472,21 +485,24 @@
                                         <div class="graph-controller">
                                             <ul class="radio-text-wrapper style-1">
                                                 <li>
-                                                    <label class="option option-selected one-month" for="one-month">
-                                                        <input type="radio" name="period" class="" id="one-month"
-                                                            value="1">
+                                                    {{-- <label class="option option-selected one-month" for="one-month">
+                                                        <input type="radio" name="period" class=""
+                                                            id="one-month" value="1">
                                                         1 month
                                                     </label>
                                                     <label class="option three-month" for="three-month">
-                                                        <input type="radio" name="period" class="" id="three-month">
+                                                        <input type="radio" name="period" class=""
+                                                            id="three-month">
                                                         3 months
                                                     </label>
                                                     <label class="option six-month" for="six-month">
-                                                        <input type="radio" name="period" class="" id="six-month">
+                                                        <input type="radio" name="period" class=""
+                                                            id="six-month">
                                                         6 months
-                                                    </label>
+                                                    </label> --}}
                                                     <label class="option one-year" for="one-year">
-                                                        <input type="radio" name="period" class="" id="one-year">
+                                                        <input type="radio" name="period" class=""
+                                                            id="one-year">
                                                         1 year
                                                     </label>
                                                 </li>
@@ -528,13 +544,13 @@
                                                     <div class="graph-legend" style="background: rgb(72, 139, 248);">
                                                         Bookings
                                                     </div>
-                                                    <div class="graph-legend" style="background: rgb(247, 107, 28);">
+                                                    {{-- <div class="graph-legend" style="background: rgb(247, 107, 28);">
                                                         Unique visitors
-                                                    </div>
+                                                    </div> --}}
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="graph-component commission-graph-wrapper">
+                                        <div class="graph-component commission-graph-wrapper" style="display:none;">
                                             <div class="graph-header">
                                                 <h4 class="graph-title">Commissions (in USD)</h4>
                                                 <div class="dropdown-button dropdown">
@@ -587,20 +603,24 @@
                     <div class="footer-links pc-row">
                         <div class="footer-item">
                             <h4>
-                                <a class="footer-light-text footer-menu-dashboard DashboardMenu" href="{{ url("#") }}">Dashboard</a>
+                                <a class="footer-light-text footer-menu-dashboard DashboardMenu"
+                                    href="{{ url('#') }}">Dashboard</a>
                             </h4>
                         </div>
                         <div class="footer-item">
                             <h4>
-                                <a class="footer-light-text footer-menu-tools ToolsMenu" href="{{ url("#") }}">Tools</a>
+                                <a class="footer-light-text footer-menu-tools ToolsMenu"
+                                    href="{{ url('#') }}">Tools</a>
                             </h4>
                             <ul>
                                 <li>
-                                    <a class="footer-light-text footer-menu-text-links TextLinkMenu" href="{{ url("#") }}">Text
+                                    <a class="footer-light-text footer-menu-text-links TextLinkMenu"
+                                        href="{{ url('#') }}">Text
                                         Links</a>
                                 </li>
                                 <li>
-                                    <a class="footer-light-text footer-menu-image-links ImageLinkMenu" href="{{ url("#") }}">Image
+                                    <a class="footer-light-text footer-menu-image-links ImageLinkMenu"
+                                        href="{{ url('#') }}">Image
                                         Link</a>
                                 </li>
 
@@ -609,21 +629,24 @@
                         <div class="footer-item">
                             <h4>
                                 <a class="footer-light-text footer-menu-profiles personalDetailMenu"
-                                    href="{{ url("#") }}">Profile</a>
+                                    href="{{ url('#') }}">Profile</a>
                             </h4>
                             <ul>
                                 <li>
-                                    <a class="footer-light-text footer-menu-profiles personalDetailMenu" href="{{ url("#") }}">
+                                    <a class="footer-light-text footer-menu-profiles personalDetailMenu"
+                                        href="{{ url('#') }}">
                                         Personal Details
                                     </a>
                                 </li>
                                 <li>
-                                    <a class="footer-light-text footer-menu-addsites addSiteMenu" href="{{ url("#") }}">
+                                    <a class="footer-light-text footer-menu-addsites addSiteMenu"
+                                        href="{{ url('#') }}">
                                         Manage Your Sites
                                     </a>
                                 </li>
                                 <li>
-                                    <a class="footer-light-text footer-menu-bank-info bankInfoMenu" href="{{ url("#") }}">
+                                    <a class="footer-light-text footer-menu-bank-info bankInfoMenu"
+                                        href="{{ url('#') }}">
                                         Bank Information
                                     </a>
                                 </li>
@@ -631,27 +654,30 @@
                         </div>
                         <div class="footer-item">
                             <h4>
-                                <a class="footer-light-text footer-menu-reporting ReportingMenu" href="{{ url("#") }}">Reporting</a>
+                                <a class="footer-light-text footer-menu-reporting ReportingMenu"
+                                    href="{{ url('#') }}">Reporting</a>
                             </h4>
                             <ul>
                                 <li>
                                     <a class="footer-light-text footer-menu-reporting BookingReportMenu"
-                                        href="{{ url("#") }}">Reporting</a>
+                                        href="{{ url('#') }}">Reporting</a>
                                 </li>
                                 <li>
-                                    <a class="footer-light-text footer-menu-invoice InvoiceMenu" href="{{ url("#") }}">Invoice</a>
+                                    <a class="footer-light-text footer-menu-invoice InvoiceMenu"
+                                        href="{{ url('#') }}">Invoice</a>
                                 </li>
                             </ul>
                         </div>
                         <div class="footer-item">
                             <h4>
-                                <a class="footer-light-text footer-menu-faq faqMenu" href="{{ url("#") }}">FAQ</a>
+                                <a class="footer-light-text footer-menu-faq faqMenu"
+                                    href="{{ url('#') }}">FAQ</a>
                             </h4>
                         </div>
                     </div>
                     <div class="footer-copyright">
                         <h6 class="copyright-text footer-light-text">
-                            Copyright © 2022 <a href="{{ url("index") }}">Obocos</a> Company Ltd. All Rights Reserved
+                            Copyright © 2022 <a href="{{ url('index') }}">Obocos</a> Company Ltd. All Rights Reserved
                         </h6>
                     </div>
                 </div>
@@ -669,25 +695,25 @@
         </div>
     </div>
 
-    <script src="{{ asset("/partner-dashboard/assets/js/jquery-1.12.4.min.js") }}"></script>
+    <script src="{{ asset('/partner-dashboard/assets/js/jquery-1.12.4.min.js') }}"></script>
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
     </script>
 
 
-    <script src="{{ asset("/partner-dashboard/assets/plugins/morris/morris.min.js") }}"></script>
-    <script src="{{ asset("/partner-dashboard/assets/plugins/morris/raphael.min.js") }}"></script>
-    <script src="{{ asset("/partner-dashboard/assets/plugins/morris/chart.morris.js") }}"></script>
+    <script src="{{ asset('/partner-dashboard/assets/plugins/morris/morris.min.js') }}"></script>
+    <script src="{{ asset('/partner-dashboard/assets/plugins/morris/raphael.min.js') }}"></script>
+    <script src="{{ asset('/partner-dashboard/assets/plugins/morris/chart.morris.js') }}"></script>
 
 
-    <script src="{{ asset("/partner-dashboard/assets/js/jquery-migrate-1.2.1.min.js") }}"></script>
-    <script src="{{ asset("/partner-dashboard/assets/js/slick.min.js") }}"></script>
+    <script src="{{ asset('/partner-dashboard/assets/js/jquery-migrate-1.2.1.min.js') }}"></script>
+    <script src="{{ asset('/partner-dashboard/assets/js/slick.min.js') }}"></script>
 
-    <script src="{{ asset("/partner-dashboard/assets/js/script.js") }}"></script>
+    <script src="{{ asset('/partner-dashboard/assets/js/script.js') }}"></script>
 
     <script type="text/javascript">
-        $(document).ready(function () {
+        $(document).ready(function() {
             $('.slider-for').slick({
                 slidesToShow: 1,
                 slidesToScroll: 1,
@@ -705,6 +731,109 @@
                 // centerMode: true,
                 focusOnSelect: true
             });
+        });
+    </script>
+    <script>
+        $(function() {
+
+            window.mA = Morris.Area({
+                element: 'morrisArea',
+                // data: [{
+                //     d: '2012-02-25',
+                //     a: 11
+                // }, {
+                //     d: '2012-02-26',
+                //     a: 24
+                // }, {
+                //     d: '2012-02-27',
+                //     a: 12
+                // }, {
+                //     d: '2012-02-28',
+                //     a: 80
+                // }, {
+                //     d: '2012-02-29',
+                //     a: 10
+                // }, {
+                //     d: '2012-03-01',
+                //     a: 30
+                // }, {
+                //     d: '2012-03-02',
+                //     a: 32
+                // }, {
+                //     d: '2012-03-03',
+                //     a: 30
+                // }, {
+                //     d: '2012-03-04',
+                //     a: 36
+                // }, {
+                //     d: '2012-03-05',
+                //     a: 40
+                // }, {
+                //     d: '2012-03-06',
+                //     a: 30
+                // }, {
+                //     d: '2012-03-07',
+                //     a: 39
+                // }, ],
+                data: <?php echo json_encode($data); ?>,
+                xkey: 'd',
+                ykeys: ['a'],
+                labels: ['Visitors'],
+                lineColors: ['#1b5a90'],
+                lineWidth: 2,
+
+                fillOpacity: 0.4,
+                gridTextSize: 10,
+                hideHover: 'auto',
+                resize: true,
+                redraw: true
+            });
+
+            /* Morris Line Chart */
+
+            window.mL = Morris.Line({
+                element: 'morrisLine',
+                data: [{
+                        y: '2015',
+                        a: 100,
+                        b: 30
+                    },
+                    {
+                        y: '2016',
+                        a: 20,
+                        b: 60
+                    },
+                    {
+                        y: '2017',
+                        a: 90,
+                        b: 120
+                    },
+                    {
+                        y: '2018',
+                        a: 50,
+                        b: 80
+                    },
+                    {
+                        y: '2019',
+                        a: 120,
+                        b: 150
+                    },
+                ],
+                xkey: 'y',
+                ykeys: ['a', 'b'],
+                labels: ['Doctors', 'Patients'],
+                lineColors: ['#1b5a90', '#ff9d00'],
+                lineWidth: 1,
+                gridTextSize: 10,
+                hideHover: 'auto',
+                resize: true,
+                redraw: true
+            });
+            $(window).on("resize", function() {
+                mA.redraw();
+                mL.redraw();
+            });
+
         });
     </script>
 

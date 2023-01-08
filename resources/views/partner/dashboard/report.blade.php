@@ -264,7 +264,7 @@
                         <div class="reporting-date-range-form white-card">
                             <h3 class="title">Booking Report</h3>
                             <div class="content-container">
-                                <div class="buttons-wrapper">
+                                {{-- <div class="buttons-wrapper">
                                     <h4 class="title sub-title-dark">Date Type</h4>
 
                                     <button id="1"
@@ -275,7 +275,8 @@
                                     <button id="3" class="button last button-border payment">Payment
                                         Date</button>
 
-                                </div>
+                                </div> --}}
+                            <form action="" method="GET">
                                 <div class="date-picker-wrapper">
                                     <div class="DateRangePicker DateRangePicker_1">
                                         <div>
@@ -283,7 +284,7 @@
                                                 class="DateRangePickerInput DateRangePickerInput_1 DateRangePickerInput__withBorder DateRangePickerInput__withBorder_2">
                                                 <div class="DateInput DateInput_1">
                                                     <input type="date" class="DateInput_input DateInput_input_1"
-                                                        id="startDate" name="startDate" value="03/14/2022"
+                                                        id="startDate" name="from_date" value="03/14/2022"
                                                         placeholder="From:">
                                                 </div>
                                                 <div class="DateRangePickerInput_arrow DateRangePickerInput_arrow_1"
@@ -292,18 +293,19 @@
                                                 </div>
                                                 <div class="DateInput DateInput_1">
                                                     <input type="date" class="DateInput_input DateInput_input_1"
-                                                        id="endDate" name="endDate" value="03/14/2022"
+                                                        id="endDate" name="to_date" value="03/14/2022"
                                                         placeholder="To:">
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <button
+                                <button type="submit"
                                     class="button button-blue generate-button active traffic-tracking">Generate</button>
-                                <div class="dep-booking-note">
+                                {{-- <div class="dep-booking-note">
                                     Only departed bookings are eligible for commission payments
-                                </div>
+                                </div> --}}
+                            </form>
                             </div>
                         </div>
                     </div>
@@ -339,10 +341,10 @@
                                                                     </div>
                                                                 </div>
                                                             </th>
-                                                            <th class="sorting_disabled" rowspan="1"
+                                                            {{-- <th class="sorting_disabled" rowspan="1"
                                                                 colspan="1" style="width: 326px;">
                                                                 <div>Phone</div>
-                                                            </th>
+                                                            </th> --}}
                                                         </tr>
                                                     </thead>
                                                 </table>
@@ -393,9 +395,9 @@
                                                             <td>
                                                                 {{date('jS M, Y',strtotime($booking->created_at))}}
                                                             </td>
-                                                            <td>
+                                                            {{-- <td>
                                                                 {{$booking->phone}}
-                                                            </td>
+                                                            </td> --}}
                                                         </tr>
                                                     @endforeach
                                                 </tbody>
