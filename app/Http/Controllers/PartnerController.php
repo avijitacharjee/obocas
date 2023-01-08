@@ -13,6 +13,7 @@ use DebugBar\DebugBar;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\View\View;
 
 class PartnerController extends Controller
@@ -40,6 +41,11 @@ class PartnerController extends Controller
         $partner->email_confirmed_at = now();
         $partner->tool_implemented_at = now();
         $partner->save();
+        $contents = file_get_contents(
+            'https://chart.googleapis.com/chart?chs=400x400&cht=qr&chl=' . url('/coupon/') .'/' .$partner->coupon_code
+        );
+        $fileName = 'qr-' . $partner->id . '.png';
+        Storage::put('public/qr/' . $fileName, $contents);
         Auth::login($user);
         return redirect('partner/dashboard', 201);
     }
@@ -47,17 +53,17 @@ class PartnerController extends Controller
     {
         $partner = auth()->user()->partner;
         $percentage = 30;
-        if($partner->bookings->count()>0){
+        if ($partner->bookings->count() > 0) {
             $partner->booking_generated_at = now();
             $partner->save();
             $percentage = 50;
         }
-        if($partner->profile_completed_at){
+        if ($partner->profile_completed_at) {
             $percentage += 20;
         }
         return view('partner.dashboard.dashboard')
-            ->with('partner',$partner)
-            ->with('percentage',$percentage);
+            ->with('partner', $partner)
+            ->with('percentage', $percentage);
     }
     public function signin(StorePartnerRequest $request)
     {
@@ -83,8 +89,7 @@ class PartnerController extends Controller
     }
     public function updateProfile(Request $request)
     {
-        if($request->has('submitPass')){
-
+        if ($request->has('submitPass')) {
         }
         $partner = auth()->user()->partner;
         $partner->fill($request->only([
@@ -120,13 +125,13 @@ class PartnerController extends Controller
             ->count();
         $bookingsToday = Booking::whereYear('created_at', Carbon::now()->year)
             ->whereMonth('created_at', Carbon::now()->month)
-            ->whereDay('created_at',Carbon::now()->day)
+            ->whereDay('created_at', Carbon::now()->day)
             ->where('partner_id', auth()->user()->partner->id)
             ->count();
 
         return view('partner.dashboard.report')
             ->with('bookings', $bookings)
             ->with('bookingsThisMonth', $bookingsThisMonth)
-            ->with('bookingsToday',$bookingsToday);
+            ->with('bookingsToday', $bookingsToday);
     }
 }

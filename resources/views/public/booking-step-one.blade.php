@@ -3062,7 +3062,6 @@
                         </div>
                     </div>
                     <div class="col-12">
-
                         <div class="rules-box">
                             <div class="row mb-5">
                                 <div class="col-4">

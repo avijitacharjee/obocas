@@ -78,12 +78,12 @@
                                             function copyText() {
                                                 /* Copy text into clipboard */
                                                 navigator.clipboard.writeText
-                                                    (`${window.location.origin}/signin?coupon={{auth()->user()->partner->firstname}}`);
+                                                    (`${window.location.origin}/coupon/{{auth()->user()->partner->coupon_code}}`);
                                                 alert('Link has been copied to your clipboard');
                                             }
                                         </script>
                                         <div class="tool-item-container ">
-                                            <a target="" class="destination-container traffic-tracking" id="image-links"
+                                            <a download="obocas-{{$partner->id}}-qr.jpg" href="{{asset('/storage/')}}/qr/qr-{{$partner->id}}.png" title="ImageName" class="destination-container traffic-tracking" id="image-links"
                                                 href="{{ url("#") }}">
                                                 <div class="tool-item-content">
                                                     <div class="main-content">
