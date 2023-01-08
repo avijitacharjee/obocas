@@ -11,33 +11,34 @@ class AuthController extends Controller
     public function Register(Request $request)
     {
         $validate = $request->validate([
-            'email'=>'unique:users'
+            'email' => 'unique:users'
         ]);
         $user = new User();
         $user->name = ".";
         $user->password = ".";
         $user->email = $request->email;
         $user->save();
-        session(['email'=>$request->email]);
-        session(['id'=>$user->id]);
-        return redirect('/',201);
+        session(['email' => $request->email]);
+        session(['id' => $user->id]);
+        return redirect('/', 201);
     }
     public function checkUserByPhone(Request $request)
     {
-        $user = User::where('phone',$request->phone)->first();
-        if($user){
-            return response()->json(['user'=>$user,'otp'=>'654321','success'=>true]);
-        }else {
-            return response()->json(['user'=>null,'otp'=>'654321','success'=>false]);
+        $user = User::where('phone', $request->phone)->first();
+        if ($user) {
+            return response()->json(['user' => $user, 'otp' => '654321', 'success' => true]);
+        } else {
+            return response()->json(['user' => null, 'otp' => '654321', 'success' => false]);
         }
     }
-    public function signOtp(Request $request){
+    public function signOtp(Request $request)
+    {
         $phone = $request->phone;
         $otp = '654321';
         $user = User::where('phone', $request->phone)->first();
-        if($user){
+        if ($user) {
             return view('public.enter-pass')
-                ->with('user',$user);
+                ->with('user', $user);
         } else {
             return view('public.verify-otp')
                 ->with('phone', $phone)
@@ -45,17 +46,19 @@ class AuthController extends Controller
         }
     }
 
-    public function verifyOtp(Request $request){
+    public function verifyOtp(Request $request)
+    {
         $user = User::where('phone', $request->phone)->first();
-        if ($user){
-            session(['email'=>$user->email]);
+        if ($user) {
+            session(['email' => $user->email]);
             session(['name' => $user->name]);
-            return redirect('/',201);
-        }else {
-            return view('public.complete-profile')->with('phone',$request->phone);
+            return redirect('/', 201);
+        } else {
+            return view('public.complete-profile')->with('phone', $request->phone);
         }
     }
-    public function completeProfile(Request $request){
+    public function completeProfile(Request $request)
+    {
         $user = new User();
         $user->name = $request->name;
         $user->email = $request->email;
@@ -63,11 +66,12 @@ class AuthController extends Controller
         $user->password = $request->password;
         $user->role_id = 1;
         $user->save();
-        session(['email'=>$user->email]);
+        session(['email' => $user->email]);
         session(['name' => $user->name]);
-        return redirect('/',201);
+        return redirect('/', 201);
     }
-    public function verifyPass(Request $request){
+    public function verifyPass(Request $request)
+    {
         // $credentials = [
         //     'phone' => $request->phone,
         //     'password' => $request->password
@@ -80,21 +84,26 @@ class AuthController extends Controller
 
         // }
         $user = User::where('phone', $request->phone)->first();
-        if($user->password==$request->password){
-            session(['email'=>$user->email]);
+        if ($user->password == $request->password) {
+            session(['email' => $user->email]);
             session(['name' => $user->name]);
-            Auth::login($user,$remember = true);
-            if(Auth::user()->role->name=='User'){
-                return redirect('/',201);
-            }else if(Auth::user()->role->name=='HotelAdmin'){
-                return redirect('/hotel-admin/dashboard',201);
+            Auth::login($user, $remember = true);
+            if (Auth::user()->role->name == 'User') {
+                return redirect('/', 201);
+            } else if (Auth::user()->role->name == 'HotelAdmin') {
+                return redirect('/hotel-admin/dashboard', 201);
+            } else if (auth()->user()->role->name == 'Admin') {
+                return redirect('/admin/dashboard');
             }
+        } else {
+            return back()->with('message', 'Invalid password');
         }
     }
-    public function signin(Request $request){
-        if($request->coupon){
-            session(['coupon'=>$request->coupon]);
-        }else {
+    public function signin(Request $request)
+    {
+        if ($request->coupon) {
+            session(['coupon' => $request->coupon]);
+        } else {
             session(['coupon' => null]);
         }
         return view('public.sign-otp');
