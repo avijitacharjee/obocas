@@ -1,0 +1,428 @@
+/* Normal desktop :1200px. */
+@media (min-width: 1200px) and (max-width: 1500px) {
+
+  /*======================
+    Index Page Css
+========================*/
+  .search_overlay {
+    display: none;
+  }
+
+  .header_area .search_box {
+    background: transparent;
+    border: none;
+    transform: translate(-90%, 39%);
+    -webkit-transform: translate(-90%, 39%);
+    -moz-transform: translate(-90%, 39%);
+    -ms-transform: translate(-90%, 39%);
+    -o-transform: translate(-90%, 39%);
+    transition: all .3s linear;
+    -webkit-transition: all .3s linear;
+    -moz-transition: all .3s linear;
+    -ms-transition: all .3s linear;
+    -o-transition: all .3s linear;
+  }
+
+  .header_area .search_box.active {
+    transform: translate(-22%, 39%);
+    -webkit-transform: translate(-22%, 39%);
+    -moz-transform: translate(-22%, 39%);
+    -ms-transform: translate(-22%, 39%);
+    -o-transform: translate(-22%, 39%);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .header_area .search_box input {
+    border: none;
+    padding-left: 7px;
+    background: #ffffffd0;
+    color: black;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all .5s linear;
+    -webkit-transition: all .5s linear;
+    -moz-transition: all .5s linear;
+    -ms-transition: all .5s linear;
+    -o-transition: all .5s linear;
+  }
+
+  .header_area .search_box.active input {
+    opacity: 1;
+    visibility: visible;
+  }
+
+}
+
+
+/* Normal desktop :992px. */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .search_overlay {
+    display: none;
+  }
+
+  .header_area .search_box {
+    background: transparent;
+    border: none;
+    transform: translate(-90%, 39%);
+    -webkit-transform: translate(-90%, 39%);
+    -moz-transform: translate(-90%, 39%);
+    -ms-transform: translate(-90%, 39%);
+    -o-transform: translate(-90%, 39%);
+    transition: all .3s linear;
+    -webkit-transition: all .3s linear;
+    -moz-transition: all .3s linear;
+    -ms-transition: all .3s linear;
+    -o-transition: all .3s linear;
+  }
+
+  .header_area .search_box.active {
+    transform: translate(-12%, 39%);
+    -webkit-transform: translate(-12%, 39%);
+    -moz-transform: translate(-12%, 39%);
+    -ms-transform: translate(-12%, 39%);
+    -o-transform: translate(-12%, 39%);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .header_area .search_box input {
+    border: none;
+    padding-left: 7px;
+    background: #ffffffd0;
+    color: black;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all .5s linear;
+    -webkit-transition: all .5s linear;
+    -moz-transition: all .5s linear;
+    -ms-transition: all .5s linear;
+    -o-transition: all .5s linear;
+  }
+
+  .header_area .search_box.active input {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+/* Tablet desktop :768px. */
+@media (min-width: 768px) and (max-width: 991.98px) {
+
+
+  /*======================
+    Index Page Css
+========================*/
+  .header_area .search_box {
+    display: none;
+  }
+
+  /* section title */
+  .section_title p {
+    padding: 0 136px;
+  }
+
+  /* menu bar */
+  .menu_bar .main_menu .menu_items {
+    margin-left: 15px;
+  }
+
+  /* banner */
+  .banner_info .banner_text p {
+    padding-right: 243px;
+  }
+
+  /* order */
+  .order_area .section_title {
+    text-align: center;
+  }
+
+  .order_area .section_title p {
+    padding: 0 35px;
+  }
+
+  .order_product_img {
+    margin-top: 45px;
+  }
+
+  .order_area .theme_btn {
+    text-align: center;
+  }
+
+  /* profile */
+  .single_profile .profile_text p {
+    padding: 0 120px;
+  }
+
+  /* footer */
+  .quick_links {
+    margin-top: 60px;
+  }
+
+}
+
+/* small mobile :320px. */
+@media (min-width: 576px) and (max-width: 767.98px) {
+
+  /*======================
+    Index Page Css
+========================*/
+  .header_area .search_box {
+    display: none;
+  }
+
+  /* section title */
+  .section_title p {
+    padding: 0;
+  }
+
+  /* menu bar */
+  .menu_bar .main_menu .menu_items {
+    margin-left: 15px;
+  }
+
+  /* menu bar collapse */
+  .navbar-toggler {
+    margin-left: auto;
+  }
+
+  .navbar-toggler i {
+    color: #fff;
+  }
+
+  .navbar_collapse {
+    -ms-flex-preferred-size: 100%;
+    flex-basis: 100%;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    -ms-flex-align: center;
+    align-items: center;
+    position: absolute;
+    height: 100%;
+    left: -296%;
+    top: 40%;
+    transition: all .3s linear;
+    -webkit-transition: all .3s linear;
+    -moz-transition: all .3s linear;
+    -ms-transition: all .3s linear;
+    -o-transition: all .3s linear;
+  }
+
+  .navbar_collapse.show {
+    left: -121%;
+  }
+
+  .menu_bar .main_menu {
+    text-align: center;
+    width: 100%;
+    /* position: absolute; */
+    /* display: inline-flex; */
+    margin: auto;
+    height: 100%;
+  }
+
+
+  .menu_bar .main_menu .menu_items {
+    margin-left: 15px;
+    display: inline-block;
+    /* margin: auto; */
+  }
+
+  /* banner */
+  .banner_info .banner_text p {
+    padding-right: 0;
+  }
+
+  /* order */
+  .order_area .section_title {
+    text-align: center;
+  }
+
+  .order_area .section_title p {
+    padding: 0;
+  }
+
+  .order_product_img {
+    margin-top: 45px;
+  }
+
+  .order_area .theme_btn {
+    text-align: center;
+  }
+
+  /* profile */
+  .single_profile .profile_text p {
+    padding: 0;
+  }
+
+  /* footer */
+  .quick_links {
+    margin-top: 60px;
+  }
+
+  /*======================
+    Our-Story Page Css
+========================*/
+
+  /*======================
+  Contact-Page Css
+========================*/
+
+
+  /*======================
+  Error-Page Css
+========================*/
+
+  /*======================
+      Blog-Details-Page Css
+========================*/
+
+
+
+}
+
+/* Large Mobile :480px. */
+@media only screen and (max-width: 575.98px) {
+
+  /*======================
+    Index Page Css
+========================*/
+  .header_area .search_box {
+    display: none;
+  }
+
+  /* section title */
+  .section_title p {
+    padding: 0;
+  }
+
+  /* menu bar */
+  .menu_bar .main_menu .menu_items {
+    margin-left: 15px;
+  }
+
+  /* menu bar collapse */
+  .navbar-toggler {
+    margin-right: auto;
+  }
+
+  .navbar-toggler i {
+    color: #fff;
+  }
+
+  .navbar_collapse {
+    -ms-flex-preferred-size: 100%;
+    flex-basis: 100%;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    -ms-flex-align: center;
+    align-items: center;
+    position: absolute;
+    height: 100%;
+    left: -296%;
+    top: -300%;
+    transition: all .3s linear;
+    -webkit-transition: all .3s linear;
+    -moz-transition: all .3s linear;
+    -ms-transition: all .3s linear;
+    -o-transition: all .3s linear;
+  }
+
+  .navbar_collapse.show {
+    left: 0%;
+  }
+
+  .menu_bar .main_menu {
+    text-align: center;
+    width: 100%;
+    /* position: absolute; */
+    /* display: inline-flex; */
+    margin: auto;
+    height: 100%;
+  }
+
+
+  .menu_bar .main_menu .menu_items {
+    margin-left: 15px;
+    display: inline-block;
+    /* margin: auto; */
+  }
+
+  /* banner */
+  .banner_info .banner_text p {
+    padding-right: 0;
+  }
+
+  /* order */
+  .order_area .section_title {
+    text-align: center;
+  }
+
+  .order_area .section_title p {
+    padding: 0;
+  }
+
+  .order_product_img {
+    width: 265px;
+    height: 265px;
+    margin-top: 45px;
+  }
+
+  .order_area .theme_btn {
+    text-align: center;
+  }
+
+  /* profile */
+  .single_profile .profile_text p {
+    padding: 0;
+  }
+
+  .subscribe_area .subscribe_box {
+    width: 100%;
+  }
+
+  .subscribe_area .subscribe_box .theme_btn a {
+    padding: 15px 15px;
+    font-size: 16px;
+  }
+
+  /* footer */
+  .quick_links {
+    margin-top: 60px;
+  }
+
+  /*======================
+    Our-Story Page Css
+========================*/
+
+
+  /*======================
+    Product Page Css
+========================*/
+
+  /*======================
+  Contact-Page Css
+========================*/
+
+
+  /*======================
+  Error-Page Css
+========================*/
+
+
+  /*======================
+      Blog-Details-Page Css
+========================*/
+
+
+}

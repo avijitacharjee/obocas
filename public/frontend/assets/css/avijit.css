@@ -1,0 +1,20 @@
+.footer {
+    margin: 50px 0px 20px 0px;
+    padding: 10px 100px;
+}
+.up-margin {
+    margin: 0px;
+    padding-top: 10px;
+    border-top: .5px;
+    border-top-style: solid;
+}
+.col ul {
+    padding-left: 10px;
+}
+.col ul li {
+    line-height: 25px;
+    color: black;
+}
+h3 {
+    color: black;
+}
