@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 
-class HotelAdminMiddleware
+class AdminMiddleware
 {
     /**
      * Handle an incoming request.
@@ -16,7 +16,7 @@ class HotelAdminMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        if(auth()->user()?->role->name=='Hotel Admin'){
+        if(auth()->user()?->role->name=='Admin'){
             return $next($request);
         }
         return redirect('/signin');

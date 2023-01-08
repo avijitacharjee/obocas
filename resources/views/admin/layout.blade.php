@@ -262,8 +262,8 @@
 							<span class="status online"></span></span>
 					</a>
 					<div class="dropdown-menu">
-						<a class="dropdown-item" href="{{ url('profile.html') }}"><i class="feather-user"></i> My Profile</a>
-						<a class="dropdown-item" href="{{ url('login.html') }}"><i class="feather-power"></i> Logout</a>
+						{{-- <a class="dropdown-item" href="{{ url('profile.html') }}"><i class="feather-user"></i> My Profile</a> --}}
+						<a class="dropdown-item" href="{{ url('/logout') }}"><i class="feather-power"></i> Logout</a>
 					</div>
 				</li>
 			</ul>
