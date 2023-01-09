@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Services\SmsService;
 use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
@@ -31,30 +32,32 @@ class AuthController extends Controller
             return response()->json(['user' => null, 'otp' => '654321', 'success' => false]);
         }
     }
-    public function signOtp(Request $request)
+    public function signInPost(Request $request)
     {
         $phone = $request->phone;
-        $otp = '654321';
+        $otp = random_int(100000, 999999);
         $user = User::where('phone', $request->phone)->first();
         if ($user) {
-            return view('public.enter-pass')
+            return redirect('public.enter-pass')
                 ->with('user', $user);
         } else {
-            return view('public.verify-otp')
-                ->with('phone', $phone)
-                ->with('otp', $otp);
+            $smsService = new SmsService();
+            $smsService->sendOtp($phone, $otp);
+            session(['otp' => $otp, 'phone' => $phone]);
+            return redirect('/verify-otp');
         }
+    }
+    public function verifyOtpView()
+    {
+        return view('public.verify-otp');
     }
 
     public function verifyOtp(Request $request)
     {
-        $user = User::where('phone', $request->phone)->first();
-        if ($user) {
-            session(['email' => $user->email]);
-            session(['name' => $user->name]);
-            return redirect('/', 201);
+        if ($request->otp == $request->otpMain) {
+            return redirect('complete-profile');
         } else {
-            return view('public.complete-profile')->with('phone', $request->phone);
+            return back()->with('msg', 'Invalid otp');
         }
     }
     public function completeProfile(Request $request)
@@ -101,11 +104,6 @@ class AuthController extends Controller
     }
     public function signin(Request $request)
     {
-        if ($request->coupon) {
-            session(['coupon' => $request->coupon]);
-        } else {
-            session(['coupon' => null]);
-        }
         return view('public.sign-otp');
     }
 

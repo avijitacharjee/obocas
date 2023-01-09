@@ -55,8 +55,13 @@
                             <div class="alert alert-success" id="successOtpAuth" style="display: none;"></div>
                             <input type="password" id="verification" class="form-control" name="otp"
                                 placeholder="Verification code">
-                            <input type="hidden" name="phone" value="{{$phone}}">
-                            <input type="hidden" name="otpMain" value="{{$otp}}">
+                            <input type="hidden" name="phone" value="{{session('phone')}}">
+                            <input type="hidden" name="otpMain" value="{{session('otp')}}">
+                            @if (session('msg'))
+                                <ul>
+                                    <li style="color: red">{{session('msg')}}</li>
+                                </ul>
+                            @endif
                             <button type="submit" class="btn btn-success mt-3">Verify code</button>
                         </div>
                     </div>

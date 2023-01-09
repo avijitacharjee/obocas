@@ -70,7 +70,7 @@
                 <label class="form-label" for="form2Example2">Confirm  Password</label>
                 <input name="confirm-password" type="password" id="form2Example2" class="form-control" />
             </div>
-            <input type="hidden" name="phone" value="{{$phone}}">
+            <input type="hidden" name="phone" value="{{session('phone')}}">
             <!-- Submit button -->
             <button type="submit" style="margin:auto;" class="btn btn-primary btn-block mb-4">Sign in</button>
         </form>

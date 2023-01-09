@@ -125,10 +125,10 @@ Route::controller(AuthController::class)->group(function () {
     Route::post('/', 'register');
 
     Route::get('/signin', 'signin');
-    Route::post('/sign-otp', 'signOtp');
+    Route::post('/signin', 'signInPost');
     Route::get('/verify-otp', 'verifyOtpView');
     Route::post('/verify-otp', 'verifyOtp');
-    Route::view('/complete-profile', 'complete-profile');
+    Route::view('/complete-profile', 'public.complete-profile');
     Route::post('/complete-profile', 'completeProfile');
     Route::post('/verify-pass', 'verifyPass');
 });

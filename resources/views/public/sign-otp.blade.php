@@ -45,7 +45,7 @@
     </div>
     <!-- /Header -->
     <div class="container mt-5">
-        <form action="/sign-otp" method="POST">
+        <form action="/signin" method="POST">
             @csrf
             <div class="row">
                 <div class="col-12">

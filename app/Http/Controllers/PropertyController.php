@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Property;
 use App\Http\Requests\StorePropertyRequest;
 use App\Models\CarousalImage;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
@@ -102,6 +103,9 @@ class PropertyController extends Controller
             }
         }
         unset($data['proceed']);
+        $user = User::find(auth()->user());
+        $user->role_id = 3;
+        $user->save();
         Property::create($data);
         return redirect('/');
     }
@@ -146,7 +150,7 @@ class PropertyController extends Controller
 
     public function show(Property $property, Request $request): View
     {
-        if(!$request->has('number_of_persons')){
+        if (!$request->has('number_of_persons')) {
             return view('public.booking-step-one')
                 ->with('property', $property);
         }
@@ -167,9 +171,9 @@ class PropertyController extends Controller
 
         return view('public.booking-step-one')
             ->with('property', $property)
-            ->with('amount',$amount)
-            ->with('numOfDays',$numOfDays)
-            ->with('numOfPersons',$request->number_of_persons);
+            ->with('amount', $amount)
+            ->with('numOfDays', $numOfDays)
+            ->with('numOfPersons', $request->number_of_persons);
     }
 
     public function show1(Property $property): View
