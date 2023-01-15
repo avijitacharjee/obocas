@@ -38,7 +38,7 @@ class AuthController extends Controller
         $otp = random_int(100000, 999999);
         $user = User::where('phone', $request->phone)->first();
         if ($user) {
-            return redirect('public.enter-pass')
+            return view('public.enter-pass')
                 ->with('user', $user);
         } else {
             $smsService = new SmsService();
