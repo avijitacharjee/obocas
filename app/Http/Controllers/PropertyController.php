@@ -103,7 +103,7 @@ class PropertyController extends Controller
             }
         }
         unset($data['proceed']);
-        $user = User::find(auth()->user());
+        $user = User::find(auth()->user()->id);
         $user->role_id = 3;
         $user->save();
         Property::create($data);

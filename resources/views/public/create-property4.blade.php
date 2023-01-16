@@ -647,9 +647,9 @@
                                 <div id="seg-overview-ctas" class="row seg-overview-ctas hidden">
                                     <div class="col-xs-12 col-md-9">
                                         <div class="seg-overview-ctas__content">
-                                            <a class="btn btn-block btn-default btn-lg" href="{{ url('#create-room') }}">
+                                            {{-- <a class="btn btn-block btn-default btn-lg" href="{{ url('#create-room') }}">
                                                 Add another room
-                                            </a>
+                                            </a> --}}
                                             <a class="btn btn-block btn-primary btn-lg" href="{{ url('/property4') }}">
                                                 Continue
                                             </a>
