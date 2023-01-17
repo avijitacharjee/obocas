@@ -1,9 +1,129 @@
-@extends('public.layout')
-@section('css')
-    <link rel="stylesheet" href="{{asset('frontend/assets/css/search-page.min.css')}}">
-    <link rel="stylesheet" href="{{asset('frontend/assets/css/hotel.min.css')}}">
-@endsection
-@section('content')
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!--====== Required meta tags =======-->
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=on" />
+
+    <!--====== Title =======-->
+    <title>Booking Search Page</title>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="{{ asset('/frontend/assets/css/bootstrap.min.css') }}">
+    <!-- Slick Slider -->
+    <link rel="stylesheet" href="{{ asset('/frontend/assets/css/slick.css') }}">
+    <!-- FrontAwesome -->
+    <link rel="stylesheet" href="{{ asset('/frontend/assets/css/all.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('/frontend/assets/css/bui-react.min.css') }}">
+    <!-- Project Css-->
+    <!-- CloudFront Css-->
+    <link rel="stylesheet" href="{{ asset('/frontend/assets/css/cloudfront.min.css') }}" />
+    <!-- Bstatic -->
+    <link rel="stylesheet" href="{{ asset('/frontend/assets/css/bstatic.min.css') }}">
+    <!-- Search -->
+    <link rel="stylesheet" href="{{ asset('/frontend/assets/css/search-page.min.css') }}">
+    <!-- Hotle -->
+    <link rel="stylesheet" href="{{ asset('/frontend/assets/css/hotel.min.css') }}">
+
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="bui-header bui-header--logo-large bui-u-hidden-print bui-header--rounded-tabs ">
+        <!-- Nav Top -->
+        <nav class="header-menu container">
+            <!-- Nav Left Part -->
+            <!-- Logo -->
+            <div class="bui-header__main">
+                <div class="bui-header__logo" data-et-click="customGoal:YTBUIHOdVLBQRMebfTINfTKe:2">
+                    <span>
+                        <img src="{{ asset('/frontend/assets/images/logo.png') }}" alt="">
+                    </span>
+                </div>
+            </div>
+            <!-- /Logo -->
+            <!-- /Nav Left Part -->
+
+            <!-- Nav Right Part -->
+            <div
+                class="bui-group bui-button-group bui-group--inline bui-group--align-end bui-group--vertical-align-middle">
+
+                <div class="nav-dasktop">
+                    <!-- Property List -->
+                    <div class="bui-group__item">
+                        <svg class="bk-icon -streamline-property_add" height="24" style="display:none;"
+                            width="24" viewBox="0 0 24 24" role="presentation" focusable="false">
+                            <path
+                                d="M8.25 19h-3a.75.75 0 0 1-.75-.75v-7.5a.75.75 0 0 0-1.5 0v7.5a2.25 2.25 0 0 0 2.25 2.25h3a.75.75 0 0 0 0-1.5zM1.234 9.823l8.782-7.43a.75.75 0 0 1 .969 0l7.279 6.159a.75.75 0 1 0 .968-1.146l-7.279-6.159a2.25 2.25 0 0 0-2.906 0L.265 8.678a.75.75 0 1 0 .968 1.146zM15.75 2.5h3L18 1.75v3a.75.75 0 0 0 1.5 0v-3a.75.75 0 0 0-.75-.75h-3a.75.75 0 0 0 0 1.5zm6.75 14.25a5.25 5.25 0 1 1-10.5 0 5.25 5.25 0 0 1 10.5 0zm1.5 0a6.75 6.75 0 1 0-13.5 0 6.75 6.75 0 0 0 13.5 0zm-7.5-3v6a.75.75 0 0 0 1.5 0v-6a.75.75 0 0 0-1.5 0zm-2.25 3.75h6a.75.75 0 0 0 0-1.5h-6a.75.75 0 0 0 0 1.5z" />
+                        </svg>
+                        <a class="bui-button bui-button--light bui-traveller-header__product-action"
+                            href="{{ url('#') }}">
+                            <span class="bui-button__text">
+                                List your property
+                            </span>
+                        </a>
+                    </div>
+                    <!-- /Property List -->
+
+                    <!-- SingIn & SingUp -->
+                    <div class="bui-group__item">
+                        <a class="bui-button bui-button--secondary js-header-login-link" href="{{ url('#') }}">
+                            <span class="bui-button__text">
+                                Register
+                            </span>
+                        </a>
+                    </div>
+                    <div class="bui-group__item">
+                        <svg class="bk-icon -streamline-account_create" height="24" style="display:none;"
+                            width="24" viewBox="0 0 24 24" role="presentation" focusable="false">
+                            <path
+                                d="M22.5 17.25a5.25 5.25 0 1 1-10.5 0 5.25 5.25 0 0 1 10.5 0zm1.5 0a6.75 6.75 0 1 0-13.5 0 6.75 6.75 0 0 0 13.5 0zm-7.5-3v6a.75.75 0 0 0 1.5 0v-6a.75.75 0 0 0-1.5 0zM14.25 18h6a.75.75 0 0 0 0-1.5h-6a.75.75 0 0 0 0 1.5zM1.5 17.25a6.003 6.003 0 0 1 8.356-5.518.75.75 0 0 0 .588-1.38A7.504 7.504 0 0 0 0 17.25a.75.75 0 0 0 1.5 0zm9.375-12.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0zm1.5 0a4.875 4.875 0 1 0-9.75 0 4.875 4.875 0 0 0 9.75 0z" />
+                        </svg>
+                        <a class="bui-button bui-button--secondary js-header-login-link"
+                            href="{{ url('signin.html') }}">
+                            <span class="bui-button__text">
+                                Sign in
+                            </span>
+                        </a>
+                    </div>
+                    <!-- /SingIn & SingUp -->
+                </div>
+
+                <div class="nav-mobile">
+                    <div
+                        class="bui-group bui-group--inline bui-group--small bui-group--align-end bui-group--vertical-align-middle bui-button-group">
+                        <div class="bui-group__item">
+                            <a class="bui-button bui-traveller-header__profile bui-button--light bui-button--large js-header-login-link js-header-signin-notification"
+                                type="button" href="{{ url('signin.html') }}">
+                                <span class="bui-button__icon bui-bubble-container">
+                                    <i class="fa-solid fa-circle-user"></i>
+                                </span>
+                            </a>
+                        </div>
+                        <div class="bui-group__item">
+                            <button class="bui-button bui-button--light bui-button--large mobile-menu-btn">
+                                <span class="bui-button__icon">
+                                    <span class="bui-icon bui-icon--large">
+                                        <i class="fa-solid fa-bars"></i>
+                                    </span>
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- Nav Right Part -->
+
+        </nav>
+        <!-- /Nav Top -->
+
+    </header>
+    <!-- Header -->
+
     <div class="container">
         <div class="row">
 
@@ -975,11 +1095,11 @@
                                         <a href="{{ url('#') }}" class="a5b679fa41" data-bs-toggle="tab"
                                             data-bs-target="#tab2">lowest Price</a>
                                     </li>
-                                    {{-- <li class="c266cda126 dasktop-search-item nav-item" role="presentation">
+                                    <li class="c266cda126 dasktop-search-item nav-item" role="presentation">
                                         <a href="{{ url('#') }}" class="a5b679fa41" data-bs-toggle="tab"
                                             data-bs-target="#tab3">Best
                                             Reviewed</a>
-                                    </li> --}}
+                                    </li>
                                     <li class="c266cda126 dasktop-search-item nav-item" role="presentation">
                                         <a href="{{ url('#') }}" class="a5b679fa41" data-bs-toggle="tab"
                                             data-bs-target="#tab4">Highest Price</a>
@@ -1662,7 +1782,7 @@
                                         <div class="_fe1927d9e _0811a1b54 _a8a1be610 _022ee35ec b9c27d6646 fb3c4512b4 tab-pane fade"
                                             id="tab3" role="tabpanel" aria-labelledby="tab3">
                                             @foreach ($lowestPrice as $property)
-                                                <x-search-result-item :property="$property" />
+                                                <x-search-result-item :property="$property"/>
                                             @endforeach
                                         </div>
 
@@ -1700,7 +1820,539 @@
 
     </div>
     <!-- Page Content -->
-@endsection
-@section('js')
 
-@endsection
+
+
+    <!-- Buttom Section -->
+    <div id="footer_menu_track" class="mt-4">
+        <!-- Subscribe Section -->
+        <div id="newsletter_form_footer_container" class="newsletter_subscribe_with_sprites">
+            <!-- Form -->
+            <form action="#" method="post" name="newsletterform" id="emk-footer"
+                class="footerForm emk-subscription-entry-point ">
+                <div class="emk_footer_update emk_footer_centered emk_footer_update_space">
+                    <div class="footerconstraint-inner">
+                        <div class="emk_footer_banner_block">
+                            <h2>Save time, save money!</h2>
+                        </div>
+                        <div class="emk_footer_subbanner_block">
+                            Sign up and we&#39;ll send the best deals to you
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="emk_footer_form_layout">
+                            <label for="newsletter_to" class="invisible_spoken">
+                                Enter your email address and we&#39;ll send you our best deals
+                            </label>
+                            <div class="subscription_form_wrap">
+                                <input type="email" id="newsletter_to" class="input_newsletter_subscription_to"
+                                    placeholder="Your email" value="" />
+                                <button id="newsletter_button_footer">
+                                    Subscribe
+                                </button>
+                            </div>
+                            <label class="emk_footer_gta_addition_left">
+                                <input type="checkbox" name="" value="1" />
+                                Send me a link to get the FREE Obocas.com app!
+                            </label>
+                        </div>
+
+                    </div>
+
+                </div>
+            </form>
+
+        </div>
+        <!-- /Subscribe Section -->
+
+        <div style="clear: both;"></div>
+
+        <!-- Footer -->
+        <div id="footer_top_menu" class="footer-top-menu ">
+            <div class="footer-top-partners clearfix js-footer-top-menu">
+                <div class="footerconstraint-inner clearfix">
+                    <div id="footertopnav-partners">
+                        <p class="footer-top-partner-text footer-top-partner-buttons">
+                            <a ref="nofollow" href="{{ url('') }}" class="footer-top-button">
+                                List your property
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="footerconstraint-inner clearfix container text-center">
+                <div id="footertopnav">
+                    <ul class="footer-top-links-list">
+                        <li class="footer-top-link">
+                            <a href="{{ url('') }}">
+                                Your account
+                            </a>
+                        </li>
+                        <li class="footer-top-link">
+                            <a class="manage" href="{{ url('') }}">
+                                Make changes online to your booking
+                            </a>
+                        </li>
+                        <li class="footer-top-link">
+                            <a class="cuca" href="{{ url('') }}">
+                                Contact Customer Service
+                            </a>
+                        </li>
+
+                        <li class="footer-top-link">
+                            <a href="{{ url('') }}">
+                                Become an affiliate
+                            </a>
+
+                        </li>
+                        <li class="footer-top-link">
+                            <a href="{{ url('') }}" class="tracked">Booking.com
+                                for Business</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="footerconstraint-inner">
+            <div id="footer" class="footer-navigation-links-wrapper clearfix container">
+                <div id="footer_links" class="footer-navigation-links">
+                    <div class="footer-navigation-links-column footer-seo-links-to-html-sitemaps">
+                        <ul class="footer-navigation-links-list">
+                            <li class="footer-navigation-link">
+                                <a href="{{ url('') }}">
+                                    Countries
+                                </a>
+                            </li>
+                            <li class="footer-navigation-link">
+                                <a href="{{ url('') }}">
+                                    Regions
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="footer-navigation-links-column">
+                        <ul class="footer-navigation-links-list footer-seo-links-to-index">
+                            <li class="footer-navigation-link">
+                                <a href="{{ url('') }}">
+                                    Homes
+                                </a>
+                            </li>
+                            <li class="footer-navigation-link">
+                                <a href="{{ url('') }}">
+                                    Apartments
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="footer-navigation-links-column">
+                        <ul class="footer-navigation-links-list">
+                            <li class="footer-navigation-link">
+                                <a href="{{ url('') }}">
+                                    Unique places to stay
+                                </a>
+                            </li>
+                            <li class="footer-navigation-link">
+                                <a href="{{ url('') }}">
+                                    All destinations
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="footer-navigation-links-column">
+                        <ul class="footer-navigation-links-list">
+                            <li class="footer-navigation-link">
+                                <a href="{{ url('') }}">
+                                    Car rental
+                                </a>
+                            </li>
+                            <li class="footer-navigation-link">
+                                <a href="{{ url('') }}">
+                                    Flight finder
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
+                    <div class="footer-navigation-links-column">
+                        <ul class="footer-navigation-links-list">
+                            <li class="footer-navigation-link">
+                                <a href="{{ url('') }}">
+                                    Coronavirus (COVID-19) FAQs
+                                </a>
+                            </li>
+                            <li class="footer-navigation-link">
+                                <a href="{{ url('') }}">About Booking.com</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer -->
+
+    </div>
+    <!-- /Buttom Section -->
+
+    <!-- Mobile Side Menu Modal -->
+    <div class="bui-overlay__content">
+        <div class="bui-modal bui-modal--fill bui-modal--full-screen bui-modal--active">
+            <div class="bui-modal__inner">
+                <div class="bui-modal__slot">
+                    <button type="button" class="bui-modal__close">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="presentation">
+                            <path
+                                d="M13 12l6.26-6.26a.73.73 0 0 0-1-1L12 11 5.74 4.71a.73.73 0 1 0-1 1L11 12l-6.29 6.26a.73.73 0 0 0 .52 1.24.73.73 0 0 0 .51-.21L12 13l6.26 6.26a.74.74 0 0 0 1 0 .74.74 0 0 0 0-1z">
+                            </path>
+                        </svg>
+                    </button>
+                    <div class="bui-modal__body">
+                        <div class="bui-traveller-header__mobile-content">
+                            <div class="bui-box bui-box--size-large">
+                                <h2 class="bui-f-font-display_two" aria-label="More links, settings and support">
+                                    More
+                                </h2>
+                            </div>
+                            <ul>
+
+                                <li>
+                                    <a class="bui-list-item bui-list-item--size-large" href="{{ url('') }}">
+                                        <div class="bui-inline-container bui-inline-container--align">
+                                            <div class="bui-inline-container__start">
+                                                <span class="bui-icon bui-icon--large bui-icon--color-neutral">
+                                                    <svg class="bk-icon -streamline-property_add" height="24"
+                                                        width="24" viewBox="0 0 24 24" role="presentation"
+                                                        focusable="false">
+                                                        <path
+                                                            d="M8.25 19h-3a.75.75 0 0 1-.75-.75v-7.5a.75.75 0 0 0-1.5 0v7.5a2.25 2.25 0 0 0 2.25 2.25h3a.75.75 0 0 0 0-1.5zM1.234 9.823l8.782-7.43a.75.75 0 0 1 .969 0l7.279 6.159a.75.75 0 1 0 .968-1.146l-7.279-6.159a2.25 2.25 0 0 0-2.906 0L.265 8.678a.75.75 0 1 0 .968 1.146zM15.75 2.5h3L18 1.75v3a.75.75 0 0 0 1.5 0v-3a.75.75 0 0 0-.75-.75h-3a.75.75 0 0 0 0 1.5zm6.75 14.25a5.25 5.25 0 1 1-10.5 0 5.25 5.25 0 0 1 10.5 0zm1.5 0a6.75 6.75 0 1 0-13.5 0 6.75 6.75 0 0 0 13.5 0zm-7.5-3v6a.75.75 0 0 0 1.5 0v-6a.75.75 0 0 0-1.5 0zm-2.25 3.75h6a.75.75 0 0 0 0-1.5h-6a.75.75 0 0 0 0 1.5z">
+                                                        </path>
+                                                    </svg>
+                                                </span>
+                                            </div>
+                                            <div class="bui-inline-container__main">
+                                                List your property
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+
+
+                            <h3 class="bui-f-font-strong bui-traveller-header__menu-title">
+                                Inspiration
+                            </h3>
+                            <ul>
+
+                                <li>
+                                    <a class="bui-list-item bui-list-item--size-large" href="{{ url('#') }}">
+                                        <div class="bui-inline-container bui-inline-container--align">
+                                            <div class="bui-inline-container__start">
+                                                <span class="bui-icon bui-icon--large bui-icon--color-neutral">
+                                                    <svg class="bk-icon -streamline-book" height="24"
+                                                        width="24" viewBox="0 0 24 24" role="presentation"
+                                                        focusable="false">
+                                                        <path
+                                                            d="M21 22.5H5.25a1.5 1.5 0 0 1-1.5-1.5.75.75 0 0 0-1.5 0 3 3 0 0 0 3 3H21a.75.75 0 0 0 0-1.5zM6 0a3.75 3.75 0 0 0-3.75 3.75V21h1.5a1.5 1.5 0 0 1 1.5-1.5h15a1.5 1.5 0 0 0 1.5-1.5V1.5a1.5 1.5 0 0 0-1.5-1.5H6zm0 1.5h14.25V18h-15a3 3 0 0 0-3 3c0 1 1.5 1 1.5 0V3.75A2.25 2.25 0 0 1 6 1.5zm14.25 21.75v-4.5a.75.75 0 0 0-1.5 0v4.5a.75.75 0 0 0 1.5 0z">
+                                                        </path>
+                                                    </svg>
+                                                </span>
+                                            </div>
+                                            <div class="bui-inline-container__main">
+                                                Travel articles
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+
+                            </ul>
+                            <h3 class="bui-f-font-strong bui-traveller-header__menu-title">
+                                Settings and legal
+                            </h3>
+                            <ul>
+                                <li>
+                                    <a class="bui-list-item bui-list-item--size-large" href="{{ url('#') }}">
+                                        <div class="bui-inline-container bui-inline-container--align">
+                                            <div class="bui-inline-container__start">
+                                                <span class="bui-icon bui-icon--large bui-icon--color-neutral">
+                                                    <svg class="bk-icon -streamline-info_sign" height="24"
+                                                        width="24" viewBox="0 0 24 24" role="presentation"
+                                                        focusable="false">
+                                                        <path
+                                                            d="M14.25 15.75h-.75a.75.75 0 0 1-.75-.75v-3.75a1.5 1.5 0 0 0-1.5-1.5h-.75a.75.75 0 0 0 0 1.5h.75V15a2.25 2.25 0 0 0 2.25 2.25h.75a.75.75 0 0 0 0-1.5zM11.625 6a1.125 1.125 0 1 0 0 2.25 1.125 1.125 0 0 0 0-2.25.75.75 0 0 0 0 1.5.375.375 0 1 1 0-.75.375.375 0 0 1 0 .75.75.75 0 0 0 0-1.5zM22.5 12c0 5.799-4.701 10.5-10.5 10.5S1.5 17.799 1.5 12 6.201 1.5 12 1.5 22.5 6.201 22.5 12zm1.5 0c0-6.627-5.373-12-12-12S0 5.373 0 12s5.373 12 12 12 12-5.373 12-12z">
+                                                        </path>
+                                                    </svg>
+                                                </span>
+                                            </div>
+                                            <div class="bui-inline-container__main">
+                                                About Boacos.com
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a class="bui-list-item bui-list-item--size-large" href="{{ url('#') }}">
+                                        <div class="bui-inline-container bui-inline-container--align">
+                                            <div class="bui-inline-container__start">
+                                                <span class="bui-icon bui-icon--large bui-icon--color-neutral">
+                                                    <svg class="bk-icon -streamline-property_preferred" height="24"
+                                                        width="24" viewBox="0 0 24 24" role="presentation"
+                                                        focusable="false">
+                                                        <path
+                                                            d="M15.15 9.299l-3.981 5.308-2.389-2.388a.75.75 0 1 0-1.06 1.06l2.389 2.388a1.5 1.5 0 0 0 2.26-.16L16.35 10.2a.75.75 0 1 0-1.2-.9zm-3.836-7.472a.88.88 0 0 1 1.372 0l1.511 1.88a2.379 2.379 0 0 0 2.112.877l2.4-.261a.88.88 0 0 1 .974.971l-.262 2.402a2.38 2.38 0 0 0 .877 2.112l1.88 1.512a.88.88 0 0 1 0 1.37l-1.885 1.504a2.383 2.383 0 0 0-.878 2.114l.261 2.4a.88.88 0 0 1-.97.974l-2.403-.262a2.378 2.378 0 0 0-2.112.877l-1.506 1.873a.88.88 0 0 1-1.37 0l-1.511-1.88a2.38 2.38 0 0 0-2.113-.876l-2.4.261a.879.879 0 0 1-.974-.97l.262-2.403a2.381 2.381 0 0 0-.876-2.113l-1.88-1.51a.879.879 0 0 1 0-1.371l1.88-1.513a2.378 2.378 0 0 0 .876-2.111l-.261-2.4a.88.88 0 0 1 .97-.974l2.403.262a2.382 2.382 0 0 0 2.113-.876l1.51-1.867zM10.147.885l-1.511 1.87a.883.883 0 0 1-.784.325l-2.399-.26a2.379 2.379 0 0 0-2.626 2.629l.26 2.397a.878.878 0 0 1-.323.78L.883 10.139a2.379 2.379 0 0 0 0 3.709l1.88 1.51a.881.881 0 0 1 .324.782l-.26 2.4a2.378 2.378 0 0 0 2.63 2.626l2.396-.26a.881.881 0 0 1 .781.324l1.511 1.88a2.378 2.378 0 0 0 3.71 0l1.506-1.874a.878.878 0 0 1 .78-.324l2.4.26a2.378 2.378 0 0 0 2.626-2.628l-.26-2.398a.882.882 0 0 1 .324-.782l1.885-1.503a2.38 2.38 0 0 0 .002-3.71l-1.881-1.513a.88.88 0 0 1-.324-.78l.26-2.4a2.38 2.38 0 0 0-2.628-2.626l-2.398.26a.879.879 0 0 1-.78-.323L13.855.887a2.38 2.38 0 0 0-3.709 0z">
+                                                        </path>
+                                                    </svg>
+                                                </span>
+                                            </div>
+                                            <div class="bui-inline-container__main">
+                                                Become an affiliate
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a class="bui-list-item bui-list-item--size-large" href="{{ url('') }}"
+                                        rel="nofollow">
+                                        <div class="bui-inline-container bui-inline-container--align">
+                                            <div class="bui-inline-container__start">
+                                                <span class="bui-icon bui-icon--large bui-icon--color-neutral">
+                                                    <svg class="bk-icon -streamline-food_cookie" height="24"
+                                                        width="24" viewBox="0 0 24 24" role="presentation"
+                                                        focusable="false">
+                                                        <path
+                                                            d="M20.973 8.239a2.996 2.996 0 0 1-2.998-2.994v-.02a.75.75 0 0 0-1.207-.6 2.966 2.966 0 0 1-1.797.614 2.997 2.997 0 0 1-2.754-4.182.75.75 0 0 0-.72-1.045C4.883.28-.262 5.86.007 12.476c.268 6.615 5.849 11.76 12.464 11.492 6.615-.269 11.76-5.85 11.492-12.464a11.988 11.988 0 0 0-.562-3.172.75.75 0 0 0-1.064-.434c-.421.222-.89.339-1.366.341zm.003 1.5a4.458 4.458 0 0 0 2.06-.515l-.35-.663-.714.229c.288.898.453 1.832.491 2.774.235 5.788-4.266 10.67-10.054 10.905-5.787.235-10.67-4.266-10.905-10.054C1.27 6.628 5.771 1.745 11.558 1.51l-.03-.749-.689-.296a4.497 4.497 0 0 0 4.135 6.274 4.467 4.467 0 0 0 2.708-.924l-.457-.595-.75-.005v.03a4.496 4.496 0 0 0 4.498 4.494zm-12.003.75a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm1.5 0a3 3 0 1 0-6 0 3 3 0 0 0 6 0zm4.5 6.75a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0zm1.5 0a2.25 2.25 0 1 0-4.5 0 2.25 2.25 0 0 0 4.5 0zm-9.373 0a.375.375 0 1 1 0-.75.375.375 0 0 1 0 .75.75.75 0 0 0 0-1.5 1.125 1.125 0 1 0 0 2.25 1.125 1.125 0 0 0 0-2.25.75.75 0 0 0 0 1.5zm6.058-6.755a.375.375 0 1 1 .31-.43.376.376 0 0 1-.31.43h-.002a.75.75 0 0 0-.236-1.48h-.005a1.124 1.124 0 1 0 .364 2.22 1.125 1.125 0 0 0-.361-2.22.75.75 0 0 0 .24 1.48zm6 3a.375.375 0 1 1-.12-.74.375.375 0 0 1 .12.74.75.75 0 0 0-.24-1.48 1.125 1.125 0 1 0 .361 2.22 1.125 1.125 0 0 0-.361-2.22.75.75 0 0 0 .24 1.48z">
+                                                        </path>
+                                                    </svg>
+                                                </span>
+                                            </div>
+                                            <div class="bui-inline-container__main">
+                                                Privacy &amp; cookies
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="bui-list-item bui-list-item--size-large" href="{{ url('') }}"
+                                        rel="nofollow">
+                                        <div class="bui-inline-container bui-inline-container--align">
+                                            <div class="bui-inline-container__start">
+                                                <span class="bui-icon bui-icon--large bui-icon--color-neutral">
+                                                    <svg class="bk-icon -streamline-file_info" height="24"
+                                                        width="24" viewBox="0 0 24 24" role="presentation"
+                                                        focusable="false">
+                                                        <path
+                                                            d="M22.5 17.25a5.25 5.25 0 1 1-10.5 0 5.25 5.25 0 0 1 10.5 0zm1.5 0a6.75 6.75 0 1 0-13.5 0 6.75 6.75 0 0 0 13.5 0zm-6 3v-3a.75.75 0 0 0-1.5 0v3a.75.75 0 0 0 1.5 0zm-.75-6.689a1.125 1.125 0 1 0 0 2.25 1.125 1.125 0 0 0 0-2.25.75.75 0 0 0 0 1.5.375.375 0 1 1 0-.75.375.375 0 0 1 0 .75.75.75 0 0 0 0-1.5zM3.75 7.5h10.5a.75.75 0 0 0 0-1.5H3.75a.75.75 0 0 0 0 1.5zm0 4.5h6a.75.75 0 0 0 0-1.5h-6a.75.75 0 0 0 0 1.5zm0 4.5H7.5a.75.75 0 0 0 0-1.5H3.75a.75.75 0 0 0 0 1.5zm3.75 3H2.25a.75.75 0 0 1-.75-.75V2.25a.75.75 0 0 1 .75-.75h10.629a.75.75 0 0 1 .53.22L16.28 4.59c.14.14.219.331.219.53V7.5a.75.75 0 0 0 1.5 0V5.121a2.25 2.25 0 0 0-.659-1.59L14.47.659A2.25 2.25 0 0 0 12.88 0H2.25A2.25 2.25 0 0 0 0 2.25v16.5A2.25 2.25 0 0 0 2.25 21H7.5a.75.75 0 0 0 0-1.5z">
+                                                        </path>
+                                                    </svg>
+                                                </span>
+                                            </div>
+                                            <div class="bui-inline-container__main">
+                                                Terms and conditions
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Mobile Side Menu Modal -->
+
+    <!-- Mobile Filter -->
+    <div class="_c8e92878a _026297829 mobile-filter-modal">
+        <div class="_d64458787">
+            <div class="_9c1026196 eb9f1f6bfd _0767d6b2f adabb676d2">
+                <div class="cbfd55c98e">
+                    <div class="_8cfd21848">
+                        <div class="_0e12d9386 e8ebb7a5d3 _667470915 _06d618292">
+                            <div class="a183354c7e _ed5311827 _010a2b8f2">
+                                <div class="_650167b54">
+                                    <div class="_84f6fd780 _005e7a36d df42919a5a _a567ec38a fd389eefbf f08c6c5aae">
+                                        <div class="_29c344764">
+                                            <button type="button" id="mobile-filter-close-btn"
+                                                class="_4310f7077 _45807dae0 _2fd096cd5 _f7538b398">
+                                                <span>
+                                                    <span class="_3ae5d40db _5a3a8722d _2cd0bad86" aria-hidden="true">
+                                                        <svg viewBox="0 0 24 24">
+                                                            <path
+                                                                d="M13.31 12l6.89-6.89a.93.93 0 1 0-1.31-1.31L12 10.69 5.11 3.8A.93.93 0 0 0 3.8 5.11L10.69 12 3.8 18.89a.93.93 0 0 0 1.31 1.31L12 13.31l6.89 6.89a.93.93 0 1 0 1.31-1.31z">
+                                                            </path>
+                                                        </svg>
+                                                    </span>
+                                                </span>
+                                            </button>
+                                        </div>
+                                        <div class="_29c344764 _f57705597">
+                                            <div class="_be640ecd3">
+                                                <div class="c4d9e0d6b3">
+                                                    <h2 class="ac6bdec376 _192b3a196 _397a46f0e">Filters</h2>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="_29c344764">
+                                            <button type="button"
+                                                class="_4310f7077 _45807dae0 _360d356a9 _f7538b398 _5dc203350">
+                                                <span>Clear</span>
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    <div class="_962ef834c bf934a55fc">
+                                        <div class="_962ef834c _06a26a12e">
+                                            <div class="c4d9e0d6b3 bd1a25f08b">
+                                                <h3 class="ac6bdec376 _192b3a196 _397a46f0e">Your previous filters
+                                                </h3>
+                                            </div>
+                                            <div class="_dc55ee131 _8342850d1 _e8e865f5b _647205ee7">
+                                                <input id="__bui-c1-3" class="e91c2d7ef0" type="checkbox"
+                                                    name="ht_id=204" value="ht_id=204"><label for="__bui-c1-3"
+                                                    class="_0e12d9386 _f9e9bb805 _667470915 _88c9d425e _bc53aec18"><span
+                                                        class="_7884a2946"><span
+                                                            class="_3ae5d40db eb8ed3499b _4b9c5f3e8"
+                                                            aria-hidden="true">
+                                                            <svg viewBox="0 0 128 128">
+                                                                <path
+                                                                    d="M56.33 102a6 6 0 0 1-4.24-1.75L19.27 67.54A6.014 6.014 0 1 1 27.74 59l27.94 27.88 44-58.49a6 6 0 1 1 9.58 7.22l-48.17 64a5.998 5.998 0 0 1-4.34 2.39z">
+                                                                </path>
+                                                            </svg>
+                                                        </span>
+                                                    </span>
+                                                    <div class="_f8ff3180e">
+                                                        <div class="_dc55ee131 _192b3a196">
+                                                            <div data-testid="filters-group-label-container"
+                                                                class="_ca8ac7d85">
+                                                                <div data-testid="filters-group-label-content"
+                                                                    class="_dc55ee131 _2c4e87539">Hotels</div> <span
+                                                                    class="_4abc4c3d5 c261cfa50e">(25)</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </label>
+                                            </div>
+
+                                        </div>
+
+                                        <hr class="_b1c8687ff">
+
+                                        <div class="_962ef834c _06a26a12e">
+                                            <div class="c4d9e0d6b3 bd1a25f08b">
+                                                <h3 class="ac6bdec376 _192b3a196 _397a46f0e">Your budget (per night)
+                                                </h3>
+                                            </div>
+                                            <div>
+
+                                                <div class="_dc55ee131 fea9b5322e _215faa73a _9872e7e93">
+                                                    <input type="checkbox" name="alt_group"
+                                                        id="filter-style-switch-pri-mobile" class="_fd041db95">
+                                                    <label for="filter-style-switch-pri-mobile" class="_3dfa7ad4a">
+                                                        <span class="_a48a3fc0e"></span>
+                                                    </label>
+                                                </div>
+
+                                                <div class="_dc55ee131 _8342850d1 _e8e865f5b _647205ee7">
+                                                    <input class="e91c2d7ef0" type="checkbox" name="bdt">
+                                                    <label for="__bui-c1-10"
+                                                        class="_0e12d9386 _f9e9bb805 _667470915 _88c9d425e _bc53aec18"><span
+                                                            class="_7884a2946">
+                                                            <span class="_3ae5d40db eb8ed3499b _4b9c5f3e8">
+                                                                <svg viewBox="0 0 128 128">
+                                                                    <path
+                                                                        d="M56.33 102a6 6 0 0 1-4.24-1.75L19.27 67.54A6.014 6.014 0 1 1 27.74 59l27.94 27.88 44-58.49a6 6 0 1 1 9.58 7.22l-48.17 64a5.998 5.998 0 0 1-4.34 2.39z">
+                                                                    </path>
+                                                                </svg>
+                                                            </span>
+                                                        </span>
+                                                        <div class="_f8ff3180e">
+                                                            <div class="_dc55ee131 _192b3a196">
+                                                                <div class="_ca8ac7d85">
+                                                                    <div class="_dc55ee131 _2c4e87539">
+                                                                        BDT&nbsp;0 -
+                                                                        BDT&nbsp;5,000
+                                                                    </div>
+                                                                    <span class="_4abc4c3d5 c261cfa50e">(24)
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <hr class="_b1c8687ff">
+
+
+                                        <div data-filters-group="SustainablePropertyFilter"
+                                            class="_962ef834c _06a26a12e">
+                                            <div class="c4d9e0d6b3 bd1a25f08b">
+                                                <h3 class="ac6bdec376 _192b3a196 _397a46f0e">Sustainability</h3>
+                                            </div>
+                                            <div>
+                                                <div></div>
+                                            </div>
+                                            <div data-filters-item="SustainablePropertyFilter:SustainablePropertyFilter=1"
+                                                class="_dc55ee131 _8342850d1 _e8e865f5b _647205ee7"><input
+                                                    id="__bui-c1-72" class="e91c2d7ef0" type="checkbox"
+                                                    name="SustainablePropertyFilter=1"
+                                                    value="SustainablePropertyFilter=1"><label for="__bui-c1-72"
+                                                    class="_0e12d9386 _f9e9bb805 _667470915 _88c9d425e _bc53aec18"><span
+                                                        class="_7884a2946"><span
+                                                            class="_3ae5d40db eb8ed3499b _4b9c5f3e8"
+                                                            aria-hidden="true"><svg viewBox="0 0 128 128">
+                                                                <path
+                                                                    d="M56.33 102a6 6 0 0 1-4.24-1.75L19.27 67.54A6.014 6.014 0 1 1 27.74 59l27.94 27.88 44-58.49a6 6 0 1 1 9.58 7.22l-48.17 64a5.998 5.998 0 0 1-4.34 2.39z">
+                                                                </path>
+                                                            </svg></span></span>
+                                                    <div class="_f8ff3180e">
+                                                        <div class="_dc55ee131 _192b3a196">
+                                                            <div data-testid="filters-group-label-container"
+                                                                class="_ca8ac7d85">
+                                                                <div data-testid="filters-group-label-content"
+                                                                    class="_dc55ee131 _2c4e87539">Travel Sustainable
+                                                                    properties</div> <span
+                                                                    class="_4abc4c3d5 c261cfa50e">(4)</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </label></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="e2d6601fab">
+                                        <div class="_e324cfaf7">
+                                            <button type="button"
+                                                class="_4310f7077 _ab6816951 _03eb8c30a _4b2c5578d _97fdd0717 _aa53125bf">
+                                                <span class="_b61fba663">Show 30 results</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Mobil Filter -->
+
+    <!-- Bootstrap & Jquery -->
+    <script src="{{ asset('/frontend/assets/js/jquery-1.12.4.min.js') }}"></script>
+    <script src="{{ asset('/frontend/assets/js/bootstrap.bundle.min.js') }}"></script>
+
+    <!-- Slick Slider -->
+    <script src="{{ asset('/frontend/assets/js/jquery-migrate-1.2.1.min.js') }}"></script>
+    <script src="{{ asset('/frontend/assets/js/slick.min.js') }}"></script>
+
+    <!-- Search Box -->
+    <script src="{{ asset('/frontend/assets/js/search.min.js') }}"></script>
+
+    <!-- Custom -->
+    <script src="{{ asset('/frontend/assets/js/script.js') }}"></script>
+
+</body>
+
+</html>

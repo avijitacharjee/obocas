@@ -184,12 +184,19 @@ class PropertyController extends Controller
     }
     public function search(Request $request): View
     {
-        Log::channel('debug')->info($request->all());
-        $lowestPrice = Property::orderBy('cot_price', 'ASC')->get();
-        $heighestPrice = Property::orderBy('cot_price', 'DESC')->get();
-        $bestReviewed = Property::all();
+        $data = $request->search_data;
+        $query = Property
+                    ::where('property_name', 'LIKE', "%{$data}%")
+                    ->orWhere('address', 'LIKE', "%{$data}%")
+                    ->orWhere('city', 'LIKE', "%{$data}%")
+                    ->orWhere('location_contact_name', 'LIKE', "%{$data}%")
+                    ;
+        $lowestPrice = with(clone $query)->orderByRaw('CONVERT(room_price_x_persons,SIGNED) ASC')->get();
+        $heighestPrice = with(clone $query)->orderByRaw('CONVERT(room_price_x_persons,SIGNED) DESC')->get();
+        $bestReviewed = with(clone $query)->get();
+        $properties = with(clone $query)->get();
         return view('public.searchresults')
-            ->with('properties', Property::all())
+            ->with('properties', $properties)
             ->with('lowestPrice', $lowestPrice)
             ->with('heighestPrice', $heighestPrice)
             ->with('bestReviewed', $bestReviewed);

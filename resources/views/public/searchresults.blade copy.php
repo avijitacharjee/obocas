@@ -975,11 +975,11 @@
                                         <a href="{{ url('#') }}" class="a5b679fa41" data-bs-toggle="tab"
                                             data-bs-target="#tab2">lowest Price</a>
                                     </li>
-                                    {{-- <li class="c266cda126 dasktop-search-item nav-item" role="presentation">
+                                    <li class="c266cda126 dasktop-search-item nav-item" role="presentation">
                                         <a href="{{ url('#') }}" class="a5b679fa41" data-bs-toggle="tab"
                                             data-bs-target="#tab3">Best
                                             Reviewed</a>
-                                    </li> --}}
+                                    </li>
                                     <li class="c266cda126 dasktop-search-item nav-item" role="presentation">
                                         <a href="{{ url('#') }}" class="a5b679fa41" data-bs-toggle="tab"
                                             data-bs-target="#tab4">Highest Price</a>
