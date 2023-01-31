@@ -105,14 +105,14 @@
                                             d="M17.464 6.56a8.313 8.313 0 1 1-15.302 6.504A8.313 8.313 0 0 1 17.464 6.56zm1.38-.586C16.724.986 10.963-1.339 5.974.781.988 2.9-1.337 8.662.783 13.65c2.12 4.987 7.881 7.312 12.87 5.192 4.987-2.12 7.312-7.881 5.192-12.87zM15.691 16.75l7.029 7.03a.75.75 0 0 0 1.06-1.06l-7.029-7.03a.75.75 0 0 0-1.06 1.06z">
                                         </path>
                                     </svg>
-                                    <input type="search"
+                                    <input type="search" name="search_data"
                                         class="c-autocomplete__input sb-searchbox__input sb-destination__input"
                                         placeholder="Dhaka" value="">
                                 </div>
                             </div>
                         </div>
-
-                        <div class="sb-searchbox__row u-clearfix">
+                        <div style="height: 100px;"></div>
+                        {{-- <div class="sb-searchbox__row u-clearfix">
                             <div
                                 class="sb-dates
                                     js--sb-dates
@@ -1235,7 +1235,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                         <!-- /Papole Select -->
 
                         <div class="sb-searchbox__row u-clearfix -submit sb-searchbox__footer -last">
@@ -1351,14 +1351,14 @@
                                 House rules
                             </a>
                         </li>
-                        <li class="hp_nav_bar_item">
+                        {{-- <li class="hp_nav_bar_item">
                             <a href="#GuestReviews" class="hp_nav_reviews_link toggle_review track_review_link_zh"
                                 id="show_reviews_tab" rel="reviews" role="button">
                                 <span>
                                     <b>Our Guests’</b> (9)
                                 </span>
                             </a>
-                        </li>
+                        </li> --}}
                     </ul>
                 </div>
                 <!-- Header Nav -->
@@ -1510,7 +1510,7 @@
                                         <div class="col-12">
                                             <a href="#"
                                                 class="bh-photo-grid-item bh-photo-grid-side-photo active-image"
-                                                style="background-image: url({{ asset('frontend/assets/images/galllery-2.jpg') }});"
+                                                style="background-image: url('{{count(explode(';', $property->property_images))>1?asset('/storage/'.explode(';', $property->property_images)[1]):asset('frontend/assets/images/galllery-2.jpg') }}');"
                                                 title="">
                                                 <img src="{{ asset('frontend/assets/images/galllery-2.jpg') }}"
                                                     class="hide" alt="">
@@ -1519,7 +1519,7 @@
                                         <div class="col-12">
                                             <a href="#"
                                                 class="bh-photo-grid-item bh-photo-grid-side-photo active-image"
-                                                style="background-image: url({{ asset('frontend/assets/images/galllery-3.jpg') }});"
+                                                style="background-image: url('{{count(explode(';', $property->property_images))>1?asset('/storage/'.explode(';', $property->property_images)[2]):asset('frontend/assets/images/galllery-3.jpg') }}');"
                                                 title="">
                                                 <img src="{{ asset('frontend/assets/images/galllery-3.jpg') }}"
                                                     class="hide" alt="">
@@ -1537,7 +1537,7 @@
                                 </div>
                             </div>
 
-                            <div class="row d-lg-flex d-md-none">
+                            {{-- <div class="row d-lg-flex d-md-none">
                                 <div class="col-2 pr-0">
                                     <div class="bh-photo-grid-thumb-cell">
                                         <a href="#" class="bh-photo-grid-item bh-photo-grid-thumb"
@@ -1598,7 +1598,7 @@
                                         </a>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                             <div class="hp-gallery-review">
                                 <div class="fixed_review_container">
                                     <div class="best-review-score">
@@ -1846,7 +1846,7 @@
                                             can be requested for in-room dining comforts. </p> --}}
                                     </div>
                                 </div>
-                                <p class="summary  hotel_meta_style">
+                                {{-- <p class="summary  hotel_meta_style">
                                     <span class="hp-desc-highlighted">
                                         Nascent Gardenia Baridhara has been welcoming Booking.com
                                         guests since Mar 7, 2014<br>
@@ -1862,7 +1862,7 @@
                                         <span class="inline-feedback__separator">/</span>
                                         <button class="inline-feedback__link a11y_btn_style">No</button>
                                     </div>
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
 

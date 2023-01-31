@@ -42,7 +42,8 @@
                                                 <!-- Place Select Option -->
                                                 <div class="place_option" style="height: 100%;">
                                                     <div class="form-group" style="height: 100%;">
-                                                        <input type="text" name="search_data" style="height:100%;" class="form-control">
+                                                        <input type="text" name="search_data" style="height:100%;"
+                                                            class="form-control">
                                                     </div>
                                                 </div>
                                                 <!-- /Place Select Option -->
@@ -126,7 +127,7 @@
                             <div class="unified-postcard__overlay">
                                 <div class="unified-postcard__header">
                                     <h3>
-                                        <a href="">Dhaka</a>
+                                        <a href="/search?search_data=dhaka">Dhaka</a>
                                     </h3>
                                     <p>
                                         4,223 properties
@@ -143,7 +144,7 @@
                             <div class="unified-postcard__overlay">
                                 <div class="unified-postcard__header">
                                     <h3>
-                                        <a href="">Chittagong</a>
+                                        <a href="/search?search_data=chittagong">Chittagong</a>
                                     </h3>
                                     <p>
                                         4,223 properties
@@ -162,7 +163,7 @@
                             <div class="unified-postcard__overlay">
                                 <div class="unified-postcard__header">
                                     <h3>
-                                        <a href="">
+                                        <a href="/search?search_data=cox">
                                             Cox's Bazar
                                         </a>
                                     </h3>
@@ -181,7 +182,7 @@
                             <div class="unified-postcard__overlay">
                                 <div class="unified-postcard__header">
                                     <h3>
-                                        <a href="">
+                                        <a href="/search?search_data=sylhet">
                                             Sylhet
                                         </a>
                                     </h3>
@@ -200,7 +201,7 @@
                             <div class="unified-postcard__overlay">
                                 <div class="unified-postcard__header">
                                     <h3>
-                                        <a href="">
+                                        <a href="/search?search_data=rangamati">
                                             Rangamati
                                         </a>
                                     </h3>
@@ -364,10 +365,11 @@
                                     <h3 class="bui-card__title bh-carousel--new__title">
                                         <span>{{ $hotel->property_name }}</span>
                                     </h3>
-                                    <p class="bui-card__subtitle"> {{ $hotel->city }} </p>
+                                    <p class="bui-card__subtitle"> {{ $hotel->city ?? $hotel->address }} </p>
                                     <p class="bh-carousel--new__price bui_color_black">
-                                        Starting from BDT {{ $hotel->cot_price }}
+                                        Starting from BDT {{ $hotel->room_price_x_persons }}
                                     </p>
+                                    {{--
                                     <div style="margin-top: 4px">
                                         <div
                                             class="bui-review-score c-score bui-review-score--inline bui-review-score--small">
@@ -381,6 +383,7 @@
                                             </div>
                                         </div>
                                     </div>
+                                    --}}
                                 </div>
                             </a>
                         </li>
@@ -392,4 +395,20 @@
         </div>
         <!-- Homes guests love -->
     </div>
+    @auth
+        <div class="d-flex justify-content-center">
+            <div class="bui-group__item">
+                <svg class="bk-icon -streamline-account_create" height="24" style="display:none;" width="24"
+                    viewBox="0 0 24 24" role="presentation">
+                    <path
+                        d="M22.5 17.25a5.25 5.25 0 1 1-10.5 0 5.25 5.25 0 0 1 10.5 0zm1.5 0a6.75 6.75 0 1 0-13.5 0 6.75 6.75 0 0 0 13.5 0zm-7.5-3v6a.75.75 0 0 0 1.5 0v-6a.75.75 0 0 0-1.5 0zM14.25 18h6a.75.75 0 0 0 0-1.5h-6a.75.75 0 0 0 0 1.5zM1.5 17.25a6.003 6.003 0 0 1 8.356-5.518.75.75 0 0 0 .588-1.38A7.504 7.504 0 0 0 0 17.25a.75.75 0 0 0 1.5 0zm9.375-12.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0zm1.5 0a4.875 4.875 0 1 0-9.75 0 4.875 4.875 0 0 0 9.75 0z" />
+                </svg>
+                <a class="bui-button bui-button--secondary js-header-login-link" href="/property3">
+                    <span class="bui-button__text">
+                        List your property
+                    </span>
+                </a>
+            </div>
+        </div>
+    @endauth
 @endsection

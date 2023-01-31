@@ -69,8 +69,7 @@ class AuthController extends Controller
         $user->password = $request->password;
         $user->role_id = 1;
         $user->save();
-        session(['email' => $user->email]);
-        session(['name' => $user->name]);
+        auth()->login($user);
         return redirect('/', 201);
     }
     public function verifyPass(Request $request)

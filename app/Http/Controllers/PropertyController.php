@@ -106,8 +106,9 @@ class PropertyController extends Controller
         $user = User::find(auth()->user()->id);
         $user->role_id = 3;
         $user->save();
+        $data['user_id'] = auth()->user()->id;
         Property::create($data);
-        return redirect('/');
+        return redirect('/hotel-admin/dashboard');
     }
     public function saveImages($images)
     {
