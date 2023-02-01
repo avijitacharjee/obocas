@@ -34,19 +34,7 @@
     <div id="root" class="bui-u-text-left bui_font_body">
 
         <!-- Header -->
-        <div class="guest-header">
-            <header class="_37rfPfc52EXATe8n6xoWgd">
-                <nav class="_2HVwqciw9DfOQFLWl2-a_I">
-                    <div class="_1pRpeQP2z_3ktRb8Urjtv6">
-                        <div class="daGIlH2FHgTbq-rtCh3t">
-                            <a href="#">
-                                <img src="{{asset('frontend/assets/images/logo.png')}}" alt="">
-                            </a>
-                        </div>
-                    </div>
-                </nav>
-            </header>
-        </div>
+        <x-guest-header/>
         <!-- /Header -->
 
         <!-- Login Box -->
@@ -160,7 +148,7 @@
                                                 </div>
                                             </div>
                                             <!-- /Social Authantication -->
-                                            
+
                                         </form>
                                         <!-- /LogIn Form -->
 
@@ -171,7 +159,7 @@
                     </div>
                 </div>
             </div>
-            
+
             </div>
             <!-- Copy-Right Footer -->
             <div class="account-access__footer">
@@ -199,7 +187,7 @@
         import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-analytics.js";
         // TODO: Add SDKs for Firebase products that you want to use
         // https://firebase.google.com/docs/web/setup#available-libraries
-      
+
         // Your web app's Firebase configuration
         // For Firebase JS SDK v7.20.0 and later, measurementId is optional
         const firebaseConfig = {
@@ -211,7 +199,7 @@
           appId: "1:265687564684:web:416b6d62d1faca003556a9",
           measurementId: "G-M1L467TRJV"
         };
-      
+
         // Initialize Firebase
         const app = initializeApp(firebaseConfig);
         const analytics = getAnalytics(app);
@@ -257,12 +245,12 @@
             window.onload = function () {
                 render();
             };
-            
+
             function render() {
                 window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container');
                 recaptchaVerifier.render();
             }
-            
+
             function sendOTP() {
                 var number = $("#number").val();
                 firebase.auth().signInWithPhoneNumber(number, window.recaptchaVerifier).then(function (confirmationResult) {
@@ -276,7 +264,7 @@
                     $("#error").show();
                 });
             }
-            
+
             function verify() {
                 var code = $("#verification").val();
                 coderesult.confirm(code).then(function (result) {

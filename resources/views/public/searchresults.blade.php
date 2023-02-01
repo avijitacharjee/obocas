@@ -455,17 +455,7 @@
                                                 data-fe_fam_d_index_mandatory_ages_new_copy="0"
                                                 data-fe_sb_dont_use_default_child_age="1">
                                                 <div class="u-clearfix" data-render="">
-
-
-
-
-
-
                                                     <div class="sb-group__field sb-group__field-adults">
-
-
-
-
                                                         <div class="bui-stepper" data-bui-component="InputStepper">
                                                             <div class="bui-stepper__title-wrapper">
                                                                 <label class="bui-stepper__title"

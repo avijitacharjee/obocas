@@ -395,7 +395,7 @@
         </div>
         <!-- Homes guests love -->
     </div>
-    @auth
+    @guest
         <div class="d-flex justify-content-center">
             <div class="bui-group__item">
                 <svg class="bk-icon -streamline-account_create" height="24" style="display:none;" width="24"
@@ -403,12 +403,12 @@
                     <path
                         d="M22.5 17.25a5.25 5.25 0 1 1-10.5 0 5.25 5.25 0 0 1 10.5 0zm1.5 0a6.75 6.75 0 1 0-13.5 0 6.75 6.75 0 0 0 13.5 0zm-7.5-3v6a.75.75 0 0 0 1.5 0v-6a.75.75 0 0 0-1.5 0zM14.25 18h6a.75.75 0 0 0 0-1.5h-6a.75.75 0 0 0 0 1.5zM1.5 17.25a6.003 6.003 0 0 1 8.356-5.518.75.75 0 0 0 .588-1.38A7.504 7.504 0 0 0 0 17.25a.75.75 0 0 0 1.5 0zm9.375-12.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0zm1.5 0a4.875 4.875 0 1 0-9.75 0 4.875 4.875 0 0 0 9.75 0z" />
                 </svg>
-                <a class="bui-button bui-button--secondary js-header-login-link" href="/property3">
+                <a class="bui-button bui-button--secondary js-header-login-link" href="/hotel-signin">
                     <span class="bui-button__text">
                         List your property
                     </span>
                 </a>
             </div>
         </div>
-    @endauth
+    @endguest
 @endsection

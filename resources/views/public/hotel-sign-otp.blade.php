@@ -33,7 +33,7 @@
     <x-guest-header/>
     <!-- /Header -->
     <div class="container mt-5">
-        <form action="/signin" method="POST">
+        <form action="/hotel-signin" method="POST">
             @csrf
             <div class="row">
                 <div class="col-12">

@@ -47,11 +47,28 @@ class AuthController extends Controller
             return redirect('/verify-otp');
         }
     }
+    public function hotelSignInPost(Request $request){
+        $phone = $request->phone;
+        $otp = random_int(100000, 999999);
+        $user = User::where('phone', $request->phone)->first();
+        if($user) {
+            return view('public.hotel-enter-pass')
+                ->with('user', $user);
+        }else {
+            $smsService = new SmsService();
+            $smsService->sendOtp($phone, $otp);
+            session(['otp' => $otp, 'phone' => $phone]);
+            return redirect('/hotel-verify-otp');
+        }
+    }
     public function verifyOtpView()
     {
         return view('public.verify-otp');
     }
-
+    public function hotelVerifyOtpView()
+    {
+        return view('public.hotel-verify-otp');
+    }
     public function verifyOtp(Request $request)
     {
         if ($request->otp == $request->otpMain) {
@@ -104,6 +121,9 @@ class AuthController extends Controller
     public function signin(Request $request)
     {
         return view('public.sign-otp');
+    }
+    public function hotelSignin(){
+        return view('public.hotel-sign-otp');
     }
 
     // public function signOtp(Request $request){

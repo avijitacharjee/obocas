@@ -131,6 +131,10 @@ Route::controller(AuthController::class)->group(function () {
     Route::view('/complete-profile', 'public.complete-profile');
     Route::post('/complete-profile', 'completeProfile');
     Route::post('/verify-pass', 'verifyPass');
+
+    Route::get('/hotel-signin', 'hotelSignin');
+    Route::post('/hotel-signin', 'hotelSignInPost');
+    Route::get('/hotel-verify-otp', 'hotelVerifyOtpView');
 });
 
 Route::view('/signin1', 'public.signin');
