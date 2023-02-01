@@ -17,19 +17,7 @@
   <body>
     <div id="root" class="bui-u-text-left bui_font_body">
       <!-- Header -->
-      <div class="guest-header">
-        <header class="_37rfPfc52EXATe8n6xoWgd">
-          <nav class="_2HVwqciw9DfOQFLWl2-a_I container">
-            <div class="_1pRpeQP2z_3ktRb8Urjtv6">
-              <div class="daGIlH2FHgTbq-rtCh3t">
-                <a href="{{ url('/') }}">
-                <img src="{{ asset('/registration/assets/images/logo.png') }}" alt="">
-                </a>
-              </div>
-            </div>
-          </nav>
-        </header>
-      </div>
+      <x-guest-header/>
       <!-- /Header -->
       <!-- Login Box -->
       <div class="app">
@@ -196,11 +184,11 @@
                                   style="float: left; margin-right: 5px;"></i>
                                 <p id="cancellation_message_policy">The guest must cancel 2
                                   days in advance or pay 100% of the price of the whole
-                                  stay. 
+                                  stay.
                                 </p>
                                 <p class="help-block"> You'll be able to make changes to
                                   your policies later on – this is just to get you
-                                  started. 
+                                  started.
                                 </p>
                               </div>
                             </div>

@@ -77,6 +77,16 @@ class AuthController extends Controller
             return back()->with('msg', 'Invalid otp');
         }
     }
+    public function hotelVerifyOtp(Request $request)
+    {
+        if($request->otp == $request->otpMain)
+        {
+            return redirect('hotel-complete-profile');
+        }else {
+            return back()->with('msg', 'Invalid otp');
+        }
+    }
+
     public function completeProfile(Request $request)
     {
         $user = new User();
@@ -88,6 +98,18 @@ class AuthController extends Controller
         $user->save();
         auth()->login($user);
         return redirect('/', 201);
+    }
+    public function hotelCompleteProfile(Request $request)
+    {
+        $user = new User();
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->phone = $request->phone;
+        $user->password = $request->password;
+        $user->role_id = 3;
+        $user->save();
+        auth()->login($user);
+        return redirect('/property3', 201);
     }
     public function verifyPass(Request $request)
     {
@@ -110,7 +132,11 @@ class AuthController extends Controller
             if (Auth::user()->role->name == 'User') {
                 return redirect('/', 201);
             } else if (Auth::user()->role->name == 'HotelAdmin') {
-                return redirect('/hotel-admin/dashboard', 201);
+                if(auth()->user()->property){
+                    return redirect('/hotel-admin/dashboard', 201);
+                }else {
+                    return redirect('property3');
+                }
             } else if (auth()->user()->role->name == 'Admin') {
                 return redirect('/admin/dashboard');
             }

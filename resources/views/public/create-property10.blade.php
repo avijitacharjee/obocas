@@ -18,17 +18,7 @@
     <div id="root" class="bui-u-text-left bui_font_body">
       <!-- Header -->
       <div class="guest-header">
-        <header class="_37rfPfc52EXATe8n6xoWgd">
-          <nav class="_2HVwqciw9DfOQFLWl2-a_I container">
-            <div class="_1pRpeQP2z_3ktRb8Urjtv6">
-              <div class="daGIlH2FHgTbq-rtCh3t">
-                <a href="{{ url('/') }}">
-                <img src="{{ asset('/registration/assets/images/logo.png') }}" alt="">
-                </a>
-              </div>
-            </div>
-          </nav>
-        </header>
+        <x-guest-header/>
       </div>
       <!-- /Header -->
       <!-- Login Box -->
@@ -163,7 +153,7 @@
                                 <div class="radio-block" id="cc_accepted">
                                   <div class="radio">
                                     <label class="p-0 charge_credit_card_yes">
-                                    <input type="radio" name="cc_accepted"
+                                    <input type="radio" name="cc_accepted" checked
                                       value="yes">
                                     <span>Yes</span>
                                     </label>
@@ -531,3 +521,4 @@
     <script src="{{ asset('/registration/assets/js/script.js') }}"></script>
   </body>
 </html>
+

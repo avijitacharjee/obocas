@@ -85,13 +85,14 @@ class PropertyController extends Controller
         $values = $request->all();
 
         $cc = '';
-        $cc_ids = $request->cc_id;
-        foreach ($cc_ids as $cc_id) {
-            $cc = $cc . $cc_id . ',';
+        if ($request->has('cc_id')) {
+            $cc_ids = $request->cc_id;
+            foreach ($cc_ids as $cc_id) {
+                $cc = $cc . $cc_id . ',';
+            }
+            $cc = substr($cc, 0, -1);
+            $values['cc_id'] = $cc;
         }
-        $cc = substr($cc, 0, -1);
-        $values['cc_id'] = $cc;
-
         foreach ($values as $key => $value) {
             session(['pp_' . $key => $value]);
         }
@@ -104,7 +105,7 @@ class PropertyController extends Controller
         }
         unset($data['proceed']);
         $user = User::find(auth()->user()->id);
-        $user->role_id = 3;
+        // $user->role_id = 3;
         $user->save();
         $data['user_id'] = auth()->user()->id;
         Property::create($data);
@@ -187,11 +188,10 @@ class PropertyController extends Controller
     {
         $data = $request->search_data;
         $query = Property
-                    ::where('property_name', 'LIKE', "%{$data}%")
-                    ->orWhere('address', 'LIKE', "%{$data}%")
-                    ->orWhere('city', 'LIKE', "%{$data}%")
-                    ->orWhere('location_contact_name', 'LIKE', "%{$data}%")
-                    ;
+            ::where('property_name', 'LIKE', "%{$data}%")
+            ->orWhere('address', 'LIKE', "%{$data}%")
+            ->orWhere('city', 'LIKE', "%{$data}%")
+            ->orWhere('location_contact_name', 'LIKE', "%{$data}%");
         $lowestPrice = with(clone $query)->orderByRaw('CONVERT(room_price_x_persons,SIGNED) ASC')->get();
         $heighestPrice = with(clone $query)->orderByRaw('CONVERT(room_price_x_persons,SIGNED) DESC')->get();
         $bestReviewed = with(clone $query)->get();
