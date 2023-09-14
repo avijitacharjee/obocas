@@ -6,13 +6,26 @@ use Illuminate\Http\Request;
 use App\Models\Property;
 use App\Models\Booking;
 use App\Models\CarousalImage;
+use App\Models\Partner;
+use App\Models\User;
 use Illuminate\Support\Str;
 
 class AdminController extends Controller
 {
     public function index()
     {
-        return view('admin.index');
+        $userCount = User::where('role_id', 1)->count();
+        $propertyCount = Property::count();
+        $bookingCount = Booking::count();
+        $partnerCount = Partner::count();
+        $properties = Property::all();
+        return view('admin.index',[
+            'userCount'=>$userCount,
+            'propertyCount'=>$propertyCount,
+            'bookingCount' => $bookingCount,
+            'partnerCount'=>$partnerCount,
+            'properties'=>$properties
+        ]);
     }
     public function  hotels()
     {

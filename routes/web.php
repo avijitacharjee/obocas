@@ -9,6 +9,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\FirebaseController;
 use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\HotelAdminController;
+use App\Http\Middleware\AdminMiddleware;
 use App\Http\Middleware\HotelAdminMiddleware;
 use App\Http\Middleware\PartnerMiddleware;
 use Google\Auth\Middleware\AuthTokenMiddleware;
@@ -124,12 +125,20 @@ Route::controller(AuthController::class)->group(function () {
     Route::post('/', 'register');
 
     Route::get('/signin', 'signin');
-    Route::post('/sign-otp', 'signOtp');
+    Route::post('/signin', 'signInPost');
     Route::get('/verify-otp', 'verifyOtpView');
     Route::post('/verify-otp', 'verifyOtp');
-    Route::view('/complete-profile', 'complete-profile');
+    Route::view('/complete-profile', 'public.complete-profile');
     Route::post('/complete-profile', 'completeProfile');
     Route::post('/verify-pass', 'verifyPass');
+
+    Route::get('/hotel-signin', 'hotelSignin');
+    Route::post('/hotel-signin', 'hotelSignInPost');
+    Route::get('/hotel-verify-otp', 'hotelVerifyOtpView');
+    Route::post('/hotel-verify-otp','hotelVerifyOtp');
+    Route::view('/hotel-complete-profile', 'public.hotel-complete-profile');
+    Route::post('/hotel-complete-profile', 'hotelCompleteProfile');
+    Route::post('/hotel-verify-pass', 'hotelVerifyPass');
 });
 
 Route::view('/signin1', 'public.signin');
@@ -181,20 +190,26 @@ Route::controller(BookingController::class)->group(function () {
     Route::post('booking3', 'storeBooking3');
     Route::get('booking-confirm', 'confirm');
 });
-Route::prefix('admin')->group(function () {
-    Route::controller(AdminController::class)->group(function () {
-        Route::get('dashboard', 'index');
-        Route::get('hotels', 'hotels');
-        Route::get('bookings', 'bookings');
-        Route::get('images/add', 'addImage');
-        Route::post('images/add', 'storeImage');
-        Route::get('images', 'images');
-        Route::get('images/delete/{carousalImage}', 'destroyImage');
-    });
+Route::group([
+    'prefix' => 'admin',
+    'controller' => AdminController::class,
+    'middleware' => AdminMiddleware::class
+], function () {
+    Route::get('dashboard', 'index');
+    Route::get('hotels', 'hotels');
+    Route::get('bookings', 'bookings');
+    Route::get('images/add', 'addImage');
+    Route::post('images/add', 'storeImage');
+    Route::get('images', 'images');
+    Route::get('images/delete/{carousalImage}', 'destroyImage');
 });
 Route::get('firebase', [FirebaseController::class, 'index']);
 Route::get('fauth', [FirebaseController::class, 'auth']);
 Route::get('/coupon/{coupon_code}', function ($coupon_code) {
     session(['coupon' => $coupon_code]);
     return redirect('/');
+});
+Route::get('/logout', function () {
+    auth()->logout();
+    return back();
 });

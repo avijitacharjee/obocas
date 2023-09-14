@@ -29,7 +29,7 @@ $hotel = true;
                                     <th>City</th>
                                     <th>Address</th>
                                     <th>Property Type</th>
-                                    <th class="text-center">Pets allowed</th>
+                                    <th>Pets allowed</th>
 
                                 </tr>
                             </thead>
@@ -52,10 +52,7 @@ $hotel = true;
                                         <td>{{$property->property_type}}</td>
 
                                         <td>
-                                            <div class="status-toggle d-flex justify-content-center">
-                                                <input type="checkbox" id="status_1" class="check" checked>
-                                                <label for="status_1" class="checktoggle">checkbox</label>
-                                            </div>
+                                            {{$property->pets_allowed?'Yes':'No'}}
                                         </td>
                                     </tr>
                                 @endforeach

@@ -33,24 +33,18 @@
     <x-guest-header/>
     <!-- /Header -->
     <div class="container mt-5">
-        <form action="/verify-otp" method="POST">
+        <form action="/verify-pass" method="POST">
             @csrf
             <div class="row">
                 <div class="col-12">
                     <div class="card">
-                        <div class="card-header">Add verification code</div>
+                        <div class="card-header">Enter password</div>
                         <div class="card-body">
                             <div class="alert alert-success" id="successOtpAuth" style="display: none;"></div>
-                            <input type="password" id="verification" class="form-control" name="otp"
-                                placeholder="Verification code">
-                            <input type="hidden" name="phone" value="{{session('phone')}}">
-                            <input type="hidden" name="otpMain" value="{{session('otp')}}">
-                            @if (session('msg'))
-                                <ul>
-                                    <li style="color: red">{{session('msg')}}</li>
-                                </ul>
-                            @endif
-                            <button type="submit" class="btn btn-success mt-3">Verify code</button>
+                            <input type="password" id="verification" class="form-control" name="password"
+                                placeholder="Enter password">
+                            <input type="hidden" name="phone" value="{{$user->phone}}">
+                            <button type="submit" class="btn btn-success mt-3">Continue</button>
                         </div>
                     </div>
                 </div>

@@ -30,22 +30,10 @@
 </head>
 <div id="root" class="bui-u-text-left bui_font_body">
     <!-- Header -->
-    <div class="guest-header">
-        <header class="_37rfPfc52EXATe8n6xoWgd">
-            <nav class="_2HVwqciw9DfOQFLWl2-a_I">
-                <div class="_1pRpeQP2z_3ktRb8Urjtv6">
-                    <div class="daGIlH2FHgTbq-rtCh3t">
-                        <a href="#">
-                            <img src="{{ asset('frontend/assets/images/logo.png') }}" alt="">
-                        </a>
-                    </div>
-                </div>
-            </nav>
-        </header>
-    </div>
+    <x-guest-header/>
     <!-- /Header -->
     <div class="container mt-5">
-        <form action="/sign-otp" method="POST">
+        <form action="/signin" method="POST">
             @csrf
             <div class="row">
                 <div class="col-12">

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Property;
 use App\Http\Requests\StorePropertyRequest;
 use App\Models\CarousalImage;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
@@ -84,13 +85,14 @@ class PropertyController extends Controller
         $values = $request->all();
 
         $cc = '';
-        $cc_ids = $request->cc_id;
-        foreach ($cc_ids as $cc_id) {
-            $cc = $cc . $cc_id . ',';
+        if ($request->has('cc_id')) {
+            $cc_ids = $request->cc_id;
+            foreach ($cc_ids as $cc_id) {
+                $cc = $cc . $cc_id . ',';
+            }
+            $cc = substr($cc, 0, -1);
+            $values['cc_id'] = $cc;
         }
-        $cc = substr($cc, 0, -1);
-        $values['cc_id'] = $cc;
-
         foreach ($values as $key => $value) {
             session(['pp_' . $key => $value]);
         }
@@ -102,8 +104,12 @@ class PropertyController extends Controller
             }
         }
         unset($data['proceed']);
+        $user = User::find(auth()->user()->id);
+        // $user->role_id = 3;
+        $user->save();
+        $data['user_id'] = auth()->user()->id;
         Property::create($data);
-        return redirect('/');
+        return redirect('/hotel-admin/dashboard');
     }
     public function saveImages($images)
     {
@@ -146,7 +152,7 @@ class PropertyController extends Controller
 
     public function show(Property $property, Request $request): View
     {
-        if(!$request->has('number_of_persons')){
+        if (!$request->has('number_of_persons')) {
             return view('public.booking-step-one')
                 ->with('property', $property);
         }
@@ -167,9 +173,9 @@ class PropertyController extends Controller
 
         return view('public.booking-step-one')
             ->with('property', $property)
-            ->with('amount',$amount)
-            ->with('numOfDays',$numOfDays)
-            ->with('numOfPersons',$request->number_of_persons);
+            ->with('amount', $amount)
+            ->with('numOfDays', $numOfDays)
+            ->with('numOfPersons', $request->number_of_persons);
     }
 
     public function show1(Property $property): View
@@ -180,12 +186,18 @@ class PropertyController extends Controller
     }
     public function search(Request $request): View
     {
-        Log::channel('debug')->info($request->all());
-        $lowestPrice = Property::orderBy('cot_price', 'ASC')->get();
-        $heighestPrice = Property::orderBy('cot_price', 'DESC')->get();
-        $bestReviewed = Property::all();
+        $data = $request->search_data;
+        $query = Property
+            ::where('property_name', 'LIKE', "%{$data}%")
+            ->orWhere('address', 'LIKE', "%{$data}%")
+            ->orWhere('city', 'LIKE', "%{$data}%")
+            ->orWhere('location_contact_name', 'LIKE', "%{$data}%");
+        $lowestPrice = with(clone $query)->orderByRaw('CONVERT(room_price_x_persons,SIGNED) ASC')->get();
+        $heighestPrice = with(clone $query)->orderByRaw('CONVERT(room_price_x_persons,SIGNED) DESC')->get();
+        $bestReviewed = with(clone $query)->get();
+        $properties = with(clone $query)->get();
         return view('public.searchresults')
-            ->with('properties', Property::all())
+            ->with('properties', $properties)
             ->with('lowestPrice', $lowestPrice)
             ->with('heighestPrice', $heighestPrice)
             ->with('bestReviewed', $bestReviewed);

@@ -20,19 +20,7 @@
     <div id="root" class="bui-u-text-left bui_font_body">
 
         <!-- Header -->
-        <div class="guest-header">
-            <header class="_37rfPfc52EXATe8n6xoWgd">
-                <nav class="_2HVwqciw9DfOQFLWl2-a_I container">
-                    <div class="_1pRpeQP2z_3ktRb8Urjtv6">
-                        <div class="daGIlH2FHgTbq-rtCh3t">
-                            <a href="{{ url('/') }}">
-                                <img src="{{ asset('/registration/assets/images/logo.png') }}" alt="">
-                            </a>
-                        </div>
-                    </div>
-                </nav>
-            </header>
-        </div>
+        <x-guest-header/>
         <!-- /Header -->
 
         <!-- Login Box -->
@@ -140,7 +128,7 @@
                         <div class="row">
                             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                 <h1 id="property-name" class="sticked-header alignment_header_main">
-                                    Welcome {{session('name')}}!
+                                    Welcome {{auth()->user()->name}}!
                                 </h1>
                             </div>
 
@@ -170,7 +158,7 @@
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <legend>
-                                                    What is the name of your property?
+                                                    What is the name of your property? *
                                                 </legend>
                                             </div>
                                         </div>
@@ -179,7 +167,7 @@
                                         <div class="row">
                                             <div class="form-group col-xs-12 col-sm-6">
                                                 <div class="input-length-counter">
-                                                    <input type="text" id="property_name" name="property_name" value=""
+                                                    <input type="text" id="property_name" name="property_name" value="" required
                                                         class="form-control form-control property-" placeholder="">
                                                     <span class="input-length-counter__label"
                                                         id="property_name_length_counter">
@@ -237,8 +225,8 @@
 
                                                 <label for="location_contact_name">Contact name </label>
 
-                                                <input type="text" id="location_contact_name"
-                                                    name="location_contact_name" value="{{session('name')}}" class="form-control"
+                                                <input type="text" id="location_contact_name" required
+                                                    name="location_contact_name" value="{{auth()->user()->name}}" class="form-control"
                                                     placeholder="Who will receive the letter?">
 
 
@@ -269,7 +257,7 @@
 
                                                                 </div>
                                                                 <input type="tel" name="phone" id="phone"
-                                                                    class="form-control" value="+8801617253586"
+                                                                    class="form-control" value="{{auth()->user()->phone}}"
                                                                     placeholder="0100000000">
                                                             </div>
                                                         </div>
@@ -291,7 +279,7 @@
                                                                 </div>
                                                                 <input type="tel" name="phone2" id="phone2"
                                                                     class="form-control field-optional" value=""
-                                                                    placeholder="01812-345678">
+                                                                    placeholder="01x-xxxxxx">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -335,50 +323,6 @@
                                             </div>
                                         </div>
                                     </fieldset>
-
-
-                                    <fieldset class="channel_manager">
-                                        <legend>
-                                            Do you use a channel manager?
-                                        </legend>
-                                        <div class="form-group">
-                                            <label>A channel manager is a tool that lets you choose what you sell across
-                                                all the different sites you might list your place on. You can then set
-                                                your prices and open and close dates in your calendar on all of these
-                                                sites in one place.<br><br>If you use a channel manager, tell us below.
-                                                We’ll use this information to help you connect it to Booking.com in the
-                                                future. It also helps if you tell us the brand name of your channel
-                                                manager.
-
-                                            </label>
-                                            <div class="radio-block" id="is_xml_property">
-                                                <div class="radio is_xml_property_yes">
-                                                    <label>
-                                                        <input type="radio" name="is_xml_property" value="yes">
-                                                        <span>I use a channel manager</span>
-                                                    </label>
-                                                </div>
-                                                <div class="radio is_xml_property_no">
-                                                    <label>
-                                                        <input type="radio" name="is_xml_property" value="no"
-                                                            checked="">
-                                                        <span>I don’t use a channel manager</span>
-                                                    </label>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                        <div class="form-group hidden" id="channel_manager_name_div">
-                                            <label for="channel_manager_name">Enter name (optional)</label>
-                                            <input type="text" id="channel_manager_name" name="channel_manager_name"
-                                                value="" class="form-control" maxlength="100"
-                                                placeholder="Channel manager's name">
-                                        </div>
-                                    </fieldset>
-
-
-
-
                                     <fieldset class="address-information">
                                         <legend id="address_field_legend">
                                             Where is your property located?

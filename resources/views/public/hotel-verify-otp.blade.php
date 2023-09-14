@@ -33,7 +33,7 @@
     <x-guest-header/>
     <!-- /Header -->
     <div class="container mt-5">
-        <form action="/verify-otp" method="POST">
+        <form action="/hotel-verify-otp" method="POST">
             @csrf
             <div class="row">
                 <div class="col-12">
