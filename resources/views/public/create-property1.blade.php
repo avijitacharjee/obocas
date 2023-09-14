@@ -23,19 +23,7 @@
     <div id="root" class="bui-u-text-left bui_font_body">
 
         <!-- Header -->
-        <div class="guest-header">
-            <header class="_37rfPfc52EXATe8n6xoWgd">
-                <nav class="_2HVwqciw9DfOQFLWl2-a_I container">
-                    <div class="_1pRpeQP2z_3ktRb8Urjtv6">
-                        <div class="daGIlH2FHgTbq-rtCh3t">
-                            <a href="{{ url('#') }}">
-                                <img src="{{ asset('/registration/assets/images/logo.png') }}" alt="">
-                            </a>
-                        </div>
-                    </div>
-                </nav>
-            </header>
-        </div>
+        <x-guest-header/>
         <!-- /Header -->
 
         <!-- Login Box -->

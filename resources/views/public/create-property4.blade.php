@@ -24,19 +24,7 @@
     <div id="root" class="bui-u-text-left bui_font_body">
 
         <!-- Header -->
-        <div class="guest-header">
-            <header class="_37rfPfc52EXATe8n6xoWgd">
-                <nav class="_2HVwqciw9DfOQFLWl2-a_I container">
-                    <div class="_1pRpeQP2z_3ktRb8Urjtv6">
-                        <div class="daGIlH2FHgTbq-rtCh3t">
-                            <a href="{{ url('#') }}">
-                                <img src="{{ asset('/registration/assets/images/logo.png') }}" alt="">
-                            </a>
-                        </div>
-                    </div>
-                </nav>
-            </header>
-        </div>
+        <x-guest-header/>
         <!-- /Header -->
 
         <!-- Login Box -->
@@ -362,25 +350,11 @@
                                                 </div>
 
                                                 <div class="row hidden roomName">
-                                                    <div id="room_name_div" class="form-group col-sm-6 col-xs-12">
-                                                        <label for="room_name_id">Room name</label>
-                                                        <select class="form-control" name="room_name_id"
-                                                            id="room_name_select">
-                                                            <option value="" class="">Please select</option>
-                                                        </select>
-                                                        <span id="please_select_room_type_msg" class="help-block">
-                                                            This is the name guests will see on the Booking.com website.
-                                                        </span>
-                                                    </div>
                                                     <div id="custom_room_name_div"
                                                         class="form-group col-sm-6 col-xs-12">
-                                                        <label for="custom_room_name_id">Custom name (optional)</label>
-                                                        <input type="text" id="custom_room_name" name="custom_room_name"
+                                                        <label for="custom_room_name_id">Room name *</label>
+                                                        <input type="text" id="custom_room_name" name="custom_room_name" required
                                                             maxlength="80" class="form-control">
-                                                        <span class="help-block">
-                                                            Create an optional, custom name for
-                                                            your reference.
-                                                        </span>
                                                     </div>
                                                 </div>
 
@@ -647,9 +621,9 @@
                                 <div id="seg-overview-ctas" class="row seg-overview-ctas hidden">
                                     <div class="col-xs-12 col-md-9">
                                         <div class="seg-overview-ctas__content">
-                                            <a class="btn btn-block btn-default btn-lg" href="{{ url('#create-room') }}">
+                                            {{-- <a class="btn btn-block btn-default btn-lg" href="{{ url('#create-room') }}">
                                                 Add another room
-                                            </a>
+                                            </a> --}}
                                             <a class="btn btn-block btn-primary btn-lg" href="{{ url('/property4') }}">
                                                 Continue
                                             </a>

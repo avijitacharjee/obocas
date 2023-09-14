@@ -30,72 +30,33 @@
 </head>
 <div id="root" class="bui-u-text-left bui_font_body">
     <!-- Header -->
-    <div class="guest-header">
-        <header class="_37rfPfc52EXATe8n6xoWgd">
-            <nav class="_2HVwqciw9DfOQFLWl2-a_I">
-                <div class="_1pRpeQP2z_3ktRb8Urjtv6">
-                    <div class="daGIlH2FHgTbq-rtCh3t">
-                        <a href="#">
-                            <img src="{{ asset('frontend/assets/images/logo.png') }}" alt="">
-                        </a>
+    <x-guest-header/>
+    <!-- /Header -->
+    <div class="container mt-5">
+        <div class="row my-3">
+            <h2>
+                Sign in a Hotel Admin to add property
+            </h2>
+        </div>
+        <form action="/hotel-signin" method="POST">
+            @csrf
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">Phone Number</div>
+                        <div class="card-body">
+                            <div class="alert alert-danger" id="error" style="display: none;"></div>
+                            <div class="alert alert-success" id="successAuth" style="display: none;"></div>
+                            <input name="phone" type="text" id="number" class="form-control"
+                                placeholder="01x xxxxxx">
+                            <div id="recaptcha-container" class="mt-2"></div>
+                            <button type="submit" class="btn btn-primary mt-3">Continue</button>
+                        </div>
                     </div>
                 </div>
-            </nav>
-        </header>
-    </div>
-    <!-- /Header -->
-
-    <div class="row" id="profile" style="margin: 5%">
-        <form action="/complete-profile" method="POST">
-            @csrf
-            <h3 style="width: 100%; text-align:center">Complete your profile</h3>
-            <!-- Email input -->
-            <div class="form-outline mb-4">
-                <label class="form-label" for="form2Example1">Full name</label>
-                <input name="name" type="text" id="form2Example1" class="form-control" />
             </div>
-
-            <!-- Password input -->
-            <div class="form-outline mb-4">
-                <label class="form-label" for="form2Example2">Email</label>
-                <input name="email" type="email" id="form2Example2" class="form-control" />
-            </div>
-            <!-- Password input -->
-            <div class="form-outline mb-4">
-                <label class="form-label" for="form2Example2">Password</label>
-                <input name="password" type="password" id="form2Example2" class="form-control" />
-            </div>
-            <!-- Password input -->
-            <div class="form-outline mb-4">
-                <label class="form-label" for="form2Example2">Confirm  Password</label>
-                <input name="confirm-password" type="password" id="form2Example2" class="form-control" />
-            </div>
-            <input type="hidden" name="phone" value="{{session('phone')}}">
-            <!-- Submit button -->
-            <button type="submit" style="margin:auto;" class="btn btn-primary btn-block mb-4">Sign in</button>
         </form>
-        <!-- Register buttons -->
-        {{-- <div class="text-center">
-        <p>Not a member? <a href="#!">Register</a></p>
-        <p>or sign up with:</p>
-        <button type="button" class="btn btn-link btn-floating mx-1">
-            <i class="fab fa-facebook-f"></i>
-        </button>
-
-        <button type="button" class="btn btn-link btn-floating mx-1">
-            <i class="fab fa-google"></i>
-        </button>
-
-        <button type="button" class="btn btn-link btn-floating mx-1">
-            <i class="fab fa-twitter"></i>
-        </button>
-
-        <button type="button" class="btn btn-link btn-floating mx-1">
-            <i class="fab fa-github"></i>
-        </button>
-        </div> --}}
     </div>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase.js"></script>

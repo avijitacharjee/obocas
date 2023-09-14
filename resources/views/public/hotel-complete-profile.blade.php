@@ -46,7 +46,7 @@
     <!-- /Header -->
 
     <div class="row" id="profile" style="margin: 5%">
-        <form action="/complete-profile" method="POST">
+        <form action="" method="POST">
             @csrf
             <h3 style="width: 100%; text-align:center">Complete your profile</h3>
             <!-- Email input -->
